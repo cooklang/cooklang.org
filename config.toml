@@ -64,3 +64,13 @@ summaryLength = 30
   [params.logo]
       mobile = "/images/logo.svg"
       standard  = "/images/logo.svg"
+
+[outputs]
+home = ["HTML", "RSS"]
+section = ["HTML", "RSS"]
+
+[author]
+name = "Alexey"
+email = "hello@cooklang.org"
+
+copyright = "Copyright © 2021-2024 Cooklang"
