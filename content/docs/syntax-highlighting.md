@@ -14,7 +14,7 @@ If you would like to install a Cooklang syntax highlighting addon for your favor
 * [Vim via GitHub](#vim-via-github)
 * [VSCode via Extensions](#vscode-via-extensions)
 * [Kakoune via GitHub](#kakoune-via-github)
-* [Zed via Extensions](#zed-via-github)
+* [Zed via Extensions](#zed-via-extensions)
 
 ## Emacs via GitHub
 
