@@ -46,7 +46,7 @@ It is highly recommended to install Cooklang with Package Control as it automati
 1. Find Cooklang using the Extensions View.
 2. Install an extension.
 
-## Kakoune Via GitHub
+## Kakoune via GitHub
 
 * [Install from here](https://github.com/cooklang/cooklang-kak)
 
