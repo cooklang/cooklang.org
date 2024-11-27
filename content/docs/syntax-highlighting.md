@@ -14,6 +14,7 @@ If you would like to install a Cooklang syntax highlighting addon for your favor
 * [Vim via GitHub](#vim-via-github)
 * [VSCode via Extensions](#vscode-via-extensions)
 * [Kakoune via GitHub](#kakoune-via-github)
+* [Zed via Extensions](#zed-via-extensions)
 
 ## Emacs via GitHub
 
@@ -45,6 +46,11 @@ It is highly recommended to install Cooklang with Package Control as it automati
 1. Find Cooklang using the Extensions View.
 2. Install an extension.
 
-## Kakoune Via GitHub
+## Kakoune via GitHub
 
 * [Install from here](https://github.com/cooklang/cooklang-kak)
+
+## Zed via Extensions
+
+1. Open the Zed Extension Gallery by opening the command palette and selecting `zed: extensions`.
+2. Find and install Cooklang.
