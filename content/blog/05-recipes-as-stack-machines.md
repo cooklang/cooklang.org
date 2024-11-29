@@ -7,7 +7,6 @@ summary: Recipes, like programs, are instructions meant to produce consistent re
 
 Programming and cooking share more in common than we often acknowledge. Recipes, at their core, are algorithms—sets of instructions executed in sequence to transform ingredients into a finished dish. But what if we thought about recipes as something more abstract? Let’s take a detour into the world of stack machines to explore a new perspective on understanding, validating, and even optimizing recipes.
 
----
 
 ### What Is a Stack Machine?
 
@@ -15,7 +14,6 @@ A stack machine is a type of computational model where instructions operate on a
 
 Interestingly, the stack machine model maps well onto processes that involve sequential transformations—like following a recipe. In cooking, you’re constantly manipulating a “stack” of ingredients, tools, and intermediate results. When you peel a carrot, for example, you “push” the peeled carrot onto the stack, ready to be sliced in the next step.
 
----
 
 ### Recipes as Stack Machines
 
@@ -33,7 +31,6 @@ In the stack machine model, this can be visualized as:
 
 The recipe is validated if, at the end of the process, the stack contains exactly what you expect: an emulsified vinaigrette. Errors, like forgetting to whisk or adding an extra ingredient, can be detected as deviations from the expected stack state.
 
----
 
 ### Validating Recipes Using Stack Machines
 
@@ -45,7 +42,6 @@ One intriguing application of this perspective is validation. In cooking, a poor
 
 3. Dependency Resolution: Stack operations lend themselves naturally to dependency graphs. You can represent each operation as a node and each stack state as an edge. This graph structure ensures all prerequisites are met before advancing to the next step.
 
----
 
 ### Recipes as Graphs in Stack-Oriented Systems
 
@@ -57,7 +53,6 @@ Stack machines are powerful not only for linear processes but also for branching
 
 This representation could power a new generation of recipe apps. Imagine a system that dynamically adjusts the instructions based on the current state of the stack. If the stack includes “dry dough,” the app suggests adding more water and recalculates subsequent steps.
 
----
 
 ### Stack-Oriented Programming in Recipes
 
@@ -73,7 +68,6 @@ whisk
 
 This concise representation makes dependencies and transformations explicit. As with programming, these systems could allow extensions—imagine a user-defined “fold” operator to handle egg whites.
 
----
 
 ### Beyond Cooking: The Power of Abstraction
 
@@ -83,7 +77,6 @@ Thinking of recipes as stack machines isn’t just an intellectual exercise. It�
 - Stack-based abstractions could help train models to parse unstructured text recipes into structured formats, enabling better cooking assistants.
 - Robots in kitchens could execute stack-based recipes with deterministic precision, avoiding common pitfalls like missing steps.
 
----
 
 ### Conclusion
 
