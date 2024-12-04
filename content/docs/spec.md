@@ -1,6 +1,6 @@
 ---
 title: 'Cooklang Specification'
-date: 2024-12-04T09:30:08+10:00
+date: 2024-12-04T13:30:08+10:00
 draft: false
 weight: 1
 summary: This is the specification and reference for writing a recipe in Cooklang.
@@ -79,11 +79,16 @@ Slowly add @milk{4%cup} [- TODO change units to litres -], keep mixing
 ```
 
 ### Metadata
-Recipes are more than just steps and ingredients—they also include context, such as preparation times, authorship, and dietary relevance. You can add metadata tags to your recipe.
-```
->> source: https://www.gimmesomeoven.com/baked-potato/
->> time required: 1.5 hours
->> course: dinner
+Recipes are more than just steps and ingredients—they also include context, such as preparation times, authorship, and dietary relevance. You can add metadata to your recipe using YAML front matter, add `---` at the beginning of a file and `---` at the end of the front matter block.
+
+```yaml
+---
+title: Spaghetti Carbonara
+tags:
+  - pasta
+  - quick
+  - comfort food
+---
 ```
 
 ### Cookware
