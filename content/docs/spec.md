@@ -6,9 +6,6 @@ weight: 1
 summary: This is the specification and reference for writing a recipe in Cooklang.
 ---
 
-Table of Contents
-=================
-
 * [About Cooklang](#about-cooklang)
 * [The .cook Recipe Specification](#the-cook-recipe-specification)
    * [Ingredients](#ingredients)
