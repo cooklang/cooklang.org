@@ -5,11 +5,11 @@ weight: 80
 summary: "An interview with David A. Mundie, creator of RxOL - the first programming language for recipes in 1985. He shares his vision of simplifying cooking through technology, his thoughts on recipe formats, and perspectives on the future of kitchen automation."
 ---
 
-David A. Mundie in his little book "Computerised Cooking" http://diyhpl.us/~bryan/papers2/CompCook.html introduces RxOL, the first programming language for recipes, and also Cocina software for Macintosh that uses it. In 1985.
+David A. Mundie in his little book ["Computerised Cooking"](http://diyhpl.us/~bryan/papers2/CompCook.html) introduces RxOL, the first programming language for recipes, and also Cocina software for Macintosh that uses it. In 1985.
 
 Cocina can print recipes as a tree diagram, display nutritional analysis of the recipe, create shopping lists and much more.
 
-The recipe format uses reverse Polish notation (it's when we use operator after operands 3 4 + = 7). The genius of it is that allows us to describe graphs in text format. Absolutely brilliant, but hard to read...
+The recipe format uses reverse Polish notation (it's when we use operator after operands `3 4 + = 7`). The genius of it is that allows us to describe graphs in text format. Absolutely brilliant, but hard to read...
 
 ![RxOL](/blog/RxOL-syntax.png)
 
@@ -77,7 +77,7 @@ Unfortunately I’m not much of a salesman. It’s much more fun to think about 
 _DAM:_ The ability to scan a recipe and take it in at a glance and understand
 its structure. I have one big folder that has everything in it. The filename is just the name of the recipe, dash, Dewey decimal code. I have a random recipe generator that spits out an unlimited set of recipes. I pick out four recipes for the week and generate the shopping list from that.
 
-# About cooking and technology
+## About cooking and technology
 
 **- Looking back, how do you feel about the progress we've made since your essay was published? Are there any technological developments in the kitchen that have surprised you? What were some of the limitations of the technology at the time, and how did you imagine they might evolve?**
 
