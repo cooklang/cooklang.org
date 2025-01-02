@@ -16,3 +16,6 @@ The CookCLI tool is designed to make command line and shell scripting automation
 
 Check out the tool and report bugs [on GitHub](https://github.com/cooklang/CookCLI), or check the pages below for information about each command.
 
+Here's a quick demo to see its in action:
+
+{{< youtube hQNRt-b3eps >}}

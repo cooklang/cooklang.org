@@ -142,18 +142,18 @@ Run a web-server:
 
 ![server](https://user-images.githubusercontent.com/4168619/148116974-7010e265-5aa8-4990-a4b9-f85abe3eafb0.png)
 
-Here's a quick demo to see its in action:
+## Mobile apps
 
-{{< youtube hQNRt-b3eps >}}
-
-## Mobile app
-
-We created a mobile [app](/app/) (iOS only at the moment, subscribe for Android beta) to assist you while cooking, shopping, and meal planning. Simply connect the app to your recipe storage, open a recipe, and start cooking.
+While it's convinient to manage recipes on your computer, it's more convinient to use them on your phone while cooking. We created mobile [apps](/app/) for iOS and Android to assist you while cooking and shopping. Simply connect the app to your recipe storage, open a recipe, and start cooking.
 
 ![Recipes](/app/recipes.png)
 ![Recipe](/app/recipe-ingredients.png)
 ![Shopping list](/app/shopping-list.png)
 
-## Our newsletter
+## Get updates
 
 {{< newsletter-form >}}
+
+## Get involved
+
+We're always looking for help with the project. If you're interested in contributing, please [join our Discord server](https://discord.gg/fUVVvUzEEK) and say hello.

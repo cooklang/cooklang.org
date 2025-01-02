@@ -3,19 +3,14 @@ title: 'CooklangApp: mobile recipe reader'
 date: 2021-05-20T15:14:39+10:00
 ---
 
-![Recipes](/app/recipes.png)
-![Recipe](/app/recipe-ingredients.png)
-![Shopping list](/app/shopping-list.png)
-
 Features:
 
-* Own your data forever. No account is required. 
-* Store your recipes as plain-text files written in the Cooklang markup language.
-* Organise your recipes in your way. Use folders, symlinks and pictures.
+* Recipes are stored as plain-text files written in the Cooklang markup language.
+* Organise your recipes in your way. Use as many folders and pictures as you want.
 * Create shopping lists grouped by store department. Export and share them with others.
 * Apply agile approach to your recipes and continuously improve them.
 
-By buying this app, you support the development of the Cooklang open-source ecosystem.
+It's free.
 
 ## iPhone/iPad app
 
@@ -25,22 +20,23 @@ Store your Cooklang recipes files in iCloud Drive and seamlessly use them on you
 
 _Note: Requires Mac or PC to store recipes on iCloud Drive._
 
-Submit your feedback in [discussions](https://github.com/cooklang/cooklang-ios-app/discussions) or by email: {{< email >}}.
+Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-ios/discussions) or by email: {{< email >}}.
 
-Please open an issue [here](https://github.com/cooklang/cooklang-ios-app/issues) to report a bug.
+Please open an issue [here](https://github.com/cooklang/cooklang-app-ios/issues) to report a bug.
+
+## Android app
+
+Store your Cooklang recipes files in any folder on your Desktop and seamlessly use them on your Android phone or tablet while cooking or shopping.
+
+[Download on Google Play](https://play.google.com/store/apps/details?id=md.cook.android).
+
+_Note: Requires [Desktop Sync app](https://cook.md/download) to be installed on your computer._
+
+Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-android/discussions) or by email: {{< email >}}.
+
+Please open an issue [here](https://github.com/cooklang/cooklang-app-android/issues) to report a bug.
 
 
-## Android app (signup for beta testing)
-
-UPDATE: applications are closed now.
-
-If you want to help us beta test CooklangApp for Android you can join our beta testing program. You will dive in into Cooklang ecosystem and help us make it better.
-
-You will need:
-
-* an Android device
-
-Next steps:
-
-You will recieve an email with an invitation link and setup instructions. Submit your feedback by email: {{< email >}}.
-
+![Recipes](/app/recipes.png)
+![Recipe](/app/recipe-ingredients.png)
+![Shopping list](/app/shopping-list.png)
