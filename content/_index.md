@@ -22,8 +22,8 @@ Here's how the Cooklang ecosystem makes that happen:
 **Create a recipe file**, where each line is a step in the recipe. Tag your ingredients with `@` and `{}`, then save your file. For a complete reference on Cooklang, see the [language specification page](/docs/spec).
 
 **Install a recipe viewer.** We support a few tools for viewing Cooklang recipes:
-* [The CookCLI program for Mac and Linux](/cli/) provides a webserver for presenting your recipes, viewable with any web browser.
-* [The iOS app for iPad and iPhone](/app/) allows you to read your recipe files directly from iCloud.
+* [The CookCLI program for Mac, Windows, and Linux](/cli/) provides a webserver for presenting your recipes, viewable with any web browser.
+* [Native apps for iOS and Android](/app/) allows you to read your recipe files from your device's file system.
 
 **Cook something!** Open a recipe on your viewer of choice, whip out the ingredients, and make something tasty.
 
