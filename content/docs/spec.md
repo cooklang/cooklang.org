@@ -51,6 +51,8 @@ To use a unit of an item, such as weight or volume, add a `%` between the quanti
 Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
 ```
 
+Now you can try Cooklang and experiment with a few things in the [Cooklang Playground](https://cooklang.github.io/cooklang-rs/)!
+
 ### Steps
 
 Each paragraph in your recipe file is a cooking step. Separate steps with an empty line.
@@ -222,8 +224,7 @@ Mix @onion{1}(peeled and finely chopped) and @garlic{2%cloves}(peeled and minced
 These preparations will be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
 
 ## Projects Which Use Cooklang
-
-* [Cooklang playground](https://biowaffeln.github.io/cooklang-parser/)
+* [Cooklang playground](https://cooklang.github.io/cooklang-rs/)
 * [Obsidian plugin](https://github.com/deathau/cooklang-obsidian)
 * [Official command line application](https://github.com/cooklang/CookCLI)
 * [Official iOS application](https://cooklang.org/app/)
