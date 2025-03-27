@@ -1,0 +1,96 @@
+<!-- Prism.js CSS -->
+{{ $prismCSS := resources.Get "scss/prism.css" }}
+{{ if hugo.IsServer }}
+<link rel="stylesheet" href="{{ $prismCSS.RelPermalink }}">
+{{ else }}
+<link rel="stylesheet" href="{{ ($prismCSS | minify | fingerprint).RelPermalink }}">
+{{ end }}
+
+<!-- Prism.js JavaScript -->
+{{ $prismJS := resources.Get "js/prism.js" }}
+<script>
+// Production-ready Prism.js initialization
+(function() {
+    // Load Prism.js
+    function loadPrismJS() {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement('script');
+            script.src = "{{ if hugo.IsServer }}{{ $prismJS.RelPermalink }}{{ else }}{{ ($prismJS | minify | fingerprint).RelPermalink }}{{ end }}";
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    // Detect language based on content
+    function detectLanguage(content, language) {
+        // If language is already specified, use it
+        if (language && language !== 'fallback') {
+            return language;
+        }
+
+        // Detect based on content
+        if (content.includes('@') || content.includes('#') || content.includes('~')) {
+            return 'cooklang';
+        }
+        if (content.startsWith('#!/bin/') || content.includes('$(') || content.includes('`')) {
+            return 'sh';
+        }
+        if (content.includes(': ') && !content.includes('{')) {
+            return 'yaml';
+        }
+        if (content.includes('=') && content.includes('[')) {
+            return 'toml';
+        }
+        return 'fallback';
+    }
+
+    // Process code blocks
+    function processCodeBlocks() {
+        const codeBlocks = document.querySelectorAll('pre code[class*="language-"]');
+        if (!codeBlocks.length) return;
+
+        // Process each code block
+        codeBlocks.forEach(block => {
+            const currentLang = block.className.match(/language-(\w+)/)?.[1] || 'fallback';
+            const newLang = detectLanguage(block.textContent, currentLang);
+
+            if (newLang !== currentLang) {
+                block.classList.remove(`language-${currentLang}`);
+                block.classList.add(`language-${newLang}`);
+            }
+
+            // Add line numbers to parent pre element
+            const pre = block.parentElement;
+            if (pre && !pre.classList.contains('line-numbers')) {
+                pre.classList.add('line-numbers');
+            }
+        });
+
+        // Apply syntax highlighting
+        if (typeof Prism !== 'undefined') {
+            Prism.highlightAll();
+        }
+    }
+
+    // Initialize
+    async function init() {
+        try {
+            await loadPrismJS();
+            processCodeBlocks();
+        } catch (error) {
+            console.error('Failed to initialize Prism.js:', error);
+        }
+    }
+
+    // Initialize based on document state
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Handle dynamic content updates
+    document.addEventListener('hugo:refresh', processCodeBlocks);
+})();
+</script>

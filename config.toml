@@ -8,6 +8,44 @@ pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
 
+# Syntax highlighting configuration
+[markup]
+  [markup.highlight]
+    anchorLineNos = false
+    codeFences = true
+    guessSyntax = true
+    hl_Lines = ''
+    lineAnchors = ''
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = false
+    style = 'monokai'
+    tabWidth = 4
+    lineNoSeparator = '  '
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+      title = true
+  [markup.goldmark.parser.fencedCodeBlock]
+    [markup.goldmark.parser.fencedCodeBlock.syntaxHighlighting]
+      [markup.goldmark.parser.fencedCodeBlock.syntaxHighlighting.chroma]
+        [markup.goldmark.parser.fencedCodeBlock.syntaxHighlighting.chroma.styles]
+          cooklang = "cooklang"
+          sh = "sh"
+          yaml = "yaml"
+          toml = "toml"
+
+# Add supported languages
+[markup.highlight.languages]
+  cooklang = "cooklang"
+  sh = "sh"
+  yaml = "yaml"
+  toml = "toml"
+
 # Controls how many words are printed in the content summary on the docs homepage.
 # See https://gohugo.io/content-management/summaries/
 summaryLength = 30
