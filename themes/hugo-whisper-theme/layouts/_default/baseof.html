@@ -19,6 +19,8 @@
 
   {{ block "header_css" . }}{{ end }}
 
+  {{ partial "plausible.html" . }}
+
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
@@ -69,7 +71,6 @@
   <script type="text/javascript" src="{{ ($scripts | minify | fingerprint).RelPermalink }}"></script>
   {{ end }}
 
-  {{ partial "google-analytics.html" . }}
   {{ partial "prismjs.html" . }}
 
 </body>
