@@ -1,7 +1,7 @@
 ---
 title: 'Getting Started'
 date: 2022-02-15T19:30:08+10:00
-draft: false
+draft: true
 weight: 1
 summary: All you need to get started with Cooklang
 ---
