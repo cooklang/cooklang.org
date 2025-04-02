@@ -224,13 +224,23 @@ Many recipes involve repetitive ingredient preparations, such as peeling or chop
 Mix @onion{1}(peeled and finely chopped) and @garlic{2%cloves}(peeled and minced) into paste.
 ```
 
-These preparations will be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
+### Referencing other recipes
+
+You can reference other recipes using the existing `@` ingredient syntax, inferring relative file paths from the ingredient name:
+
+```cooklang
+Pour over with @./sauces/Hollandaise{150%g}.
+```
+
+These preparations should be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
 
 ## Projects Which Use Cooklang
 * [Cooklang playground](https://cooklang.github.io/cooklang-rs/)
 * [Obsidian plugin](https://github.com/deathau/cooklang-obsidian)
 * [Official command line application](https://github.com/cooklang/CookCLI)
+* [Community alternative command line application](https://github.com/Zheoni/cooklang-chef)
 * [Official iOS application](https://cooklang.org/app/)
+* [Official Android application](https://cooklang.org/app/)
 
 
 ## Syntax Highlighting
@@ -240,6 +250,7 @@ These preparations will be clearly displayed in the ingredient list, allowing yo
 * [SublimeText](https://github.com/cooklang/CookSublime)
 * [Vim](https://github.com/luizribeiro/vim-cooklang)
 * [VSCode](https://github.com/cooklang/CookVSCode)
+* More options: See [syntax highlighting documentation](https://cooklang.org/docs/syntax-highlighting/).
 
 ## Roadmap
 
