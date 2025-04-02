@@ -4,6 +4,10 @@ date: 2021-05-20T15:14:39+10:00
 summary: All about the CookCLI command line toolbox
 ---
 
+> Not all latest language features supported yet, you can track progress
+> at https://github.com/orgs/cooklang/projects/4. There's more usable
+> community alternative [cooklang-chef](https://github.com/Zheoni/cooklang-chef).
+
 
 {{< rawhtml >}}
    <a href="https://github.com/cooklang/CookCLI">
@@ -19,3 +23,5 @@ Check out the tool and report bugs [on GitHub](https://github.com/cooklang/CookC
 Here's a quick demo to see its in action:
 
 {{< youtube hQNRt-b3eps >}}
+
+

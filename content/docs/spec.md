@@ -6,6 +6,9 @@ weight: 2
 summary: This is the specification and reference for writing a recipe in Cooklang.
 ---
 
+> Just heads up, that not all latest language features supported in the apps yet.
+> You can track progress at https://github.com/orgs/cooklang/projects/4
+
 * [About Cooklang](#about-cooklang)
 * [The .cook Recipe Specification](#the-cook-recipe-specification)
    * [Ingredients](#ingredients)

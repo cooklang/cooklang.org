@@ -5,9 +5,13 @@ weight: 5
 summary: Instructions for installing syntax highlighting addons for some of the most popular markdown text editors.
 ---
 
+> Not all latest language features supported yet, we will appricate your help
+> with that if you fancy https://github.com/orgs/cooklang/projects/4
+
 If you would like to install a Cooklang syntax highlighting addon for your favorite text editor, here are the instructions for the programs we support.
 
 * [Emacs via GitHub](#emacs-via-github)
+* [IntelliJ IDEA via GitHub](#intellij-idea-via-github)
 * [Micro via GitHub](#micro-via-github)
 * [Nano via GitHub](#nano-via-github)
 * [Sublime via Package Control](#sublime-via-package-control)
@@ -19,6 +23,10 @@ If you would like to install a Cooklang syntax highlighting addon for your favor
 ## Emacs via GitHub
 
 * [Install from here](https://github.com/cooklang/cook-mode)
+
+## IntelliJ IDEA via GitHub
+
+* [Install from here](https://github.com/yorlov/intellij-cooklang)
 
 ## Micro via GitHub
 
