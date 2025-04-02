@@ -27,6 +27,8 @@ Here's how the Cooklang ecosystem makes that happen:
 
 **Cook something!** Open a recipe on your viewer of choice, whip out the ingredients, and make something tasty.
 
+Checkout more comprehensive [Getting Started Guide](/docs/getting-started)
+
 ## CookCLI
 
 The [Cook CLI](/cli/) command line program provides a suite of tools to create shopping lists and maintain recipes. We've built it to be simple and useful for automating your cooking and shopping routine with existing UNIX command line and scripting tools. It can also function as a webserver for your recipes, making them browsable on any device with a web browser.
