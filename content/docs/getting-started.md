@@ -50,7 +50,7 @@ If you prefer writing recipes in a text editor, enabling syntax highlighting for
 As an option you can manage your recipes along with your notes in Obsidian with
 [Cooklang Editor](https://github.com/cooklang/cooklang-obsidian) plugin.
 
-### Desktop App for Syncing Recipes (only for Android)
+### Desktop App for Syncing Recipes (optional, only for Android)
 
 <!-- TODO: iOS -->
 

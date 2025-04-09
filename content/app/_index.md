@@ -30,7 +30,7 @@ Store your Cooklang recipes files in any folder on your Desktop and seamlessly u
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=md.cook.android).
 
-_Note: Requires [Desktop Sync app](https://cook.md/download) to be installed on your computer._
+_Note: Optionally [Desktop Sync app](https://cook.md/download) to be installed on your computer._
 
 Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-android/discussions) or by email: {{< email >}}.
 
