@@ -29,20 +29,20 @@ jobs:
       - name: Cache Node modules
         uses: actions/cache@v3
         with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: themes/cooklang-tw/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('themes/cooklang-tw/package-lock.json', 'themes/cooklang-tw/package.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: Install Node dependencies
+        working-directory: themes/cooklang-tw
         run: |
-          cd themes/cooklang-tw
-          npm ci || npm install
+          npm install
 
       - name: Build CSS
+        working-directory: themes/cooklang-tw
         run: |
-          cd themes/cooklang-tw
-          npm run build-css
+          npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --minify
 
       - name: Sync documentation
         run: |
