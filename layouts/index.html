@@ -2,21 +2,44 @@
 <div class="bg-white">
   <!-- Hero Section -->
   <section class="container mx-auto px-4 py-16 md:py-24">
-    <div class="text-center max-w-3xl mx-auto">
+    <div class="text-center max-w-4xl mx-auto">
       <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">
-        Cooklang – Recipe Markup Language
+        A Recipe Markup Language
       </h1>
-      <p class="text-xl text-cooklang-gray-600 mb-8">
-        Cooklang is a lightweight, open-source format for writing recipes as simple text files, 
-        meaning you can store, edit, share and sync your recipes with any service.
+      <p class="text-xl md:text-2xl text-cooklang-gray-600 mb-4">
+        Cooklang is a simple, human-readable text format for writing recipes that can be understood by both cooks and computers.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <p class="text-lg md:text-xl text-cooklang-gray-600 mb-8">
+        Write <code class="bg-gray-100 px-2 py-1 rounded">@flour{2%cups}</code> and <code class="bg-gray-100 px-2 py-1 rounded">~{25%minutes}</code> in plain text files.
+        Get automatic shopping lists, scaling, timers, and beautiful formatting — while keeping your recipes in files you own forever.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
         <a href="/docs/getting-started/" class="btn btn-primary">
           Get Started
         </a>
         <a href="https://github.com/cooklang" class="btn btn-secondary">
           View on GitHub
         </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-cooklang-gray-500">
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          No account required
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Works offline
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Open source
+        </span>
       </div>
     </div>
   </section>
@@ -30,70 +53,148 @@
     </div>
   </section>
 
-  <!-- Features Section -->
+  <!-- Ecosystem Section -->
   <section class="bg-cooklang-gray-50 py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-12">
-        How It Works
+      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-4">
+        A Complete Recipe Ecosystem
       </h2>
+      <p class="text-lg text-center text-cooklang-gray-600 mb-12 max-w-3xl mx-auto">
+        Cooklang isn't just a format — it's a growing ecosystem of tools that work with your recipes
+      </p>
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="text-center">
-          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl text-white">1</span>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-semibold mb-2">Write in Plain Text</h3>
-          <p class="text-cooklang-gray-600">
-            Use simple markup to define ingredients, cookware, and steps in any text editor.
+          <h3 class="text-xl font-semibold mb-2">Command Line Tools</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Parse recipes, generate shopping lists, run a local server, and automate your cooking workflow.
           </p>
+          <a href="/cli/" class="text-cooklang-orange hover:underline">Explore CLI →</a>
         </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl text-white">2</span>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-semibold mb-2">Parse Anywhere</h3>
-          <p class="text-cooklang-gray-600">
-            Use our CLI tools or mobile apps to render your recipes beautifully.
+          <h3 class="text-xl font-semibold mb-2">Mobile & Desktop Apps</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Beautiful apps for iOS, Android, and macOS (coming soon!) to view, edit, and cook from your recipes.
           </p>
+          <a href="/app/" class="text-cooklang-orange hover:underline">Get the Apps →</a>
         </div>
-        <div class="text-center">
-          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
-            <span class="text-2xl text-white">3</span>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+            </svg>
           </div>
-          <h3 class="text-xl font-semibold mb-2">Sync & Share</h3>
-          <p class="text-cooklang-gray-600">
-            Keep your recipes in Git, Dropbox, or any cloud service you prefer.
+          <h3 class="text-xl font-semibold mb-2">Editor Support</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Syntax highlighting and snippets for VS Code, Sublime, Vim, Emacs, and more editors.
           </p>
+          <a href="/docs/spec/#editor-support" class="text-cooklang-orange hover:underline">Setup Editors →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Web Server</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Self-host your recipes with a beautiful web interface accessible from any device on your network.
+          </p>
+          <a href="/cli/commands/server/" class="text-cooklang-orange hover:underline">Learn More →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Open Source Community</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Join a growing community contributing parsers, tools, and integrations in many languages.
+          </p>
+          <a href="https://github.com/cooklang" class="text-cooklang-orange hover:underline">Join on GitHub →</a>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-sm">
+          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
+            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Import from Anywhere</h3>
+          <p class="text-cooklang-gray-600 mb-4">
+            Import recipes from hundreds of websites and convert them automatically to Cooklang format.
+          </p>
+          <a href="/cli/commands/import/" class="text-cooklang-orange hover:underline">Import Recipes →</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Example Section -->
+  <!-- Why Cooklang Section -->
   <section class="py-16">
     <div class="container mx-auto px-4">
-      <div class="grid md:grid-cols-2 gap-8 items-center">
+      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-12">
+        Why Choose Cooklang?
+      </h2>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">
-            Simple & Powerful
-          </h2>
-          <p class="text-lg text-cooklang-gray-600 mb-4">
-            Cooklang recipes are plain text files that you can use on any device, 
-            whether you're on your phone when cooking or on your computer when planning.
-          </p>
-          <p class="text-lg text-cooklang-gray-600">
-            The flexibility makes it easy to back up and share your recipes,
-            and Cooklang tools help process these files for various use cases.
-          </p>
+          <h3 class="text-2xl font-bold text-cooklang-gray-900 mb-4">
+            Own Your Data
+          </h3>
+          <ul class="space-y-3 text-lg text-cooklang-gray-600">
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>No vendor lock-in:</strong> Your recipes are plain text files, not trapped in a database</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Future-proof:</strong> Text files will be readable decades from now</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Version control:</strong> Track changes with Git, see who changed what and when</span>
+            </li>
+            <li class="flex items-start">
+              <svg class="w-6 h-6 text-green-600 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <span><strong>Privacy first:</strong> Your recipes stay on your devices, no cloud required</span>
+            </li>
+          </ul>
         </div>
         <div class="bg-cooklang-gray-900 text-cooklang-gray-100 p-6 rounded-lg">
-          <pre class="font-mono text-sm language-cooklang"><code>In a large #pot, bring @water{4%cups}
-to a boil. Add @pasta{200%g} and 
-cook for ~{10%minutes}.
+          <pre class="font-mono text-sm language-cooklang"><code>---
+title: Pasta Aglio e Olio
+servings: 2
+time: 20 minutes
+---
 
-Meanwhile, heat @olive oil{2%tbsp} in 
+Bring @water{2%L} to a boil in a #pot.
+
+Add @spaghetti{200%g} and cook for
+~{10%minutes} until al dente.
+
+Meanwhile, heat @olive oil{4%tbsp} in
 a #pan over medium heat. Add 
-@garlic{2%cloves} and sauté until 
-fragrant.</code></pre>
+@garlic{4%cloves}(sliced thin) and
+@red pepper flakes{1%tsp}.
+
+Cook until garlic is golden.</code></pre>
         </div>
       </div>
     </div>

@@ -2,13 +2,15 @@
 title: 'Import'
 weight: 50
 description: 'CookCLI Import command documentation'
-date: 2025-09-04T17:39:15+00:00
+date: 2025-09-04T17:51:42+00:00
 ---
 
 
 The `import` command fetches recipes from websites and automatically converts them to Cooklang format. It supports hundreds of popular recipe websites and extracts ingredients, instructions, and metadata intelligently.
 
 Requires `OPENAI_API_KEY` environment variable set to perform the conversion to Cooklang. Without the key you still can downlad recipe original content, but it won't be converted to Cooklang.
+
+Note that you can use [cook.md converter](https://cooklang.org/docs/getting-started#build-your-recipe-collection) if you don't have OpenAI key.
 
 ## Basic Usage
 
