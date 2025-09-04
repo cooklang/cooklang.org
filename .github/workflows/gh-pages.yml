@@ -37,12 +37,12 @@ jobs:
       - name: Install Node dependencies
         working-directory: themes/cooklang-tw
         run: |
-          npm install
+          npm install --include=dev
 
       - name: Build CSS
         working-directory: themes/cooklang-tw
         run: |
-          npx tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --minify
+          npm run build-css
 
       - name: Sync documentation
         run: |
