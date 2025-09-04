@@ -35,10 +35,14 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install Node dependencies
-        run: npm ci || npm install
+        run: |
+          cd themes/cooklang-tw
+          npm ci || npm install
 
       - name: Build CSS
-        run: npm run build-css
+        run: |
+          cd themes/cooklang-tw
+          npm run build-css
 
       - name: Sync documentation
         run: |
