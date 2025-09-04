@@ -1,6 +1,6 @@
 ---
 title: 'Cooklang Specification'
-date: 2024-12-04T13:30:08+10:00
+date: 2025-09-04T14:59:22+00:00
 draft: false
 weight: 2
 summary: This is the specification and reference for writing a recipe in Cooklang.
@@ -8,6 +8,7 @@ summary: This is the specification and reference for writing a recipe in Cooklan
 
 > Just heads up, that not all latest language features supported in the apps yet.
 > You can track progress at https://github.com/orgs/cooklang/projects/4
+
 
 * [About Cooklang](#about-cooklang)
 * [The .cook Recipe Specification](#the-cook-recipe-specification)
@@ -53,8 +54,6 @@ To use a unit of an item, such as weight or volume, add a `%` between the quanti
 ```cooklang
 Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
 ```
-
-Now you can try Cooklang and experiment with a few things in the [Cooklang Playground](https://cooklang.github.io/cooklang-rs/)!
 
 ### Steps
 
@@ -117,7 +116,7 @@ Applications can use this name in notifications.
 ## Shopping Lists
 To support the creation of shopping lists by apps and the command line tool, Cooklang includes a specification for a configuration file to define how ingredients should be grouped on the final shopping list.
 You can use `[]` to define a category name. These names are arbitrary, so you can customize them to meet your needs. For example, each category could be an aisle or section of the store, such as `[produce]` and `[deli]`.
-```toml
+```
 [produce]
 potatoes
 
@@ -126,7 +125,7 @@ milk
 butter
 ```
 Or, you might be going to multiple stores, in which case you might use `[Tesco]` and `[Costco]`.
-```toml
+```
 [Costco]
 potatoes
 milk
@@ -137,7 +136,7 @@ bread
 salt
 ```
 You can also define synonyms with `|`.
-```toml
+```
 [produce]
 potatoes
 
@@ -158,12 +157,12 @@ There're things which aren't part of the language specification but rather commo
 
 ### Adding Pictures
 You can add images to your recipe by including a supported image file (`.png`,`.jpg`) matching the name of the recipe recipe in the same directory.
-```sh
+```
 Baked Potato.cook
 Baked Potato.jpg
 ```
 You can also add images for specific steps by including a step number before the file extension.
-```sh
+```
 Chicken French.cook
 Chicken French.0.jpg
 Chicken French.3.jpg
@@ -224,23 +223,14 @@ Many recipes involve repetitive ingredient preparations, such as peeling or chop
 Mix @onion{1}(peeled and finely chopped) and @garlic{2%cloves}(peeled and minced) into paste.
 ```
 
-### Referencing other recipes
-
-You can reference other recipes using the existing `@` ingredient syntax, inferring relative file paths from the ingredient name:
-
-```cooklang
-Pour over with @./sauces/Hollandaise{150%g}.
-```
-
-These preparations should be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
+These preparations will be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
 
 ## Projects Which Use Cooklang
-* [Cooklang playground](https://cooklang.github.io/cooklang-rs/)
+
+* [Cooklang playground](https://biowaffeln.github.io/cooklang-parser/)
 * [Obsidian plugin](https://github.com/deathau/cooklang-obsidian)
 * [Official command line application](https://github.com/cooklang/CookCLI)
-* [Community alternative command line application](https://github.com/Zheoni/cooklang-chef)
 * [Official iOS application](https://cooklang.org/app/)
-* [Official Android application](https://cooklang.org/app/)
 
 
 ## Syntax Highlighting
@@ -250,8 +240,3 @@ These preparations should be clearly displayed in the ingredient list, allowing 
 * [SublimeText](https://github.com/cooklang/CookSublime)
 * [Vim](https://github.com/luizribeiro/vim-cooklang)
 * [VSCode](https://github.com/cooklang/CookVSCode)
-* More options: See [syntax highlighting documentation](https://cooklang.org/docs/syntax-highlighting/).
-
-## Roadmap
-
-There's a GitHub board where we show what we're working on and what's next https://github.com/orgs/cooklang/projects/4.

@@ -1,0 +1,76 @@
+{{ define "main" }}
+<div class="bg-white">
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex gap-8">
+      <!-- Sidebar -->
+      <aside class="hidden lg:block w-64 flex-shrink-0">
+        <nav class="sticky top-20">
+          <h3 class="font-semibold text-cooklang-gray-900 mb-4">CLI Documentation</h3>
+          {{ $currentPage := . }}
+          {{ $docs := .Site.GetPage "section" "cli" }}
+          
+          <ul class="space-y-2">
+            {{ range $docs.Pages }}
+              {{ if .IsSection }}
+                <li>
+                  <div class="font-medium text-cooklang-gray-700 mb-2 mt-4">{{ .Title }}</div>
+                  <ul class="ml-4 space-y-1">
+                    {{ range .Pages }}
+                    <li>
+                      <a href="{{ .RelPermalink }}" 
+                         class="block py-1 px-2 text-sm rounded {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
+                        {{ .Title }}
+                      </a>
+                    </li>
+                    {{ end }}
+                  </ul>
+                </li>
+              {{ else }}
+                <li>
+                  <a href="{{ .RelPermalink }}" 
+                     class="block py-1 px-2 text-sm rounded {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
+                    {{ .Title }}
+                  </a>
+                </li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <article class="flex-1 max-w-4xl">
+        <header class="mb-8">
+          <h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">{{ .Title }}</h1>
+        </header>
+
+        <div class="prose prose-lg max-w-none text-cooklang-gray-700">
+          {{ .Content }}
+        </div>
+
+        {{ if or .NextInSection .PrevInSection }}
+        <nav class="mt-12 pt-8 border-t border-cooklang-gray-200">
+          <div class="flex justify-between">
+            {{ with .PrevInSection }}
+            <a href="{{ .Permalink }}" class="text-cooklang-orange hover:text-orange-600">
+              ← {{ .Title }}
+            </a>
+            {{ else }}
+            <span></span>
+            {{ end }}
+            
+            {{ with .NextInSection }}
+            <a href="{{ .Permalink }}" class="text-cooklang-orange hover:text-orange-600">
+              {{ .Title }} →
+            </a>
+            {{ else }}
+            <span></span>
+            {{ end }}
+          </div>
+        </nav>
+        {{ end }}
+      </article>
+    </div>
+  </div>
+</div>
+{{ end }}

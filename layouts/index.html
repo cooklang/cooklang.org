@@ -1,0 +1,134 @@
+{{ define "main" }}
+<div class="bg-white">
+  <!-- Hero Section -->
+  <section class="container mx-auto px-4 py-16 md:py-24">
+    <div class="text-center max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">
+        Cooklang – Recipe Markup Language
+      </h1>
+      <p class="text-xl text-cooklang-gray-600 mb-8">
+        Cooklang is a lightweight, open-source format for writing recipes as simple text files, 
+        meaning you can store, edit, share and sync your recipes with any service.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/docs/getting-started/" class="btn btn-primary">
+          Get Started
+        </a>
+        <a href="https://github.com/cooklang" class="btn btn-secondary">
+          View on GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Image Section -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <img src="/example.png" alt="Cooklang recipe example with syntax highlighting" class="w-full rounded-lg shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="bg-cooklang-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-12">
+        How It Works
+      </h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">1</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Write in Plain Text</h3>
+          <p class="text-cooklang-gray-600">
+            Use simple markup to define ingredients, cookware, and steps in any text editor.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">2</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Parse Anywhere</h3>
+          <p class="text-cooklang-gray-600">
+            Use our CLI tools or mobile apps to render your recipes beautifully.
+          </p>
+        </div>
+        <div class="text-center">
+          <div class="w-16 h-16 bg-cooklang-orange rounded-full flex items-center justify-center mx-auto mb-4">
+            <span class="text-2xl text-white">3</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-2">Sync & Share</h3>
+          <p class="text-cooklang-gray-600">
+            Keep your recipes in Git, Dropbox, or any cloud service you prefer.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">
+            Simple & Powerful
+          </h2>
+          <p class="text-lg text-cooklang-gray-600 mb-4">
+            Cooklang recipes are plain text files that you can use on any device, 
+            whether you're on your phone when cooking or on your computer when planning.
+          </p>
+          <p class="text-lg text-cooklang-gray-600">
+            The flexibility makes it easy to back up and share your recipes,
+            and Cooklang tools help process these files for various use cases.
+          </p>
+        </div>
+        <div class="bg-cooklang-gray-900 text-cooklang-gray-100 p-6 rounded-lg">
+          <pre class="font-mono text-sm language-cooklang"><code>In a large #pot, bring @water{4%cups}
+to a boil. Add @pasta{200%g} and 
+cook for ~{10%minutes}.
+
+Meanwhile, heat @olive oil{2%tbsp} in 
+a #pan over medium heat. Add 
+@garlic{2%cloves} and sauté until 
+fragrant.</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">
+          Get Updates
+        </h2>
+        <p class="text-lg text-cooklang-gray-600 mb-8">
+          Stay informed about new features and updates. We'll send you our news once a month.
+        </p>
+        <div class="flex justify-center">
+          {{ partial "newsletter-inline.html" . }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-cooklang-orange py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-white mb-4">
+        Ready to organize your recipes?
+      </h2>
+      <p class="text-xl text-white/90 mb-8">
+        Join thousands of cooks who are already using Cooklang
+      </p>
+      <a href="/docs/getting-started/" class="inline-flex items-center px-6 py-3 bg-white text-cooklang-orange font-medium rounded-lg hover:bg-cooklang-gray-100 transition-colors">
+        Get Started Now
+      </a>
+    </div>
+  </section>
+</div>
+{{ end }}

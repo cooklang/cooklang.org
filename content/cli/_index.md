@@ -4,24 +4,17 @@ date: 2021-05-20T15:14:39+10:00
 summary: All about the CookCLI command line toolbox
 ---
 
-> Not all latest language features supported yet, you can track progress
-> at https://github.com/orgs/cooklang/projects/4. There's more usable
-> community alternative [cooklang-chef](https://github.com/Zheoni/cooklang-chef).
+The Cook CLI command line program provides a suite of tools to create shopping lists, maintain recipes, and manage your cooking workflow. We've built it to be simple and useful for automating your cooking and shopping routine with existing UNIX command line and scripting tools.
 
+## Available Commands
 
-{{< rawhtml >}}
-   <a href="https://github.com/cooklang/CookCLI">
-        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_orange_ff7600.png?resize=149%2C149" alt="Fork me on GitHub">
-    </a>
-{{< /rawhtml >}}
+Click on any command below to see detailed documentation:
 
-
-The CookCLI tool is designed to make command line and shell scripting automation possible for the Cooklang ecosystem.
-
-Check out the tool and report bugs [on GitHub](https://github.com/cooklang/CookCLI), or check the pages below for information about each command.
-
-Here's a quick demo to see its in action:
-
-{{< youtube hQNRt-b3eps >}}
-
-
+* **[recipe](commands/recipe/)** – Parse and display recipe files in various formats
+* **[shopping-list](commands/shopping-list/)** – Generate shopping lists from multiple recipes
+* **[server](commands/server/)** – Run a web server to browse your recipe collection
+* **[search](commands/search/)** – Search through your recipes by ingredient or text
+* **[import](commands/import/)** – Import recipes from websites and convert to Cooklang
+* **[doctor](commands/doctor/)** – Validate recipes and check for issues
+* **[seed](commands/seed/)** – Initialize a directory with example recipes
+* **[report](commands/report/)** – Generate custom reports using templates

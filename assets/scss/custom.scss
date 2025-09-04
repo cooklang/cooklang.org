@@ -1,0 +1,35 @@
+.docs-menu {
+  ul.sub-menu {
+    list-style: none;
+    padding-left: 20px;
+    margin: 5px 0;
+    
+    li {
+      font-size: 0.85rem;
+      padding: 3px 0;
+      
+      &.active a {
+        color: #ff6b35;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  li.has-children {
+    > a {
+      font-weight: 500;
+      position: relative;
+      
+      &:after {
+        content: "▸";
+        position: absolute;
+        right: 0;
+        transition: transform 0.2s;
+      }
+    }
+    
+    &.expanded > a:after {
+      transform: rotate(90deg);
+    }
+  }
+}

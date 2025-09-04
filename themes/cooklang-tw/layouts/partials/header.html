@@ -1,0 +1,79 @@
+<div class="container mx-auto px-4">
+  <nav class="flex items-center justify-between py-4">
+    <!-- Logo -->
+    <div class="flex items-center">
+      <a href="{{ .Site.BaseURL }}" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+        <img alt="{{ .Site.Title }}" 
+             src="{{ .Site.Params.logo.standard | relURL }}" 
+             class="h-10 w-auto" />
+        <span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span>
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex items-center gap-8">
+      <!-- Navigation Links -->
+      <nav class="flex items-center gap-6">
+        {{ $current := . }}
+        {{ range .Site.Menus.main }}
+        {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+        {{ $active = or $active (eq .Name $current.Title) }}
+        {{ $active = or $active (and (eq .Name "Docs") (eq $current.Section "docs")) }}
+        {{ $active = or $active (and (eq .Name "CLI") (eq $current.Section "cli")) }}
+        {{ $active = or $active (and (eq .Name "Mobile App") (eq $current.Section "app")) }}
+        {{ $active = or $active (and (eq .Name "Blog") (eq $current.Section "blog")) }}
+        <a href="{{ .URL }}"
+           class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+                  {{ if $active }}
+                  text-cooklang-orange
+                  {{ else }}
+                  text-cooklang-gray-700 hover:text-cooklang-orange
+                  {{ end }}">
+          {{ .Name }}
+        </a>
+        {{end}}
+      </nav>
+      
+      <!-- CTA Button -->
+      <a href="https://www.buymeacoffee.com/dubadub" 
+         target="_blank" 
+         rel="noopener noreferrer"
+         class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap">
+        <span>☕</span>
+        <span>Buy me a coffee</span>
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden p-2" id="mobile-menu-button">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+</div>
+
+<!-- Mobile Menu -->
+<div id="mobile-menu" class="hidden md:hidden">
+  <nav class="px-4 py-2 space-y-2">
+    {{ $current := . }}
+    {{ range .Site.Menus.main }}
+    {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
+    <a href="{{ .URL }}"
+       class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+              {{ if $active }}
+              bg-cooklang-orange text-white
+              {{ else }}
+              text-cooklang-gray-700 hover:bg-cooklang-gray-100
+              {{ end }}">
+      {{ .Name }}
+    </a>
+    {{end}}
+    <a href="https://www.buymeacoffee.com/dubadub" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">
+      ☕ Buy me a coffee
+    </a>
+  </nav>
+</div>

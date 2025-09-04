@@ -1,7 +1,9 @@
 ---
-title: 'CooklangApp: mobile recipe reader'
+title: 'Cook: Cooklang mobile recipe reader'
 date: 2021-05-20T15:14:39+10:00
 ---
+
+![Android Screens](/guide/app-screens-demo.jpg)
 
 Features:
 
@@ -37,6 +39,3 @@ Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-a
 Please open an issue [here](https://github.com/cooklang/cooklang-app-android/issues) to report a bug.
 
 
-![Recipes](/app/recipes.png)
-![Recipe](/app/recipe-ingredients.png)
-![Shopping list](/app/shopping-list.png)

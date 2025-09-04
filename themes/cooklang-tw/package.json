@@ -1,0 +1,22 @@
+{
+  "name": "cooklang-tw",
+  "version": "1.0.0",
+  "description": "## Features",
+  "main": "index.js",
+  "scripts": {
+    "build-css": "tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --minify",
+    "watch-css": "tailwindcss -i ./assets/css/main.css -o ./static/css/style.css --watch",
+    "dev": "npm run watch-css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "@tailwindcss/typography": "^0.5.16",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "tailwindcss": "^4.1.12"
+  }
+}

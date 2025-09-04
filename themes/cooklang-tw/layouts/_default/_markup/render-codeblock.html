@@ -1,0 +1,5 @@
+{{ $lang := .Type }}
+{{ $code := .Inner }}
+<div class="code-toolbar">
+  <pre class="language-{{ $lang }}" data-language="{{ $lang }}"><code class="language-{{ $lang }}">{{ htmlEscape $code }}</code></pre>
+</div>

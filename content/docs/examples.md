@@ -9,10 +9,10 @@ Here is an example of a full recipe which tags ingredients, cookware and timer.
 
 ## Easy pancakes
 
-```
+```cooklang
 ---
 source: https://www.jamieoliver.com/recipes/eggs-recipes/easy-pancakes/
-tags: [fun]
+tags: fun, quick
 ---
 
 Crack the @eggs{3} into a blender, then add the @flour{125%g},

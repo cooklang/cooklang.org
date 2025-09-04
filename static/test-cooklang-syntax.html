@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cooklang Syntax Highlighting Test</title>
+    <link href="/css/prism.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .test-case {
+            margin: 20px 0;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-case h3 {
+            margin-top: 0;
+            color: #555;
+        }
+        pre {
+            background: #2d2d2d !important;
+            padding: 15px !important;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        code {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cooklang Syntax Highlighting Test</h1>
+    <p>Testing all Cooklang features with improved multiword component support</p>
+
+    <div class="test-case">
+        <h3>1. Front Matter (YAML)</h3>
+        <pre><code class="language-cooklang">---
+title: Spaghetti Carbonara
+servings: 4
+tags:
+  - pasta
+  - italian
+  - quick
+time: 30 minutes
+---</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>2. Ingredients (Single word & Multiword)</h3>
+        <pre><code class="language-cooklang">Add @salt to taste.
+Add @sea salt{1%pinch} to the mixture.
+Add @ground black pepper{} to taste.
+Mix @olive oil{2%tbsp} with herbs.
+Chop @red bell pepper{1} into strips.</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>3. Ingredients with Modifiers (Short-hand preparations)</h3>
+        <pre><code class="language-cooklang">Mix @onion{1}(peeled and finely chopped) with @garlic{2%cloves}(minced).
+Add @potatoes{500%g}(peeled, diced) to the pot.</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>4. Cookware/Equipment</h3>
+        <pre><code class="language-cooklang">Place in a #pot.
+Use a #potato masher{} to mash.
+Preheat #oven{180°C} for 10 minutes.
+Mix with a #wooden spoon{}.</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>5. Timers</h3>
+        <pre><code class="language-cooklang">Bake for ~{25%minutes}.
+Boil @eggs{2} for ~eggs{3%minutes}.
+Let rest for ~resting{10%min}.</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>6. Comments</h3>
+        <pre><code class="language-cooklang">-- This is a line comment
+Mix ingredients [- block comment here -] thoroughly.
+-- Don't overmix the batter!</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>7. Metadata</h3>
+        <pre><code class="language-cooklang">>>source: https://example.com/recipe
+>>author: Chef John
+>>difficulty: medium</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>8. Notes</h3>
+        <pre><code class="language-cooklang">> This recipe has been passed down through generations.
+> Make sure to use fresh ingredients for best results.
+
+Mix the ingredients carefully.</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>9. Sections</h3>
+        <pre><code class="language-cooklang">= Dough Preparation =
+
+Mix @flour{200%g} with @water{100%ml}.
+
+== Filling ==
+
+Combine @cheese{100%g} with @spinach{50%g}.
+
+=== Final Assembly</code></pre>
+    </div>
+
+    <div class="test-case">
+        <h3>10. Complete Recipe Example</h3>
+        <pre><code class="language-cooklang">---
+title: Classic Pasta Carbonara
+servings: 4
+time: 20 minutes
+---
+
+>>source: Traditional Italian Recipe
+>>difficulty: medium
+
+> This authentic carbonara uses only eggs, cheese, and guanciale.
+
+= Ingredients Preparation =
+
+Cut @guanciale{150%g}(or pancetta) into small cubes.
+Grate @pecorino romano{100%g} and @parmigiano reggiano{50%g}.
+Separate @eggs{4} -- use only the yolks for creamier sauce.
+
+= Cooking =
+
+Boil @spaghetti{400%g} in salted water for ~pasta{8%minutes}.
+Meanwhile, cook guanciale in a #large pan{} until crispy.
+
+[- Important: Remove pan from heat before adding eggs -]
+
+Mix egg yolks with grated cheese and @black pepper{2%tsp}(freshly ground).
+Drain pasta, reserving @pasta water{1%cup}.
+
+== Final Steps ==
+
+Add pasta to the #pan with guanciale.
+Remove from heat and quickly mix in egg mixture.
+Add pasta water gradually until creamy.
+Serve immediately with extra cheese and pepper.</code></pre>
+    </div>
+
+    <script src="/js/prism.js"></script>
+    <script src="/js/prism-cooklang.js"></script>
+</body>
+</html>

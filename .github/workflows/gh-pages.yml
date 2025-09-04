@@ -4,12 +4,13 @@ on:
   push:
     branches:
       - main  # Set a branch to deploy
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
@@ -19,6 +20,36 @@ jobs:
         with:
           hugo-version: '0.139.4'
           extended: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache Node modules
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Install Node dependencies
+        run: npm ci || npm install
+
+      - name: Build CSS
+        run: npm run build-css
+
+      - name: Sync documentation
+        run: |
+          if [ -f ./scripts/sync-cli-docs.sh ]; then
+            chmod +x ./scripts/sync-cli-docs.sh
+            ./scripts/sync-cli-docs.sh || echo "Documentation sync failed, continuing..."
+          fi
+          if [ -f ./scripts/sync-spec.sh ]; then
+            chmod +x ./scripts/sync-spec.sh
+            ./scripts/sync-spec.sh || echo "Spec sync failed, continuing..."
+          fi
 
       - name: Build
         run: hugo --minify

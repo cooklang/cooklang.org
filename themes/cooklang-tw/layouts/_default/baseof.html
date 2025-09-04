@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" class="scroll-smooth">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col">
+  <header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50">
+    {{ partial "header.html" . }}
+  </header>
+  <main class="flex-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  <footer class="bg-cooklang-gray-900 text-white mt-auto">
+    {{ partial "footer.html" . }}
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Fix double-escaped HTML entities in all code blocks
+      document.querySelectorAll('pre code, code').forEach(function(block) {
+        // Use textContent to get the raw text, then fix entities
+        var content = block.textContent || block.innerText || '';
+        
+        // Replace HTML entities with actual characters
+        content = content
+          .replace(/&#34;/g, '"')   // Handle &#34; entities
+          .replace(/&#39;/g, "'")   // Handle &#39; entities  
+          .replace(/&quot;/g, '"')  // Handle &quot; entities
+          .replace(/&apos;/g, "'")  // Handle &apos; entities
+          .replace(/&lt;/g, '<')    // Handle &lt; entities
+          .replace(/&gt;/g, '>')    // Handle &gt; entities
+          .replace(/&amp;/g, '&');  // Handle &amp; entities (must be last)
+        
+        // Set the fixed content back
+        block.textContent = content;
+      });
+      
+      // Initialize Prism.js for syntax highlighting if available
+      if (typeof Prism !== 'undefined') {
+        Prism.highlightAll();
+      }
+    });
+  </script>
+</body>
+</html>

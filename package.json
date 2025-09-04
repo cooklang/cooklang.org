@@ -1,0 +1,12 @@
+{
+  "name": "cooklang.org",
+  "version": "1.0.0",
+  "description": "To start this website locally you will need to have Hugo installed. If you don’t already have Hugo installed please follow the official [installation guide](https://gohugo.io/getting-started/installing/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

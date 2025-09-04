@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center px-4 py-2 font-medium rounded-lg transition-colors duration-150;
+  }
+  
+  .btn-primary {
+    @apply bg-cooklang-orange text-white hover:bg-orange-600;
+  }
+  
+  .btn-secondary {
+    @apply bg-cooklang-gray-200 text-cooklang-gray-700 hover:bg-cooklang-gray-300;
+  }
+  
+  .container {
+    @apply mx-auto px-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

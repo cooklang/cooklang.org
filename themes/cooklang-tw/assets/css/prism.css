@@ -1,0 +1,258 @@
+/* PrismJS with Cooklang support - Tailwind compatible theme */
+code[class*=language-],
+pre[class*=language-] {
+  color: #374151;
+  background: none;
+  font-family: 'JetBrains Mono', Monaco, monospace;
+  font-size: 0.875rem;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.7;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*=language-] {
+  padding: 1.5rem;
+  margin: 2rem 0;
+  overflow: auto;
+  background: #161718;
+  border-radius: 0.5rem;
+}
+
+pre[class*=language-] code {
+  color: #e9ecef;
+}
+
+:not(pre)>code[class*=language-] {
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  white-space: normal;
+  background: #fff7ed;
+  color: #E15A29;
+}
+
+/* Cooklang specific tokens */
+.token.ingredient {
+  color: #E15A29;
+  font-weight: 600;
+}
+
+.token.cookware {
+  color: #00AAFF;
+  font-weight: 600;
+}
+
+.token.timer {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.token.ingredient .token.name,
+.token.cookware .token.name,
+.token.timer .token.name {
+  font-weight: 600;
+}
+
+.token.ingredient .token.punctuation,
+.token.cookware .token.punctuation,
+.token.timer .token.punctuation {
+  color: inherit;
+  opacity: 0.7;
+}
+
+.token.amount .token.number,
+.token.duration .token.number {
+  color: #ef4444;
+  font-weight: 500;
+}
+
+.token.amount .token.unit,
+.token.duration .token.unit {
+  color: #8b5cf6;
+}
+
+.token.amount .token.separator,
+.token.duration .token.separator {
+  color: #6b7280;
+}
+
+.token.metadata {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.token.metadata .token.property {
+  color: #3b82f6;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.token.section,
+.token.heading {
+  color: #1f2937;
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+.token.note,
+.token.blockquote {
+  color: #6b7280;
+  font-style: italic;
+  border-left: 3px solid #E15A29;
+  padding-left: 0.5em;
+}
+
+/* General tokens */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6b7280;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #9ca3af;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ef4444;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #10b981;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #f59e0b;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #3b82f6;
+}
+
+.token.function,
+.token.class-name {
+  color: #8b5cf6;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #f97316;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+/* Line numbers plugin */
+pre[class*=language-].line-numbers {
+  position: relative;
+  padding-left: 3.8em;
+  counter-reset: linenumber;
+}
+
+pre[class*=language-].line-numbers>code {
+  position: relative;
+  white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  font-size: 100%;
+  left: -3.8em;
+  width: 3em;
+  letter-spacing: -1px;
+  border-right: 1px solid #374151;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.line-numbers-rows>span {
+  display: block;
+  counter-increment: linenumber;
+}
+
+.line-numbers-rows>span:before {
+  content: counter(linenumber);
+  color: #6b7280;
+  display: block;
+  padding-right: 0.8em;
+  text-align: right;
+}
+
+/* Toolbar plugin */
+div.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar>.toolbar {
+  position: absolute;
+  z-index: 10;
+  top: 0.3em;
+  right: 0.2em;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+}
+
+div.code-toolbar:hover>.toolbar {
+  opacity: 1;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>a,
+div.code-toolbar>.toolbar>.toolbar-item>button,
+div.code-toolbar>.toolbar>.toolbar-item>span {
+  color: #e9ecef;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>a:hover,
+div.code-toolbar>.toolbar>.toolbar-item>button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

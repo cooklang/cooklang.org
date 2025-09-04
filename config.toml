@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-ie"
 title = "Cooklang: recipe markup language"
 themesDir = "./themes"
-theme = "hugo-whisper-theme"
+theme = "cooklang-tw"
 
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
@@ -19,13 +19,18 @@ pygmentsUseClasses = true
     lineNoStart = 1
     lineNos = false
     lineNumbersInTable = true
-    noClasses = false
+    noClasses = true
+    noHl = false
     style = 'monokai'
     tabWidth = 4
     lineNoSeparator = '  '
   [markup.goldmark]
+    [markup.goldmark.extensions]
+      typographer = false
     [markup.goldmark.renderer]
       unsafe = true
+      xhtml = false
+      hardWraps = false
   [markup.goldmark.parser]
     [markup.goldmark.parser.attribute]
       block = true
@@ -100,8 +105,13 @@ summaryLength = 30
     # meta_twitter_creator = "@Cooklang"
 
   [params.logo]
-      mobile = "/images/logo.svg"
-      standard  = "/images/logo.svg"
+      mobile = "/logo.svg"
+      standard  = "/logo.svg"
+
+[outputFormats]
+  [outputFormats.HTML]
+    isPlainText = false
+    mediaType = "text/html"
 
 [outputs]
 home = ["HTML", "RSS"]
