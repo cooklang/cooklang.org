@@ -20,8 +20,30 @@ fi
 # Create commands directory if it doesn't exist
 mkdir -p "$COMMANDS_DIR"
 
-# Create _index.md for commands section if it doesn't exist
-if [ ! -f "$COMMANDS_DIR/_index.md" ]; then
+echo "Syncing CookCLI documentation..."
+
+# Copy and process README.md to commands/_index.md
+echo "Processing CLI README for commands index..."
+if [ -f "$COOKCLI_DOCS/README.md" ]; then
+    temp_file="$(mktemp)"
+    
+    # Add Hugo frontmatter
+    cat > "$temp_file" << 'EOF'
+---
+title: 'Commands'
+weight: 20
+description: 'CookCLI commands documentation'
+---
+
+EOF
+    
+    # Copy ALL README content, just transforming command links
+    sed 's/\[\([^]]*\)\](\([^)]*\)\.md)/[\1](\1\/)/g' "$COOKCLI_DOCS/README.md" >> "$temp_file"
+    
+    mv "$temp_file" "$COMMANDS_DIR/_index.md"
+    echo "Created commands index from CLI README (full content)"
+else
+    # Fallback: create basic _index.md if README doesn't exist
     cat > "$COMMANDS_DIR/_index.md" << 'EOF'
 ---
 title: 'Commands'
@@ -31,8 +53,6 @@ weight: 20
 All CookCLI commands documentation.
 EOF
 fi
-
-echo "Syncing CookCLI documentation..."
 
 # Function to add Hugo frontmatter to markdown files
 add_frontmatter() {

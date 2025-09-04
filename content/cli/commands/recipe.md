@@ -2,7 +2,7 @@
 title: 'Recipe'
 weight: 10
 description: 'CookCLI Recipe command documentation'
-date: 2025-09-04T09:36:55+00:00
+date: 2025-09-04T17:39:15+00:00
 ---
 
 

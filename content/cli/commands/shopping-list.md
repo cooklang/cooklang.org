@@ -2,7 +2,7 @@
 title: 'Shopping List'
 weight: 20
 description: 'CookCLI Shopping List command documentation'
-date: 2025-09-04T09:36:55+00:00
+date: 2025-09-04T17:39:16+00:00
 ---
 
 
