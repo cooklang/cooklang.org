@@ -131,8 +131,6 @@ sed -n '1,/^---$/p' "$SITE_CLI_DIR/_index.md" > "$temp_file"
 
 # Add overview content from cookcli README
 echo "" >> "$temp_file"
-echo "## Overview" >> "$temp_file"
-echo "" >> "$temp_file"
 
 # Extract overview content from README (skip title and installation)
 awk '
