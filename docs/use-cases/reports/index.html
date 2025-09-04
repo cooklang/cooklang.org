@@ -1,0 +1,135 @@
+<!doctype html><html lang=en-ie dir=ltr class=scroll-smooth><head><meta charset=utf-8><meta name=viewport content="width=device-width"><title>Reports and Data Management | Cooklang: recipe markup language</title>
+<link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><script src=/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js integrity="sha256-I80MfYNyY7nq65buLZzPopadqj+gD6HB/ocBqbhyUaE=" crossorigin=anonymous></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto">
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2" id=mobile-menu-button><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden"><nav class="px-4 py-2 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><div class=bg-white><div class="container mx-auto px-4 py-8"><div class="flex gap-8"><aside class="hidden lg:block w-64 flex-shrink-0"><nav class="sticky top-20"><h3 class="font-semibold text-cooklang-gray-900 mb-4">Documentation</h3><ul class=space-y-2><li><a href=/docs/getting-started/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Getting Started</a></li><li><a href=/docs/spec/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Cooklang Specification</a></li><li><a href=/docs/for-developers/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">For Developers</a></li><li><a href=/docs/syntax-highlighting/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Syntax Highlighting</a></li><li><a href=/docs/examples/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Examples</a></li><li><div class="font-medium text-cooklang-gray-700 mb-2 mt-4">Use Cases</div><ul class="ml-4 space-y-1"><li><a href=/docs/use-cases/shopping/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Shopping Lists</a></li><li><a href=/docs/use-cases/meal-planning/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Meal Planning</a></li><li><a href=/docs/use-cases/pantry/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Pantry Management</a></li><li><a href=/docs/use-cases/reports/ class="block py-1 px-2 text-sm rounded bg-cooklang-orange text-white">Reports and Data Management</a></li></ul></li></ul></nav></aside><article class="flex-1 max-w-4xl"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Reports and Data Management</h1></header><div class="prose prose-lg max-w-none text-cooklang-gray-700"><p>Cooklang's report system transforms recipes into any format you need through powerful templates and data management. Whether you're creating shopping lists, nutrition labels, recipe cards, or custom exports, the report command combined with the database system provides complete control over your recipe data.</p><h2 id=the-report-system>The Report System</h2><p>The <code>cook report</code> command uses Jinja2 templates to generate custom outputs from your recipes. This flexibility means you can create anything from simple ingredient lists to complex meal planning documents.</p><h3 id=basic-report-generation>Basic Report Generation</h3><p>Start with a simple template to create a recipe card:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook report -t recipe-card.jinja &amp;#39;Pasta Carbonara.cook&amp;#39;</code></pre></div><p>The template receives comprehensive recipe data including ingredients, steps, metadata, and more. You can format this data however you need:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2># {{ metadata.title }}
+**Servings:** {{ metadata.servings }} | **Time:** {{ metadata.time }}
+
+## Ingredients
+{%- for ingredient in ingredients %}
+- {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+{%- endfor %}
+
+## Instructions
+{% for section in sections %}
+{% for content in section %}
+{{ content }}
+{%- endfor %}
+{%- endfor %}</code></pre></div><h2 id=the-database-system>The Database System</h2><p>The database (<code>db</code>) system enriches your recipes with additional data like nutritional information, costs, and shopping details. This data lives in a structured directory that the report system can access.</p><h3 id=database-structure>Database Structure</h3><p>Your database is organized as a directory tree where each ingredient has its own folder containing various data files:</p><div class=code-toolbar><pre class=language- data-language><code class=language->config/db/
+├── eggs/
+│   └── shopping.yml
+├── flour/
+│   ├── nutrition.yml
+│   └── cost.yml
+├── milk/
+│   └── shopping.yml
+└── butter/
+    ├── nutrition.yml
+    └── alternatives.yml</code></pre></div><h3 id=shopping-data-example>Shopping Data Example</h3><p>The shopping data connects ingredients to real products at specific stores:</p><div class=code-toolbar><pre class=language-yaml data-language=yaml><code class=language-yaml># config/db/eggs/shopping.yml
+supervalu:
+  opt_1:
+    name: SuperValu Large Fresh Irish Eggs 12 Pack
+    url: https://shop.supervalu.ie/product/id-1024956000
+    price: €2.99
+    price_per_unit: €0.25 each
+    quantity: 12 Piece
+  opt_2:
+    name: Free Range Eggs 6 Pack
+    url: https://shop.supervalu.ie/product/id-1024957000
+    price: €2.49</code></pre></div><h2 id=smart-shopping-lists>Smart Shopping Lists</h2><p>Combine reports and database to create intelligent shopping lists that link to actual products:</p><h3 id=the-template>The Template</h3><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2># Shopping List for {{ metadata.title }}
+
+items:
+{% for ingredient in excluding_pantry(get_ingredient_list(ingredients)) %}
+  - name: {{ ingredient.name }}
+    amount: {{ ingredient.quantities }}
+    link: {{ db(underscore(ingredient.name) ~ &amp;#39;.shopping.supervalu.opt_1.url&amp;#39;) }}
+    backup: {{ db(underscore(ingredient.name) ~ &amp;#39;.shopping.supervalu.opt_2.url&amp;#39;) }}
+{%- endfor %}</code></pre></div><h3 id=using-the-template>Using the Template</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook report \
+  -t shopping-list.yaml.jinja \
+  &amp;#39;Weekly Meals/*.cook&amp;#39; \
+  -d ./config/db \
+  -p ./config/pantry.conf</code></pre></div><p>This generates a YAML shopping list with direct links to products, excluding items already in your pantry.</p><h2 id=pantry-management>Pantry Management</h2><p>The pantry configuration tracks what you already have, preventing duplicate purchases:</p><div class=code-toolbar><pre class=language-toml data-language=toml><code class=language-toml># config/pantry.conf
+[pantry]
+flour = &amp;#39;5%kg&amp;#39;
+salt = &amp;#39;1%kg&amp;#39;
+olive_oil = &amp;#39;1%L&amp;#39;
+
+[fridge]
+milk = { quantity = &amp;#39;2%L&amp;#39;, expire = &amp;#39;10.05.2024&amp;#39; }
+eggs = &amp;#39;12&amp;#39;
+butter = &amp;#39;200%g&amp;#39;
+
+[freezer]
+frozen_peas = &amp;#39;500%g&amp;#39;
+ground_beef = { quantity = &amp;#39;1%kg&amp;#39;, expire = &amp;#39;05.06.2024&amp;#39; }</code></pre></div><h2 id=advanced-report-examples>Advanced Report Examples</h2><h3 id=cost-analysis-report>Cost Analysis Report</h3><p>Track recipe costs using database pricing:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2># Cost Report: {{ metadata.title }}
+
+## Ingredient Costs
+{%- set total_cost = namespace(value=0) %}
+{%- for ingredient in ingredients %}
+{%- set item_cost = db(underscore(ingredient.name) ~ &amp;#34;.cost.per_unit&amp;#34;, 0) * ingredient.quantity %}
+* {{ ingredient.name }}: ${{ &amp;#34;%.2f&amp;#34;|format(item_cost) }}
+{%- set total_cost.value = total_cost.value &#43; item_cost %}
+{%- endfor %}
+
+**Total Cost:** ${{ &amp;#34;%.2f&amp;#34;|format(total_cost.value) }}
+**Cost per Serving:** ${{ &amp;#34;%.2f&amp;#34;|format(total_cost.value / metadata.servings) }}</code></pre></div><h3 id=nutrition-label>Nutrition Label</h3><p>Generate nutrition facts from your database:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2>## Nutrition Facts
+Servings: {{ metadata.servings }}
+
+| Nutrient | Per Serving | % Daily Value |
+|----------|-------------|---------------|
+{%- for ingredient in ingredients %}
+{%- set nutrition = db(underscore(ingredient.name) ~ &amp;#39;.nutrition&amp;#39;, {}) %}
+{%- if nutrition %}
+| Calories | {{ nutrition.calories / metadata.servings }} | {{ (nutrition.calories / 2000 * 100) | round }}% |
+| Protein | {{ nutrition.protein / metadata.servings }}g | {{ (nutrition.protein / 50 * 100) | round }}% |
+| Carbs | {{ nutrition.carbs / metadata.servings }}g | {{ (nutrition.carbs / 300 * 100) | round }}% |
+{%- endif %}
+{%- endfor %}</code></pre></div><h3 id=smart-shopping-with-aisles>Smart Shopping with Aisles</h3><p>Organize by store layout for efficient shopping:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2># Shopping List - {{ scale }}x Recipe
+
+{%- for aisle, items in aisled(excluding_pantry(ingredients)) | items %}
+
+## {{ aisle | titleize }}
+{%- for ingredient in items %}
+- [ ] {{ ingredient.name | titleize }}: {{ ingredient.quantity }}
+  - Primary: {{ db(underscore(ingredient.name) ~ &amp;#39;.shopping.supervalu.opt_1.name&amp;#39;) }}
+  - Alternative: {{ db(underscore(ingredient.name) ~ &amp;#39;.shopping.supervalu.opt_2.name&amp;#39;) }}
+{%- endfor %}
+{%- endfor %}
+
+---
+### Already in Pantry
+{%- for ingredient in from_pantry(ingredients) %}
+- ✓ {{ ingredient.name }}: {{ ingredient.quantity }}
+{%- endfor %}</code></pre></div><h2 id=template-functions>Template Functions</h2><p>The report system provides powerful functions for recipe manipulation:</p><h3 id=pantry-functions>Pantry Functions</h3><ul><li><code>excluding_pantry(ingredients)</code> - Filter out pantry items</li><li><code>from_pantry(ingredients)</code> - Get only pantry items</li><li><code>get_ingredient_list(ingredients)</code> - Normalize ingredient list</li></ul><h3 id=organization-functions>Organization Functions</h3><ul><li><code>aisled(ingredients)</code> - Group by store aisle</li><li><code>db(path, default)</code> - Access database values</li><li><code>underscore(text)</code> - Convert to underscore format</li></ul><h3 id=formatting-filters>Formatting Filters</h3><ul><li><code>titleize</code> - Convert to title case</li><li><code>format</code> - Python string formatting</li><li><code>round</code> - Round numbers</li><li><code>default</code> - Provide fallback values</li></ul><h2 id=practical-workflows>Practical Workflows</h2><h3 id=weekly-meal-planning>Weekly Meal Planning</h3><ol><li><p>Create templates for different views:</p><ul><li>Shopping list with links</li><li>Cost breakdown</li><li>Prep schedule</li><li>Nutrition summary</li></ul></li><li><p>Generate all reports at once:</p></li></ol><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>for recipe in Weekly/*.cook; do
+  cook report -t shopping.jinja &amp;#34;$recipe&amp;#34; -d ./db &amp;gt;&amp;gt; weekly-shopping.md
+  cook report -t cost.jinja &amp;#34;$recipe&amp;#34; -d ./db &amp;gt;&amp;gt; weekly-cost.md
+  cook report -t nutrition.jinja &amp;#34;$recipe&amp;#34; -d ./db &amp;gt;&amp;gt; weekly-nutrition.md
+done</code></pre></div><h3 id=recipe-scaling-with-data>Recipe Scaling with Data</h3><p>Scale recipes while maintaining data connections:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Double recipe with smart shopping list
+cook report -t smart-shopping.jinja &amp;#39;Dinner.cook:2&amp;#39; -d ./db -p ./pantry.conf
+
+# Scale to 10 servings with cost analysis
+cook report -t cost-analysis.jinja &amp;#39;Party Food.cook:10&amp;#39; -d ./db</code></pre></div><h3 id=export-formats>Export Formats</h3><p>Create templates for different export formats:</p><ul><li><strong>YAML</strong>: For automation and APIs</li><li><strong>Markdown</strong>: For documentation and sharing</li><li><strong>HTML</strong>: For web display</li><li><strong>LaTeX</strong>: For cookbook publishing</li><li><strong>CSV</strong>: For spreadsheet import</li></ul><h2 id=building-your-database>Building Your Database</h2><p>Start simple and grow your database over time:</p><ol><li><strong>Begin with essentials</strong>: Add shopping links for frequently used ingredients</li><li><strong>Add nutrition data</strong>: Include calories, macros for meal planning</li><li><strong>Track costs</strong>: Monitor recipe expenses and budget</li><li><strong>Store alternatives</strong>: List substitute ingredients</li><li><strong>Include metadata</strong>: Add tags, categories, dietary info</li></ol><h2 id=tips-and-best-practices>Tips and Best Practices</h2><h3 id=database-organization>Database Organization</h3><ul><li>Use consistent naming (underscore format)</li><li>Group related data in subdirectories</li><li>Version control your database</li><li>Share databases with others</li></ul><h3 id=template-development>Template Development</h3><ul><li>Start with simple templates</li><li>Test with various recipes</li><li>Use default values for missing data</li><li>Create reusable template components</li></ul><h3 id=workflow-integration>Workflow Integration</h3><ul><li>Automate report generation</li><li>Chain multiple reports together</li><li>Export to different formats</li><li>Integrate with other tools</li></ul><h2 id=see-also>See Also</h2><ul><li><a href=/cli/report>CLI Report Command</a> – Detailed command reference</li><li><a href=shopping>Shopping Lists</a> – Focused shopping list workflows</li><li><a href=meal-planning>Meal Planning</a> – Planning multiple meals</li><li><a href=pantry>Pantry Management</a> – Managing your ingredient inventory</li></ul></div><nav class="mt-12 pt-8 border-t border-cooklang-gray-200"><div class="flex justify-between"><a href=/docs/use-cases/pantry/ class="text-cooklang-orange hover:text-orange-600">← Pantry Management
+</a><span></span></div></nav></article></div></div></div></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><img src=/google-play-badge.png alt="Download on Google Play" class=h-10>
+</a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><img src=/app-store-badge.png alt="Download on App Store" class=h-10></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/v7RWBXJ5 class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2025 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>
