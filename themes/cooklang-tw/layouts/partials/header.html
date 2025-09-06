@@ -45,7 +45,7 @@
     </div>
 
     <!-- Mobile Menu Button -->
-    <button class="md:hidden p-2" id="mobile-menu-button">
+    <button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id="mobile-menu-button" aria-label="Toggle mobile menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
@@ -54,8 +54,8 @@
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden">
-  <nav class="px-4 py-2 space-y-2">
+<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+  <nav class="container mx-auto px-4 py-4 space-y-2">
     {{ $current := . }}
     {{ range .Site.Menus.main }}
     {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}

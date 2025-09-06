@@ -6,25 +6,9 @@ description: 'Transform your pantry from chaos to culinary command center'
 
 A well-managed pantry is the foundation of confident cooking. It's the difference between last-minute grocery runs and spontaneous delicious meals. Cooklang transforms pantry management from mental burden to systematic practice, ensuring you always know what you have, what you need, and what you can make.
 
-### Beyond Storage
-
-A pantry isn't just where food lives - it's the intersection of possibility and practicality. Every item represents potential meals, but also requires management: tracking quantities, monitoring expiration, and understanding usage patterns. The goal isn't maximum storage but optimal flow.
-
-The best pantry balances abundance with efficiency. Too little and you're constantly shopping; too much and food expires unused. This balance point varies by household - a family of six needs different reserves than a single person who travels frequently.
-
-### The Living System
-
-Your pantry is alive, constantly changing through consumption and replenishment. Understanding this flow - what moves quickly, what lingers, what expires - transforms reactive restocking into proactive management.
-
-This living system has rhythms. Weekly fresh produce cycles, monthly dry goods replenishment, seasonal preservation bursts. Recognizing these patterns helps maintain the pantry with minimal effort and waste.
-
-## Inventory Intelligence
-
-### What You Actually Have
-
-The mental load of remembering pantry contents is significant. Did I use the last can of tomatoes? How much rice remains? Is that cream still good? Cooklang shifts this cognitive burden from memory to system, freeing mental space for creativity.
-
 #### The Pantry Configuration File
+
+> Only works in CookCLI at the moment
 
 Here's how a `pantry.conf` file tracks your inventory using TOML format:
 

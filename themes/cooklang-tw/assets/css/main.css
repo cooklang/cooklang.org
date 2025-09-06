@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    @apply overflow-x-hidden;
+  }
+  
+  /* Ensure code blocks don't overflow */
+  pre {
+    @apply overflow-x-auto;
+  }
+  
+  /* Fix for mobile Safari background */
+  html {
+    @apply bg-gray-50;
+  }
+}
+
 @layer components {
   .btn {
     @apply inline-flex items-center px-4 py-2 font-medium rounded-lg transition-colors duration-150;

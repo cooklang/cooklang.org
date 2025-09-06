@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" class="scroll-smooth">
+<html lang="{{ or site.Language.LanguageCode site.Language.Lang }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" class="scroll-smooth bg-gray-50">
 <head>
   {{ partial "head.html" . }}
 </head>
-<body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col">
+<body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col overflow-x-hidden">
   <header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50">
     {{ partial "header.html" . }}
   </header>

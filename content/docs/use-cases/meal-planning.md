@@ -6,43 +6,11 @@ description: 'Transform weekly cooking from chaos to calm with structured meal p
 
 Meal planning is the cornerstone of efficient home cooking. It transforms the daily question of "what's for dinner?" from a source of stress into an organized system that saves time, money, and mental energy. Cooklang provides the structure to make meal planning both systematic and flexible.
 
-### Beyond Random Recipes
-
-Instead of choosing meals day by day, meal planning views your week holistically. Monday's roast chicken becomes Tuesday's chicken salad and Wednesday's soup stock. This connected thinking reduces waste while maximizing flavor and efficiency.
-
-The best meal plans balance variety with practicality. While it's tempting to plan seven completely different cuisines for seven days, there's wisdom in choosing recipes that share ingredients, cooking methods, or flavor profiles.
-
-### Time as an Ingredient
-
-Every meal exists in the context of available time. Weeknight dinners need to fit between work and bedtime, while weekend cooking can be more leisurely. By acknowledging time constraints upfront, meal planning becomes realistic rather than aspirational.
-
-This temporal awareness extends to preparation. Sunday's meal prep can chop vegetables for Tuesday's stir-fry, marinate Thursday's chicken, and cook grains for the week. Time invested upfront pays dividends during busy weeknights.
-
-## Weekly Rhythms
-
-### Creating Sustainable Patterns
-
-Successful meal planning often involves creating rhythms - Meatless Mondays, Taco Tuesdays, Pizza Fridays. These anchors provide structure while leaving room for creativity. They simplify decision-making while ensuring variety across the week.
-
-These patterns can be seasonal too. Summer might bring Grill Wednesdays and Salad Saturdays, while winter features Soup Sundays and Slow-Cooker Thursdays. The framework adapts to both weather and lifestyle.
-
-### Flexibility Within Structure
-
-The best meal plans are guides, not dictates. If Tuesday's elaborate dinner becomes impossible due to a late meeting, having a backup plan prevents stress. Perhaps Tuesday's meal shifts to Saturday, replaced by something quicker from the freezer.
-
-This flexibility requires intentional redundancy - keeping ingredients for a quick pasta, stir-fry, or omelet ensures you're never without options. The plan provides direction while life provides surprises.
-
-## Multi-Day Planning
-
-### The Three-Day Sweet Spot
-
-While weekly planning is common, three-day cycles often work better for fresh ingredients and changing schedules. Planning Monday through Wednesday, then reassessing for the rest of the week, balances structure with adaptability.
-
-This shorter cycle reduces food waste from overambitious weekly plans while still providing the benefits of advance planning. It's particularly useful for households with variable schedules or those new to meal planning.
+> `*.menu` files support is only in CookCLI at the moment
 
 ### A Real-World Menu Example
 
-Here's an actual three-day menu file that shows how meal planning works in practice:
+Here's an actual three-day Cooklang `*.menu` file that shows how meal planning works in practice:
 
 ```cooklang
 ---
@@ -94,6 +62,8 @@ Dinner:
 - @./Freezable/Kotletter{}
 ```
 
+[source](https://github.com/dubadub/cookbook/blob/main/Plans/3%20Day%20Plan%20I.menu)
+
 ### How Menu Files Work
 
 This menu demonstrates several powerful concepts:
@@ -119,6 +89,7 @@ Notice how the menu reuses elements efficiently:
 - Coffee and tea quantities account for daily consumption patterns
 
 This interconnected planning reduces both prep time and waste while ensuring variety.
+
 
 ## See Also
 
