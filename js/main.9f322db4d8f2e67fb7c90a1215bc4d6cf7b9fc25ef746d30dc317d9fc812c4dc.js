@@ -1,0 +1,1 @@
+(()=>{document.addEventListener("DOMContentLoaded",function(){let t=document.getElementById("mobile-menu-button"),n=document.getElementById("mobile-menu");t&&n&&(t.addEventListener("click",function(){n.classList.toggle("hidden")}),document.addEventListener("click",function(e){!t.contains(e.target)&&!n.contains(e.target)&&n.classList.add("hidden")}))});})();

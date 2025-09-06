@@ -1,9 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Use Cases on Cooklang: recipe markup language</title><link>/docs/use-cases/</link><description>Recent content in Use Cases on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><atom:link href="/docs/use-cases/index.xml" rel="self" type="application/rss+xml"/><item><title>Shopping Lists</title><link>/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/shopping/</guid><description>&lt;p>One of the most practical applications of Cooklang is transforming meal planning into efficient shopping trips. Instead of manually writing lists or trying to remember what you need, Cooklang tools automatically generate comprehensive shopping lists from your planned meals.&lt;/p>
 &lt;h3 id="from-recipes-to-shopping-cart">From Recipes to Shopping Cart&lt;/h3>
 &lt;p>When you select recipes for the week, Cooklang understands every ingredient needed and combines them intelligently. If Monday's pasta and Thursday's pizza both need mozzarella, your shopping list shows the total amount needed, not separate entries.&lt;/p></description></item><item><title>Meal Planning</title><link>/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/meal-planning/</guid><description>&lt;p>Meal planning is the cornerstone of efficient home cooking. It transforms the daily question of &amp;quot;what's for dinner?&amp;quot; from a source of stress into an organized system that saves time, money, and mental energy. Cooklang provides the structure to make meal planning both systematic and flexible.&lt;/p>
-&lt;h3 id="beyond-random-recipes">Beyond Random Recipes&lt;/h3>
-&lt;p>Instead of choosing meals day by day, meal planning views your week holistically. Monday's roast chicken becomes Tuesday's chicken salad and Wednesday's soup stock. This connected thinking reduces waste while maximizing flavor and efficiency.&lt;/p></description></item><item><title>Pantry Management</title><link>/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/pantry/</guid><description>&lt;p>A well-managed pantry is the foundation of confident cooking. It's the difference between last-minute grocery runs and spontaneous delicious meals. Cooklang transforms pantry management from mental burden to systematic practice, ensuring you always know what you have, what you need, and what you can make.&lt;/p>
-&lt;h3 id="beyond-storage">Beyond Storage&lt;/h3>
-&lt;p>A pantry isn't just where food lives - it's the intersection of possibility and practicality. Every item represents potential meals, but also requires management: tracking quantities, monitoring expiration, and understanding usage patterns. The goal isn't maximum storage but optimal flow.&lt;/p></description></item><item><title>Reports and Data Management</title><link>/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/reports/</guid><description>&lt;p>Cooklang's report system transforms recipes into any format you need through powerful templates and data management. Whether you're creating shopping lists, nutrition labels, recipe cards, or custom exports, the report command combined with the database system provides complete control over your recipe data.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>*.menu&lt;/code> files support is only in CookCLI at the moment&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="a-real-world-menu-example">A Real-World Menu Example&lt;/h3>
+&lt;p>Here's an actual three-day Cooklang &lt;code>*.menu&lt;/code> file that shows how meal planning works in practice:&lt;/p></description></item><item><title>Pantry Management</title><link>/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/pantry/</guid><description>&lt;p>A well-managed pantry is the foundation of confident cooking. It's the difference between last-minute grocery runs and spontaneous delicious meals. Cooklang transforms pantry management from mental burden to systematic practice, ensuring you always know what you have, what you need, and what you can make.&lt;/p>
+&lt;h4 id="the-pantry-configuration-file">The Pantry Configuration File&lt;/h4>
+&lt;blockquote>
+&lt;p>Only works in CookCLI at the moment&lt;/p>
+&lt;/blockquote>
+&lt;p>Here's how a &lt;code>pantry.conf&lt;/code> file tracks your inventory using TOML format:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-toml" data-language="toml">&lt;code class="language-toml">[freezer]
+ice_cream = &amp;amp;#34;1%L&amp;amp;#34;
+frozen_peas = &amp;amp;#34;500%g&amp;amp;#34;
+frozen_fruit = &amp;amp;#34;2%kg&amp;amp;#34;
+ground_beef = { quantity = &amp;amp;#34;1%kg&amp;amp;#34;, frozen = &amp;amp;#34;2024-10-15&amp;amp;#34; }
+chicken_stock = { quantity = &amp;amp;#34;4%cups&amp;amp;#34;, frozen = &amp;amp;#34;2024-10-20&amp;amp;#34; }
+spinach = { bought = &amp;amp;#34;2024-11-05&amp;amp;#34;, expire = &amp;amp;#34;2024-12-05&amp;amp;#34;, quantity = &amp;amp;#34;1%kg&amp;amp;#34; }
+
+[fridge]
+milk = { expire = &amp;amp;#34;2024-11-15&amp;amp;#34;, quantity = &amp;amp;#34;2%L&amp;amp;#34; }
+eggs = &amp;amp;#34;12&amp;amp;#34;
+cheese = { expire = &amp;amp;#34;2024-11-20&amp;amp;#34; }
+butter = &amp;amp;#34;250%g&amp;amp;#34;
+yogurt = { quantity = &amp;amp;#34;500%g&amp;amp;#34;, expire = &amp;amp;#34;2024-11-18&amp;amp;#34; }
+leftovers_beef_stew = { quantity = &amp;amp;#34;3%portions&amp;amp;#34;, made = &amp;amp;#34;2024-11-10&amp;amp;#34; }
+
+[pantry]
+rice = &amp;amp;#34;5%kg&amp;amp;#34;
+pasta = &amp;amp;#34;1%kg&amp;amp;#34;
+flour = &amp;amp;#34;5%kg&amp;amp;#34;
+sugar = &amp;amp;#34;2%kg&amp;amp;#34;
+salt = &amp;amp;#34;1%kg&amp;amp;#34;
+olive_oil = &amp;amp;#34;1%L&amp;amp;#34;
+canned_tomatoes = &amp;amp;#34;4%cans&amp;amp;#34;
+dried_beans = &amp;amp;#34;2%kg&amp;amp;#34;
+
+[spices]
+cumin = { bought = &amp;amp;#34;2024-06-01&amp;amp;#34; }
+paprika = { bought = &amp;amp;#34;2024-03-15&amp;amp;#34; }
+cinnamon = &amp;amp;#34;1%jar&amp;amp;#34;
+black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h4 id="how-pantry-tracking-works">How Pantry Tracking Works&lt;/h4>
+&lt;p>This configuration serves multiple purposes:&lt;/p></description></item><item><title>Reports and Data Management</title><link>/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/reports/</guid><description>&lt;p>Cooklang's report system transforms recipes into any format you need through powerful templates and data management. Whether you're creating shopping lists, nutrition labels, recipe cards, or custom exports, the report command combined with the database system provides complete control over your recipe data.&lt;/p>
 &lt;h2 id="the-report-system">The Report System&lt;/h2>
 &lt;p>The &lt;code>cook report&lt;/code> command uses Jinja2 templates to generate custom outputs from your recipes. This flexibility means you can create anything from simple ingredient lists to complex meal planning documents.&lt;/p></description></item></channel></rss>
