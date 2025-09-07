@@ -4,7 +4,7 @@ To start this website locally you will need to have Hugo installed. If you donâ€
 
 ### Check Hugo version (Hugo 0.51+ Extended is required) 
 
-The site  uses [Hugo Pipes](https://gohugo.io/hugo-pipes/scss-sass/) to compile SCSS and minify assets. Please make sure you have the **Hugo Extended** version installed. If you are not using the extended version this theme will not not compile.
+The site  uses [Hugo Pipes](https://gohugo.io/hugo-pipes/) to compile SCSS and minify assets. Please make sure you have the **Hugo Extended** version installed. If you are not using the extended version this theme will not not compile.
 
 To check your version of Hugo, run:
 
