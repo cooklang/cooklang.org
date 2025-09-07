@@ -39,7 +39,7 @@ Formal EBNF definition of the language can be found [here](https://github.com/co
 * [Ruby](https://github.com/drbragg/cooklang_rb)
 * [Rust](https://github.com/cooklang/cooklang-rs), [Rust](https://github.com/umgefahren/cook-with-rust)
 * [Swift](https://github.com/cooklang/CookInSwift)
-* [TypeScript](https://github.com/cooklang/cooklang-ts)
+* [TypeScript](https://github.com/cooklang/cooklang-ts)1, [TypeScript](https://github.com/tmlmt/cooklang-parser)2
 
 ### Discord server
 
