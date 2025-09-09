@@ -11,6 +11,18 @@
   /* Ensure code blocks don't overflow */
   pre {
     @apply overflow-x-auto;
+    max-width: 100%;
+  }
+  
+  /* Fix code blocks in prose content to have proper scrolling */
+  .prose pre {
+    max-width: 100%;
+    @apply overflow-x-auto;
+  }
+  
+  /* Ensure inline code doesn't break layout */
+  .prose code {
+    word-break: break-word;
   }
   
   /* Fix for mobile Safari background */
