@@ -3,26 +3,23 @@
 @tailwind utilities;
 
 @layer base {
-  /* Prevent horizontal scroll on mobile */
+  /* Allow both horizontal and vertical scrolling on the page */
   html, body {
-    @apply overflow-x-hidden;
+    overflow-x: auto;
+    overflow-y: auto;
   }
   
-  /* Ensure code blocks don't overflow */
-  pre {
+  /* Ensure code blocks have their own scrolling */
+  pre, .prose pre {
     @apply overflow-x-auto;
     max-width: 100%;
+    display: block;
   }
   
-  /* Fix code blocks in prose content to have proper scrolling */
-  .prose pre {
-    max-width: 100%;
-    @apply overflow-x-auto;
-  }
-  
-  /* Ensure inline code doesn't break layout */
-  .prose code {
+  /* Ensure inline code wraps properly */
+  code:not(pre code), .prose code:not(pre code) {
     word-break: break-word;
+    overflow-wrap: break-word;
   }
   
   /* Fix for mobile Safari background */
