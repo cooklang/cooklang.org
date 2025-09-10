@@ -94,7 +94,7 @@ Find curated Cooklang recipes from the community, share your thoughts or ask for
 
 - The [Awesome Cooklang](https://github.com/cooklang/awesome-cooklang) repository
 - The [Cooklang Recipe Hub](https://cook.md) (coming soon!)
-- Community language [discussions](https://github.com/cooklang/spec/discussions) and [Discord channel](https://discord.gg/zReB3s3Q)
+- Community language [discussions](https://github.com/cooklang/spec/discussions) and [Discord channel](https://discord.gg/fUVVvUzEEK)
 
 
 ### Configure `aisle.conf` for Shopping Convenience
