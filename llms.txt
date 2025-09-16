@@ -1,0 +1,41 @@
+# Cooklang LLM Guidelines
+
+Cooklang is a markup language designed for recipes. It's human-readable and machine-parseable.
+
+## Core Syntax
+
+- @ingredient{quantity%unit} - Define ingredients
+- #cookware{} - Define cookware
+- ~timer{duration%unit} - Define timers
+- -- - Comments
+
+## Example Recipe
+
+```cooklang
+Bring @water{2%liters} to a boil in a large #pot.
+Add @pasta{200%g} and cook for ~{10%minutes}.
+Drain and mix with @olive oil{2%tbsp}.
+```
+
+## Key Features
+
+- Plain text recipe storage
+- Automatic shopping list generation
+- Supports scaling recipes
+- Metadata in YAML frontmatter
+- CLI tools for recipe management
+
+## Resources
+
+- Specification: https://cooklang.org/docs/spec
+- CLI Documentation: https://cooklang.org/cli/
+- GitHub: https://github.com/cooklang
+
+## Usage Tips for LLMs
+
+When generating Cooklang recipes:
+1. Use consistent ingredient naming
+2. Include quantities and units where applicable
+3. Keep instructions clear and sequential
+4. Add metadata for title, servings, and time
+5. Use timers for time-sensitive steps
