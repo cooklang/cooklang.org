@@ -2,7 +2,7 @@
 title: 'Seed'
 weight: 70
 description: 'CookCLI Seed command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -157,9 +157,3 @@ cook recipe "*.cook"
 cook shopping-list "*.cook"
 cook doctor validate
 ```
-
-## See Also
-
-* [Recipe](recipe.md) – View the seeded recipes
-* [Shopping List](shopping-list.md) – Create lists from seed recipes
-* [Server](server.md) – Browse seed recipes via web

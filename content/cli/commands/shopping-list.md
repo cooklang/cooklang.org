@@ -2,7 +2,7 @@
 title: 'Shopping List'
 weight: 20
 description: 'CookCLI Shopping List command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -370,9 +370,3 @@ cook shopping-list ~/recipes/Pizza.cook
 # Change directory first
 cd ~/recipes && cook shopping-list Pizza.cook
 ```
-
-## See Also
-
-* [Recipe](recipe.md) – View and scale individual recipes
-* [Doctor](doctor.md) – Check aisle configuration
-* [Server](server.md) – Browse recipes and create shopping lists via web interface

@@ -2,7 +2,7 @@
 title: 'Recipe'
 weight: 10
 description: 'CookCLI Recipe command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -252,8 +252,3 @@ If a recipe isn't found by name, try:
 1. Escaping whitespaces
 2. Checking you're in the right directory
 
-## See Also
-
-* [Shopping List](shopping-list.md) – Create shopping lists from recipes
-* [Doctor](doctor.md) – Validate recipe syntax and references
-* [Search](search.md) – Find recipes by content

@@ -2,7 +2,7 @@
 title: 'Report'
 weight: 80
 description: 'CookCLI Report command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -498,9 +498,3 @@ If a variable doesn't exist:
 {# Or use default #}
 {{ recipe.metadata.note | default("") }}
 ```
-
-## See Also
-
-* [Recipe](recipe.md) – View recipe data structure
-* [Shopping List](shopping-list.md) – Generate shopping lists
-* [Server](server.md) – Web-based recipe viewing

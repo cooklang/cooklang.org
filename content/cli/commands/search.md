@@ -2,7 +2,7 @@
 title: 'Search'
 weight: 40
 description: 'CookCLI Search command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -309,9 +309,3 @@ For very large collections:
 * Organize recipes into folders
 * Search specific directories
 * Consider using external search tools like `ripgrep`
-
-## See Also
-
-* [Recipe](recipe.md) – View found recipes
-* [Shopping List](shopping-list.md) – Create lists from search results
-* [Server](server.md) – Search via web interface

@@ -2,7 +2,7 @@
 title: 'Server'
 weight: 30
 description: 'CookCLI Server command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -352,9 +352,3 @@ When using `--host`:
 ### Read-Only Access
 
 The web interface provides read-only access to recipes. Files cannot be modified through the web interface.
-
-## See Also
-
-* [Recipe](recipe.md) – Command-line recipe viewing
-* [Shopping List](shopping-list.md) – Generate shopping lists via CLI
-* [Search](search.md) – Search recipes from command line

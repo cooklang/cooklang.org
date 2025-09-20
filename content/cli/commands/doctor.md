@@ -2,7 +2,7 @@
 title: 'Doctor'
 weight: 60
 description: 'CookCLI Doctor command documentation'
-date: 2025-09-04T17:51:42+00:00
+date: 2025-09-20T19:12:48+00:00
 ---
 
 
@@ -235,9 +235,3 @@ Use appropriate configuration:
 ```bash
 cook shopping-list *.cook --aisle walmart-aisle.conf
 ```
-
-## See Also
-
-* [Recipe](recipe.md) – View and validate individual recipes
-* [Shopping List](shopping-list.md) – Uses aisle configuration
-* [Server](server.md) – Browse recipes with validation status
