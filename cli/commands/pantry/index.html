@@ -1,0 +1,125 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Pantry | Cooklang: recipe markup language</title>
+<link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto">
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><div class=bg-white><div class="container mx-auto px-4 py-8"><div class="flex gap-8"><aside class="hidden lg:block w-64 flex-shrink-0"><nav class="sticky top-20"><h3 class="font-semibold text-cooklang-gray-900 mb-4">CLI Documentation</h3><ul class=space-y-2><li><a href=/cli/download/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Download CookCLI</a></li><li><div class="font-medium text-cooklang-gray-700 mb-2 mt-4">Commands</div><ul class="ml-4 space-y-1"><li><a href=/cli/commands/recipe/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Recipe</a></li><li><a href=/cli/commands/shopping-list/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Shopping List</a></li><li><a href=/cli/commands/server/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Server</a></li><li><a href=/cli/commands/search/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Search</a></li><li><a href=/cli/commands/import/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Import</a></li><li><a href=/cli/commands/doctor/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Doctor</a></li><li><a href=/cli/commands/seed/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Seed</a></li><li><a href=/cli/commands/report/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Report</a></li><li><a href=/cli/commands/pantry/ class="block py-1 px-2 text-sm rounded bg-cooklang-orange text-white">Pantry</a></li><li><a href=/cli/commands/update/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Update</a></li></ul></li></ul></nav></aside><article class="flex-1 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Pantry</h1></header><div class="prose prose-lg max-w-none text-cooklang-gray-700"><p>The <code>pantry</code> command helps you manage and analyze your pantry inventory, tracking what items are low on stock, expiring soon, or available for cooking.</p><h2 id=overview>Overview</h2><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook pantry [OPTIONS] &amp;lt;SUBCOMMAND&amp;gt;</code></pre></div><h2 id=options>Options</h2><ul><li><code>-b, --base-path &lt;PATH></code> - Base path for recipes and configuration files</li><li><code>-f, --format &lt;FORMAT></code> - Output format: <code>human</code> (default), <code>json</code>, or <code>yaml</code></li><li><code>-v, --verbose</code> - Increase verbosity (can be used multiple times)</li><li><code>-h, --help</code> - Print help information</li></ul><h2 id=subcommands>Subcommands</h2><h3 id=depleted-alias-d><code>depleted</code> (alias: <code>d</code>)</h3><p>Shows items that are out of stock or have low quantities.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook pantry depleted [OPTIONS]</code></pre></div><p><strong>Options:</strong></p><ul><li><code>--all</code> - Show all items including those without quantities</li></ul><p><strong>How it works:</strong></p><ul><li>Shows items where current quantity is at or below the defined <code>low</code> threshold</li><li>If no <code>low</code> threshold is defined, uses heuristics (≤100g/ml, ≤1 item)</li><li>Displays the low threshold for each item when available</li></ul><p><strong>Example:</strong></p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>$ cook pantry depleted
+Depleted or Low Stock Items:
+============================
+
+PANTRY:
+  • flour (400%g) [low when &amp;lt; 500%g]
+  • garlic (5) [low when &amp;lt; 10]
+  • onion (3) [low when &amp;lt; 5]</code></pre></div><h3 id=expiring-alias-e><code>expiring</code> (alias: <code>e</code>)</h3><p>Shows items that are expiring soon.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook pantry expiring [OPTIONS]</code></pre></div><p><strong>Options:</strong></p><ul><li><code>-d, --days &lt;DAYS></code> - Number of days to look ahead (default: 7)</li><li><code>--include-unknown</code> - Include items without expiry dates</li></ul><p><strong>Example:</strong></p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>$ cook pantry expiring --days 14
+Items Expiring Within 14 Days:
+================================
+
+Expiring Soon:
+  • yogurt - 2025-09-17 (expires tomorrow) [fridge]
+  • eggs - 2025-09-18 (expires in 2 days) [fridge]
+  • milk - 2025-09-20 (expires in 4 days) [fridge]</code></pre></div><h3 id=recipes-alias-r><code>recipes</code> (alias: <code>r</code>)</h3><p>Lists recipes that can be made with items currently in pantry.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook pantry recipes [OPTIONS]</code></pre></div><p><strong>Options:</strong></p><ul><li><code>-p, --partial</code> - Include partial matches (recipes where most ingredients are available)</li><li><code>--threshold &lt;PERCENT></code> - Minimum percentage of ingredients that must be available for partial matches (default: 75)</li></ul><p><strong>Example:</strong></p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>$ cook pantry recipes --partial --threshold 50
+Recipes You Can Make with Pantry Items:
+========================================
+
+✓ Complete Matches (all ingredients available):
+  • Pasta Carbonara
+  • Simple Salad
+
+⚠ Partial Matches (50%&#43; ingredients available):
+  • Pizza Margherita (80% available)
+    Missing: fresh basil, mozzarella</code></pre></div><h2 id=pantry-configuration>Pantry Configuration</h2><p>The pantry inventory is defined in <code>pantry.conf</code> (TOML format), which is searched for in:</p><ol><li><code>./config/pantry.conf</code> - Local to recipe directory</li><li><code>~/.config/cook/pantry.conf</code> - Global configuration (Linux/macOS)</li></ol><h3 id=configuration-format>Configuration Format</h3><div class=code-toolbar><pre class=language-toml data-language=toml><code class=language-toml>[fridge]
+milk = { quantity = &amp;#34;500%ml&amp;#34;, low = &amp;#34;200%ml&amp;#34;, expire = &amp;#34;2025-09-20&amp;#34; }
+eggs = { quantity = &amp;#34;12&amp;#34;, low = &amp;#34;6&amp;#34;, bought = &amp;#34;2025-09-10&amp;#34;, expire = &amp;#34;2025-09-25&amp;#34; }
+butter = &amp;#34;250%g&amp;#34;  # Simple format with just quantity
+
+[pantry]
+flour = { quantity = &amp;#34;2%kg&amp;#34;, low = &amp;#34;500%g&amp;#34; }
+sugar = { quantity = &amp;#34;1%kg&amp;#34;, low = &amp;#34;200%g&amp;#34; }
+olive oil = { quantity = &amp;#34;750%ml&amp;#34;, low = &amp;#34;250%ml&amp;#34; }
+
+[spices]
+oregano = { quantity = &amp;#34;20%g&amp;#34; }
+basil = { quantity = &amp;#34;15%g&amp;#34;, low = &amp;#34;5%g&amp;#34; }</code></pre></div><h3 id=item-attributes>Item Attributes</h3><p>Each pantry item can have the following optional attributes:</p><ul><li><strong><code>quantity</code></strong> - Current amount (e.g., "500%ml", "2%kg", "5")</li><li><strong><code>low</code></strong> - Threshold for low stock warning (same format as quantity)</li><li><strong><code>bought</code></strong> - Purchase date (e.g., "2025-09-10")</li><li><strong><code>expire</code></strong> - Expiry date (e.g., "2025-09-25")</li></ul><h3 id=low-stock-threshold>Low Stock Threshold</h3><p>The <code>low</code> attribute defines when an item should be considered low on stock:</p><div class=code-toolbar><pre class=language-toml data-language=toml><code class=language-toml>flour = { quantity = &amp;#34;400%g&amp;#34;, low = &amp;#34;500%g&amp;#34; }  # Low: 400 &amp;lt; 500
+sugar = { quantity = &amp;#34;2%kg&amp;#34;, low = &amp;#34;1%kg&amp;#34; }    # OK: 2 &amp;gt; 1</code></pre></div><p><strong>Important:</strong> Comparisons only work when units match:</p><ul><li>✅ <code>400%g</code> vs <code>500%g</code> (both grams)</li><li>✅ <code>2%kg</code> vs <code>1%kg</code> (both kilograms)</li><li>❌ <code>1%kg</code> vs <code>500%g</code> (different units - no comparison)</li></ul><p>For items without units (counts), use plain numbers:</p><div class=code-toolbar><pre class=language-toml data-language=toml><code class=language-toml>eggs = { quantity = &amp;#34;6&amp;#34;, low = &amp;#34;12&amp;#34; }</code></pre></div><h2 id=integration-with-other-commands>Integration with Other Commands</h2><h3 id=shopping-list>Shopping List</h3><p>The pantry configuration works with the shopping list command to:</p><ul><li>Filter out items already in stock</li><li>Show what needs restocking based on low thresholds</li></ul><h3 id=recipe-command>Recipe Command</h3><p>Recipes can reference pantry items and the system will:</p><ul><li>Check availability before cooking</li><li>Warn about low stock items used in recipes</li></ul><h2 id=examples>Examples</h2><h3 id=check-low-stock-items>Check Low Stock Items</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Show items that are low or out
+cook pantry depleted
+
+# Show all items including those with sufficient stock
+cook pantry depleted --all</code></pre></div><h3 id=monitor-expiring-items>Monitor Expiring Items</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Check items expiring in the next week
+cook pantry expiring
+
+# Check items expiring in the next month
+cook pantry expiring --days 30
+
+# Include items without expiry dates
+cook pantry expiring --include-unknown</code></pre></div><h3 id=find-available-recipes>Find Available Recipes</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Show only recipes with all ingredients available
+cook pantry recipes
+
+# Include recipes where you have most ingredients
+cook pantry recipes --partial
+
+# Show recipes with at least 60% of ingredients
+cook pantry recipes --partial --threshold 60</code></pre></div><h3 id=different-recipe-collections>Different Recipe Collections</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Check pantry for a different recipe collection
+cook pantry -b ~/recipes depleted
+
+# Use pantry in another directory
+cook pantry --base-path ../other-recipes recipes</code></pre></div><h3 id=output-formats>Output Formats</h3><p>The pantry command supports multiple output formats for easy integration with other tools:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Default human-readable format
+cook pantry depleted
+
+# JSON output for programmatic use
+cook pantry -f json depleted
+
+# YAML output
+cook pantry -f yaml expiring --days 30
+
+# Combine with other options
+cook pantry -f json recipes --partial --threshold 60</code></pre></div><p><strong>JSON Output Example:</strong></p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;items&amp;#34;: [
+    {
+      &amp;#34;name&amp;#34;: &amp;#34;flour&amp;#34;,
+      &amp;#34;section&amp;#34;: &amp;#34;pantry&amp;#34;,
+      &amp;#34;quantity&amp;#34;: &amp;#34;400%g&amp;#34;,
+      &amp;#34;low_threshold&amp;#34;: &amp;#34;500%g&amp;#34;,
+      &amp;#34;is_low&amp;#34;: true
+    },
+    {
+      &amp;#34;name&amp;#34;: &amp;#34;eggs&amp;#34;,
+      &amp;#34;section&amp;#34;: &amp;#34;fridge&amp;#34;,
+      &amp;#34;quantity&amp;#34;: &amp;#34;6&amp;#34;,
+      &amp;#34;low_threshold&amp;#34;: &amp;#34;12&amp;#34;,
+      &amp;#34;is_low&amp;#34;: true
+    }
+  ]
+}</code></pre></div><p><strong>YAML Output Example:</strong></p><div class=code-toolbar><pre class=language-yaml data-language=yaml><code class=language-yaml>items:
+- name: milk
+  section: fridge
+  expire_date: &amp;#34;2025-09-20&amp;#34;
+  days_until_expiry: 4
+  status: &amp;#34;expires in 4 days&amp;#34;
+- name: eggs
+  section: fridge
+  expire_date: &amp;#34;2025-09-18&amp;#34;
+  days_until_expiry: 2
+  status: &amp;#34;expires in 2 days&amp;#34;</code></pre></div><h2 id=tips>Tips</h2><ol><li><strong>Regular Updates</strong>: Keep your pantry.conf updated as you shop and use items</li><li><strong>Set Realistic Thresholds</strong>: Set <code>low</code> values based on your shopping patterns</li><li><strong>Use Sections</strong>: Organize items by storage location (fridge, freezer, pantry, etc.)</li><li><strong>Track Expiry</strong>: Add expiry dates to perishables to reduce waste</li><li><strong>Combine with Shopping</strong>: Use <code>pantry depleted</code> output to create shopping lists</li><li><strong>Automate with JSON/YAML</strong>: Use <code>-f json</code> or <code>-f yaml</code> for scripting and automation</li><li><strong>Integration</strong>: Parse JSON output in scripts to send notifications, generate reports, or update other systems</li></ol></div><nav class="mt-12 pt-8 border-t border-cooklang-gray-200"><div class="flex justify-between"><a href=/cli/commands/update/ class="text-cooklang-orange hover:text-orange-600">← Update
+</a><a href=/cli/commands/report/ class="text-cooklang-orange hover:text-orange-600">Report →</a></div></nav></article></div></div></div></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><img src=/google-play-badge.png alt="Download on Google Play" class=h-10>
+</a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><img src=/app-store-badge.png alt="Download on App Store" class=h-10></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2025 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>
