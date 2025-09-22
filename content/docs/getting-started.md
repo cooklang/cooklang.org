@@ -110,9 +110,97 @@ milk
 butter
 ```
 
-## 4. Automate Your Workflow
+## 4. Command-Line Interface (CookCLI)
 
-Cooklang provides automation tools that can streamline your recipe management. Install the CLI and explore the [automation documentation](/cli/help/) for ideas. There's a community alternative [cooklang-chef](https://github.com/Zheoni/cooklang-chef).
+CookCLI is a powerful command-line tool that brings automation and advanced functionality to your recipe workflow. It follows UNIX philosophy - each command does one thing well and can be combined with other tools.
+
+### Installation
+
+**macOS (Homebrew):**
+```bash
+brew install cookcli
+```
+
+**Build from Source:**
+```bash
+git clone https://github.com/cooklang/cookcli.git
+cd cookcli
+cargo build --release
+```
+
+### Core Commands
+
+CookCLI provides a comprehensive set of commands for managing your recipes:
+
+#### **Recipe Management**
+- `cook recipe` - Parse and display recipe files in various formats (human-readable, JSON, YAML)
+- `cook doctor` - Validate recipes and check for syntax errors
+- `cook search` - Search through recipes by ingredient or text
+- `cook import` - Import recipes from websites and convert to Cooklang
+
+#### **Meal Planning & Shopping**
+- `cook shopping-list` - Generate shopping lists from multiple recipes with scaling support
+- `cook pantry` - Track your pantry inventory, find what's low on stock or expiring
+  - `pantry depleted` - Show items that need restocking
+  - `pantry expiring` - Find items expiring soon
+  - `pantry recipes` - Discover what you can cook with available ingredients
+
+#### **Visualization & Sharing**
+- `cook server` - Launch a web server to browse your recipe collection visually
+- `cook report` - Generate custom reports using templates (PDFs, summaries, meal plans)
+
+{{< server-carousel >}}
+
+#### **Getting Started**
+- `cook seed` - Initialize a directory with example recipes
+- `cook update` - Update CookCLI to the latest version
+
+### Quick Examples
+
+```bash
+# Start with sample recipes
+cook seed
+
+# View a recipe
+cook recipe "Neapolitan Pizza.cook"
+
+# Scale a recipe to serve 6
+cook recipe "Pasta.cook:3"
+
+# Create a shopping list for the week
+cook shopping-list "Monday Dinner.cook" "Tuesday Lunch.cook:2"
+
+# Check what's low in your pantry
+cook pantry depleted
+
+# Find recipes you can make right now
+cook pantry recipes
+
+# Search for all chicken recipes
+cook search chicken
+
+# Start the web interface
+cook server
+```
+
+### Integration with UNIX Tools
+
+CookCLI outputs can be piped and processed with standard tools:
+
+```bash
+# Export recipe to JSON for processing
+cook recipe "Pizza.cook" -f json | jq '.ingredients'
+
+# Find top 5 most used ingredients
+cook search --all | grep "@" | sort | uniq -c | sort -rn | head -5
+
+# Create shopping list for all pasta recipes
+cook shopping-list $(ls *Pasta*.cook)
+```
+
+### Advanced Workflow Automation
+
+Cooklang provides automation tools that can streamline your recipe management. Explore the [full CLI documentation](/cli/commands/) for more ideas. There's also a community alternative [cooklang-chef](https://github.com/Zheoni/cooklang-chef).
 
 ## What's Next?
 

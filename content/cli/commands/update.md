@@ -2,7 +2,7 @@
 title: 'Update'
 weight: 99
 description: 'CookCLI Update command documentation'
-date: 2025-09-20T19:12:48+00:00
+date: 2025-09-22T19:30:34+00:00
 ---
 
 

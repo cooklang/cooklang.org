@@ -37,8 +37,9 @@ description: 'CookCLI commands documentation'
 
 EOF
     
-    # Copy ALL README content, just transforming command links
-    sed 's/\[\([^]]*\)\](\([^)]*\)\.md)/[\1](\1\/)/g' "$COOKCLI_DOCS/README.md" >> "$temp_file"
+    # Copy ALL README content, keeping links as-is for commands/_index.md
+    # Commands are in the same directory, so just use the filename
+    sed 's/\[\([^]]*\)\](\([^)]*\)\.md)/[\1](\2)/g' "$COOKCLI_DOCS/README.md" >> "$temp_file"
     
     mv "$temp_file" "$COMMANDS_DIR/_index.md"
     echo "Created commands index from CLI README (full content)"
@@ -133,6 +134,7 @@ sed -n '1,/^---$/p' "$SITE_CLI_DIR/_index.md" > "$temp_file"
 echo "" >> "$temp_file"
 
 # Extract overview content from README (skip title and installation)
+# First extract the content, then fix the links
 awk '
     /^# CookCLI Documentation$/ { next }
     /^## Installation$/ { exit }
@@ -145,17 +147,14 @@ awk '
         next
     }
     in_commands && /^\* / {
-        # Transform command links to Hugo-style links
-        gsub(/\[([^\]]+)\]\([^)]+\.md\)/, "[\\1](commands/\\1/)")
-        gsub(/shopping-list/, "shopping-list")
         print
         next
     }
     in_commands && /^$/ { in_commands = 0 }
-    { 
-        if (!in_commands) print 
+    {
+        if (!in_commands) print
     }
-' "$COOKCLI_DOCS/README.md" >> "$temp_file"
+' "$COOKCLI_DOCS/README.md" | sed 's/\[\([^]]*\)\](\([^)]*\)\.md)/[\1](commands\/\2)/g' >> "$temp_file"
 
 
 # Replace the _index.md file

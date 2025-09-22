@@ -1,0 +1,159 @@
+{{ $id := printf "carousel%d" (now.Unix) }}
+
+<style>
+.imagecarousel{{ $id }} {
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.imagecarousel{{ $id }} .carousel-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.imagecarousel{{ $id }} .carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.imagecarousel{{ $id }} .carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.imagecarousel{{ $id }} .carousel-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.imagecarousel{{ $id }} .carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.5);
+    border: 2px solid white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.imagecarousel{{ $id }} .carousel-dot.active {
+    background: white;
+}
+
+.imagecarousel{{ $id }} .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 1rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.imagecarousel{{ $id }} .carousel-button:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+.imagecarousel{{ $id }} .carousel-button.prev {
+    left: 10px;
+}
+
+.imagecarousel{{ $id }} .carousel-button.next {
+    right: 10px;
+}
+
+.imagecarousel{{ $id }} .carousel-caption {
+    position: absolute;
+    bottom: 60px;
+    left: 20px;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+</style>
+
+<div class="imagecarousel{{ $id }}">
+    <div class="carousel-container" id="container{{ $id }}">
+        <div class="carousel-slide">
+            <img width="600" height="359" alt="Recipe Collection" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
+            <div class="carousel-caption">Recipe Collection</div>
+        </div>
+        <div class="carousel-slide">
+            <img width="600" height="359" alt="Recipe View" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
+            <div class="carousel-caption">Recipe View</div>
+        </div>
+        <div class="carousel-slide">
+            <img width="600" height="359" alt="Shopping List" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
+            <div class="carousel-caption">Shopping List</div>
+        </div>
+        <div class="carousel-slide">
+            <img width="600" height="359" alt="Pantry Management" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
+            <div class="carousel-caption">Pantry Management</div>
+        </div>
+    </div>
+
+    <button class="carousel-button prev" onclick="moveSlide{{ $id }}(-1)">‹</button>
+    <button class="carousel-button next" onclick="moveSlide{{ $id }}(1)">›</button>
+
+    <div class="carousel-nav">
+        <span class="carousel-dot active" onclick="currentSlide{{ $id }}(1)"></span>
+        <span class="carousel-dot" onclick="currentSlide{{ $id }}(2)"></span>
+        <span class="carousel-dot" onclick="currentSlide{{ $id }}(3)"></span>
+        <span class="carousel-dot" onclick="currentSlide{{ $id }}(4)"></span>
+    </div>
+</div>
+
+<script>
+(function() {
+    let slideIndex = 1;
+    const totalSlides = 4;
+    const containerId = 'container{{ $id }}';
+
+    window.moveSlide{{ $id }} = function(n) {
+        showSlide(slideIndex += n);
+    }
+
+    window.currentSlide{{ $id }} = function(n) {
+        showSlide(slideIndex = n);
+    }
+
+    function showSlide(n) {
+        const container = document.getElementById(containerId);
+        const dots = container.parentElement.getElementsByClassName('carousel-dot');
+
+        if (n > totalSlides) slideIndex = 1;
+        if (n < 1) slideIndex = totalSlides;
+
+        container.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+        for (let i = 0; i < dots.length; i++) {
+            dots[i].classList.remove('active');
+        }
+
+        if (dots[slideIndex - 1]) {
+            dots[slideIndex - 1].classList.add('active');
+        }
+    }
+
+    // Auto-advance carousel
+    setInterval(() => {
+        moveSlide{{ $id }}(1);
+    }, 5000);
+})();
+</script>

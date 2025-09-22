@@ -2,7 +2,7 @@
 title: 'Seed'
 weight: 70
 description: 'CookCLI Seed command documentation'
-date: 2025-09-20T19:12:48+00:00
+date: 2025-09-22T19:30:34+00:00
 ---
 
 
