@@ -1,6 +1,6 @@
 ---
 title: 'Cooklang Specification'
-date: 2025-09-04T14:59:22+00:00
+date: 2025-09-22T05:25:20+00:00
 draft: false
 weight: 2
 summary: This is the specification and reference for writing a recipe in Cooklang.
@@ -9,6 +9,8 @@ summary: This is the specification and reference for writing a recipe in Cooklan
 > Just heads up, that not all latest language features supported in the apps yet.
 > You can track progress at https://github.com/orgs/cooklang/projects/4
 
+> Just heads up, that not all latest language features supported in the apps yet.
+> You can track progress at https://github.com/orgs/cooklang/projects/4
 
 * [About Cooklang](#about-cooklang)
 * [The .cook Recipe Specification](#the-cook-recipe-specification)
@@ -19,6 +21,8 @@ summary: This is the specification and reference for writing a recipe in Cooklan
    * [Cookware](#cookware)
    * [Timer](#timer)
 * [Shopping Lists](#shopping-lists)
+* [Pantry Configuration](#pantry-configuration)
+* [Scaling and Servings](#scaling-and-servings)
 * [Conventions](#conventions)
    * [Adding Pictures](#adding-pictures)
    * [Canonical metadata](#canonical-metadata)
@@ -54,6 +58,8 @@ To use a unit of an item, such as weight or volume, add a `%` between the quanti
 ```cooklang
 Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
 ```
+
+Now you can try Cooklang and experiment with a few things in the [Cooklang Playground](https://cooklang.github.io/cooklang-rs/)!
 
 ### Steps
 
@@ -116,7 +122,7 @@ Applications can use this name in notifications.
 ## Shopping Lists
 To support the creation of shopping lists by apps and the command line tool, Cooklang includes a specification for a configuration file to define how ingredients should be grouped on the final shopping list.
 You can use `[]` to define a category name. These names are arbitrary, so you can customize them to meet your needs. For example, each category could be an aisle or section of the store, such as `[produce]` and `[deli]`.
-```
+```toml
 [produce]
 potatoes
 
@@ -125,7 +131,7 @@ milk
 butter
 ```
 Or, you might be going to multiple stores, in which case you might use `[Tesco]` and `[Costco]`.
-```
+```toml
 [Costco]
 potatoes
 milk
@@ -136,7 +142,7 @@ bread
 salt
 ```
 You can also define synonyms with `|`.
-```
+```toml
 [produce]
 potatoes
 
@@ -153,16 +159,16 @@ tuna|chicken of the sea
 
 ## Conventions
 
-There're things which aren't part of the language specification but rather common conventions used in tools build on top of the language.
+There are things which aren't part of the language specification but rather common conventions used in tools built on top of the language.
 
 ### Adding Pictures
-You can add images to your recipe by including a supported image file (`.png`,`.jpg`) matching the name of the recipe recipe in the same directory.
-```
+You can add images to your recipe by including a supported image file (`.png`,`.jpg`) matching the name of the recipe in the same directory.
+```sh
 Baked Potato.cook
 Baked Potato.jpg
 ```
 You can also add images for specific steps by including a step number before the file extension.
-```
+```sh
 Chicken French.cook
 Chicken French.0.jpg
 Chicken French.3.jpg
@@ -190,6 +196,112 @@ To use your recipes across different apps, follow the conventions on how to name
 | `image`, `images`, `picture`, `pictures`|URL to a recipe image.|`https://example.org/recipe_image.jpg` or array of URLs|
 | `title`|Title of the recipe.|`Uzbek Manti`|
 | `introduction`, `description`|Additional notes about the recipe.|`This recipe is a traditional Uzbek dish that is made with a variety of vegetables and meat.`|
+
+## Pantry Configuration
+
+Cooklang supports a pantry inventory file in TOML format to track ingredients you have on hand. This file helps with meal planning and shopping list generation.
+
+### Format
+
+The pantry file uses TOML sections to organize items by storage location:
+
+```toml
+[freezer]
+cranberries = "500%g"
+spinach = { bought = "05.05.2024", expire = "05.06.2025", quantity = "1%kg" }
+
+[fridge]
+milk = { expire = "10.05.2024", quantity = "1%L" }
+
+[pantry]
+rice = "5%kg"
+```
+
+### Supported Attributes
+
+Each item can be specified as either:
+- A simple quantity string: `"500%g"`
+- An object with attributes:
+  - `bought`: Date when the item was purchased (e.g., "05.05.2024")
+  - `expire`: Expiration date of the item (e.g., "05.06.2025")
+  - `quantity`: Amount using Cooklang quantity format (e.g., "1%kg")
+  - `low`: Low stock threshold for alerts (e.g., "100%g")
+
+### Example
+
+```toml
+[freezer]
+ice_cream = "2%L"
+frozen_peas = { bought = "01.01.2024", quantity = "500%g", low = "200%g" }
+
+[fridge]
+cheese = { expire = "15.05.2024" }
+yogurt = { bought = "05.05.2024", expire = "12.05.2024", quantity = "500%ml" }
+
+[pantry]
+flour = "5%kg"
+pasta = { quantity = "1%kg", low = "200%g" }
+```
+
+Applications can use this data to check ingredient availability, track expiration dates, and generate shopping lists based on what's running low.
+
+## Scaling and Servings
+
+Cooklang supports automatic recipe scaling based on servings. This allows users to adjust recipes for different numbers of people.
+
+### Defining Servings
+
+Specify the default serving size in the metadata:
+
+```yaml
+---
+servings: 2
+---
+```
+
+If not specified, recipes default to 1 serving. All ingredient quantities in the recipe are written for this default serving size.
+
+### Scaling Behavior
+
+#### Linear Scaling (Default)
+Most ingredients scale linearly with servings:
+
+```cooklang
+Add @milk{1/2%cup} and mix until smooth.
+```
+
+When scaling from 2 to 4 servings, the milk quantity doubles to 1 cup.
+
+#### Fixed Quantities
+Some ingredients shouldn't scale. Use `=` to lock the quantity:
+
+```cooklang
+Season with @salt{=1%tsp} to taste.
+```
+
+This keeps salt at 1 tsp regardless of serving size.
+
+### What Doesn't Scale
+
+- **Timers**: Cooking times typically remain the same regardless of portion size
+- **Cookware**: Pan and pot sizes don't automatically adjust
+
+### Example
+
+```cooklang
+---
+servings: 4
+---
+
+Mix @flour{500%g} with @water{300%ml}.
+Add @yeast{=1%packet} and let rise for ~{1%hour}.
+```
+
+When scaled to 8 servings:
+- Flour becomes 1000g (doubled)
+- Water becomes 600ml (doubled)
+- Yeast stays at 1 packet (fixed)
+- Rising time remains 1 hour (timers don't scale)
 
 ## Advanced
 
@@ -223,14 +335,23 @@ Many recipes involve repetitive ingredient preparations, such as peeling or chop
 Mix @onion{1}(peeled and finely chopped) and @garlic{2%cloves}(peeled and minced) into paste.
 ```
 
-These preparations will be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
+### Referencing other recipes
+
+You can reference other recipes using the existing `@` ingredient syntax, inferring relative file paths from the ingredient name:
+
+```cooklang
+Pour over with @./sauces/Hollandaise{150%g}.
+```
+
+These preparations should be clearly displayed in the ingredient list, allowing you to get everything ready before you start cooking.
 
 ## Projects Which Use Cooklang
-
-* [Cooklang playground](https://biowaffeln.github.io/cooklang-parser/)
+* [Cooklang playground](https://cooklang.github.io/cooklang-rs/)
 * [Obsidian plugin](https://github.com/deathau/cooklang-obsidian)
 * [Official command line application](https://github.com/cooklang/CookCLI)
+* [Community alternative command line application](https://github.com/Zheoni/cooklang-chef)
 * [Official iOS application](https://cooklang.org/app/)
+* [Official Android application](https://cooklang.org/app/)
 
 
 ## Syntax Highlighting
@@ -240,3 +361,8 @@ These preparations will be clearly displayed in the ingredient list, allowing yo
 * [SublimeText](https://github.com/cooklang/CookSublime)
 * [Vim](https://github.com/luizribeiro/vim-cooklang)
 * [VSCode](https://github.com/cooklang/CookVSCode)
+* More options: See [syntax highlighting documentation](https://cooklang.org/docs/syntax-highlighting/).
+
+## Roadmap
+
+There's a GitHub board where we show what we're working on and what's next https://github.com/orgs/cooklang/projects/4.
