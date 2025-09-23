@@ -1,13 +1,10 @@
 ---
 title: 'Cooklang Specification'
-date: 2025-09-22T05:25:20+00:00
+date: 2025-09-23T16:11:26+00:00
 draft: false
 weight: 2
 summary: This is the specification and reference for writing a recipe in Cooklang.
 ---
-
-> Just heads up, that not all latest language features supported in the apps yet.
-> You can track progress at https://github.com/orgs/cooklang/projects/4
 
 > Just heads up, that not all latest language features supported in the apps yet.
 > You can track progress at https://github.com/orgs/cooklang/projects/4
