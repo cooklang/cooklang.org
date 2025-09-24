@@ -1,0 +1,142 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Creating Cookbooks | Cooklang: recipe markup language</title>
+<link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto">
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><div class=bg-white><div class="container mx-auto px-4 py-8"><div class="flex gap-8"><aside class="hidden lg:block w-64 flex-shrink-0"><nav class="sticky top-20"><h3 class="font-semibold text-cooklang-gray-900 mb-4">Documentation</h3><ul class=space-y-2><li><a href=/docs/getting-started/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Getting Started</a></li><li><a href=/docs/spec/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Cooklang Specification</a></li><li><a href=/docs/for-developers/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">For Developers</a></li><li><a href=/docs/syntax-highlighting/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Syntax Highlighting</a></li><li><a href=/docs/examples/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Examples</a></li><li><div class="font-medium text-cooklang-gray-700 mb-2 mt-4">Use Cases</div><ul class="ml-4 space-y-1"><li><a href=/docs/use-cases/importing-recipes/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Importing Recipes</a></li><li><a href=/docs/use-cases/shopping/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Shopping Lists</a></li><li><a href=/docs/use-cases/meal-planning/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Meal Planning</a></li><li><a href=/docs/use-cases/pantry/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Pantry Management</a></li><li><a href=/docs/use-cases/reports/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Reports and Data Management</a></li><li><a href=/docs/use-cases/cookbook-creation/ class="block py-1 px-2 text-sm rounded bg-cooklang-orange text-white">Creating Cookbooks</a></li></ul></li></ul></nav></aside><article class="flex-1 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Creating Cookbooks</h1></header><div class="prose prose-lg max-w-none text-cooklang-gray-700"><p>Transform your digital recipe collection into a professional cookbook that you can print, share, or publish. This guide shows you how to use CookCLI's LaTeX export feature (supported in version after 0.18.0) to create PDF cookbooks from your Cooklang recipes.</p><h2 id=-what-youll-create>🎯 What You'll Create</h2><p>By the end of this tutorial, you'll have:</p><ul><li>A professionally formatted PDF cookbook</li><li>Organized chapters by meal type</li><li>Color-coded ingredients and equipment</li><li>Automatic table of contents and index</li><li>Print-ready or digital ebook format</li></ul><h2 id=-prerequisites>📋 Prerequisites</h2><p>Before starting, make sure you have:</p><ol><li><strong>CookCLI installed</strong> (<a href=/cli/download>Installation guide</a>)</li><li><strong>LaTeX distribution</strong> installed:<div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># macOS
+brew install --cask mactex
+
+# Ubuntu/Debian
+sudo apt-get install texlive-full
+
+# Windows
+# Download MiKTeX from https://miktex.org/</code></pre></div></li><li><strong>Your recipes</strong> in <code>.cook</code> format organised in folders (that will become book chapters later)</li></ol><div class=code-toolbar><pre class=language- data-language><code class=language->my_recipes/
+├── breakfast/
+│   └── pancakes.cook
+├── lunch/
+│   └── sandwich.cook
+└── dinner/
+    └── pasta.cook</code></pre></div><h2 id=-quick-start-your-first-cookbook-in-5-minutes>🚀 Quick Start: Your First Cookbook in 5 Minutes</h2><h3 id=step-1-get-the-cookbook-tools>Step 1: Get the Cookbook Tools</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Clone the cookbook creator repository
+git clone https://github.com/cooklang/cookbook-creator.git
+cd cookbook-creator
+
+# Or download just the script
+wget https://raw.githubusercontent.com/cooklang/cookbook-creator/main/scripts/create_cookbook.py</code></pre></div><h3 id=step-2-generate-your-cookbook>Step 2: Generate Your Cookbook</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Generate cookbook LaTeX file from your recipes directory
+python3 scripts/create_cookbook.py path/to/recipes my_cookbook.tex \
+  --title &amp;#34;Family Recipes&amp;#34; \
+  --author &amp;#34;Your Name&amp;#34;
+
+# Or try with the included example recipes
+python3 scripts/create_cookbook.py examples/recipes my_cookbook.tex \
+  --title &amp;#34;Sample Cookbook&amp;#34; \
+  --author &amp;#34;Jane Doe&amp;#34;</code></pre></div><h3 id=step-3-compile-to-pdf>Step 3: Compile to PDF</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Compile the LaTeX file to PDF
+pdflatex my_cookbook.tex
+makeindex my_cookbook.idx  # Generate index
+pdflatex my_cookbook.tex   # Update references
+pdflatex my_cookbook.tex   # Final compilation
+
+# Open your new cookbook!
+open my_cookbook.pdf       # macOS
+xdg-open my_cookbook.pdf   # Linux</code></pre></div><h2 id=-step-by-step-walkthrough>📖 Step-by-Step Walkthrough</h2><h3 id=1-organize-your-recipes>1️⃣ Organize Your Recipes</h3><p>Structure your recipes in folders by category:</p><div class=code-toolbar><pre class=language- data-language><code class=language->my-recipes/
+├── breakfast/
+│   ├── pancakes.cook
+│   ├── french-toast.cook
+│   └── smoothie-bowl.cook
+├── lunch/
+│   ├── caesar-salad.cook
+│   └── grilled-cheese.cook
+├── dinner/
+│   ├── roast-chicken.cook
+│   ├── pasta-carbonara.cook
+│   └── vegetable-stir-fry.cook
+└── desserts/
+    ├── chocolate-cake.cook
+    └── apple-pie.cook</code></pre></div><p>The folder names become chapter titles in your cookbook!</p><h3 id=2-generate-your-cookbook>2️⃣ Generate Your Cookbook</h3><h4 id=using-the-python-script-recommended>Using the Python Script (Recommended)</h4><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cd cookbook-creator
+python3 scripts/create_cookbook.py ~/my-recipes my-cookbook.tex \
+  --title &amp;#34;The Smith Family Cookbook&amp;#34; \
+  --author &amp;#34;Jane Smith&amp;#34;</code></pre></div><h4 id=script-options>Script Options</h4><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Basic usage
+python3 scripts/create_cookbook.py &amp;lt;recipe_directory&amp;gt; &amp;lt;output_file&amp;gt; [options]
+
+# Available options:
+--title TITLE       # Cookbook title (default: &amp;#34;My Cookbook&amp;#34;)
+--author AUTHOR     # Author name (optional)
+--no-index         # Skip index generation
+--no-toc           # Skip table of contents</code></pre></div><h4 id=manual-generation>Manual Generation</h4><p>For individual recipes, you can use CookCLI directly:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Generate LaTeX for a single recipe
+cook recipe -f latex &amp;#34;breakfast/pancakes.cook&amp;#34; &amp;gt; pancakes.tex</code></pre></div><h3 id=3-customize-your-cookbook>3️⃣ Customize Your Cookbook</h3><p>Edit the generated <code>.tex</code> file to customize:</p><div class=code-toolbar><pre class=language-latex data-language=latex><code class=language-latex>% Change colors
+\definecolor{ingredientcolor}{RGB}{219, 112, 147}  % Pink
+\definecolor{cookwarecolor}{RGB}{100, 149, 237}    % Blue
+\definecolor{timercolor}{RGB}{255, 140, 0}         % Orange
+
+% Add dedication
+\chapter*{Dedication}
+To my grandmother, who taught me that cooking is love...
+
+% Add introduction to chapters
+\chapter{Breakfast}
+\section*{Introduction}
+These breakfast recipes have been weekend favorites...</code></pre></div><h3 id=4-add-special-sections>4️⃣ Add Special Sections</h3><div class=code-toolbar><pre class=language-latex data-language=latex><code class=language-latex>% Add conversion tables
+\chapter*{Conversion Tables}
+\begin{tabular}{ll}
+\toprule
+US &amp;amp; Metric \\
+\midrule
+1 cup &amp;amp; 240 ml \\
+1 tbsp &amp;amp; 15 ml \\
+\bottomrule
+\end{tabular}
+
+% Add tips section
+\chapter*{Kitchen Tips}
+\begin{itemize}
+\item Always preheat your oven
+\item Mise en place is key
+\item Season as you go
+\end{itemize}</code></pre></div><h2 id=-advanced-features>🛠️ Advanced Features</h2><h3 id=including-recipe-images>Including Recipe Images</h3><p>The script automatically finds and includes images that match your recipe names:</p><div class=code-toolbar><pre class=language- data-language><code class=language->recipes/
+├── pasta-carbonara.cook
+├── pasta-carbonara.jpg    # Will be automatically included
+├── chocolate-cake.cook
+└── chocolate-cake.png     # Will be automatically included</code></pre></div><p>Supported image formats: PNG, JPG, JPEG</p><h3 id=creating-multiple-versions>Creating Multiple Versions</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Family version with all recipes
+python3 create_cookbook.py recipes family-cookbook.tex
+
+# Gift version with selected recipes
+python3 create_cookbook.py recipes/favorites gift-cookbook.tex \
+  --title &amp;#34;Our Favorite Recipes for You&amp;#34;</code></pre></div><h3 id=customizing-colors>Customizing Colors</h3><p>Edit the generated LaTeX file to change ingredient, cookware, and timer colors:</p><div class=code-toolbar><pre class=language-latex data-language=latex><code class=language-latex>% Color definitions (RGB values)
+\definecolor{ingredientcolor}{RGB}{204, 85, 0}   % Orange
+\definecolor{cookwarecolor}{RGB}{34, 139, 34}    % Green
+\definecolor{timercolor}{RGB}{220, 20, 60}       % Red</code></pre></div><h3 id=scaling-recipes>Scaling Recipes</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Generate scaled versions for different serving sizes
+cook recipe -f latex &amp;#34;dinner/lasagna.cook:12&amp;#34; &amp;gt; lasagna-party.tex</code></pre></div><h3 id=download-sample-cookbook>Download Sample Cookbook</h3><p><a href=https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf>Download a sample PDF cookbook</a> to see what you can create!</p><h2 id=-pro-tips>💡 Pro Tips</h2><h3 id=1-recipe-metadata>1. Recipe Metadata</h3><p>The script extracts metadata from recipe comments. Add metadata to your <code>.cook</code> files:</p><div class=code-toolbar><pre class=language-cooklang data-language=cooklang><code class=language-cooklang>---
+description: A classic Italian pasta dish
+tags: italian, pasta, quick
+servings: 4
+prep time: 15 minutes
+cook time: 20 minutes
+---</code></pre></div><h3 id=2-organizing-by-chapters>2. Organizing by Chapters</h3><p>The script automatically creates chapters based on your directory structure:</p><div class=code-toolbar><pre class=language- data-language><code class=language->recipes/
+├── appetizers/     → Chapter: Appetizers
+├── main-dishes/    → Chapter: Main Dishes
+├── desserts/       → Chapter: Desserts
+└── beverages/      → Chapter: Beverages</code></pre></div><h3 id=3-recipe-index>3. Recipe Index</h3><p>The script automatically generates:</p><ul><li>Recipe index by name</li><li>Index by tags (if metadata includes tags)</li><li>Index by author (if metadata includes author)</li></ul><h3 id=4-version-control>4. Version Control</h3><p>Keep your recipes and cookbook under version control:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>git init my-cookbook
+git add *.cook *.tex scripts/
+git commit -m &amp;#34;Initial cookbook version&amp;#34;</code></pre></div><h2 id=-troubleshooting>🚧 Troubleshooting</h2><h3 id=common-issues-and-solutions>Common Issues and Solutions</h3><table><thead><tr><th>Problem</th><th>Solution</th></tr></thead><tbody><tr><td>"LaTeX command not found"</td><td>Install TeX distribution for your OS</td></tr><tr><td>"Package not found" error</td><td>Run <code>tlmgr install enumitem multicol xcolor titlesec geometry hyperref makeidx imakeidx fancyhdr</code></td></tr><tr><td>"cook command not found"</td><td>Install CookCLI or use <code>cargo run</code> if building from source</td></tr><tr><td>Missing colors in PDF</td><td>Ensure <code>xcolor</code> package is included</td></tr><tr><td>Index not generated</td><td>Run <code>makeindex</code> between compilations</td></tr><tr><td>Recipes not found</td><td>Check file extensions are <code>.cook</code></td></tr><tr><td>Images not showing</td><td>Ensure image files match recipe names (e.g., <code>pasta.cook</code> → <code>pasta.jpg</code>)</td></tr></tbody></table><h2 id=-resources>📚 Resources</h2><ul><li>📖 <a href=https://github.com/cooklang/cookbook-creator>Cookbook Creator repository</a></li><li>📝 <a href=/cli/>CookCLI documentation</a></li><li>📄 <a href=https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf>Example PDF cookbook</a></li><li>💬 <a href=https://github.com/cooklang/spec/discussions>Community forum</a></li></ul><h2 id=-share-your-creation>🎉 Share Your Creation</h2><p>Created a beautiful cookbook? We'd love to see it!</p><ul><li>Share on social media with <strong>#CooklangCookbook</strong></li><li>Post in our <a href=https://github.com/cooklang/spec/discussions>community forum</a></li><li>Submit your template to the cookbook-sample repository</li></ul><hr><p><strong>Ready to create your cookbook?</strong> <a href=https://github.com/cooklang/cookbook-creator>Get started with the cookbook-creator toolkit →</a></p><p><em>Transform your recipes into a beautiful cookbook today with CookCLI!</em></p></div><nav class="mt-12 pt-8 border-t border-cooklang-gray-200"><div class="flex justify-between"><a href=/docs/use-cases/reports/ class="text-cooklang-orange hover:text-orange-600">← Reports and Data Management
+</a><span></span></div></nav></article></div></div></div></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><img src=/google-play-badge.png alt="Download on Google Play" class=h-10>
+</a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><img src=/app-store-badge.png alt="Download on App Store" class=h-10></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2025 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>
