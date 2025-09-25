@@ -2,7 +2,7 @@
 title: 'Recipe'
 weight: 10
 description: 'CookCLI Recipe command documentation'
-date: 2025-09-22T19:30:33+00:00
+date: 2025-09-25T03:46:01+00:00
 ---
 
 
@@ -163,6 +163,25 @@ Regenerate clean Cooklang markup:
 
 ```bash
 cook recipe "Neapolitan Pizza" -f cooklang
+```
+
+### LaTeX Format
+
+Export recipes as LaTeX documents for professional typesetting:
+
+```bash
+cook recipe "Neapolitan Pizza" -f latex
+
+# Pipe directly to pdflatex to create a PDF
+cook recipe "Neapolitan Pizza" -f latex | pdflatex -jobname="pizza-recipe"
+```
+
+### Schema.org Format
+
+Generate structured data in Schema.org Recipe format for SEO and web integration:
+
+```bash
+cook recipe "Neapolitan Pizza" -f schema
 ```
 
 ## Saving Output
