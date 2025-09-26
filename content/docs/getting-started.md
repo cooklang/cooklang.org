@@ -116,6 +116,31 @@ CookCLI is a powerful command-line tool that brings automation and advanced func
 
 ### Installation
 
+**Download Pre-built Binaries (Recommended):**
+
+Download the latest release for your platform from [GitHub Releases](https://github.com/cooklang/cookcli/releases/latest):
+
+```bash
+# macOS (Apple Silicon)
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-aarch64-apple-darwin.tar.gz
+tar -xzf cook-aarch64-apple-darwin.tar.gz
+sudo mv cook /usr/local/bin/
+
+# macOS (Intel)
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-x86_64-apple-darwin.tar.gz
+tar -xzf cook-x86_64-apple-darwin.tar.gz
+sudo mv cook /usr/local/bin/
+
+# Linux (x86_64)
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-x86_64-unknown-linux-gnu.tar.gz
+tar -xzf cook-x86_64-unknown-linux-gnu.tar.gz
+sudo mv cook /usr/local/bin/
+
+# Windows (x86_64)
+# Download cook-x86_64-pc-windows-msvc.zip from releases page
+# Extract and add to PATH
+```
+
 **macOS (Homebrew):**
 ```bash
 brew install cookcli
@@ -126,6 +151,7 @@ brew install cookcli
 git clone https://github.com/cooklang/cookcli.git
 cd cookcli
 cargo build --release
+sudo cp target/release/cook /usr/local/bin/
 ```
 
 ### Core Commands
