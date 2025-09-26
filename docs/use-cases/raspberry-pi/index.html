@@ -1,0 +1,250 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Raspberry Pi Kitchen Server | Cooklang: recipe markup language</title>
+<link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto">
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><div class=bg-white><div class="container mx-auto px-4 py-8"><div class="flex gap-8"><aside class="hidden lg:block w-64 flex-shrink-0"><nav class="sticky top-20"><h3 class="font-semibold text-cooklang-gray-900 mb-4">Documentation</h3><ul class=space-y-2><li><a href=/docs/getting-started/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Getting Started</a></li><li><a href=/docs/spec/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Cooklang Specification</a></li><li><a href=/docs/for-developers/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">For Developers</a></li><li><a href=/docs/syntax-highlighting/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Syntax Highlighting</a></li><li><a href=/docs/examples/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Examples</a></li><li><div class="font-medium text-cooklang-gray-700 mb-2 mt-4">Use Cases</div><ul class="ml-4 space-y-1"><li><a href=/docs/use-cases/importing-recipes/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Importing Recipes</a></li><li><a href=/docs/use-cases/shopping/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Shopping Lists</a></li><li><a href=/docs/use-cases/meal-planning/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Meal Planning</a></li><li><a href=/docs/use-cases/pantry/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Pantry Management</a></li><li><a href=/docs/use-cases/reports/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Reports and Data Management</a></li><li><a href=/docs/use-cases/raspberry-pi/ class="block py-1 px-2 text-sm rounded bg-cooklang-orange text-white">Raspberry Pi Kitchen Server</a></li><li><a href=/docs/use-cases/cookbook-creation/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Creating Cookbooks</a></li></ul></li></ul></nav></aside><article class="flex-1 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Raspberry Pi Kitchen Server</h1></header><div class="prose prose-lg max-w-none text-cooklang-gray-700"><p><strong>In 30 minutes</strong>, you'll transform a $35 Raspberry Pi into your personal recipe server that runs 24/7 in your kitchen. No cloud subscriptions, no privacy concerns - just your recipes, always available.</p><style>.server-carousel{position:relative;max-width:1000px;margin:2rem auto;overflow:hidden}.server-carousel .carousel-container{display:flex;transition:transform .5s ease}.server-carousel .carousel-slide{min-width:100%;position:relative}.server-carousel .carousel-slide img{width:100%;height:auto;display:block;border-radius:8px;box-shadow:0 4px 6px rgba(0,0,0,.1)}.server-carousel .carousel-nav{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}.server-carousel .carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);border:2px solid #fff;cursor:pointer;transition:background .3s}.server-carousel .carousel-dot.active{background:#fff}.server-carousel .carousel-button{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);color:#fff;border:none;padding:1rem 1.2rem;cursor:pointer;font-size:1.2rem;z-index:10;transition:background .3s}.server-carousel .carousel-button:hover{background:rgba(0,0,0,.7)}.server-carousel .carousel-button.prev{left:10px}.server-carousel .carousel-button.next{right:10px}.server-carousel .carousel-caption{position:absolute;bottom:60px;left:20px;color:#fff;background:rgba(0,0,0,.7);padding:8px 16px;border-radius:4px;font-size:14px}</style><div class=server-carousel data-carousel=server><div class=carousel-container><div class=carousel-slide><img width=600 height=359 alt="Recipe Collection" src=https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2><div class=carousel-caption>Recipe Collection</div></div><div class=carousel-slide><img width=600 height=359 alt="Recipe View" src=https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6><div class=carousel-caption>Recipe View</div></div><div class=carousel-slide><img width=600 height=359 alt="Shopping List" src=https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2><div class=carousel-caption>Shopping List</div></div><div class=carousel-slide><img width=600 height=359 alt="Pantry Management" src=https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9><div class=carousel-caption>Pantry Management</div></div></div><button class="carousel-button prev" data-action=prev>‹</button>
+<button class="carousel-button next" data-action=next>›</button><div class=carousel-nav><span class="carousel-dot active" data-slide=1></span>
+<span class=carousel-dot data-slide=2></span>
+<span class=carousel-dot data-slide=3></span>
+<span class=carousel-dot data-slide=4></span></div></div><script>(function(){const t=document.querySelector('[data-carousel="server"]');if(!t)return;let e=1;const s=4,a=t.querySelector(".carousel-container"),o=t.querySelectorAll(".carousel-dot"),r=t.querySelector('[data-action="prev"]'),c=t.querySelector('[data-action="next"]');function i(t){t>s&&(e=1),t<1&&(e=s),a.style.transform=`translateX(-${(e-1)*100}%)`,o.forEach((t,n)=>{t.classList.toggle("active",n===e-1)})}function n(t){i(e+=t)}function l(t){i(e=t)}r.addEventListener("click",()=>n(-1)),c.addEventListener("click",()=>n(1)),o.forEach((e,t)=>{e.addEventListener("click",()=>l(t+1))}),setInterval(()=>n(1),5e3)})()</script><h2 id=table-of-contents>Table of Contents</h2><ul><li><a href=#quick-start-5-steps-to-your-recipe-server>Quick Start: 5 Steps to Your Recipe Server</a></li><li><a href=#installation-deep-dive>Installation Deep Dive</a><ul><li><a href=#preparing-your-raspberry-pi>Preparing Your Raspberry Pi</a></li><li><a href=#installing-cookcli>Installing CookCLI</a></li><li><a href=#optimizing-for-raspberry-pi>Optimizing for Raspberry Pi</a></li></ul></li><li><a href=#production-deployment>Production Deployment</a><ul><li><a href=#systemd-service-setup>Systemd Service Setup</a></li><li><a href=#network-access>Network Access</a></li><li><a href=#mobile-access>Mobile Access</a></li></ul></li><li><a href=#advanced-configurations>Advanced Configurations</a><ul><li><a href=#performance-tuning>Performance Tuning</a></li><li><a href=#multi-user-household>Multi-User Household</a></li><li><a href=#backup--sync>Backup & Sync</a></li></ul></li><li><a href=#troubleshooting-quick-fixes>Troubleshooting: Quick Fixes</a></li><li><a href=#security-best-practices>Security Best Practices</a></li><li><a href=#performance--cost>Performance & Cost</a></li><li><a href=#tips-and-best-practices>Tips and Best Practices</a></li><li><a href=#your-recipe-server-journey>Your Recipe Server Journey</a></li></ul><h3 id=what-youll-achieve>What You'll Achieve</h3><ul><li>✓ <strong>Always-on recipe access</strong> from any device on your network</li><li>✓ <strong>Zero monthly fees</strong> - one-time setup, years of service</li><li>✓ <strong>Complete privacy</strong> - your recipes stay in your home</li><li>✓ <strong>Family-friendly</strong> - multiple users can browse recipes simultaneously</li><li>✓ <strong>Power-efficient</strong> - uses less electricity than a LED bulb ($5/year)</li></ul><h3 id=this-guide-is-for-you-if>This Guide Is For You If</h3><ul><li>You have a spare Raspberry Pi (or planning to get one)</li><li>You want reliable recipe access without internet dependency</li><li>You're comfortable with basic command-line usage</li><li>You have 30-60 minutes for initial setup</li></ul><h3 id=what-youll-need>What You'll Need</h3><ul><li><strong>Raspberry Pi</strong> (3B+ or newer, 2GB+ RAM)</li><li><strong>MicroSD card</strong> (16GB+)</li><li><strong>Power supply</strong> and network connection</li><li><strong>30 minutes</strong> for basic setup</li></ul><h2 id=quick-start-5-steps-to-your-recipe-server>Quick Start: 5 Steps to Your Recipe Server</h2><p>Follow these steps to get your recipe server running in under 30 minutes:</p><h3 id=step-1-prepare-your-raspberry-pi-10-minutes>Step 1: Prepare Your Raspberry Pi (10 minutes)</h3><p>Flash Raspberry Pi OS Lite to your SD card using <a href=https://www.raspberrypi.com/software/>Raspberry Pi Imager</a>. Enable SSH and configure WiFi during the imaging process.</p><h3 id=step-2-connect-to-your-pi-2-minutes>Step 2: Connect to Your Pi (2 minutes)</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>ssh pi@raspberrypi.local
+# Default password: raspberry (change it immediately!)</code></pre></div><h3 id=step-3-install-cookcli-3-minutes>Step 3: Install CookCLI (3 minutes)</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Download and install CookCLI for Raspberry Pi (ARM64)
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-aarch64-unknown-linux-musl.tar.gz
+tar -xzf cook-aarch64-unknown-linux-musl.tar.gz
+chmod &#43;x cook
+sudo mv cook /usr/local/bin/
+
+# Verify installation
+cook --version</code></pre></div><h3 id=step-4-create-your-recipe-directory-1-minute>Step 4: Create Your Recipe Directory (1 minute)</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Create a home for your recipes
+mkdir ~/recipes
+
+# Optional: Add a sample recipe to test
+echo &amp;#34;Boil @water{2%cups}. Add @tea{1%bag}.&amp;#34; &amp;gt; ~/recipes/tea.cook</code></pre></div><h3 id=step-5-launch-your-server-1-minute>Step 5: Launch Your Server (1 minute)</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Start the CookLang server
+cook server ~/recipes --host 0.0.0.0 --port 9080</code></pre></div><p><strong>🎉 Success!</strong> Your recipe server is now running. Access it from any device:</p><ul><li>By hostname: <code>http://raspberrypi.local:9080</code></li><li>By IP address: <code>http://[your-pi-ip]:9080</code></li></ul><p><strong>Next</strong>: Make it permanent with our <a href=#production-deployment>production setup</a> below.</p><h2 id=installation-deep-dive>Installation Deep Dive</h2><h3 id=preparing-your-raspberry-pi>Preparing Your Raspberry Pi</h3><h4 id=operating-system-choice>Operating System Choice</h4><p>We recommend <strong>Raspberry Pi OS Lite</strong> for headless operation - it uses less memory and runs faster without the desktop environment.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Initial configuration
+sudo raspi-config
+
+# Set the following:
+# - System Options &amp;gt; Password (change default)
+# - System Options &amp;gt; Hostname (e.g., &amp;#34;recipes&amp;#34;)
+# - Interface Options &amp;gt; SSH (enable)
+# - Localisation Options &amp;gt; Timezone
+# - Advanced Options &amp;gt; Expand Filesystem</code></pre></div><h4 id=network-configuration>Network Configuration</h4><p>Set a static IP for consistent access:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Edit dhcpcd configuration
+sudo nano /etc/dhcpcd.conf
+
+# Add these lines (adjust for your network):
+interface wlan0
+static ip_address=192.168.1.100/24
+static routers=192.168.1.1
+static domain_name_servers=192.168.1.1</code></pre></div><h4 id=basic-security>Basic Security</h4><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Update system
+sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y
+
+# Install firewall
+sudo apt install ufw -y
+
+# Configure firewall
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh
+sudo ufw allow 9080/tcp  # CookCLI server port
+sudo ufw enable</code></pre></div><h3 id=installing-cookcli>Installing CookCLI</h3><p>The fastest way to get CookCLI running on your Raspberry Pi:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Determine your Pi&amp;#39;s architecture
+uname -m
+# aarch64 = 64-bit ARM (Pi 3B&#43;, Pi 4, Pi 5)
+# armv7l = 32-bit ARM (older models)
+
+# For 64-bit Raspberry Pi OS (most common - Pi 3B&#43;, Pi 4, Pi 5)
+cd /tmp
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-aarch64-unknown-linux-musl.tar.gz
+tar -xzf cook-aarch64-unknown-linux-musl.tar.gz
+sudo mv cook /usr/local/bin/cook
+
+# For 32-bit Raspberry Pi OS (older models)
+cd /tmp
+wget https://github.com/cooklang/cookcli/releases/latest/download/cook-arm-unknown-linux-musleabihf.tar.gz
+tar -xzf cook-arm-unknown-linux-musleabihf.tar.gz
+sudo mv cook /usr/local/bin/cook
+
+# Verify installation
+cook --version</code></pre></div><h4 id=troubleshooting-installation>Troubleshooting Installation</h4><p><strong>Wrong architecture error</strong>:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Check your system
+file /usr/local/bin/cook
+# Should match your system architecture
+
+# If wrong, download correct version:
+uname -m  # Check architecture
+# Then download matching binary</code></pre></div><p><strong>Permission denied</strong>:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Ensure executable permissions
+chmod &#43;x /usr/local/bin/cook
+# Or use sudo for installation</code></pre></div><p><strong>Command not found</strong>:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Check if installed
+ls -la /usr/local/bin/cook
+
+# Add to PATH if needed
+echo &amp;#39;export PATH=&amp;#34;/usr/local/bin:$PATH&amp;#34;&amp;#39; &amp;gt;&amp;gt; ~/.bashrc
+source ~/.bashrc</code></pre></div><h3 id=optimizing-for-raspberry-pi>Optimizing for Raspberry Pi</h3><h4 id=sd-card-optimization>SD Card Optimization</h4><p>Reduce wear on your SD card:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Disable swap
+sudo dphys-swapfile swapoff
+sudo systemctl disable dphys-swapfile
+
+# Move logs to RAM
+echo &amp;#34;tmpfs /var/log tmpfs defaults,noatime,nosuid,size=50m 0 0&amp;#34; | sudo tee -a /etc/fstab
+echo &amp;#34;tmpfs /tmp tmpfs defaults,noatime,nosuid,size=100m 0 0&amp;#34; | sudo tee -a /etc/fstab</code></pre></div><h4 id=memory-tuning>Memory Tuning</h4><p>For Raspberry Pi with limited RAM:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Create swap file (only if needed)
+sudo fallocate -l 1G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+echo &amp;#34;/swapfile none swap sw 0 0&amp;#34; | sudo tee -a /etc/fstab
+
+# Adjust swappiness
+echo &amp;#34;vm.swappiness=10&amp;#34; | sudo tee -a /etc/sysctl.conf</code></pre></div><h2 id=production-deployment>Production Deployment</h2><h3 id=systemd-service-setup>Systemd Service Setup</h3><p>Create a service to run CookCLI automatically:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Create service file
+sudo nano /etc/systemd/system/cooklang.service</code></pre></div><p>Add the following content:</p><div class=code-toolbar><pre class=language-ini data-language=ini><code class=language-ini>[Unit]
+Description=CookLang Recipe Server
+After=network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/recipes
+ExecStart=/usr/local/bin/cook server --host 0.0.0.0 --port 9080
+Restart=always
+RestartSec=10
+StandardOutput=append:/var/log/cooklang.log
+StandardError=append:/var/log/cooklang.log
+
+[Install]
+WantedBy=multi-user.target</code></pre></div><p>Enable and start the service:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Enable service
+sudo systemctl daemon-reload
+sudo systemctl enable cooklang.service
+sudo systemctl start cooklang.service
+
+# Check status
+sudo systemctl status cooklang.service
+
+# View logs
+sudo journalctl -u cooklang.service -f</code></pre></div><h3 id=network-access>Network Access</h3><h4 id=local-dns-setup>Local DNS Setup</h4><p>Make your server easily accessible by hostname instead of IP address:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Avahi (mDNS) is usually pre-installed on Raspberry Pi OS
+# If not, install it:
+sudo apt install avahi-daemon -y
+
+# Check current hostname
+hostname
+
+# Your Pi is now accessible as [hostname].local
+# Default: raspberrypi.local
+# After renaming: recipes.local</code></pre></div><p><strong>Access methods after setup:</strong></p><ul><li><code>http://recipes.local:9080</code> - Works on most devices (iOS, macOS, Linux, Windows 10+)</li><li><code>http://192.168.1.100:9080</code> - Direct IP always works</li><li>Bookmark either URL for quick access</li></ul><p><strong>Note for Windows users</strong>: Older Windows versions may need Bonjour installed for .local addresses</p><h4 id=router-configuration>Router Configuration</h4><ol><li>Reserve the Pi's IP address in your router's DHCP settings</li><li>Consider setting up port forwarding if you need external access (use VPN for security)</li><li>Create a DNS entry if your router supports it</li></ol><h3 id=mobile-access>Mobile Access</h3><h4 id=ios>iOS</h4><ul><li>Open Safari and navigate to your server</li><li>Tap the Share button > "Add to Home Screen"</li><li>Name it "Recipes" for easy access</li></ul><h4 id=android>Android</h4><ul><li>Open Chrome and navigate to your server</li><li>Tap menu > "Add to Home screen"</li><li>Creates an app-like shortcut</li></ul><h2 id=advanced-configurations>Advanced Configurations</h2><h3 id=performance-tuning>Performance Tuning</h3><h4 id=nginx-reverse-proxy>Nginx Reverse Proxy</h4><p>Add caching and compression:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Install nginx
+sudo apt install nginx -y
+
+# Configure nginx
+sudo nano /etc/nginx/sites-available/cooklang</code></pre></div><div class=code-toolbar><pre class=language-nginx data-language=nginx><code class=language-nginx>server {
+    listen 80;
+    server_name recipes.local;
+
+    location / {
+        proxy_pass http://localhost:9080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection &amp;#39;upgrade&amp;#39;;
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+
+        # Caching
+        proxy_cache_valid 200 1d;
+        proxy_cache_bypass $http_pragma;
+        proxy_cache_revalidate on;
+
+        # Compression
+        gzip on;
+        gzip_types text/plain application/json text/css application/javascript;
+    }
+}</code></pre></div><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Enable site
+sudo ln -s /etc/nginx/sites-available/cooklang /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx</code></pre></div><h3 id=multi-user-household>Multi-User Household</h3><p>Set up separate recipe collections:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Create user directories
+mkdir -p ~/recipes/{shared,alice,bob,kids}
+
+# Set permissions
+chmod 755 ~/recipes/*
+
+# Run server with base directory
+cook server ~/recipes --host 0.0.0.0</code></pre></div><h3 id=backup--sync>Backup & Sync</h3><h4 id=automated-backups>Automated Backups</h4><p>Create a backup script:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>#!/bin/bash
+# /home/pi/backup-recipes.sh
+
+BACKUP_DIR=&amp;#34;/home/pi/backups&amp;#34;
+DATE=$(date &#43;%Y%m%d_%H%M%S)
+RECIPES_DIR=&amp;#34;/home/pi/recipes&amp;#34;
+
+# Create backup
+mkdir -p &amp;#34;$BACKUP_DIR&amp;#34;
+tar -czf &amp;#34;$BACKUP_DIR/recipes_$DATE.tar.gz&amp;#34; -C &amp;#34;$RECIPES_DIR&amp;#34; .
+
+# Keep only last 7 backups
+ls -t &amp;#34;$BACKUP_DIR&amp;#34;/recipes_*.tar.gz | tail -n &#43;8 | xargs -r rm
+
+# Optional: Sync to cloud (requires rclone setup)
+# rclone copy &amp;#34;$BACKUP_DIR/recipes_$DATE.tar.gz&amp;#34; remote:backups/</code></pre></div><p>Add to crontab:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Edit crontab
+crontab -e
+
+# Add daily backup at 2 AM
+0 2 * * * /home/pi/backup-recipes.sh</code></pre></div><h4 id=git-integration>Git Integration</h4><p>Version control your recipes:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Initialize git repo
+cd ~/recipes
+git init
+git add .
+git commit -m &amp;#34;Initial recipe collection&amp;#34;
+
+# Set up remote (e.g., GitHub private repo)
+git remote add origin git@github.com:yourusername/recipes.git
+git push -u origin main
+
+# Create sync script
+cat &amp;gt; ~/sync-recipes.sh &amp;lt;&amp;lt; &amp;#39;EOF&amp;#39;
+#!/bin/bash
+cd /home/pi/recipes
+git add .
+git commit -m &amp;#34;Recipe update $(date &#43;%Y-%m-%d)&amp;#34;
+git pull --rebase
+git push
+EOF
+
+chmod &#43;x ~/sync-recipes.sh</code></pre></div><h2 id=troubleshooting-quick-fixes>Troubleshooting: Quick Fixes</h2><h3 id=-problem-cannot-connect-from-other-devices>🔴 Problem: Cannot Connect from Other Devices</h3><p><strong>Solution 1</strong>: Check firewall settings</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo ufw status
+sudo ufw allow 9080/tcp
+sudo systemctl restart cooklang  # If using systemd service</code></pre></div><p><strong>Solution 2</strong>: Verify correct binding</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Must use 0.0.0.0, not localhost
+ps aux | grep cook
+# ✓ Correct: cook server --host 0.0.0.0
+# ✗ Wrong: cook server --host localhost</code></pre></div><p><strong>Solution 3</strong>: Confirm network connectivity</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># On your Pi:
+ip addr show  # Note the IP address
+# On another device:
+ping raspberrypi.local  # or use the IP</code></pre></div><h3 id=-problem-server-stops-when-i-close-ssh>🔴 Problem: Server Stops When I Close SSH</h3><p><strong>Solution</strong>: Use the systemd service (see <a href=#production-deployment>Production Deployment</a>)</p><p><strong>Quick fix</strong> without systemd:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Option 1: Use screen
+screen -S cooklang
+cook server ~/recipes --host 0.0.0.0
+# Press Ctrl&#43;A, then D to detach
+
+# Option 2: Use nohup
+nohup cook server ~/recipes --host 0.0.0.0 &amp;amp;</code></pre></div><h3 id=-problem-slow-loading-or-timeouts>🔴 Problem: Slow Loading or Timeouts</h3><p><strong>Solution 1</strong>: Check SD card health</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo hdparm -t /dev/mmcblk0
+# Should see &amp;gt;20 MB/sec for acceptable performance</code></pre></div><p><strong>Solution 2</strong>: Monitor resource usage</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>free -h  # Check available memory
+df -h    # Check disk space
+htop     # Monitor CPU and RAM (install with: sudo apt install htop)</code></pre></div><p><strong>Solution 3</strong>: Optimize for your Pi model</p><ul><li>Pi 3B+: Limit to 5-10 concurrent users</li><li>Pi 4 (2GB): Comfortable with 10-15 users</li><li>Pi 4 (4GB+): Can handle 20+ users</li></ul><h3 id=-problem-recipe-changes-not-appearing>🔴 Problem: Recipe Changes Not Appearing</h3><p><strong>Solution 1</strong>: Clear browser cache</p><ul><li>Windows/Linux: <code>Ctrl + Shift + R</code></li><li>Mac: <code>Cmd + Shift + R</code></li><li>Mobile: Close and reopen browser</li></ul><p><strong>Solution 2</strong>: Check file permissions</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>ls -la ~/recipes  # All files should be readable
+chmod 644 ~/recipes/*.cook  # Fix permissions if needed</code></pre></div><p><strong>Solution 3</strong>: Restart the server</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo systemctl restart cooklang  # If using systemd
+# Or manually stop (Ctrl&#43;C) and restart</code></pre></div><h2 id=security-best-practices>Security Best Practices</h2><h3 id=network-security>Network Security</h3><ul><li><strong>Keep local only</strong>: Don't expose directly to internet</li><li><strong>Use VPN</strong>: For remote access, use WireGuard or OpenVPN</li><li><strong>Regular updates</strong>:<div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo apt update &amp;amp;&amp;amp; sudo apt upgrade -y</code></pre></div></li><li><strong>Strong passwords</strong>: Change default Pi password</li><li><strong>SSH keys</strong>: Disable password authentication</li></ul><h3 id=data-protection>Data Protection</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Regular backups (see Backup section)
+# For sensitive recipes, encrypt:
+gpg --encrypt --recipient your@email.com sensitive-recipe.cook
+
+# RAID with USB drives
+sudo apt install mdadm
+# Configure RAID 1 for redundancy</code></pre></div><h2 id=performance--cost>Performance & Cost</h2><h3 id=what-to-expect>What to Expect</h3><ul><li><strong>Page load</strong>: &lt;100ms on local network</li><li><strong>Concurrent users</strong>: 10-15 comfortable</li><li><strong>Recipe capacity</strong>: 10,000+ recipes</li><li><strong>Power usage</strong>: ~5W (≈$5/year electricity)</li><li><strong>Uptime</strong>: Months without restart</li></ul><h3 id=budget-options>Budget Options</h3><ul><li><strong>Basic (~$75)</strong>: Pi 4 (2GB) + 32GB SD + power + case</li><li><strong>Enhanced (~$120)</strong>: Pi 4 (4GB) + 64GB high-endurance SD + quality power + aluminum case + backup drive</li></ul><h2 id=tips-and-best-practices>Tips and Best Practices</h2><h3 id=dos>Do's</h3><ul><li>Use wired Ethernet for best performance</li><li>Set up automatic backups from day one</li><li>Use a quality, high-endurance SD card</li><li>Monitor temperature in summer months</li><li>Document your setup for future reference</li></ul><h3 id=donts>Don'ts</h3><ul><li>Don't expose directly to the internet</li><li>Don't skip the firewall configuration</li><li>Don't use default passwords</li><li>Don't forget regular system updates</li><li>Don't overload with other services</li></ul><h2 id=your-recipe-server-journey>Your Recipe Server Journey</h2><h3 id=-you-did-it>🎯 You Did It!</h3><p>If you've followed this guide, you now have:</p><ul><li>✅ A working CookLang server on your Raspberry Pi</li><li>✅ Access from all your devices via <code>raspberrypi.local:9080</code></li><li>✅ Complete control over your recipe data</li><li>✅ Zero monthly fees or subscriptions</li></ul><h3 id=-whats-next>🚀 What's Next?</h3><p><strong>Learn more</strong>:</p><ul><li><a href=/docs/spec/>CookLang recipe syntax</a> - Write beautiful, functional recipes</li><li><a href=/cli/>Advanced CLI features</a> - Discover powerful commands</li><li><a href=/docs/use-cases/shopping/>Shopping lists & meal planning</a> - Automate your kitchen workflow</li></ul><p><strong>Get involved</strong>:</p><ul><li><a href=https://github.com/cooklang/spec/discussions>Community forum</a> - Share tips and get help</li><li><a href=https://github.com/cooklang/awesome-cooklang-recipes>Recipe collection</a> - Browse and contribute recipes</li><li><a href=https://github.com/cooklang/cookcli/issues>Feature requests</a> - Shape the future of CookLang</li></ul><h3 id=-one-final-tip>💡 One Final Tip</h3><p>Add a bookmark to your recipe server on all your devices. On mobile, add it to your home screen for app-like access. Your digital cookbook is now just one tap away, forever.</p><p><strong>Welcome to your self-hosted recipe future!</strong> 🍳</p></div><nav class="mt-12 pt-8 border-t border-cooklang-gray-200"><div class="flex justify-between"><a href=/docs/use-cases/reports/ class="text-cooklang-orange hover:text-orange-600">← Reports and Data Management
+</a><a href=/docs/use-cases/cookbook-creation/ class="text-cooklang-orange hover:text-orange-600">Creating Cookbooks →</a></div></nav></article></div></div></div></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><img src=/google-play-badge.png alt="Download on Google Play" class=h-10>
+</a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><img src=/app-store-badge.png alt="Download on App Store" class=h-10></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2025 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>

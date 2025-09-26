@@ -50,7 +50,224 @@ black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;/div>&lt;h4 id="how-pantry-tracking-works">How Pantry Tracking Works&lt;/h4>
 &lt;p>This configuration serves multiple purposes:&lt;/p></description></item><item><title>Reports and Data Management</title><link>/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/reports/</guid><description>&lt;p>Cooklang's report system transforms recipes into any format you need through powerful templates and data management. Whether you're creating shopping lists, nutrition labels, recipe cards, or custom exports, the report command combined with the database system provides complete control over your recipe data.&lt;/p>
 &lt;h2 id="the-report-system">The Report System&lt;/h2>
-&lt;p>The &lt;code>cook report&lt;/code> command uses Jinja2 templates to generate custom outputs from your recipes. This flexibility means you can create anything from simple ingredient lists to complex meal planning documents.&lt;/p></description></item><item><title>Creating Cookbooks</title><link>/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>/docs/use-cases/cookbook-creation/</guid><description>&lt;p>Transform your digital recipe collection into a professional cookbook that you can print, share, or publish. This guide shows you how to use CookCLI's LaTeX export feature (supported in version after 0.18.0) to create PDF cookbooks from your Cooklang recipes.&lt;/p>
+&lt;p>The &lt;code>cook report&lt;/code> command uses Jinja2 templates to generate custom outputs from your recipes. This flexibility means you can create anything from simple ingredient lists to complex meal planning documents.&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/use-cases/raspberry-pi/</guid><description>&lt;p>&lt;strong>In 30 minutes&lt;/strong>, you'll transform a $35 Raspberry Pi into your personal recipe server that runs 24/7 in your kitchen. No cloud subscriptions, no privacy concerns - just your recipes, always available.&lt;/p>
+&lt;style>
+.server-carousel {
+ position: relative;
+ max-width: 1000px;
+ margin: 2rem auto;
+ overflow: hidden;
+}
+
+.server-carousel .carousel-container {
+ display: flex;
+ transition: transform 0.5s ease;
+}
+
+.server-carousel .carousel-slide {
+ min-width: 100%;
+ position: relative;
+}
+
+.server-carousel .carousel-slide img {
+ width: 100%;
+ height: auto;
+ display: block;
+ border-radius: 8px;
+ box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.server-carousel .carousel-nav {
+ position: absolute;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ display: flex;
+ gap: 10px;
+ z-index: 10;
+}
+
+.server-carousel .carousel-dot {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: rgba(255,255,255,0.5);
+ border: 2px solid white;
+ cursor: pointer;
+ transition: background 0.3s;
+}
+
+.server-carousel .carousel-dot.active {
+ background: white;
+}
+
+.server-carousel .carousel-button {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ background: rgba(0,0,0,0.5);
+ color: white;
+ border: none;
+ padding: 1rem 1.2rem;
+ cursor: pointer;
+ font-size: 1.2rem;
+ z-index: 10;
+ transition: background 0.3s;
+}
+
+.server-carousel .carousel-button:hover {
+ background: rgba(0,0,0,0.7);
+}
+
+.server-carousel .carousel-button.prev {
+ left: 10px;
+}
+
+.server-carousel .carousel-button.next {
+ right: 10px;
+}
+
+.server-carousel .carousel-caption {
+ position: absolute;
+ bottom: 60px;
+ left: 20px;
+ color: white;
+ background: rgba(0,0,0,0.7);
+ padding: 8px 16px;
+ border-radius: 4px;
+ font-size: 14px;
+}
+&lt;/style>
+
+&lt;div class="server-carousel" data-carousel="server">
+ &lt;div class="carousel-container">
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Recipe Collection" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
+ &lt;div class="carousel-caption">Recipe Collection&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Recipe View" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
+ &lt;div class="carousel-caption">Recipe View&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Shopping List" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
+ &lt;div class="carousel-caption">Shopping List&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Pantry Management" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
+ &lt;div class="carousel-caption">Pantry Management&lt;/div>
+ &lt;/div>
+ &lt;/div>
+
+ &lt;button class="carousel-button prev" data-action="prev">‹&lt;/button>
+ &lt;button class="carousel-button next" data-action="next">›&lt;/button>
+
+ &lt;div class="carousel-nav">
+ &lt;span class="carousel-dot active" data-slide="1">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="2">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="3">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="4">&lt;/span>
+ &lt;/div>
+&lt;/div>
+
+&lt;script>
+(function() {
+ const carousel = document.querySelector('[data-carousel="server"]');
+ if (!carousel) return;
+
+ let slideIndex = 1;
+ const totalSlides = 4;
+ const container = carousel.querySelector('.carousel-container');
+ const dots = carousel.querySelectorAll('.carousel-dot');
+ const prevBtn = carousel.querySelector('[data-action="prev"]');
+ const nextBtn = carousel.querySelector('[data-action="next"]');
+
+ function showSlide(n) {
+ if (n > totalSlides) slideIndex = 1;
+ if (n &lt; 1) slideIndex = totalSlides;
+
+ container.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+ dots.forEach((dot, i) => {
+ dot.classList.toggle('active', i === slideIndex - 1);
+ });
+ }
+
+ function moveSlide(n) {
+ showSlide(slideIndex += n);
+ }
+
+ function currentSlide(n) {
+ showSlide(slideIndex = n);
+ }
+
+ 
+ prevBtn.addEventListener('click', () => moveSlide(-1));
+ nextBtn.addEventListener('click', () => moveSlide(1));
+
+ dots.forEach((dot, index) => {
+ dot.addEventListener('click', () => currentSlide(index + 1));
+ });
+
+ 
+ setInterval(() => moveSlide(1), 5000);
+})();
+&lt;/script>
+
+&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="#quick-start-5-steps-to-your-recipe-server">Quick Start: 5 Steps to Your Recipe Server&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#installation-deep-dive">Installation Deep Dive&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#preparing-your-raspberry-pi">Preparing Your Raspberry Pi&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#installing-cookcli">Installing CookCLI&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#optimizing-for-raspberry-pi">Optimizing for Raspberry Pi&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#production-deployment">Production Deployment&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#systemd-service-setup">Systemd Service Setup&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#network-access">Network Access&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#mobile-access">Mobile Access&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#advanced-configurations">Advanced Configurations&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#performance-tuning">Performance Tuning&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#multi-user-household">Multi-User Household&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#backup--sync">Backup &amp;amp; Sync&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#troubleshooting-quick-fixes">Troubleshooting: Quick Fixes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#security-best-practices">Security Best Practices&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#performance--cost">Performance &amp;amp; Cost&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#tips-and-best-practices">Tips and Best Practices&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#your-recipe-server-journey">Your Recipe Server Journey&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="what-youll-achieve">What You'll Achieve&lt;/h3>
+&lt;ul>
+&lt;li>✓ &lt;strong>Always-on recipe access&lt;/strong> from any device on your network&lt;/li>
+&lt;li>✓ &lt;strong>Zero monthly fees&lt;/strong> - one-time setup, years of service&lt;/li>
+&lt;li>✓ &lt;strong>Complete privacy&lt;/strong> - your recipes stay in your home&lt;/li>
+&lt;li>✓ &lt;strong>Family-friendly&lt;/strong> - multiple users can browse recipes simultaneously&lt;/li>
+&lt;li>✓ &lt;strong>Power-efficient&lt;/strong> - uses less electricity than a LED bulb ($5/year)&lt;/li>
+&lt;/ul>
+&lt;h3 id="this-guide-is-for-you-if">This Guide Is For You If&lt;/h3>
+&lt;ul>
+&lt;li>You have a spare Raspberry Pi (or planning to get one)&lt;/li>
+&lt;li>You want reliable recipe access without internet dependency&lt;/li>
+&lt;li>You're comfortable with basic command-line usage&lt;/li>
+&lt;li>You have 30-60 minutes for initial setup&lt;/li>
+&lt;/ul>
+&lt;h3 id="what-youll-need">What You'll Need&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Raspberry Pi&lt;/strong> (3B+ or newer, 2GB+ RAM)&lt;/li>
+&lt;li>&lt;strong>MicroSD card&lt;/strong> (16GB+)&lt;/li>
+&lt;li>&lt;strong>Power supply&lt;/strong> and network connection&lt;/li>
+&lt;li>&lt;strong>30 minutes&lt;/strong> for basic setup&lt;/li>
+&lt;/ul>
+&lt;h2 id="quick-start-5-steps-to-your-recipe-server">Quick Start: 5 Steps to Your Recipe Server&lt;/h2>
+&lt;p>Follow these steps to get your recipe server running in under 30 minutes:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>/docs/use-cases/cookbook-creation/</guid><description>&lt;p>Transform your digital recipe collection into a professional cookbook that you can print, share, or publish. This guide shows you how to use CookCLI's LaTeX export feature (supported in version after 0.18.0) to create PDF cookbooks from your Cooklang recipes.&lt;/p>
 &lt;h2 id="-what-youll-create">🎯 What You'll Create&lt;/h2>
 &lt;p>By the end of this tutorial, you'll have:&lt;/p>
 &lt;ul>
