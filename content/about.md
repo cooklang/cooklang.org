@@ -10,12 +10,13 @@ menu:
 
 # My Story — Crafting Cooklang
 
-During the pandemic, online grocery shopping revealed an unexpected frustration: without wandering through aisles, I either forgot essentials or ended up with a dozen items I didn't need. After juggling sticky-note meal plans that looked curiously repetitive, I thought: "It's time to automate this... and never re-solve it."
+During the pandemic, I was living in a tiny village on the Irish east coast. With quarantine restrictions, we couldn’t go further than 5 km from our house. Online shopping became the only option, and it revealed an unexpected frustration: without wandering through all aisles, I either forgot essentials or ended up with a dozen things I didn’t need. After juggling sticky-note meal plans that quickly grew repetitive, I thought: “It’s time to automate this… and never solve it twice.”
 
 So I began writing recipes in plain text—tagging ingredients with `@`:
 
 ```cooklang
 Poke holes in @potato{2}.  
+
 Add @salt and @ground black pepper{} to taste.
 ```
 
