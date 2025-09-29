@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://cooklang.org/"
 languageCode = "en-ie"
 title = "Cooklang: recipe markup language"
 themesDir = "./themes"
