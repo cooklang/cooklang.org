@@ -370,9 +370,6 @@ server {
 ```
 
 ```bash
-# Disable default site
-sudo unlink /etc/nginx/sites-enabled/default
-
 # Enable site
 sudo ln -s /etc/nginx/sites-available/cooklang /etc/nginx/sites-enabled/
 sudo nginx -t
