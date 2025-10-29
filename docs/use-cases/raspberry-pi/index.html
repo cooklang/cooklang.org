@@ -41,7 +41,7 @@ mkdir ~/recipes
 
 # Optional: Add a sample recipe to test
 echo &amp;#34;Boil @water{2%cups}. Add @tea{1%bag}.&amp;#34; &amp;gt; ~/recipes/tea.cook</code></pre></div><h3 id=step-5-launch-your-server-1-minute>Step 5: Launch Your Server (1 minute)</h3><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Start the CookLang server
-cook server ~/recipes --host 0.0.0.0 --port 9080</code></pre></div><p><strong>🎉 Success!</strong> Your recipe server is now running. Access it from any device:</p><ul><li>By hostname: <code>http://raspberrypi.local:9080</code></li><li>By IP address: <code>http://[your-pi-ip]:9080</code></li></ul><p><strong>Next</strong>: Make it permanent with our <a href=#production-deployment>production setup</a> below.</p><h2 id=installation-deep-dive>Installation Deep Dive</h2><h3 id=preparing-your-raspberry-pi>Preparing Your Raspberry Pi</h3><h4 id=operating-system-choice>Operating System Choice</h4><p>We recommend <strong>Raspberry Pi OS Lite</strong> for headless operation - it uses less memory and runs faster without the desktop environment.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Initial configuration
+cook server ~/recipes --host --port 9080</code></pre></div><p><strong>🎉 Success!</strong> Your recipe server is now running. Access it from any device:</p><ul><li>By hostname: <code>http://raspberrypi.local:9080</code></li><li>By IP address: <code>http://[your-pi-ip]:9080</code></li></ul><p><strong>Next</strong>: Make it permanent with our <a href=#production-deployment>production setup</a> below.</p><h2 id=installation-deep-dive>Installation Deep Dive</h2><h3 id=preparing-your-raspberry-pi>Preparing Your Raspberry Pi</h3><h4 id=operating-system-choice>Operating System Choice</h4><p>We recommend <strong>Raspberry Pi OS Lite</strong> for headless operation - it uses less memory and runs faster without the desktop environment.</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Initial configuration
 sudo raspi-config
 
 # Set the following:
@@ -121,7 +121,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/recipes
-ExecStart=/usr/local/bin/cook server --host 0.0.0.0 --port 9080
+ExecStart=/usr/local/bin/cook server --host --port 9080
 Restart=always
 RestartSec=10
 StandardOutput=append:/var/log/cooklang.log
@@ -181,7 +181,7 @@ mkdir -p ~/recipes/{shared,alice,bob,kids}
 chmod 755 ~/recipes/*
 
 # Run server with base directory
-cook server ~/recipes --host 0.0.0.0</code></pre></div><h3 id=backup--sync>Backup & Sync</h3><h4 id=automated-backups>Automated Backups</h4><p>Create a backup script:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>#!/bin/bash
+cook server ~/recipes --host</code></pre></div><h3 id=backup--sync>Backup & Sync</h3><h4 id=automated-backups>Automated Backups</h4><p>Create a backup script:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>#!/bin/bash
 # /home/pi/backup-recipes.sh
 
 BACKUP_DIR=&amp;#34;/home/pi/backups&amp;#34;
@@ -222,19 +222,16 @@ EOF
 
 chmod &#43;x ~/sync-recipes.sh</code></pre></div><h2 id=troubleshooting-quick-fixes>Troubleshooting: Quick Fixes</h2><h3 id=-problem-cannot-connect-from-other-devices>🔴 Problem: Cannot Connect from Other Devices</h3><p><strong>Solution 1</strong>: Check firewall settings</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo ufw status
 sudo ufw allow 9080/tcp
-sudo systemctl restart cooklang  # If using systemd service</code></pre></div><p><strong>Solution 2</strong>: Verify correct binding</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Must use 0.0.0.0, not localhost
-ps aux | grep cook
-# ✓ Correct: cook server --host 0.0.0.0
-# ✗ Wrong: cook server --host localhost</code></pre></div><p><strong>Solution 3</strong>: Confirm network connectivity</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># On your Pi:
+sudo systemctl restart cooklang  # If using systemd service</code></pre></div><p><strong>Solution 2</strong>: Confirm network connectivity</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># On your Pi:
 ip addr show  # Note the IP address
 # On another device:
 ping raspberrypi.local  # or use the IP</code></pre></div><h3 id=-problem-server-stops-when-i-close-ssh>🔴 Problem: Server Stops When I Close SSH</h3><p><strong>Solution</strong>: Use the systemd service (see <a href=#production-deployment>Production Deployment</a>)</p><p><strong>Quick fix</strong> without systemd:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Option 1: Use screen
 screen -S cooklang
-cook server ~/recipes --host 0.0.0.0
+cook server ~/recipes --host
 # Press Ctrl&#43;A, then D to detach
 
 # Option 2: Use nohup
-nohup cook server ~/recipes --host 0.0.0.0 &amp;amp;</code></pre></div><h3 id=-problem-slow-loading-or-timeouts>🔴 Problem: Slow Loading or Timeouts</h3><p><strong>Solution 1</strong>: Check SD card health</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo hdparm -t /dev/mmcblk0
+nohup cook server ~/recipes --host &amp;amp;</code></pre></div><h3 id=-problem-slow-loading-or-timeouts>🔴 Problem: Slow Loading or Timeouts</h3><p><strong>Solution 1</strong>: Check SD card health</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>sudo hdparm -t /dev/mmcblk0
 # Should see &amp;gt;20 MB/sec for acceptable performance</code></pre></div><p><strong>Solution 2</strong>: Monitor resource usage</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>free -h  # Check available memory
 df -h    # Check disk space
 htop     # Monitor CPU and RAM (install with: sudo apt install htop)</code></pre></div><p><strong>Solution 3</strong>: Optimize for your Pi model</p><ul><li>Pi 3B+: Limit to 5-10 concurrent users</li><li>Pi 4 (2GB): Comfortable with 10-15 users</li><li>Pi 4 (4GB+): Can handle 20+ users</li></ul><h3 id=-problem-recipe-changes-not-appearing>🔴 Problem: Recipe Changes Not Appearing</h3><p><strong>Solution 1</strong>: Clear browser cache</p><ul><li>Windows/Linux: <code>Ctrl + Shift + R</code></li><li>Mac: <code>Cmd + Shift + R</code></li><li>Mobile: Close and reopen browser</li></ul><p><strong>Solution 2</strong>: Check file permissions</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>ls -la ~/recipes  # All files should be readable
