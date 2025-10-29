@@ -88,7 +88,7 @@ echo "Boil @water{2%cups}. Add @tea{1%bag}." > ~/recipes/tea.cook
 ### Step 5: Launch Your Server (1 minute)
 ```bash
 # Start the CookLang server
-cook server ~/recipes --host 0.0.0.0 --port 9080
+cook server ~/recipes --host --port 9080
 ```
 
 **🎉 Success!** Your recipe server is now running. Access it from any device:
@@ -259,7 +259,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/recipes
-ExecStart=/usr/local/bin/cook server --host 0.0.0.0 --port 9080
+ExecStart=/usr/local/bin/cook server --host --port 9080
 Restart=always
 RestartSec=10
 StandardOutput=append:/var/log/cooklang.log
@@ -370,6 +370,9 @@ server {
 ```
 
 ```bash
+# Disable default site
+sudo unlink /etc/nginx/sites-enabled/default
+
 # Enable site
 sudo ln -s /etc/nginx/sites-available/cooklang /etc/nginx/sites-enabled/
 sudo nginx -t
@@ -388,7 +391,7 @@ mkdir -p ~/recipes/{shared,alice,bob,kids}
 chmod 755 ~/recipes/*
 
 # Run server with base directory
-cook server ~/recipes --host 0.0.0.0
+cook server ~/recipes --host
 ```
 
 ### Backup & Sync
@@ -465,15 +468,7 @@ sudo ufw allow 9080/tcp
 sudo systemctl restart cooklang  # If using systemd service
 ```
 
-**Solution 2**: Verify correct binding
-```bash
-# Must use 0.0.0.0, not localhost
-ps aux | grep cook
-# ✓ Correct: cook server --host 0.0.0.0
-# ✗ Wrong: cook server --host localhost
-```
-
-**Solution 3**: Confirm network connectivity
+**Solution 2**: Confirm network connectivity
 ```bash
 # On your Pi:
 ip addr show  # Note the IP address
@@ -489,11 +484,11 @@ ping raspberrypi.local  # or use the IP
 ```bash
 # Option 1: Use screen
 screen -S cooklang
-cook server ~/recipes --host 0.0.0.0
+cook server ~/recipes --host
 # Press Ctrl+A, then D to detach
 
 # Option 2: Use nohup
-nohup cook server ~/recipes --host 0.0.0.0 &
+nohup cook server ~/recipes --host &
 ```
 
 ### 🔴 Problem: Slow Loading or Timeouts
