@@ -1,9 +1,31 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+
+<!-- Meta Description -->
+<meta name="description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.homepage_meta_tags.meta_description }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Params.homepage_meta_tags.meta_og_title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+<meta property="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.homepage_meta_tags.meta_og_description }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}">
+<meta property="og:type" content="{{ if .IsHome }}website{{ else if eq .Section "blog" }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{ if .Params.image }}<meta property="og:image" content="{{ .Params.image | absURL }}">{{ else }}<meta property="og:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}">{{ end }}
+<meta property="og:site_name" content="{{ .Site.Title }}">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Params.homepage_meta_tags.meta_og_title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsHome }}{{ .Site.Params.homepage_meta_tags.meta_og_description }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}">
+{{ if .Params.image }}<meta name="twitter:image" content="{{ .Params.image | absURL }}">{{ else }}<meta name="twitter:image" content="{{ .Site.Params.homepage_meta_tags.meta_og_image }}">{{ end }}
+
+<!-- Author -->
+<meta name="author" content="{{ if .Params.author }}{{ .Params.author }}{{ else }}{{ .Site.Author.name }}{{ end }}">
+
 <link rel="canonical" href="{{ .Permalink }}" />
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="shortcut icon" type="image/png" href="/favicon.png">
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 {{ partial "plausible.html" . }}
+{{ partial "schema.html" . }}
