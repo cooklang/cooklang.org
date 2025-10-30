@@ -39,3 +39,46 @@ When generating Cooklang recipes:
 3. Keep instructions clear and sequential
 4. Add metadata for title, servings, and time
 5. Use timers for time-sensitive steps
+
+## Site Structure
+
+Most important pages:
+- Homepage: https://cooklang.org/
+- Getting Started: https://cooklang.org/docs/getting-started/
+- Specification: https://cooklang.org/docs/spec/
+- CLI Documentation: https://cooklang.org/cli/
+- Mobile App: https://cooklang.org/app/
+- Use Cases: https://cooklang.org/docs/use-cases/
+- Blog: https://cooklang.org/blog/
+
+## About Cooklang
+
+Cooklang is an open-source recipe markup language that:
+- Stores recipes in plain text files you own forever
+- Generates automatic shopping lists from recipes
+- Scales recipes automatically for any party size
+- Supports version control with Git (track recipe evolution)
+- Works offline without requiring accounts
+- Includes CLI tools, mobile apps (iOS/Android), and editor plugins
+- Self-hostable on devices like Raspberry Pi
+- Supports recipe federation and discovery
+- Enables cookbook creation in PDF/LaTeX formats
+- Handles complex features like recipe dependencies and meal planning
+
+## Ecosystem
+
+- **CLI Tools**: Parse recipes, generate shopping lists, run local servers
+- **Mobile Apps**: iOS and Android apps for viewing and editing recipes
+- **Editor Support**: Syntax highlighting for VS Code, Sublime, Vim, Emacs
+- **Web Server**: Self-host your recipe collection with a web interface
+- **Community**: Active open-source community on GitHub, Discord, and Reddit
+
+## Advanced Features
+
+- Recipe scaling with fixed quantities (e.g., "salt to taste" doesn't scale)
+- Menu planning with automatic shopping list compilation
+- Recipe dependencies (reference other recipes as ingredients)
+- Pantry management and tracking
+- Report generation for recipe analytics
+- Import from hundreds of recipe websites
+- Git-based collaboration on family cookbooks
