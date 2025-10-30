@@ -93,6 +93,10 @@ summaryLength = 30
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true
 
+  [params.author]
+    name = "Alexey"
+    email = "hello@cooklang.org"
+
   [params.homepage_meta_tags]
     meta_description = "Cooklang is a markup language for recipes."
     meta_og_title = "Cooklang – Recipe Markup Language"
@@ -116,9 +120,3 @@ summaryLength = 30
 [outputs]
 home = ["HTML", "RSS"]
 section = ["HTML", "RSS"]
-
-[author]
-name = "Alexey"
-email = "hello@cooklang.org"
-
-copyright = "Copyright © 2021-2024 Cooklang"
