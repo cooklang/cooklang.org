@@ -1,5 +1,6 @@
 <div id="mc_embed_shell">
-      <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
+  <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css" media="print" onload="this.media='all'">
+  <noscript><link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css"></noscript>
   <style type="text/css">
         #mc_embed_signup{background:#fff; false;clear:left; font:14px Helvetica,Arial,sans-serif; width: 600px;}
         /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
@@ -28,4 +29,55 @@
     </div>
 </form>
 </div>
-<script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script><script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';fnames[5]='BIRTHDAY';ftypes[5]='birthday';}(jQuery));var $mcj = jQuery.noConflict(true);</script></div>
+<script>
+// Lazy load Mailchimp validation script only when form is visible
+(function() {
+  let mcLoaded = false;
+  const loadMailchimp = function() {
+    if (mcLoaded) return;
+    mcLoaded = true;
+
+    const script = document.createElement('script');
+    script.src = '//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js';
+    script.async = true;
+    script.onload = function() {
+      if (typeof jQuery !== 'undefined') {
+        (function($) {
+          window.fnames = new Array();
+          window.ftypes = new Array();
+          fnames[0]='EMAIL';ftypes[0]='email';
+          fnames[1]='FNAME';ftypes[1]='text';
+          fnames[2]='LNAME';ftypes[2]='text';
+          fnames[3]='ADDRESS';ftypes[3]='address';
+          fnames[4]='PHONE';ftypes[4]='phone';
+          fnames[5]='BIRTHDAY';ftypes[5]='birthday';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+      }
+    };
+    document.body.appendChild(script);
+  };
+
+  // Use Intersection Observer to load when form comes into view
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          loadMailchimp();
+          observer.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+
+    const form = document.getElementById('mc_embed_signup');
+    if (form) observer.observe(form);
+  } else {
+    // Fallback for older browsers - load on user interaction
+    const loadEvents = ['scroll', 'mousemove', 'touchstart'];
+    loadEvents.forEach(function(event) {
+      window.addEventListener(event, loadMailchimp, { once: true, passive: true });
+    });
+  }
+})();
+</script>
+</div>
