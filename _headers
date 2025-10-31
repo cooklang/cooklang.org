@@ -1,0 +1,29 @@
+# Cache static assets for 1 year
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.png
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.webp
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpg
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jpeg
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML files should have shorter cache
+/*.html
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Root index
+/
+  Cache-Control: public, max-age=3600, must-revalidate
