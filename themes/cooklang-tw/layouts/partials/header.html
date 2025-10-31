@@ -3,9 +3,11 @@
     <!-- Logo -->
     <div class="flex items-center">
       <a href="{{ .Site.BaseURL }}" class="flex items-center space-x-2 hover:opacity-80 transition-opacity">
-        <img alt="{{ .Site.Title }}" 
-             src="{{ .Site.Params.logo.standard | relURL }}" 
-             class="h-10 w-auto" />
+        <img alt="{{ .Site.Title }}"
+             src="{{ .Site.Params.logo.standard | relURL }}"
+             class="h-10 w-auto"
+             width="120"
+             height="120" />
         <span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span>
       </a>
     </div>
