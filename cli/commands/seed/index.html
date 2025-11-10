@@ -61,7 +61,7 @@ cook recipe &amp;#34;Breakfast/Easy Pancakes&amp;#34;
 cook recipe &amp;#34;Neapolitan Pizza:2&amp;#34;
 
 # Check ingredient formatting
-cook recipe &amp;#34;Sicilian-style Scottadito Lamb Chops&amp;#34; -f json | jq &amp;#39;.ingredients&amp;#39;</code></pre></div><h2 id=practical-uses>Practical Uses</h2><h3 id=quick-start>Quick Start</h3><p>For new users:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Get started with Cooklang
+cook recipe lamb-chops -f json | jq &amp;#39;.ingredients&amp;#39;</code></pre></div><h2 id=practical-uses>Practical Uses</h2><h3 id=quick-start>Quick Start</h3><p>For new users:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Get started with Cooklang
 mkdir my-cookbook &amp;amp;&amp;amp; cd my-cookbook
 cook seed
 cook server --open</code></pre></div><h2 id=common-patterns>Common Patterns</h2><h3 id=try-before-you-buy>Try Before You Buy</h3><p>Test CookCLI features without affecting your recipes:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Temporary playground
