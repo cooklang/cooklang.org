@@ -2,63 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linux Package Manager Hell Bingo - Dependency Purgatory Edition™</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Linux Package Manager Hell Bingo</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
         body {
             font-family: 'Ubuntu Mono', 'Courier New', monospace;
-            max-width: 950px;
-            margin: 0 auto;
-            padding: 20px;
             background: linear-gradient(135deg, #282a36 0%, #44475a 50%, #6272a4 100%);
             min-height: 100vh;
             color: #f8f8f2;
-        }
-
-        body::before {
-            content: "$ sudo apt-get install sanity";
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            opacity: 0.1;
-            font-size: 20px;
-            color: #50fa7b;
-        }
-
-        body::after {
-            content: "E: Unable to locate package sanity";
-            position: fixed;
-            top: 35px;
-            left: 10px;
-            opacity: 0.1;
-            font-size: 20px;
-            color: #ff5555;
+            padding: 10px;
+            overflow-x: hidden;
         }
 
         .container {
             background: #282a36;
             border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
             border: 2px solid #50fa7b;
+            max-width: 950px;
+            margin: 0 auto;
         }
 
         .terminal-header {
             background: #44475a;
-            margin: -30px -30px 20px -30px;
-            padding: 10px 30px;
-            border-radius: 10px 10px 0 0;
+            margin: -15px -15px 10px -15px;
+            padding: 8px 15px;
+            border-radius: 8px 8px 0 0;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            font-size: 0.8em;
         }
 
         .terminal-button {
-            width: 12px;
-            height: 12px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
             display: inline-block;
         }
@@ -67,49 +58,63 @@
         .minimize { background: #ffb86c; }
         .maximize { background: #50fa7b; }
 
+        .terminal-text {
+            margin-left: 10px;
+            color: #f8f8f2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
         h1 {
             text-align: center;
             color: #50fa7b;
-            margin: 10px 0 5px 0;
-            font-size: 2em;
+            margin: 10px 0;
+            font-size: clamp(1.3em, 4vw, 2em);
             text-shadow: 0 0 10px rgba(80, 250, 123, 0.5);
-            font-family: 'Ubuntu Mono', monospace;
         }
 
         .subtitle {
             text-align: center;
             color: #ff79c6;
             margin-bottom: 10px;
-            font-style: italic;
-            font-size: 1.1em;
+            font-size: clamp(0.8em, 2.5vw, 1.1em);
+            padding: 0 10px;
         }
 
         .status-bar {
             background: #44475a;
-            padding: 10px;
-            margin: 10px 0;
+            padding: 8px;
+            margin: 8px 0;
             border-radius: 5px;
-            font-size: 0.9em;
+            font-size: clamp(0.7em, 2vw, 0.9em);
             color: #8be9fd;
-            font-family: monospace;
+            overflow-x: auto;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
         }
 
         .error-message {
             color: #ff5555;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 0.9em;
-            font-family: monospace;
+            margin-bottom: 10px;
+            font-size: clamp(0.7em, 2vw, 0.9em);
             background: rgba(255, 85, 85, 0.1);
             padding: 5px;
             border-radius: 3px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .bingo-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 6px;
-            margin-bottom: 30px;
+            gap: clamp(3px, 1vw, 6px);
+            margin: 15px 0;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .bingo-cell {
@@ -117,25 +122,27 @@
             border: 2px solid #6272a4;
             background: #44475a;
             cursor: pointer;
-            padding: 8px;
+            padding: clamp(2px, 0.8vw, 8px);
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            font-size: 1.2em;
-            transition: all 0.3s ease;
+            font-size: clamp(0.45em, 1.8vw, 0.72em);
+            transition: all 0.2s ease;
             border-radius: 5px;
             position: relative;
             overflow: hidden;
             color: #f8f8f2;
-            font-weight: 400;
+            line-height: 1.1;
+            word-break: break-word;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
         }
 
-        .bingo-cell:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(80, 250, 123, 0.5);
-            background: #50495e;
-            border-color: #50fa7b;
+        .bingo-cell:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 15px rgba(80, 250, 123, 0.6);
         }
 
         .bingo-cell.marked {
@@ -149,7 +156,7 @@
         .bingo-cell.marked::after {
             content: "💀";
             position: absolute;
-            font-size: 2em;
+            font-size: clamp(1.5em, 3vw, 2em);
             opacity: 0.3;
             animation: spin 3s linear infinite;
         }
@@ -174,51 +181,45 @@
         }
 
         @keyframes glitch {
-            0%, 100% {
-                transform: translate(0);
-            }
-            20% {
-                transform: translate(-2px, 2px);
-            }
-            40% {
-                transform: translate(-2px, -2px);
-            }
-            60% {
-                transform: translate(2px, 2px);
-            }
-            80% {
-                transform: translate(2px, -2px);
-            }
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(-1px, -1px); }
+            60% { transform: translate(1px, 1px); }
+            80% { transform: translate(1px, -1px); }
         }
 
         .controls {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         button {
-            padding: 10px 20px;
+            padding: clamp(10px, 2vw, 12px) clamp(8px, 2vw, 20px);
             background: #50fa7b;
             color: #282a36;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            font-size: 14px;
-            transition: all 0.3s ease;
+            font-size: clamp(0.75em, 2.5vw, 1em);
+            transition: all 0.2s ease;
             font-weight: bold;
             font-family: 'Ubuntu Mono', monospace;
-        }
-
-        button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(80, 250, 123, 0.5);
-            background: #5cfb7f;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            touch-action: manipulation;
+            -webkit-appearance: none;
         }
 
         button:active {
-            transform: translateY(0);
+            transform: scale(0.95);
+            box-shadow: 0 2px 10px rgba(80, 250, 123, 0.5);
+        }
+
+        button.full-width {
+            grid-column: 1 / -1;
         }
 
         .winner {
@@ -228,21 +229,21 @@
             left: 50%;
             transform: translate(-50%, -50%);
             background: #282a36;
-            padding: 40px;
+            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.8);
             z-index: 1000;
             text-align: center;
-            max-width: 500px;
+            width: 90%;
+            max-width: 400px;
             border: 3px solid #ff5555;
         }
 
         .winner h2 {
             color: #ff5555;
-            font-size: 2.5em;
-            margin-bottom: 20px;
+            font-size: clamp(1.5em, 5vw, 2.5em);
+            margin-bottom: 15px;
             animation: blink 1s infinite;
-            font-family: 'Ubuntu Mono', monospace;
         }
 
         @keyframes blink {
@@ -251,15 +252,15 @@
         }
 
         .winner p {
-            font-size: 1.1em;
-            margin: 15px 0;
+            font-size: clamp(0.9em, 2.5vw, 1.1em);
+            margin: 10px 0;
             color: #f8f8f2;
-            font-family: monospace;
         }
 
         .achievement {
             color: #50fa7b;
             font-weight: bold;
+            font-size: clamp(0.8em, 2vw, 1em);
         }
 
         .overlay {
@@ -279,33 +280,110 @@
 
         @keyframes panic {
             0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
         }
 
         .stats {
             text-align: center;
-            margin: 20px 0;
-            font-size: 0.9em;
+            margin: 10px 0;
+            font-size: clamp(0.7em, 2vw, 0.9em);
             color: #8be9fd;
-            font-family: monospace;
+            padding: 0 5px;
+            line-height: 1.4;
         }
 
-        .distro-indicator {
-            position: absolute;
-            top: 10px;
-            right: 30px;
-            font-size: 2em;
-            opacity: 0.3;
-        }
-
-        @media (max-width: 600px) {
-            .bingo-cell {
-                font-size: 0.55em;
-                padding: 4px;
+        /* Tablet and larger phones in landscape */
+        @media (min-width: 600px) {
+            .container {
+                padding: 20px;
             }
-            h1 {
-                font-size: 1.5em;
+
+            .terminal-header {
+                margin: -20px -20px 15px -20px;
+                padding: 10px 20px;
+            }
+
+            .controls {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            button:last-child {
+                grid-column: 2 / 3;
+            }
+
+            .bingo-cell {
+                font-size: 0.65em;
+            }
+        }
+
+        /* Large tablets and desktop */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            .container {
+                padding: 30px;
+            }
+
+            .terminal-header {
+                margin: -30px -30px 20px -30px;
+                padding: 10px 30px;
+                font-size: 1em;
+            }
+
+            .terminal-button {
+                width: 12px;
+                height: 12px;
+            }
+
+            .controls {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            button {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+
+            button.full-width {
+                grid-column: auto;
+            }
+
+            .bingo-cell {
+                padding: 8px;
+                font-size: 0.68em;
+            }
+
+            .bingo-cell:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(80, 250, 123, 0.5);
+                background: #50495e;
+                border-color: #50fa7b;
+            }
+        }
+
+        /* Prevent text selection on mobile */
+        @media (max-width: 768px) {
+            * {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+
+        /* iOS specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            body {
+                -webkit-text-size-adjust: 100%;
+            }
+
+            button {
+                -webkit-appearance: none;
             }
         }
     </style>
@@ -316,39 +394,39 @@
             <span class="terminal-button close"></span>
             <span class="terminal-button minimize"></span>
             <span class="terminal-button maximize"></span>
-            <span style="margin-left: 10px; color: #f8f8f2;">root@localhost:~#</span>
+            <span class="terminal-text">root@localhost:~#</span>
         </div>
 
-        <div class="distro-indicator">🐧</div>
-
-        <h1>🔥 Linux Package Manager Hell Bingo 🔥</h1>
-        <p class="subtitle">Where "sudo apt-get install" is just the beginning of your problems</p>
-        <div class="error-message" id="errorMessage">E: Sub-process /usr/bin/dpkg returned an error code (1)</div>
+        <h1>🔥 Package Manager Hell 🔥</h1>
+        <p class="subtitle">Where sudo doesn't fix everything</p>
+        <div class="error-message" id="errorMessage">E: dpkg returned error code (1)</div>
 
         <div class="status-bar" id="statusBar">
-            Reading package lists... Building dependency tree... Calculating insanity levels...
+            Reading package lists... Building dependency tree...
         </div>
 
         <div class="bingo-grid" id="bingoGrid"></div>
 
-        <div class="stats" id="stats">Broken Packages: 0 | Dependency Conflicts: 0 | Will to Live: 100%</div>
+        <div class="stats" id="stats">
+            Broken: 0 | Conflicts: 0 | Sanity: 100%
+        </div>
 
         <div class="controls">
-            <button onclick="resetBoard()">🔄 sudo apt-get update</button>
-            <button onclick="clearBoard()">🧹 --purge --autoremove</button>
-            <button onclick="autoMark()">🎲 Random Segfault</button>
-            <button onclick="speedrun()">💣 dist-upgrade --force</button>
-            <button onclick="kernelPanic()">☠️ Kernel Panic</button>
+            <button onclick="resetBoard()">🔄 Update</button>
+            <button onclick="clearBoard()">🧹 Purge</button>
+            <button onclick="autoMark()">🎲 Segfault</button>
+            <button onclick="speedrun()">💣 Force</button>
+            <button class="full-width" onclick="kernelPanic()">☠️ Kernel Panic!</button>
         </div>
     </div>
 
     <div class="overlay" id="overlay" onclick="hideWinner()"></div>
     <div class="winner" id="winnerModal">
         <h2>⚠️ KERNEL PANIC ⚠️</h2>
-        <p id="winMessage">Segmentation fault (core dumped)</p>
+        <p id="winMessage">Segfault (core dumped)</p>
         <p style="font-size: 2em;">💀🐧💀</p>
-        <p class="achievement" id="achievement">[  0.000000] Kernel panic - not syncing: Achievement unlocked!</p>
-        <button onclick="hideWinner()">sudo reboot now</button>
+        <p class="achievement" id="achievement">Achievement unlocked!</p>
+        <button onclick="hideWinner()">sudo reboot</button>
     </div>
 
     <script>
@@ -381,47 +459,45 @@
         ];
 
         const statusMessages = [
-            "Reading package lists... Done. You have 47 broken packages.",
-            "E: Could not get lock /var/lib/dpkg/lock-frontend",
-            "The following packages have unmet dependencies:",
-            "dpkg: error processing package (--configure):",
-            "You are about to do something potentially harmful.",
-            "ldconfig: /usr/local/lib/libsomething.so.1 is not a symbolic link",
-            "Warning: apt-key is deprecated",
-            "N: Repository 'some-random-ppa' changed its 'Label' value",
-            "Errors were encountered while processing: everything",
-            "Setting up linux-image-generic (5.4.0.42.45) ...",
-            "Processing triggers for man-db (2.8.3-2ubuntu0.1) ...",
-            "/boot: No space left on device",
+            "E: Could not get lock",
+            "Unmet dependencies:",
+            "dpkg: error processing",
+            "Potentially harmful",
+            "ldconfig: not a symlink",
+            "apt-key deprecated",
+            "Repository changed",
+            "Processing errors",
+            "No space left",
             "Hash Sum mismatch",
-            "GPG error: The following signatures couldn't be verified"
+            "GPG error"
         ];
 
         const achievements = [
-            "[  0.000000] Kernel panic - Achievement: Dependency Hell Survivor",
-            "[  0.000000] Kernel panic - Achievement: Broke Production on Friday",
-            "[  0.000000] Kernel panic - Achievement: Mixed Debian and Ubuntu Repos",
-            "[  0.000000] Kernel panic - Achievement: Compiled Kernel at 3 AM",
-            "[  0.000000] Kernel panic - Achievement: /usr/local Chaos Master",
-            "[  0.000000] Kernel panic - Achievement: PPA Addiction Counseling Needed",
-            "[  0.000000] Kernel panic - Achievement: Orphan Package Collector",
-            "[  0.000000] Kernel panic - Achievement: Force Installed Everything",
-            "[  0.000000] Kernel panic - Achievement: Python Version Time Traveler"
+            "Dependency Hell Survivor",
+            "Broke Prod on Friday",
+            "Mixed Repos Champion",
+            "3AM Kernel Compiler",
+            "/usr/local Chaos",
+            "PPA Addiction",
+            "Orphan Collector",
+            "Force Install Master",
+            "Python Time Traveler"
         ];
 
         const winMessages = [
-            "Segmentation fault (core dumped)",
-            "Unable to handle kernel NULL pointer dereference",
-            "VFS: Unable to mount root fs on unknown-block",
-            "Kernel panic - not syncing: Attempted to kill init!",
-            "BUG: unable to handle kernel paging request",
-            "Out of memory: Kill process or sacrifice child",
-            "systemd[1]: Failed to start everything.service"
+            "Segfault (core dumped)",
+            "Kernel NULL pointer",
+            "Unable to mount root",
+            "Attempted to kill init!",
+            "Paging request failed",
+            "Out of memory",
+            "systemd[1]: Failed"
         ];
 
         let boardState = new Array(25).fill(false);
-        boardState[12] = true; // Free space
-        let markedCount = 1; // Start with 1 for free space
+        boardState[12] = true;
+        let markedCount = 1;
+        let touchStartTime = 0;
 
         function shuffleArray(array) {
             const newArray = [...array];
@@ -436,7 +512,6 @@
             const grid = document.getElementById('bingoGrid');
             grid.innerHTML = '';
 
-            // Shuffle falsehoods but keep free space in center
             const shuffled = [...falsehoods];
             const freeIndex = shuffled.indexOf('FREE SPACE:\n🔥 /dev/null\nas a service 🔥');
             if (freeIndex !== -1) {
@@ -452,7 +527,29 @@
                     cell.className += ' free marked';
                 }
                 cell.innerHTML = text.replace(/\n/g, '<br>');
-                cell.onclick = () => toggleCell(index);
+
+                // Better touch handling
+                cell.addEventListener('touchstart', (e) => {
+                    e.preventDefault();
+                    touchStartTime = Date.now();
+                    cell.style.transform = 'scale(0.95)';
+                });
+
+                cell.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    const touchDuration = Date.now() - touchStartTime;
+                    cell.style.transform = '';
+                    if (touchDuration < 500) { // Not a long press
+                        toggleCell(index);
+                    }
+                });
+
+                cell.addEventListener('click', (e) => {
+                    if (!('ontouchstart' in window)) {
+                        toggleCell(index);
+                    }
+                });
+
                 grid.appendChild(cell);
             });
 
@@ -461,7 +558,7 @@
         }
 
         function toggleCell(index) {
-            if (index === 12) return; // Free space
+            if (index === 12) return;
 
             boardState[index] = !boardState[index];
             const cells = document.querySelectorAll('.bingo-cell');
@@ -470,7 +567,11 @@
                 markedCount++;
                 updateStatusBar();
 
-                // Random terminal output
+                // Haptic feedback if available
+                if (navigator.vibrate) {
+                    navigator.vibrate(50);
+                }
+
                 if (Math.random() > 0.6) {
                     showTerminalMessage();
                 }
@@ -485,13 +586,11 @@
 
         function updateStatusBar() {
             const messages = [
-                `Reading package lists... ${markedCount * 47} packages need attention`,
-                `dpkg: warning: ${markedCount * 3} files left on system`,
-                `Setting up chaos (${markedCount}.0.0-1ubuntu1) ...`,
-                `E: ${markedCount} broken dependencies found`,
-                `Processing triggers for suffering (${markedCount}.0) ...`,
-                `Unpacking replacement sanity ...`,
-                `Removing humanity (${markedCount * 10}%) ...`
+                `Reading... ${markedCount * 47} broken`,
+                `dpkg: ${markedCount * 3} errors`,
+                `chaos v${markedCount}.0 installing`,
+                `E: ${markedCount} conflicts`,
+                `Triggers... ${markedCount * 10}%`
             ];
 
             document.getElementById('statusBar').textContent =
@@ -508,16 +607,15 @@
         }
 
         function updateStats() {
-            const willToLive = Math.max(0, 100 - (markedCount * 4));
-            const brokenPackages = markedCount * 3;
+            const sanity = Math.max(0, 100 - (markedCount * 4));
+            const broken = markedCount * 3;
             const conflicts = Math.floor(markedCount * 1.5);
 
             document.getElementById('stats').innerHTML =
-                `Broken Packages: ${brokenPackages} | Dependency Conflicts: ${conflicts} | Will to Live: ${willToLive}% ${willToLive <= 20 ? '☠️' : ''}`;
+                `Broken: ${broken} | Conflicts: ${conflicts} | Sanity: ${sanity}%${sanity <= 20 ? '☠️' : ''}`;
         }
 
         function checkWinner() {
-            // Check rows
             for (let row = 0; row < 5; row++) {
                 if (checkLine(row * 5, 1, 5)) {
                     showWinner();
@@ -525,7 +623,6 @@
                 }
             }
 
-            // Check columns
             for (let col = 0; col < 5; col++) {
                 if (checkLine(col, 5, 5)) {
                     showWinner();
@@ -533,7 +630,6 @@
                 }
             }
 
-            // Check diagonals
             if (checkLine(0, 6, 5) || checkLine(4, 4, 5)) {
                 showWinner();
             }
@@ -552,7 +648,11 @@
             document.getElementById('overlay').style.display = 'block';
             document.getElementById('winnerModal').style.display = 'block';
             document.getElementById('winMessage').textContent = winMessages[Math.floor(Math.random() * winMessages.length)];
-            document.getElementById('achievement').textContent = achievements[Math.floor(Math.random() * achievements.length)];
+            document.getElementById('achievement').textContent = `Achievement: ${achievements[Math.floor(Math.random() * achievements.length)]}`;
+
+            if (navigator.vibrate) {
+                navigator.vibrate([200, 100, 200]);
+            }
         }
 
         function hideWinner() {
@@ -565,7 +665,11 @@
             boardState[12] = true;
             markedCount = 1;
             initializeBoard();
-            document.getElementById('errorMessage').textContent = 'E: Sub-process /usr/bin/dpkg returned an error code (1)';
+            document.getElementById('errorMessage').textContent = 'E: dpkg returned error (1)';
+
+            if (navigator.vibrate) {
+                navigator.vibrate(30);
+            }
         }
 
         function clearBoard() {
@@ -580,7 +684,7 @@
             });
             updateStats();
             updateStatusBar();
-            document.getElementById('errorMessage').textContent = 'Reading state information... Done';
+            document.getElementById('errorMessage').textContent = 'State information... Done';
         }
 
         function autoMark() {
@@ -597,32 +701,56 @@
         }
 
         function speedrun() {
-            document.getElementById('statusBar').textContent = 'Running dist-upgrade --force-yes --break-everything...';
+            document.getElementById('statusBar').textContent = 'dist-upgrade --force...';
             let count = 0;
             const interval = setInterval(() => {
                 autoMark();
                 count++;
                 if (count >= 5 || markedCount >= 20) {
                     clearInterval(interval);
-                    document.getElementById('statusBar').textContent = 'System is now in an undefined state. Good luck!';
+                    document.getElementById('statusBar').textContent = 'System undefined!';
                 }
             }, 300);
         }
 
         function kernelPanic() {
             document.body.classList.add('kernel-panic');
+            if (navigator.vibrate) {
+                navigator.vibrate([100, 50, 100, 50, 100]);
+            }
             setTimeout(() => {
                 document.body.classList.remove('kernel-panic');
             }, 3000);
 
-            // Mark random cells frantically
             for (let i = 0; i < 8; i++) {
                 setTimeout(() => autoMark(), i * 200);
             }
         }
 
-        // Initialize on load
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+        // Initialize
         initializeBoard();
     </script>
+
+    <footer style="text-align: center; margin-top: 30px; padding: 20px 10px; color: #6272a4; font-size: clamp(0.8em, 2vw, 0.9em);">
+        <div style="margin-bottom: 10px; color: #8be9fd;">
+            Made with 💚 and dependency conflicts
+        </div>
+        <a href="https://cooklang.org" target="_blank" rel="noopener" style="color: #50fa7b; text-decoration: none; font-weight: bold; transition: all 0.3s ease;">
+            🍳 Check out Cooklang.org
+        </a>
+        <div style="margin-top: 5px; font-size: 0.9em; opacity: 0.8;">
+            The plain text cooking ecosystem
+        </div>
+    </footer>
 </body>
 </html>
