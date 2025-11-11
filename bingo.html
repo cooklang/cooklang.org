@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Package Manager Hell Bingo - Dependency Purgatory Edition™</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Ubuntu Mono', 'Courier New', monospace;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #282a36 0%, #44475a 50%, #6272a4 100%);
+            min-height: 100vh;
+            color: #f8f8f2;
+        }
+
+        body::before {
+            content: "$ sudo apt-get install sanity";
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            opacity: 0.1;
+            font-size: 20px;
+            color: #50fa7b;
+        }
+
+        body::after {
+            content: "E: Unable to locate package sanity";
+            position: fixed;
+            top: 35px;
+            left: 10px;
+            opacity: 0.1;
+            font-size: 20px;
+            color: #ff5555;
+        }
+
+        .container {
+            background: #282a36;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            position: relative;
+            border: 2px solid #50fa7b;
+        }
+
+        .terminal-header {
+            background: #44475a;
+            margin: -30px -30px 20px -30px;
+            padding: 10px 30px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .close { background: #ff5555; }
+        .minimize { background: #ffb86c; }
+        .maximize { background: #50fa7b; }
+
+        h1 {
+            text-align: center;
+            color: #50fa7b;
+            margin: 10px 0 5px 0;
+            font-size: 2em;
+            text-shadow: 0 0 10px rgba(80, 250, 123, 0.5);
+            font-family: 'Ubuntu Mono', monospace;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #ff79c6;
+            margin-bottom: 10px;
+            font-style: italic;
+            font-size: 1.1em;
+        }
+
+        .status-bar {
+            background: #44475a;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: #8be9fd;
+            font-family: monospace;
+        }
+
+        .error-message {
+            color: #ff5555;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+            font-family: monospace;
+            background: rgba(255, 85, 85, 0.1);
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .bingo-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin-bottom: 30px;
+        }
+
+        .bingo-cell {
+            aspect-ratio: 1;
+            border: 2px solid #6272a4;
+            background: #44475a;
+            cursor: pointer;
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            color: #f8f8f2;
+            font-weight: 400;
+        }
+
+        .bingo-cell:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(80, 250, 123, 0.5);
+            background: #50495e;
+            border-color: #50fa7b;
+        }
+
+        .bingo-cell.marked {
+            background: linear-gradient(135deg, #ff5555 0%, #ff79c6 100%);
+            color: white;
+            font-weight: bold;
+            animation: glitch 0.5s ease;
+            border-color: #ff5555;
+        }
+
+        .bingo-cell.marked::after {
+            content: "💀";
+            position: absolute;
+            font-size: 2em;
+            opacity: 0.3;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .bingo-cell.free {
+            background: linear-gradient(135deg, #bd93f9 0%, #ff79c6 100%);
+            color: white;
+            font-weight: bold;
+            cursor: default;
+            border-color: #bd93f9;
+            animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-2px, 2px);
+            }
+            40% {
+                transform: translate(-2px, -2px);
+            }
+            60% {
+                transform: translate(2px, 2px);
+            }
+            80% {
+                transform: translate(2px, -2px);
+            }
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #50fa7b;
+            color: #282a36;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            font-family: 'Ubuntu Mono', monospace;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(80, 250, 123, 0.5);
+            background: #5cfb7f;
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .winner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #282a36;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+            z-index: 1000;
+            text-align: center;
+            max-width: 500px;
+            border: 3px solid #ff5555;
+        }
+
+        .winner h2 {
+            color: #ff5555;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: blink 1s infinite;
+            font-family: 'Ubuntu Mono', monospace;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .winner p {
+            font-size: 1.1em;
+            margin: 15px 0;
+            color: #f8f8f2;
+            font-family: monospace;
+        }
+
+        .achievement {
+            color: #50fa7b;
+            font-weight: bold;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 999;
+        }
+
+        .kernel-panic {
+            animation: panic 0.1s infinite;
+        }
+
+        @keyframes panic {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .stats {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 0.9em;
+            color: #8be9fd;
+            font-family: monospace;
+        }
+
+        .distro-indicator {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+            font-size: 2em;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 600px) {
+            .bingo-cell {
+                font-size: 0.55em;
+                padding: 4px;
+            }
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="terminal-header">
+            <span class="terminal-button close"></span>
+            <span class="terminal-button minimize"></span>
+            <span class="terminal-button maximize"></span>
+            <span style="margin-left: 10px; color: #f8f8f2;">root@localhost:~#</span>
+        </div>
+
+        <div class="distro-indicator">🐧</div>
+
+        <h1>🔥 Linux Package Manager Hell Bingo 🔥</h1>
+        <p class="subtitle">Where "sudo apt-get install" is just the beginning of your problems</p>
+        <div class="error-message" id="errorMessage">E: Sub-process /usr/bin/dpkg returned an error code (1)</div>
+
+        <div class="status-bar" id="statusBar">
+            Reading package lists... Building dependency tree... Calculating insanity levels...
+        </div>
+
+        <div class="bingo-grid" id="bingoGrid"></div>
+
+        <div class="stats" id="stats">Broken Packages: 0 | Dependency Conflicts: 0 | Will to Live: 100%</div>
+
+        <div class="controls">
+            <button onclick="resetBoard()">🔄 sudo apt-get update</button>
+            <button onclick="clearBoard()">🧹 --purge --autoremove</button>
+            <button onclick="autoMark()">🎲 Random Segfault</button>
+            <button onclick="speedrun()">💣 dist-upgrade --force</button>
+            <button onclick="kernelPanic()">☠️ Kernel Panic</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="hideWinner()"></div>
+    <div class="winner" id="winnerModal">
+        <h2>⚠️ KERNEL PANIC ⚠️</h2>
+        <p id="winMessage">Segmentation fault (core dumped)</p>
+        <p style="font-size: 2em;">💀🐧💀</p>
+        <p class="achievement" id="achievement">[  0.000000] Kernel panic - not syncing: Achievement unlocked!</p>
+        <button onclick="hideWinner()">sudo reboot now</button>
+    </div>
+
+    <script>
+        const falsehoods = [
+            '"Just apt install it"\n(500 dependencies)',
+            'PPAs are safe\nand maintained',
+            'Snap/Flatpak/AppImage\nare the same thing',
+            '"Works on Ubuntu"\n= works everywhere',
+            '/usr/local won\'t\nbreak anything',
+            'Package names\nare consistent\n(lib? -dev? -devel?)',
+            'Version in repo\nis recent (2010)',
+            'sudo makes\neverything work',
+            'Dependency hell\nis a myth',
+            'Rolling release\n= stable',
+            'AUR is perfectly safe\n(makepkg go brrr)',
+            'Conflicts resolved\nautomatically',
+            'FREE SPACE:\n🔥 /dev/null\nas a service 🔥',
+            'dpkg --force\nwon\'t break system',
+            'Mix repos freely\n(what could go wrong?)',
+            'Held packages\nare documented',
+            '"Unmet dependencies"\nis helpful',
+            'Python 2 & 3\ncoexist peacefully',
+            'apt vs apt-get\nvs aptitude\n(pick one)',
+            'Make install\ntracks files',
+            'ldconfig will\nfind it eventually',
+            'Orphaned packages\nclean themselves',
+            '"Breaks: *"\nin control file',
+            'Compile from source\n"it\'s easy"',
+            'rm /var/lib/dpkg/lock\nis the solution'
+        ];
+
+        const statusMessages = [
+            "Reading package lists... Done. You have 47 broken packages.",
+            "E: Could not get lock /var/lib/dpkg/lock-frontend",
+            "The following packages have unmet dependencies:",
+            "dpkg: error processing package (--configure):",
+            "You are about to do something potentially harmful.",
+            "ldconfig: /usr/local/lib/libsomething.so.1 is not a symbolic link",
+            "Warning: apt-key is deprecated",
+            "N: Repository 'some-random-ppa' changed its 'Label' value",
+            "Errors were encountered while processing: everything",
+            "Setting up linux-image-generic (5.4.0.42.45) ...",
+            "Processing triggers for man-db (2.8.3-2ubuntu0.1) ...",
+            "/boot: No space left on device",
+            "Hash Sum mismatch",
+            "GPG error: The following signatures couldn't be verified"
+        ];
+
+        const achievements = [
+            "[  0.000000] Kernel panic - Achievement: Dependency Hell Survivor",
+            "[  0.000000] Kernel panic - Achievement: Broke Production on Friday",
+            "[  0.000000] Kernel panic - Achievement: Mixed Debian and Ubuntu Repos",
+            "[  0.000000] Kernel panic - Achievement: Compiled Kernel at 3 AM",
+            "[  0.000000] Kernel panic - Achievement: /usr/local Chaos Master",
+            "[  0.000000] Kernel panic - Achievement: PPA Addiction Counseling Needed",
+            "[  0.000000] Kernel panic - Achievement: Orphan Package Collector",
+            "[  0.000000] Kernel panic - Achievement: Force Installed Everything",
+            "[  0.000000] Kernel panic - Achievement: Python Version Time Traveler"
+        ];
+
+        const winMessages = [
+            "Segmentation fault (core dumped)",
+            "Unable to handle kernel NULL pointer dereference",
+            "VFS: Unable to mount root fs on unknown-block",
+            "Kernel panic - not syncing: Attempted to kill init!",
+            "BUG: unable to handle kernel paging request",
+            "Out of memory: Kill process or sacrifice child",
+            "systemd[1]: Failed to start everything.service"
+        ];
+
+        let boardState = new Array(25).fill(false);
+        boardState[12] = true; // Free space
+        let markedCount = 1; // Start with 1 for free space
+
+        function shuffleArray(array) {
+            const newArray = [...array];
+            for (let i = newArray.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+            }
+            return newArray;
+        }
+
+        function initializeBoard() {
+            const grid = document.getElementById('bingoGrid');
+            grid.innerHTML = '';
+
+            // Shuffle falsehoods but keep free space in center
+            const shuffled = [...falsehoods];
+            const freeIndex = shuffled.indexOf('FREE SPACE:\n🔥 /dev/null\nas a service 🔥');
+            if (freeIndex !== -1) {
+                shuffled.splice(freeIndex, 1);
+            }
+            const randomized = shuffleArray(shuffled);
+            randomized.splice(12, 0, 'FREE SPACE:\n🔥 /dev/null\nas a service 🔥');
+
+            randomized.forEach((text, index) => {
+                const cell = document.createElement('div');
+                cell.className = 'bingo-cell';
+                if (index === 12) {
+                    cell.className += ' free marked';
+                }
+                cell.innerHTML = text.replace(/\n/g, '<br>');
+                cell.onclick = () => toggleCell(index);
+                grid.appendChild(cell);
+            });
+
+            updateStats();
+            updateStatusBar();
+        }
+
+        function toggleCell(index) {
+            if (index === 12) return; // Free space
+
+            boardState[index] = !boardState[index];
+            const cells = document.querySelectorAll('.bingo-cell');
+            if (boardState[index]) {
+                cells[index].classList.add('marked');
+                markedCount++;
+                updateStatusBar();
+
+                // Random terminal output
+                if (Math.random() > 0.6) {
+                    showTerminalMessage();
+                }
+            } else {
+                cells[index].classList.remove('marked');
+                markedCount--;
+            }
+
+            updateStats();
+            checkWinner();
+        }
+
+        function updateStatusBar() {
+            const messages = [
+                `Reading package lists... ${markedCount * 47} packages need attention`,
+                `dpkg: warning: ${markedCount * 3} files left on system`,
+                `Setting up chaos (${markedCount}.0.0-1ubuntu1) ...`,
+                `E: ${markedCount} broken dependencies found`,
+                `Processing triggers for suffering (${markedCount}.0) ...`,
+                `Unpacking replacement sanity ...`,
+                `Removing humanity (${markedCount * 10}%) ...`
+            ];
+
+            document.getElementById('statusBar').textContent =
+                messages[Math.floor(Math.random() * messages.length)];
+        }
+
+        function showTerminalMessage() {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = statusMessages[Math.floor(Math.random() * statusMessages.length)];
+            errorDiv.style.animation = 'glitch 0.5s ease';
+            setTimeout(() => {
+                errorDiv.style.animation = '';
+            }, 500);
+        }
+
+        function updateStats() {
+            const willToLive = Math.max(0, 100 - (markedCount * 4));
+            const brokenPackages = markedCount * 3;
+            const conflicts = Math.floor(markedCount * 1.5);
+
+            document.getElementById('stats').innerHTML =
+                `Broken Packages: ${brokenPackages} | Dependency Conflicts: ${conflicts} | Will to Live: ${willToLive}% ${willToLive <= 20 ? '☠️' : ''}`;
+        }
+
+        function checkWinner() {
+            // Check rows
+            for (let row = 0; row < 5; row++) {
+                if (checkLine(row * 5, 1, 5)) {
+                    showWinner();
+                    return;
+                }
+            }
+
+            // Check columns
+            for (let col = 0; col < 5; col++) {
+                if (checkLine(col, 5, 5)) {
+                    showWinner();
+                    return;
+                }
+            }
+
+            // Check diagonals
+            if (checkLine(0, 6, 5) || checkLine(4, 4, 5)) {
+                showWinner();
+            }
+        }
+
+        function checkLine(start, step, count) {
+            for (let i = 0; i < count; i++) {
+                if (!boardState[start + i * step]) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function showWinner() {
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('winnerModal').style.display = 'block';
+            document.getElementById('winMessage').textContent = winMessages[Math.floor(Math.random() * winMessages.length)];
+            document.getElementById('achievement').textContent = achievements[Math.floor(Math.random() * achievements.length)];
+        }
+
+        function hideWinner() {
+            document.getElementById('overlay').style.display = 'none';
+            document.getElementById('winnerModal').style.display = 'none';
+        }
+
+        function resetBoard() {
+            boardState = new Array(25).fill(false);
+            boardState[12] = true;
+            markedCount = 1;
+            initializeBoard();
+            document.getElementById('errorMessage').textContent = 'E: Sub-process /usr/bin/dpkg returned an error code (1)';
+        }
+
+        function clearBoard() {
+            boardState = new Array(25).fill(false);
+            boardState[12] = true;
+            markedCount = 1;
+            const cells = document.querySelectorAll('.bingo-cell');
+            cells.forEach((cell, index) => {
+                if (index !== 12) {
+                    cell.classList.remove('marked');
+                }
+            });
+            updateStats();
+            updateStatusBar();
+            document.getElementById('errorMessage').textContent = 'Reading state information... Done';
+        }
+
+        function autoMark() {
+            const unmarked = [];
+            for (let i = 0; i < 25; i++) {
+                if (i !== 12 && !boardState[i]) {
+                    unmarked.push(i);
+                }
+            }
+            if (unmarked.length > 0) {
+                const randomIndex = unmarked[Math.floor(Math.random() * unmarked.length)];
+                toggleCell(randomIndex);
+            }
+        }
+
+        function speedrun() {
+            document.getElementById('statusBar').textContent = 'Running dist-upgrade --force-yes --break-everything...';
+            let count = 0;
+            const interval = setInterval(() => {
+                autoMark();
+                count++;
+                if (count >= 5 || markedCount >= 20) {
+                    clearInterval(interval);
+                    document.getElementById('statusBar').textContent = 'System is now in an undefined state. Good luck!';
+                }
+            }, 300);
+        }
+
+        function kernelPanic() {
+            document.body.classList.add('kernel-panic');
+            setTimeout(() => {
+                document.body.classList.remove('kernel-panic');
+            }, 3000);
+
+            // Mark random cells frantically
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => autoMark(), i * 200);
+            }
+        }
+
+        // Initialize on load
+        initializeBoard();
+    </script>
+</body>
+</html>
