@@ -13,6 +13,8 @@ Cooklang is a lightweight, open-source format for writing and managing recipes i
 
 Cooklang recipes are plain text files that you can use on any device. You can write and manage them on a desktop, then access them on your phone when cooking. This flexibility makes it easy to grow your recipe collection over time. Recipes are stored in `.cook` files, and Cooklang tools help process these files for various use cases such as meal planning, shopping and cooking.
 
+Check out some interesting use cases [here](https://cooklang.org/docs/use-cases/).
+
 ### A Simple Example
 
 Here's what a basic recipe looks like in Cooklang:
@@ -36,7 +38,7 @@ To get the best experience with Cooklang on desktop, consider setting up:
 
 If you prefer writing recipes in a text editor, enabling syntax highlighting for Cooklang makes editing easier. Many editors support custom syntax highlighting:
 
-- **VS Code**: Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
+- **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
 - **Vim/Neovim**: Add a [Cooklang syntax file](https://github.com/luizribeiro/vim-cooklang) for highlighting.
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
@@ -100,6 +102,8 @@ Find curated Cooklang recipes from the community, share your thoughts or ask for
 ### Configure `aisle.conf` for Shopping Convenience
 
 Add `config/aisle.conf` into your recipes folder to categorize ingredients by shopping aisle, making grocery shopping more efficient.
+
+This is best used if you are interested in using Cooklang to assist with your shopping lists. Learn more about this very practical use-case [here](https://cooklang.org/docs/use-cases/shopping/).
 
 ```toml
 [produce]
