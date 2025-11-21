@@ -73,6 +73,12 @@ Getting started on mobile is simple:
 - Users are able to choose to sync their recipes with either CookCloud, iCloud, or the local folder that they selected when setting up their Cook Deskop App.
 - Access your saved recipes, and generate shopping lists on the go.
 
+### A Note on Cook Cloud
+
+Cook Cloud is a native sync service that works across all major operating systems and helps prevent dependence on third-party syncing. It improves upon the convenience of using your own desktop or cloud service (such as iCloud or Google drive) by handling that for you, making it easy to ensure that all of your recipes and lists are available in one convenient place.
+
+It supports MacOS, Windows, Linux, iOS, and Android.
+
 ## 3. Growing Your Recipe Collection
 
 Once you're set up, it's time to expand your collection:
