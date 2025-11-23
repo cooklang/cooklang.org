@@ -107,3 +107,42 @@ parmesan
 
 ## Help
 Use `cook --help` or `cook <command> --help` for detailed usage.
+
+## Overview of Commands
+
+Here is a brief overview of the commands that you can execute using CookCLI. A deeper dive on each command is linked at the top of the section.
+
+### Recipe Command
+
+The `recipe` command is used for parsing and displaying recipe files. The full breakdown of this command can be found [here](https://cooklang.org/cli/commands/recipe/). See below for some basic usage options:
+
+- Want to read a recipe? Run `cook recipe "Name"`. The file extension is optional, though it works with .cook and .menu files.
+- You can also use standard input, or the direct path to the file. 
+- Need recipe scaling? Add `:2`, `:0.25`, etc., or `--scale 4`. This works for menus too (and scales every linked recipe).
+- Can’t remember the path? `cook recipe "Pizza"` searches current and recipe dirs, auto-adds `.cook`.
+- Choose your format: the default is human-readable, or you can choose from JSON, YAML, Markdown, LaTeX, Schema, and Cooklang formats!
+- To save output: `cooke recipe name -o file.ext` (format inferred from the extension or specified with the `-f` flag).
+- CookCLI can find recipes without the full path (name only). This works recursively!
+- Troubleshooting: If something isn’t found, check your directory and escape spaces in names.
+
+### Shopping List Command
+
+The `shopping-list` command makes shopping for ingredients easy by organizing and creating shopping lists based off one or multiple recipes! Find out more about the command [at this link](https://cooklang.org/cli/commands/shopping-list/), and see below for some basic examples and uses cases:
+
+- Make a list using `cook shopping-list "Recipe.cook"` or combine multiples (`cook shopping-list "Pasta.cook" "Salad.cook"`).
+- You can use patterns and wildcards as well: (`cook shopping-list *.cook`, `Dinner/*.cook`).
+- Scale the needed ingredients per recipe with `cook shopping-list "Pizza:2" "Salad"` or mix scales (`"Pasta:3" "Bread:0.5" "Soup:2"`).
+- You can scale with `.menu` too. Menu scaling multiplies with recipe scales (`"2 Day Plan.menu:2"`).
+- Formats: default is human readable and grouped by aisle (`--plain` for flat list).
+- Also supported is JSON, YAML, and Markdown formatting. Save with `-o file.ext` (format inferred).
+- `Aisle.conf`: use `./config/aisle.conf` (or `--aisle path`) to group items by store section.
+- `Pantry.conf`: list what you already have in `./config/pantry.conf` (or `--pantry path`) to auto-exclude from shopping lists.
+- Recipe references are handled automatically. Includes are followed by default; skip them with `--ignore-references`.
+- Shopping lists can be saved to files with `-o list.txt`. Adding `--ingredients-only` excludes quantities.
+- See some advanced use cases and handy examples at the link above!
+- Troubleshooting: run `cook doctor aisle` to find and fix missing aisle categories; use full paths if a recipe isn’t found (`cook shopping-list ~/recipes/Pizza.cook`).
+
+## Server Command
+
+The `server` command starts a local web server which makes your recipe collection viewable in an attractive web browser page. An exhaustive resource on the command is to be found [here](https://cooklang.org/cli/commands/server/). Below are some examples and usage:
+
