@@ -22,9 +22,9 @@ Store your Cooklang recipes files in iCloud Drive and seamlessly use them on you
 
 _Note: Requires Mac or PC to store recipes on iCloud Drive._
 
-Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-ios/discussions) or by email: {{< email >}}.
+Submit your feedback in [discussions](https://github.com/cook-md/ios-app/discussions) or by email: {{< email >}}.
 
-Please open an issue [here](https://github.com/cooklang/cooklang-app-ios/issues) to report a bug.
+Please open an issue [here](https://github.com/cook-md/ios-app/issues) to report a bug.
 
 ## Android app
 
@@ -34,8 +34,8 @@ Store your Cooklang recipes files in any folder on your Desktop and seamlessly u
 
 _Note: Optionally [Desktop Sync app](https://cook.md/download) to be installed on your computer._
 
-Submit your feedback in [discussions](https://github.com/cooklang/cooklang-app-android/discussions) or by email: {{< email >}}.
+Submit your feedback in [discussions](https://github.com/cook-md/android-app/discussions) or by email: {{< email >}}.
 
-Please open an issue [here](https://github.com/cooklang/cooklang-app-android/issues) to report a bug.
+Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
 
 
