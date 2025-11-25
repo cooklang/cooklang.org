@@ -69,8 +69,7 @@ It will ask you to select folder where you store recipes and sign in/sign up.
 Getting started on mobile is simple:
 
 - Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone).
-- Open the app and sign in if you're using a sync service on Android (it will use iCloud on iOS). If you're using the iOS app, it will create a folder in iCloud drive called `CooklangApp` where it expects to see recipes. Cooklang now supports syncing from iOS to your desktop!
-- Users are able to choose to sync their recipes with either CookCloud, iCloud, or the local folder that they selected when setting up their Cook Deskop App.
+- Open the app and choose to sync recipes with either CookCloud, iCloud, or the local folder. Sign in if you're using a sync service via Desktop App. If you're using the iOS app with iCloud sync, it will create a folder in iCloud drive called `CooklangApp` where it expects to see recipes. The way to sync can be changed later by switching in the app settings menu.
 - Access your saved recipes, and generate shopping lists on the go.
 
 ### A Note on Cook Cloud
