@@ -13,6 +13,10 @@ Cooklang is a lightweight, open-source format for writing and managing recipes i
 
 Cooklang recipes are plain text files that you can use on any device. You can write and manage them on a desktop, then access them on your phone when cooking. This flexibility makes it easy to grow your recipe collection over time. Recipes are stored in `.cook` files, and Cooklang tools help process these files for various use cases such as meal planning, shopping and cooking.
 
+The syntax and specifications are simple and easy to learn. The @ names ingredients (ending with {} for multi-word names, {} around quantities, and % before units of measurement), # marks cookware, ~ sets timers (optionally named), -- or [- -] add comments. If you want to learn more about the Cooklang specifications, [follow this link](https://cooklang.org/docs/spec/).
+
+To learn more about some of the exciting and useful ways that Cooklang can improve your cooking, recipe crafting and saving, or even shopping, [check out this page](https://cooklang.org/docs/use-cases/)!
+
 ### A Simple Example
 
 Here's what a basic recipe looks like in Cooklang:
@@ -36,7 +40,7 @@ To get the best experience with Cooklang on desktop, consider setting up:
 
 If you prefer writing recipes in a text editor, enabling syntax highlighting for Cooklang makes editing easier. Many editors support custom syntax highlighting:
 
-- **VS Code**: Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
+- **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
 - **Vim/Neovim**: Add a [Cooklang syntax file](https://github.com/luizribeiro/vim-cooklang) for highlighting.
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
@@ -50,9 +54,7 @@ If you prefer writing recipes in a text editor, enabling syntax highlighting for
 As an option you can manage your recipes along with your notes in Obsidian with
 [Cooklang Editor](https://github.com/cooklang/cooklang-obsidian) plugin.
 
-### Desktop App for Syncing Recipes (optional, only for Android)
-
-<!-- TODO: iOS -->
+### Desktop App for Syncing Recipes
 
 The **Cook Desktop App** is an agent for syncing your recipes across devices.
 
@@ -67,8 +69,14 @@ It will ask you to select folder where you store recipes and sign in/sign up.
 Getting started on mobile is simple:
 
 - Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone).
-- Open the app, and sign in if you're using a sync service on Android or it will use iCloud on iOS. If you're using iOS app it will create a folder in iCloud drive called `CooklangApp` where it expects to see recipes. In the future version we will add support for **Cook Desktop App** as well and then you can use any folder on your computer.
+- Open the app and choose to sync recipes with either CookCloud, iCloud, or the local folder. Sign in if you're using a sync service via Desktop App. If you're using the iOS app with iCloud sync, it will create a folder in iCloud drive called `CooklangApp` where it expects to see recipes. The way to sync can be changed later by switching in the app settings menu.
 - Access your saved recipes, and generate shopping lists on the go.
+
+### A Note on Cook Cloud
+
+Cook Cloud is a native sync service that works across all major operating systems and helps prevent dependence on third-party syncing. It improves upon the convenience of using your own desktop or cloud service (such as iCloud or Google drive) by handling that for you, making it easy to ensure that all of your recipes and lists are available in one convenient place.
+
+It supports MacOS, Windows, Linux, iOS, and Android.
 
 ## 3. Growing Your Recipe Collection
 
@@ -84,7 +92,7 @@ If you want to save a random recipe from a webpage in Cooklang format, simply ad
 
 ### Use the playground to test syntax interactively
 
-If you have some problems and your recipe doesn't render as you want, you can checkout [Playground](https://cooklang.github.io/cooklang-rs/?mode=render).
+If you have some problems and your recipe doesn't render as you want, you can check out [Playground](https://cooklang.github.io/cooklang-rs/?mode=render).
 
 ![Cooklang Parser Playground](/guide/playground-demo.png)
 
@@ -99,7 +107,9 @@ Find curated Cooklang recipes from the community, share your thoughts or ask for
 
 ### Configure `aisle.conf` for Shopping Convenience
 
-Add `config/aisle.conf` into your recipes folder to categorize ingredients by shopping aisle, making grocery shopping more efficient.
+For shopping lists (denoted by brackets for the category name), you can add `config/aisle.conf` into your recipes folder to categorize ingredients by shopping aisle, making grocery shopping more efficient.
+
+This is best used if you are interested in using Cooklang to assist with your shopping lists. Learn more about this very practical use-case [here](https://cooklang.org/docs/use-cases/shopping/).
 
 ```toml
 [produce]
@@ -112,116 +122,45 @@ butter
 
 ## 4. Command-Line Interface (CookCLI)
 
-CookCLI is a powerful command-line tool that brings automation and advanced functionality to your recipe workflow. It follows UNIX philosophy - each command does one thing well and can be combined with other tools.
+CookCLI is a powerful command-line tool that brings automation and advanced functionality to your recipe workflow. It follows the UNIX philosophy — each command does one thing well and can be combined with other tools. Not only this, but it also integrates standard UNIX tools for easy interaction.
 
-### Installation
-
-**Download Pre-built Binaries (Recommended):**
-
-Download the latest release for your platform from [GitHub Releases](https://github.com/cooklang/cookcli/releases/latest):
-
+Here are some short UNIX based commands for example:
 ```bash
-# macOS (Apple Silicon)
-wget https://github.com/cooklang/cookcli/releases/latest/download/cook-aarch64-apple-darwin.tar.gz
-tar -xzf cook-aarch64-apple-darwin.tar.gz
-sudo mv cook /usr/local/bin/
-
-# macOS (Intel)
-wget https://github.com/cooklang/cookcli/releases/latest/download/cook-x86_64-apple-darwin.tar.gz
-tar -xzf cook-x86_64-apple-darwin.tar.gz
-sudo mv cook /usr/local/bin/
-
-# Linux (x86_64)
-wget https://github.com/cooklang/cookcli/releases/latest/download/cook-x86_64-unknown-linux-gnu.tar.gz
-tar -xzf cook-x86_64-unknown-linux-gnu.tar.gz
-sudo mv cook /usr/local/bin/
-
-# Windows (x86_64)
-# Download cook-x86_64-pc-windows-msvc.zip from releases page
-# Extract and add to PATH
-```
-
-**macOS (Homebrew):**
-```bash
-brew install cookcli
-```
-
-**Build from Source:**
-```bash
-git clone https://github.com/cooklang/cookcli.git
-cd cookcli
-cargo build --release
-sudo cp target/release/cook /usr/local/bin/
-```
-
-### Core Commands
-
-CookCLI provides a comprehensive set of commands for managing your recipes:
-
-#### **Recipe Management**
-- `cook recipe` - Parse and display recipe files in various formats (human-readable, JSON, YAML)
-- `cook doctor` - Validate recipes and check for syntax errors
-- `cook search` - Search through recipes by ingredient or text
-- `cook import` - Import recipes from websites and convert to Cooklang
-
-#### **Meal Planning & Shopping**
-- `cook shopping-list` - Generate shopping lists from multiple recipes with scaling support
-- `cook pantry` - Track your pantry inventory, find what's low on stock or expiring
-  - `pantry depleted` - Show items that need restocking
-  - `pantry expiring` - Find items expiring soon
-  - `pantry recipes` - Discover what you can cook with available ingredients
-
-#### **Visualization & Sharing**
-- `cook server` - Launch a web server to browse your recipe collection visually
-- `cook report` - Generate custom reports using templates (PDFs, summaries, meal plans)
-
-{{< server-carousel >}}
-
-#### **Getting Started**
-- `cook seed` - Initialize a directory with example recipes
-- `cook update` - Update CookCLI to the latest version
-
-### Quick Examples
-
-```bash
-# Start with sample recipes
-cook seed
-
-# View a recipe
-cook recipe "Neapolitan Pizza.cook"
-
-# Scale a recipe to serve 6
-cook recipe "Pasta.cook:3"
-
-# Create a shopping list for the week
-cook shopping-list "Monday Dinner.cook" "Tuesday Lunch.cook:2"
-
-# Check what's low in your pantry
-cook pantry depleted
-
-# Find recipes you can make right now
-cook pantry recipes
-
-# Search for all chicken recipes
-cook search chicken
-
-# Start the web interface
-cook server
-```
-
-### Integration with UNIX Tools
-
-CookCLI outputs can be piped and processed with standard tools:
-
-```bash
-# Export recipe to JSON for processing
 cook recipe "Pizza.cook" -f json | jq '.ingredients'
-
-# Find top 5 most used ingredients
 cook search --all | grep "@" | sort | uniq -c | sort -rn | head -5
-
-# Create shopping list for all pasta recipes
 cook shopping-list $(ls *Pasta*.cook)
+```
+
+For more information, see this article on [how to get started with CookCLI](https://cooklang.org/docs/getting-started-commands/).
+
+### Installation (The Quick Way In)
+
+Grab the latest CookCLI build from [GitHub Releases](https://github.com/cooklang/cookcli/releases/latest), unpack it for your platform, and drop the `cook` binary into your PATH—whether you’re on macOS (Apple Silicon or Intel), Linux, or Windows. Prefer one-liners? macOS folks can simply `brew install cookcli`. If you like compiling from source, clone the repo, run `cargo build --release`, and copy `target/release/cook` wherever you keep your CLI tools.
+
+### Core Commands You’ll Actually Use
+
+- **Daily recipe flow**: `cook recipe` to render any `.cook` file, `cook doctor` to catch syntax slips, `cook search` to find recipes by ingredient, and `cook import` when a blog recipe wins your heart.
+- **Plan and shop smarter**: `cook shopping-list` combines multiple recipes (with scaling) into one list, while `cook pantry` keeps tabs on what’s low or expiring.
+- **Kickstart or stay current**: `cook seed` drops sample recipes into a folder, and `cook update` keeps everything fresh.
+- **Share or show off**: Spin up `cook server` for a browsable collection, and `cook report` turns templated PDFs or summaries into reality.
+
+  {{< server-carousel >}}
+
+### Quick Commands in Action
+
+Whether you’re scripting a workflow or just tossing cook recipes into your favorite storage location, the CLI stays lightweight but surprisingly powerful.
+
+Check out some of the most important commands here:
+
+```bash
+cook seed                                 # load demo recipes
+cook recipe "Neapolitan Pizza.cook"       # read a recipe
+cook recipe "Pasta.cook:3"                # scale servings
+cook shopping-list Monday.cook Tuesday.cook:2
+cook pantry depleted                      # see what’s running low
+cook pantry recipes                       # find dishes you can make now
+cook search chicken                       # hunt by ingredient
+cook server                               # browse in your browser
 ```
 
 ### Advanced Workflow Automation
@@ -235,8 +174,9 @@ Cooklang provides automation tools that can streamline your recipe management. E
 - Share ideas, ask for help, or contribute to Cooklang's development.
 - Open an issue in the [Cooklang GitHub repository](https://github.com/cooklang).
 - Participate in voting for the next feature.
+- Join us on [Reddit](https://www.reddit.com/r/cooklang/), [Discord](https://discord.gg/fUVVvUzEEK), and [Twitter](https://x.com/cooklangorg).
 - Spread the word.
-- Subscribe to the newsletter or follow on social media.
+- Subscribe to the newsletter!
 
 Now you're all set! Start writing, cooking, and enjoying the simplicity of Cooklang. For more details, visit the [official documentation](/docs).
 
