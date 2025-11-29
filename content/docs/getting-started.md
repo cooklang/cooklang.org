@@ -100,8 +100,8 @@ If you have some problems and your recipe doesn't render as you want, you can ch
 
 Find curated Cooklang recipes from the community, share your thoughts or ask for help. Some resources include:
 
+- The [Cooklang Recipe Hub](https://recipes.cooklang.org)
 - The [Awesome Cooklang](https://github.com/cooklang/awesome-cooklang-recipes) repository
-- The [Cooklang Recipe Hub](https://cook.md) (coming soon!)
 - Community language [discussions](https://github.com/cooklang/spec/discussions) and [Discord channel](https://discord.gg/fUVVvUzEEK)
 
 
