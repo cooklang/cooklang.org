@@ -146,3 +146,28 @@ The `shopping-list` command makes shopping for ingredients easy by organizing an
 
 The `server` command starts a local web server which makes your recipe collection viewable in an attractive web browser page. An exhaustive resource on the command is to be found [here](https://cooklang.org/cli/commands/server/). Below are some examples and usage:
 
+- Simply use `cook server` to serve the current directory at `http://localhost:9080`.
+- Point at other directories: `cook server ~/my-recipes` or `cd ~/my-recipes && cook server` to host a different collection.
+- Swap ports with `--port` followed by the desired port number. Add `--host` to reach it from other devices (`http://YOUR-IP:PORT`).
+- Web UI features: tree view browsing, search, quick preview cards, full recipe pages with ingredients and steps, plus built-in scaling controls that adjust servings and quantities on the fly.
+- Shopping from the couch: select multiple recipes in the web UI, set scaling amounts per recipe, and generate a combined shopping list you can print or export.
+- The web UI has a mobile-friendly, responsive layout that works well on any device.
+- Use the local network sharing feature to access your recipes on different devices or share it with your family and friends simultaneously.
+- Keep the server running by setting it up as a background service (systemd/launchd) to auto-start on boot, or run in Docker.
+- Quick shortcuts: add aliases like `alias recipes='cook server ~/recipes --open'`, bookmark frequently used recipe URLs, or add the site to a phone or tablet home screen for an app-like feel.
+- Troubleshooting: if the port is busy, pick another (`--port 8081`); if other devices can’t connect, re-check the `--host` flag, firewall rules, and your IP address; reduce oversized images if pages load slowly.
+- Security basics: the default hosting is local-only; when using `--host` ensure that you stay on trusted networks, consider a firewall, and use a reverse proxy with authentication if exposing the server beyond your LAN.
+
+## Search Command
+
+The `search` command helps find recipes quickly by allowing users to search for titles, ingredients, instructions, and even the recipe metadata. This simplifies the process of finding out what recipes you have but may have lost track of, or what you can cook if you only have certain ingredients. A deeper dive into this command and the many ways to use it can be found [here](https://cooklang.org/cli/commands/search/).
+
+- A basic `cook search chicken` returns matches for `chicken` sorted by relevance. You can add more words (`cook search chicken mushrooms`), or quote phrases (`cook search "olive oil"`).
+- Search is not case-sensitive by default, and you can point at a specific directory with `-b` (e.g., `cook search -b ~/recipes/italian pasta`).
+- What gets searched: filenames/titles, ingredients, instructions, metadata (tags, cuisine, time), and notes.
+- Find recipes by pantry items (`cook search beans rice`), cook time (`cook search "30 minutes"`), dietary tags (`cook search vegan`, `cook search gluten-free`), cooking method (`cook search "slow cooker"`), or cuisine (`cook search italian`).
+- Advanced uses include piping searches directly into shopping lists, immediately viewing search results with `fzf`, and breaking down search results into the specific ingredients required.
+- Shape the results with shell tools such as `grep`, `sort`, `uniq`, and (of course) `|`.
+- See the link above for a list of detailed examples for integrating these tools into useful scripts and workflows! These will dramatically enhance your search experience and even allow you to utilize fuzzy finders (`fzf`, `dmenu`, and `rofi`).
+- For improved searchability, add metadata like `tags`, `time`, `cuisine`, and dietary labels in your recipes. It's also recommended to organize folders when your recipe collections grow.
+- Troubleshooting: if nothing shows up, simplify terms, check spelling, and confirm you are in the right directory; if you get too many results, add more specific words and search terms, move to subdirectories, or filter with `grep`; for large collections, search narrower directories, organize recipes into specific folders, and consider using search tools like `ripgrep`.
