@@ -171,3 +171,31 @@ The `search` command helps find recipes quickly by allowing users to search for 
 - See the link above for a list of detailed examples for integrating these tools into useful scripts and workflows! These will dramatically enhance your search experience and even allow you to utilize fuzzy finders (`fzf`, `dmenu`, and `rofi`).
 - For improved searchability, add metadata like `tags`, `time`, `cuisine`, and dietary labels in your recipes. It's also recommended to organize folders when your recipe collections grow.
 - Troubleshooting: if nothing shows up, simplify terms, check spelling, and confirm you are in the right directory; if you get too many results, add more specific words and search terms, move to subdirectories, or filter with `grep`; for large collections, search narrower directories, organize recipes into specific folders, and consider using search tools like `ripgrep`.
+
+## Import Command
+
+The `import` command fetches recipes from websites and converts them to Cooklang. A complete reference is available [here](https://cooklang.org/cli/commands/import/). Below are some examples and usage:
+
+- Basic importing: `cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta` grabs the recipe and prints Cooklang to stdout.
+- Conversion needs an OpenAI key. Without it, you can still download the recipe content. Add `cook.md/` before the URL of any recipe from a website to use the `cook.md` converter as an alternative.
+- The import functionality should work with most recipe websites, especially those that utilize Recipe Schema.org markup.
+- Flags to note: `--skip-conversion` gets the raw data from a website without converting to Cooklang format; `--metadata` allows for specifying metadata options like `json`, `yaml`, and others. This will extract many metadata fields for future reference.
+- Save cleanly to a file by using shell redirects to store recipes (`cook import [URL] > \"Pasta Carbonara.cook\"`) or append to collections.
+- Non-standard site data can be grabbed with `--skip-conversion > raw.txt`, then formatted into Cooklang manually with your editor.
+- Troubleshooting: 403 or blocked? Save locally first. No recipe found? Site may lack markup, so try using `--skip-conversion`. Partial results? Some sites split pages; you might need to combine manually.
+- Best practices: always review imports for quantities, cook times, and steps or missing info; adjust metric/imperial as needed; keep attribution (source URL, author, imported date) so credit stays with the recipe.
+
+## Doctor Command
+
+The `doctor` command checks the health of your recipe collection (syntax, references, metadata). A full reference is available [here](https://cooklang.org/cli/commands/doctor/). Below are some examples and usage:
+
+- For a quick health check, `cook doctor` runs every available check on your whole recipe collection and reports any issues.
+- Validate recipe syntax and structure with `cook doctor validate`. This flags parse errors, invalid units/quantities, deprecated syntax, and broken references.
+- Point at specific folders with `-b` narrow the scope (`cook doctor validate -b ~/recipes/italian`).
+- Using `cook doctor aisle` finds ingredients missing from `aisle.conf` so shopping lists stay categorized and ingredients stay assigned to respective store sections.
+- Common fixes: normalize timers (`~{30%minutes}`), add units (`@salt{2%tsp}`), replace old `>>` metadata with `---` headings, and ensure proper metadata verbiage is used (`servings` instead of `serves x`).
+- Reference hygiene: catch missing or circular references before they break menus.
+- Find detailed automation usage and CI/CD actions in the link above.
+- You can use shell tools (`sed`, `find`, `grep`) and scripts to standardize timer units or metadata across many files after doctor reports patterns.
+- Aisle configuration: generate `aisle.conf` files from existing recipes using shell utilities, and account for the layouts of different stores (choose which `.conf` file you used based on the store you will be shopping at).
+- Troubleshooting: if doctor reports nothing but you expect issues, confirm you are in the right directory and files use `.cook` extensions; for aisle warnings, update or add the correct `aisle.conf`.
