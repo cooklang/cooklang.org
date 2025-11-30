@@ -18,6 +18,9 @@ cargo build --release
 ```
 
 ## Core Commands
+
+Here is a list of core commands that you will use with CookCLI. Click on each one to navigate to the respective webpage for thorough documentation.
+
 - **[recipe](https://cooklang.org/cli/commands/recipe)**: Show recipes in various outputs (Cooklang, JSON, etc.).
 - **[shopping-list](https://cooklang.org/cli/commands/shopping-list)**: Combine ingredients from multiple recipes.
 - **[server](https://cooklang.org/cli/commands/server)**: Browse your recipes in a local web UI.
@@ -55,12 +58,16 @@ cook -b ~/recipes -vv server
 ```
 
 ## CookCLI Philosophy
+
+CookCLI is grounded in a few basic tenets:
+
 - Everything is a plain-text file that you control.
 - Human-readable recipes, no special sauce needed.
 - Small, composable UNIX commands.
 - Works offline, all the time.
 
 ## Recipe Files
+
 Cooklang `.cook` files capture structured recipes. This is the simple Cooklang markup language, no long hours of study required.
 
 Example:
@@ -110,11 +117,11 @@ Use `cook --help` or `cook <command> --help` for detailed usage.
 
 ## Overview of Commands
 
-Here is a brief overview of the commands that you can execute using CookCLI. A deeper dive on each command is linked at the top of the section.
+Here is a brief overview of the commands that you can execute using CookCLI. A deeper dive on each command is linked at the top of the section, and the command basics are included in a short list below.
 
 ### Recipe Command
 
-The `recipe` command is used for parsing and displaying recipe files. The full breakdown of this command can be found [here](https://cooklang.org/cli/commands/recipe/). See below for some basic usage options:
+The `recipe` command is used for parsing and displaying recipe files. The full breakdown of this command can be found [here](https://cooklang.org/cli/commands/recipe/).
 
 - Want to read a recipe? Run `cook recipe "Name"`. The file extension is optional, though it works with .cook and .menu files.
 - You can also use standard input, or the direct path to the file. 
@@ -127,7 +134,7 @@ The `recipe` command is used for parsing and displaying recipe files. The full b
 
 ### Shopping List Command
 
-The `shopping-list` command makes shopping for ingredients easy by organizing and creating shopping lists based off one or multiple recipes! Find out more about the command [at this link](https://cooklang.org/cli/commands/shopping-list/), and see below for some basic examples and uses cases:
+The `shopping-list` command makes shopping for ingredients easy by organizing and creating shopping lists based off one or multiple recipes! Find out more about the command [at this link](https://cooklang.org/cli/commands/shopping-list/).
 
 - Make a list using `cook shopping-list "Recipe.cook"` or combine multiples (`cook shopping-list "Pasta.cook" "Salad.cook"`).
 - You can use patterns and wildcards as well: (`cook shopping-list *.cook`, `Dinner/*.cook`).
@@ -144,7 +151,7 @@ The `shopping-list` command makes shopping for ingredients easy by organizing an
 
 ## Server Command
 
-The `server` command starts a local web server which makes your recipe collection viewable in an attractive web browser page. An exhaustive resource on the command is to be found [here](https://cooklang.org/cli/commands/server/). Below are some examples and usage:
+The `server` command starts a local web server which makes your recipe collection viewable in an attractive web browser page. An exhaustive resource on the command is to be found [here](https://cooklang.org/cli/commands/server/).
 
 - Simply use `cook server` to serve the current directory at `http://localhost:9080`.
 - Point at other directories: `cook server ~/my-recipes` or `cd ~/my-recipes && cook server` to host a different collection.
@@ -168,13 +175,13 @@ The `search` command helps find recipes quickly by allowing users to search for 
 - Find recipes by pantry items (`cook search beans rice`), cook time (`cook search "30 minutes"`), dietary tags (`cook search vegan`, `cook search gluten-free`), cooking method (`cook search "slow cooker"`), or cuisine (`cook search italian`).
 - Advanced uses include piping searches directly into shopping lists, immediately viewing search results with `fzf`, and breaking down search results into the specific ingredients required.
 - Shape the results with shell tools such as `grep`, `sort`, `uniq`, and (of course) `|`.
-- See the link above for a list of detailed examples for integrating these tools into useful scripts and workflows! These will dramatically enhance your search experience and even allow you to utilize fuzzy finders (`fzf`, `dmenu`, and `rofi`).
 - For improved searchability, add metadata like `tags`, `time`, `cuisine`, and dietary labels in your recipes. It's also recommended to organize folders when your recipe collections grow.
+- See the link above for a list of detailed examples for integrating these tools into useful scripts and workflows! These will dramatically enhance your search experience and even allow you to utilize fuzzy finders (`fzf`, `dmenu`, and `rofi`).
 - Troubleshooting: if nothing shows up, simplify terms, check spelling, and confirm you are in the right directory; if you get too many results, add more specific words and search terms, move to subdirectories, or filter with `grep`; for large collections, search narrower directories, organize recipes into specific folders, and consider using search tools like `ripgrep`.
 
 ## Import Command
 
-The `import` command fetches recipes from websites and converts them to Cooklang. A complete reference is available [here](https://cooklang.org/cli/commands/import/). Below are some examples and usage:
+The `import` command fetches recipes from websites and converts them to Cooklang. A complete reference is available [here](https://cooklang.org/cli/commands/import/).
 
 - Basic importing: `cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta` grabs the recipe and prints Cooklang to stdout.
 - Conversion needs an OpenAI key. Without it, you can still download the recipe content. Add `cook.md/` before the URL of any recipe from a website to use the `cook.md` converter as an alternative.
@@ -199,3 +206,38 @@ The `doctor` command checks the health of your recipe collection (syntax, refere
 - You can use shell tools (`sed`, `find`, `grep`) and scripts to standardize timer units or metadata across many files after doctor reports patterns.
 - Aisle configuration: generate `aisle.conf` files from existing recipes using shell utilities, and account for the layouts of different stores (choose which `.conf` file you used based on the store you will be shopping at).
 - Troubleshooting: if doctor reports nothing but you expect issues, confirm you are in the right directory and files use `.cook` extensions; for aisle warnings, update or add the correct `aisle.conf`.
+
+## Seed Command
+
+The `seed` command populates a directory with example Cooklang recipes. A full reference is available at [this link](https://cooklang.org/cli/commands/seed/).
+
+- Run `cook seed` to create a full set of example recipes in the current directory.
+- Use `cook seed <directory>` to seed into a specific folder (the directory will be created if it doesn’t exist).
+- The command generates a structured set of folders (Breakfast, Dinners, Shared, etc.) with `.cook` example files.
+- A default `aisle.conf` is included under `config/` for shopping-list categorization.
+- A `README.md` is added to explain the recipes.
+- The example recipes are designed to fully demonstrate the many Cooklang features and recipe categories supported.
+- Beginners can study these sample recipes to learn the Cooklang syntax, as well as the numerous ways it can be used to enhance your recipe crafting and storing.
+- See the link above for some example commands and a quick start guide for new users.
+- For a seperate test environment, run seeding inside a temporary directory (`cd $(mktemp -d)` then `cook seed`).
+- After seeding, get your hands dirty with recipe building and saving! This is the best way to learn, after all.
+
+## Report Command
+
+The `report` command generates custom outputs from recipes using Minijinja templates. A full reference is available at [this page](https://cooklang.org/cli/commands/report/).
+
+- Run `cook report -t template.jinja recipe.cook` to process a recipe through a template and output the result.
+- The command parses the recipe, applies scaling, loads aisle and pantry configs, passes data to Jinja2, and outputs the report.
+- Templates receive all recipe fields including title, servings, time, description, ingredients, steps, and metadata.
+- Use all configurations together with datastore, aisle, and pantry files to produce cost reports, nutrition sheets, or filtered lists.
+- Scale recipes before processing using the standard scaling process (`cook report -t template.jinja "Cake.cook:2"`).
+- Datastore integration allows adding nutritional info, cost data, dietary classifications, and custom metadata.
+- Aisle configuration is supported and groups ingredients into store sections inside templates.
+- Pantry configuration (`pantry.conf` file in `config/` directory) filters out items already in inventory so shopping lists only show what you need.
+- Save output to a file using shell redirection, like `cook report -t card.jinja recipe.cook > recipe-card.md`.
+- Advanced uses support conditional logic, calculations, loops, and formatted output tables.
+- Supported uses also include meal planning for a weekly meal plan, creating a recipe book, and creating reusable recipe components for simplifying of future recipe builds.
+- Reports can be integrated with functionality such as generating PDFs (Pandoc or wkhtmltopdf), email newsletters, or social media.
+- Visit the link above for example uses, command blocks to save or reference, and more.
+- Tips: set default values to streamline your workflow; add filters (such as cases) to standardize recipe text; script conditional loops for reporting automation.
+- Troubleshooting: Template not found? Try verifying template paths; Getting errors? Consider checking variables and using defaults.
