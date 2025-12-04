@@ -128,7 +128,7 @@ The `recipe` command is used for parsing and displaying recipe files. The full b
 - Need recipe scaling? Add `:2`, `:0.25`, etc., or `--scale 4`. This works for menus too (and scales every linked recipe).
 - Can’t remember the path? `cook recipe "Pizza"` searches current and recipe dirs, auto-adds `.cook`.
 - Choose your format: the default is human-readable, or you can choose from JSON, YAML, Markdown, LaTeX, Schema, and Cooklang formats!
-- To save output: `cooke recipe name -o file.ext` (format inferred from the extension or specified with the `-f` flag).
+- To save output: `cook recipe name -o file.ext` (format inferred from the extension or specified with the `-f` flag).
 - CookCLI can find recipes without the full path (name only). This works recursively!
 - Troubleshooting: If something isn’t found, check your directory and escape spaces in names.
 
@@ -198,7 +198,7 @@ The `doctor` command checks the health of your recipe collection (syntax, refere
 
 - For a quick health check, `cook doctor` runs every available check on your whole recipe collection and reports any issues.
 - Validate recipe syntax and structure with `cook doctor validate`. This flags parse errors, invalid units/quantities, deprecated syntax, and broken references.
-- Point at specific folders with `-b` narrow the scope (`cook doctor validate -b ~/recipes/italian`).
+- Point at specific folders with `-b` to narrow the scope (`cook doctor validate -b ~/recipes/italian`).
 - Using `cook doctor aisle` finds ingredients missing from `aisle.conf` so shopping lists stay categorized and ingredients stay assigned to respective store sections.
 - Common fixes: normalize timers (`~{30%minutes}`), add units (`@salt{2%tsp}`), replace old `>>` metadata with `---` headings, and ensure proper metadata verbiage is used (`servings` instead of `serves x`).
 - Reference hygiene: catch missing or circular references before they break menus.
@@ -219,7 +219,7 @@ The `seed` command populates a directory with example Cooklang recipes. A full r
 - The example recipes are designed to fully demonstrate the many Cooklang features and recipe categories supported.
 - Beginners can study these sample recipes to learn the Cooklang syntax, as well as the numerous ways it can be used to enhance your recipe crafting and storing.
 - See the link above for some example commands and a quick start guide for new users.
-- For a seperate test environment, run seeding inside a temporary directory (`cd $(mktemp -d)` then `cook seed`).
+- For a separate test environment, run seeding inside a temporary directory (`cd $(mktemp -d)` then `cook seed`).
 - After seeding, get your hands dirty with recipe building and saving! This is the best way to learn, after all.
 
 ## Report Command
@@ -241,3 +241,47 @@ The `report` command generates custom outputs from recipes using Minijinja templ
 - Visit the link above for example uses, command blocks to save or reference, and more.
 - Tips: set default values to streamline your workflow; add filters (such as cases) to standardize recipe text; script conditional loops for reporting automation.
 - Troubleshooting: Template not found? Try verifying template paths; Getting errors? Consider checking variables and using defaults.
+
+## Update Command
+
+The `update` command automatically upgrades CookCLI to the latest version available on GitHub Releases, downloading the newest binary for your platform, and replacing the current executable. A full reference is available at [this link](https://cooklang.org/cli/commands/update/).
+
+- Run `cook update` to update to the latest version.
+- The update process detects your operating system and architecture and retrieves the correct binary for macOS, Linux, Windows, or FreeBSD.
+- Use `cook update --check-only` to check whether a new version exists without downloading or installing it.
+- You can run `cook update --force` to reinstall the current version or force an update even if you are already on the latest release.
+- Updates preserve all user data, recipe files, and configuration directories.
+- User-level installations (such as `~/.local/bin`) typically update without requiring extra permissions.
+- System-wide installations in directories like `/usr/local/bin` may require elevated permissions using `sudo cook update`.
+- Permission errors result in error messages with instructions for manual installation.
+- The `cook doctor` command performs an automatic version check and alerts you when a newer release is available.
+- Run `which cook` to locate where CookCLI is installed.
+- You can run `cook --version` after updating to verify the newly installed version.
+- Manual installation involves downloading the correct release archive from GitHub, extracting it, placing the binary in your chosen directory, and modifying permissions to make it executable if needed.
+- All updates are downloaded securely over HTTPS, and each includes SHA256 checksums for integrity verification.
+- The alternative alias `cook u` functions identically to `cook update`, including support for all flags.
+- Troubleshooting: try verifying internet connectivity, checking permissions, retrying with the `--force` flag, or manually downloading the latest binary from [GitHub Releases](https://github.com/cooklang/cookcli/releases).
+
+## Pantry Command
+
+The `pantry` command manages your pantry inventory, tracking low-stock items, expiring ingredients, and recipes you can cook based on what you have. Full reference available at [this link](https://cooklang.org/cli/commands/pantry/).
+
+- Run `cook pantry` with subcommands to check stock levels, expirations, and available recipes.
+- Supports global options including `--base-path` for selecting recipe and configuration file directories, `--format` for output format, and `--verbose` for more detailed logs.
+- The `depleted` subcommand shows items that are out of stock or below their low-threshold values.
+- Use `cook pantry depleted --all` to include items that do not have quantities defined.
+- Items are considered low when their quantity is at or below the preset low value; heuristics apply when thresholds are not set.
+- The `expiring` subcommand lists items that expire within a configurable number of days, defaulting to seven days.
+- Use `cook pantry expiring --days <N>` to change the time window displayed and `--include-unknown` to show items without expiration dates.
+- The `recipes` subcommand lists recipes that can be made fully or partially based on current pantry contents.
+- Use `cook pantry recipes --partial` to show partial matches and `--threshold <PERCENT>` to define the percentage needed for inclusion.
+- Pantry inventory is defined in the `pantry.conf` configuration file found in either `./config/pantry.conf` or `~/.config/cook/pantry.conf`.
+- Pantry sections (such as fridge, pantry, spices) group ingredients and appear in output and recipe analysis.
+- Each pantry item may include attributes such as `quantity`, `low`, `bought`, and `expire` for tracking stock levels and spoilage.
+- Low-stock thresholds work only when quantity units match; unitless items should use plain numbers.
+- Pantry data integrates with `cook shopping` by filtering out items already in stock and highlighting ingredients that need restocking.
+- Recipes referencing pantry items use pantry data to confirm availability and warn about low-stock ingredients during recipe processing.
+- The `--base-path` option lets you check inventory against alternate recipe directories or separate collections.
+- Output formats include human-readable text, JSON, and YAML; JSON and YAML support automation and scripting workflows.
+- See the linked page for this command for a detailed breakdown of usages with examples!
+- Tips: update `pantry.conf` regularly to ensure accurate tracking; set realistic `low` values based on shopping history; utilize sections to organize by storage location; track expiration dates for minimal waste; combine with `cook shopping` to create shopping lists for low items; automate with JSON or YAML and parse the ouput with scripts.
