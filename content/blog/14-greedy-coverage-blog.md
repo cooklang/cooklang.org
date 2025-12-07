@@ -18,13 +18,7 @@ Let’s walk through what it does and why it matters.
 
 ## Why Build an “Optimal Pantry”?
 
-Cooklang already supports tracking pantry quantities, expiry dates, and what you currently have on hand. But what about people who:
-
-- are restocking after a move  
-- want to cook more efficiently  
-- want a smaller, smarter pantry  
-- want to maximize the number of cookable recipes  
-- or simply want to know which “core ingredients” matter most?
+Cooklang already supports tracking pantry quantities, expiry dates, and what you currently have on hand. But what about people who are restocking their pantries after a move or a vacation, want to cook more efficiently, want a more streamlined pantry, want to know what core ingredients to prioritize, or want to maximize what they can cook at any given moment?
 
 The new `cook pantry plan` command solves this by answering one question:
 
@@ -49,11 +43,7 @@ This process continues until:
 - all recipes are cookable, or  
 - you reach a limit you set with `--max-ingredients`
 
-In computer science terms, this is a variation of the **Set Cover** problem. In kitchen terms, it’s a way to figure out:
-
-- the highest-value ingredients  
-- the fastest way to expand your cooking options  
-- the order in which to build your pantry
+In computer science terms, this is a variation of the **Set Cover** problem, which asks, “Given a bunch of groups, what is the smallest number of items I can pick so that every group contains at least one of the items I picked?”. In kitchen terms, it’s a way to figure out the highest-potential ingredients, the easiest ways to expand your cooking options, and the order of importance for restocking or enhancing your pantry.
 
 It’s efficient, intuitive, and ideal for real kitchen workflows.
 
@@ -76,30 +66,21 @@ You might see output like:
 
 With just **five ingredients**, you can now cook **all twenty recipes**.
 
-Not because these are universal kitchen staples —  
-but because your own recipes use them frequently.
+Not because these are universal kitchen staples — but because your own recipes use them frequently.
 
 This is personalized cooking intelligence.
 
 
 ## Skipping Ingredients You Already Have
 
-Most cooks already have a few basics. The `--skip` flag lets you say:
-
-> “Pretend I already have the first N ingredients.”
+Most cooks already have a few basics. The `--skip` flag lets you say, “Pretend I already have the first N ingredients.”.
 
 Example:
 
 `cook pantry plan --skip 3`
 
 
-This hides the first three recommendations and shows what to buy next.
-
-Perfect for:
-
-- restocking intelligently  
-- prioritizing based on your real pantry  
-- minimizing shopping lists  
+This hides the first three recommendations and shows what to buy next. This is perfect for assistance restocking intelligently, prioritizing what your pantry needs most right now, and minimizing the laborious use of long shopping lists.
 
 
 ## Allowing Recipes with Missing Ingredients
@@ -110,13 +91,7 @@ For that, use `--allow-missing`:
 
 `cook pantry plan --allow-missing 1`
 
-
-This is useful when:
-
-- a missing item is optional  
-- substitutions exist  
-- you are improvising  
-- you shop frequently  
+This is useful when you can leave out or replace a missing item, you are just improvising something new, or you are planning to go to the store again soon.
 
 It softens the definition of “cookable” to match real life.
 
@@ -125,14 +100,7 @@ It softens the definition of “cookable” to match real life.
 
 As with other CookCLI commands, the planner supports structured formats (JSON or YAML).
 
-
-These outputs can be used for:
-
-- automation  
-- dashboards  
-- meal planners  
-- shopping apps  
-- chatbots or AI-driven helpers  
+These outputs can be used for automation, dashboards, meal planners, shopping or recipe apps, and even AI integration.
 
 Anywhere data can flow, CookCLI can integrate.
 
@@ -143,13 +111,14 @@ Anywhere data can flow, CookCLI can integrate.
 
 Imagine a network graph:
 
-- Recipes are circles.  
-- Ingredients are squares.  
-- Lines connect ingredients to the recipes that use them.  
+- You have rice in your pantry.  
+- You also have a host of recipes, not all of which contain rice.  
+- Red lines connect ingredients to the recipes that use rice.
+- Black lines connect to recipes that do not.
 
 The greedy algorithm highlights:
 
-1. The ingredient connected to the most recipes.  
+1. The ingredient connected to the most recipes (rice in this case).  
 2. Removes those recipes.  
 3. Highlights the next most connected ingredient.  
 4. Repeats until done.  
@@ -161,16 +130,10 @@ Visually, it’s clear how ingredients “cover” recipes.
 
 Your pantry doesn’t need to be massive — it needs to be **optimized**.
 
-By ranking ingredients based on how much cooking value they provide, CookCLI helps you:
+By ranking ingredients based on how much cooking value they provide, CookCLI helps you unlock the most recipes with the fewest ingredients, reduce food waste, shop intentionally, and understand where your ingredients matter the most. This command will absolutely help you build the pantry that is well suited to you, personally, and saves you time, effort, and money.
 
-- unlock the most recipes with the fewest purchases  
-- reduce waste  
-- shop with intention  
-- understand which ingredients matter most  
-- build a pantry tailored to your personal cooking habits  
-
-This is not theoretical computer science.  
-It’s practical, efficient, everyday kitchen logic.
+This is not just theoretical computer science being put into use.  
+It’s practical, efficient, everyday kitchen logic in a clean and accessible command.
 
 And it’s just the beginning.
 
