@@ -105,26 +105,62 @@ These outputs can be used for automation, dashboards, meal planners, shopping or
 Anywhere data can flow, CookCLI can integrate.
 
 
-## A Diagram (Optional for Blog)
+## A Diagram
 
-*Placeholder for the diagram and description*
+Below is a Mermaid diagram illustrating how the greedy coverage algorithm works across recipes and ingredients. It shows ingredients (squares) connected to recipes (circles) based on usage. The algorithm then selects the most connected ingredient first, removes covered recipes, and continues with the next best choice.
 
-Imagine a network graph:
+```mermaid
+graph LR
 
-- You have rice in your pantry.  
-- You also have a host of recipes, not all of which contain rice.  
-- Red lines connect ingredients to the recipes that use rice.
-- Black lines connect to recipes that do not.
+    %% Ingredient nodes
+    A[Onion]:::ingredient
+    B[Garlic]:::ingredient
+    C[Olive Oil]:::ingredient
+    D[Eggs]:::ingredient
+    E[Flour]:::ingredient
 
-The greedy algorithm highlights:
+    %% Recipe nodes
+    R1((Recipe 1))
+    R2((Recipe 2))
+    R3((Recipe 3))
+    R4((Recipe 4))
+    R5((Recipe 5))
 
-1. The ingredient connected to the most recipes (rice in this case).  
-2. Removes those recipes.  
-3. Highlights the next most connected ingredient.  
-4. Repeats until done.  
+    %% Edges (ingredient → recipes that use it)
+    A --> R1
+    A --> R2
+    A --> R3
+    B --> R2
+    B --> R3
+    B --> R4
+    C --> R3
+    C --> R4
+    D --> R4
+    D --> R5
+    E --> R5
 
-Visually, it’s clear how ingredients “cover” recipes.
+    %% Styling
+    classDef ingredient fill:#f9f9f6,stroke:#666,stroke-width:1px;
+    classDef chosen fill:#ffe8b3,stroke:#cc9900,stroke-width:2px;
 
+    %% Highlight greedy choices
+    class A chosen
+    class B chosen
+```
+
+How to read this diagram:
+
+- Squares represent ingredients.
+- Circles represent recipes.
+- A line means this ingredient appears in that recipe.
+
+The greedy algorithm works as follows:
+
+1. Onion appears in the most recipes (Recipe 1, 2, 3), so it is chosen first and highlighted.
+2. Once those recipes are considered “covered,” the algorithm looks at the remaining ones.
+3. Garlic is then the ingredient with the highest remaining coverage (Recipe 3 and 4), so it is chosen next.
+4. The process continues until you reach full coverage or hit a user-defined limit.
+5. This makes it visually clear how each ingredient expands the set of recipes you can cook, and why the greedy algorithm tends to choose ingredients with many connections early on.
 
 ## The Big Picture: A Smarter, Smaller, More Efficient Pantry
 
