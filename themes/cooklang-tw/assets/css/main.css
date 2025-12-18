@@ -28,6 +28,13 @@
   }
 }
 
+@layer base {
+  /* Mermaid diagrams - white background */
+  pre.mermaid {
+    @apply bg-white rounded-lg p-4 my-4;
+  }
+}
+
 @layer components {
   .btn {
     @apply inline-flex items-center px-4 py-2 font-medium rounded-lg transition-colors duration-150;
