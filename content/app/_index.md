@@ -38,7 +38,7 @@ Submit your feedback in [discussions](https://github.com/cook-md/android-app/dis
 
 Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
 
-## Cookbot <span class="new-label">New</span>
+## Cookbot <span class="new-label">New</span> {#cookbot}
 
 ![Cookbot Screenshot](/guide/cookbot.png)
 
