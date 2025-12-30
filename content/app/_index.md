@@ -38,4 +38,22 @@ Submit your feedback in [discussions](https://github.com/cook-md/android-app/dis
 
 Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
 
+## Cookbot <span class="new-label">New</span>
+
+![Cookbot Screenshot](/guide/cookbot.png)
+
+Cookbot is a terminal app (TUI) for managing Cooklang recipes with AI assistance. It lets you work with your recipes in natural language:
+
+* Find new top-rated recipes online that you might like
+* Build meal plans for the coming days
+* Update recipe metadata to be consistent with your collection
+* Convert units to metric
+* Make recipes healthier or substitute ingredients
+* Review and improve cooking instructions
+
+Powered by Claude Sonnet, you can ask it to do almost anything with your recipes—because your recipes are just files.
+
+**Pricing:** €10/month for the first 100 users.
+
+[Documentation](https://cook.md/help/cookbot) | [Installation & Issues](https://github.com/cook-md/cookbot)
 

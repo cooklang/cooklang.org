@@ -39,12 +39,16 @@
   .btn {
     @apply inline-flex items-center px-4 py-2 font-medium rounded-lg transition-colors duration-150;
   }
-  
+
   .btn-primary {
     @apply bg-cooklang-orange text-white hover:bg-orange-600;
   }
-  
+
   .btn-secondary {
     @apply bg-cooklang-gray-200 text-cooklang-gray-800 hover:bg-cooklang-gray-300;
+  }
+
+  .new-label {
+    @apply text-xs font-semibold bg-green-500 text-white px-2 py-0.5 rounded-full ml-2 align-middle;
   }
 }
