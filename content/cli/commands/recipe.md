@@ -2,7 +2,7 @@
 title: 'Recipe'
 weight: 10
 description: 'CookCLI Recipe command documentation'
-date: 2025-09-25T03:46:01+00:00
+date: 2026-01-22T19:46:15+00:00
 ---
 
 
@@ -184,6 +184,17 @@ Generate structured data in Schema.org Recipe format for SEO and web integration
 cook recipe "Neapolitan Pizza" -f schema
 ```
 
+### Typst Format
+
+Export recipes as Typst documents for professional typesetting:
+
+```bash
+cook recipe "Neapolitan Pizza" -f typst
+
+# Pipe directly to typst to create a PDF
+cook recipe "Neapolitan Pizza" -f typst | typst compile - pizza-recipe.pdf
+```
+
 ## Saving Output
 
 Write the output to a file:
@@ -205,21 +216,6 @@ For JSON and YAML outputs, use `--pretty` for formatted output:
 
 ```bash
 cook recipe "Neapolitan Pizza" -f json --pretty
-```
-
-## Recipe Discovery
-
-CookCLI can find recipes by name without the full path:
-
-```bash
-# Searches in current directory and subdirectories
-cook recipe "Pizza"
-
-# Automatically adds .cook extension
-cook recipe "Pasta Carbonara"
-
-# Searches in recipe directories
-cook recipe "Neapolitan Pizza"
 ```
 
 ## Advanced Examples

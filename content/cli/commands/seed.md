@@ -2,7 +2,7 @@
 title: 'Seed'
 weight: 70
 description: 'CookCLI Seed command documentation'
-date: 2025-09-22T19:30:34+00:00
+date: 2026-01-22T19:46:15+00:00
 ---
 
 
@@ -125,7 +125,7 @@ cook recipe "Breakfast/Easy Pancakes"
 cook recipe "Neapolitan Pizza:2"
 
 # Check ingredient formatting
-cook recipe lamb-chops -f json | jq '.ingredients'
++cook recipe "lamb-chops" -f json | jq '.ingredients'
 ```
 
 ## Practical Uses

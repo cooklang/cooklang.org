@@ -2,7 +2,7 @@
 title: 'Pantry'
 weight: 99
 description: 'CookCLI Pantry command documentation'
-date: 2025-09-22T19:30:33+00:00
+date: 2026-01-22T19:46:15+00:00
 ---
 
 

@@ -167,6 +167,12 @@ cook server                               # browse in your browser
 
 Cooklang provides automation tools that can streamline your recipe management. Explore the [full CLI documentation](/cli/commands/) for more ideas. There's also a community alternative [cooklang-chef](https://github.com/Zheoni/cooklang-chef).
 
+## 5. AI-Powered Recipe Management (Cooklang Skills)
+
+If you use an AI coding assistant like Claude Code or Codex CLI, you can supercharge your Cooklang workflow with **Cooklang Skills** — a set of AI skills that let you create, convert, validate, and manage recipes using natural language.
+
+Some skills work standalone (`create-recipe`, `convert-recipe`, `organize-collection`), while others benefit from having [CookCLI](#4-command-line-interface-cookcli) installed.
+
 ## What's Next?
 
 - Dive into the Cooklang ecosystem and experiment with writing recipes in Cooklang.
