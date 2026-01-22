@@ -173,6 +173,8 @@ If you use an AI coding assistant like Claude Code or Codex CLI, you can superch
 
 Some skills work standalone (`create-recipe`, `convert-recipe`, `organize-collection`), while others benefit from having [CookCLI](#4-command-line-interface-cookcli) installed.
 
+If you don't use these popular tools, you can try our own similar tool called [Cookbot](https://cooklang.org/app/#:~:text=Cookbot,-New). It was specifically created for working with Cooklang recipes and plans.
+
 ## What's Next?
 
 - Dive into the Cooklang ecosystem and experiment with writing recipes in Cooklang.
