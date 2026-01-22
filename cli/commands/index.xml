@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Thu, 25 Sep 2025 03:46:01 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Thu, 25 Sep 2025 03:46:01 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>The &lt;code>recipe&lt;/code> command parses and displays Cooklang recipe files. It's your primary tool for viewing recipes, validating syntax, and converting between formats.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Thu, 22 Jan 2026 19:46:15 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>The &lt;code>recipe&lt;/code> command parses and displays Cooklang recipe files. It's your primary tool for viewing recipes, validating syntax, and converting between formats.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
 
@@ -11,7 +11,7 @@
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;/div>&lt;p>This displays the recipe in a human-readable format with ingredients, steps, and metadata clearly organized.&lt;/p>
 &lt;h2 id="menu-files">Menu Files&lt;/h2>
-&lt;p>CookCLI also supports &lt;a href="https://cooklang.org/docs/use-cases/meal-planning/">&lt;code>.menu&lt;/code> files&lt;/a> for meal planning. Menu files can reference multiple recipes and organize them by meals or days:&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Mon, 22 Sep 2025 19:30:34 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>The &lt;code>shopping-list&lt;/code> command creates organized shopping lists from one or more recipes. It automatically combines ingredients, converts units (some day!), and groups items by store section.&lt;/p>
+&lt;p>CookCLI also supports &lt;a href="https://cooklang.org/docs/use-cases/meal-planning/">&lt;code>.menu&lt;/code> files&lt;/a> for meal planning. Menu files can reference multiple recipes and organize them by meals or days:&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>The &lt;code>shopping-list&lt;/code> command creates organized shopping lists from one or more recipes. It automatically combines ingredients, converts units (some day!), and groups items by store section.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
 
@@ -45,7 +45,7 @@ basil leaves
 mozzarella cheese 100 grams
 semolina&lt;/code>&lt;/pre>
 &lt;/div>&lt;h3 id="multiple-recipes">Multiple Recipes&lt;/h3>
-&lt;p>Combine ingredients from several recipes:&lt;/p></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Mon, 22 Sep 2025 19:30:34 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>The &lt;code>server&lt;/code> command starts a local web server that makes your recipe collection browsable from any device with a web browser. It's perfect for cooking from a tablet, sharing recipes with family, or browsing your collection comfortably.&lt;/p>
+&lt;p>Combine ingredients from several recipes:&lt;/p></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>The &lt;code>server&lt;/code> command starts a local web server that makes your recipe collection browsable from any device with a web browser. It's perfect for cooking from a tablet, sharing recipes with family, or browsing your collection comfortably.&lt;/p>
 &lt;img width="600" height="359" alt="recipes" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
 &lt;img width="600" height="359" alt="recipe" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
 &lt;img width="600" height="359" alt="shopping" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
@@ -77,7 +77,7 @@ cd ~/my-recipes &amp;amp;amp;&amp;amp;amp; cook server&lt;/code>&lt;/pre>
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook server --port 8080
 # Server running at http://localhost:8080&lt;/code>&lt;/pre>
 &lt;/div>&lt;h3 id="allow-external-access">Allow External Access&lt;/h3>
-&lt;p>By default, the server only accepts connections from localhost. To access from other devices:&lt;/p></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Mon, 22 Sep 2025 19:30:33 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>The &lt;code>search&lt;/code> command helps you find recipes quickly by searching through titles, ingredients, instructions, and metadata. It's perfect for answering &amp;quot;what can I cook with what I have?&amp;quot; or finding that recipe you remember but can't locate.&lt;/p>
+&lt;p>By default, the server only accepts connections from localhost. To access from other devices:&lt;/p></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>The &lt;code>search&lt;/code> command helps you find recipes quickly by searching through titles, ingredients, instructions, and metadata. It's perfect for answering &amp;quot;what can I cook with what I have?&amp;quot; or finding that recipe you remember but can't locate.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
 
@@ -99,7 +99,7 @@ Tomato Soup.cook
 Caprese Salad.cook
 Pizza Margherita.cook&lt;/code>&lt;/pre>
 &lt;/div>&lt;h3 id="multiple-terms">Multiple Terms&lt;/h3>
-&lt;p>All terms must match (AND logic):&lt;/p></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 22 Sep 2025 19:30:33 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>The &lt;code>import&lt;/code> command fetches recipes from websites and automatically converts them to Cooklang format. It supports hundreds of popular recipe websites and extracts ingredients, instructions, and metadata intelligently.&lt;/p>
+&lt;p>All terms must match (AND logic):&lt;/p></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>The &lt;code>import&lt;/code> command fetches recipes from websites and automatically converts them to Cooklang format. It supports hundreds of popular recipe websites and extracts ingredients, instructions, and metadata intelligently.&lt;/p>
 &lt;p>Requires &lt;code>OPENAI_API_KEY&lt;/code> environment variable set to perform the conversion to Cooklang. Without the key you still can downlad recipe original content, but it won't be converted to Cooklang.&lt;/p>
 &lt;p>Note that you can use &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a> if you don't have OpenAI key.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
@@ -107,7 +107,7 @@ Pizza Margherita.cook&lt;/code>&lt;/pre>
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This downloads the recipe and outputs it in Cooklang format into stdout.&lt;/p></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 22 Sep 2025 19:30:33 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>The &lt;code>doctor&lt;/code> command helps maintain a healthy recipe collection by checking for syntax errors, validating references, and ensuring proper organization. Think of it as a health check for your recipes.&lt;/p>
+&lt;/div>&lt;p>This downloads the recipe and outputs it in Cooklang format into stdout.&lt;/p></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>The &lt;code>doctor&lt;/code> command helps maintain a healthy recipe collection by checking for syntax errors, validating references, and ensuring proper organization. Think of it as a health check for your recipes.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
 
@@ -130,7 +130,7 @@ Pizza Margherita.cook&lt;/code>&lt;/pre>
 &lt;li>Identifies deprecated syntax&lt;/li>
 &lt;/ul>
 &lt;h3 id="aisle-configuration">Aisle Configuration&lt;/h3>
-&lt;p>Check for ingredients missing from your aisle configuration:&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Mon, 22 Sep 2025 19:30:34 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>The &lt;code>seed&lt;/code> command populates a directory with example Cooklang recipes. It's perfect for getting started, learning the syntax, or setting up a demo.&lt;/p>
+&lt;p>Check for ingredients missing from your aisle configuration:&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>The &lt;code>seed&lt;/code> command populates a directory with example Cooklang recipes. It's perfect for getting started, learning the syntax, or setting up a demo.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
 
@@ -181,7 +181,7 @@ Pizza Margherita.cook&lt;/code>&lt;/pre>
 cook seed recipes/examples
 # Creates recipes in recipes/examples&lt;/code>&lt;/pre>
 &lt;/div>&lt;h3 id="creating-directory">Creating Directory&lt;/h3>
-&lt;p>If the directory doesn't exist, it will be created:&lt;/p></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Mon, 22 Sep 2025 19:30:33 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>The &lt;code>report&lt;/code> command generates custom reports from recipes using minijinja templates. It's a powerful tool for creating recipe cards, nutrition labels, meal plans, or any custom format you need.&lt;/p>
+&lt;p>If the directory doesn't exist, it will be created:&lt;/p></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>The &lt;code>report&lt;/code> command generates custom reports from recipes using minijinja templates. It's a powerful tool for creating recipe cards, nutrition labels, meal plans, or any custom format you need.&lt;/p>
 &lt;p>⚠️ &lt;strong>Note&lt;/strong>: The report command is currently a prototype feature and will evolve in future versions.&lt;/p>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
 
@@ -199,22 +199,19 @@ cook seed recipes/examples
 &lt;li>Outputs the rendered result&lt;/li>
 &lt;/ol>
 &lt;h2 id="template-variables">Template Variables&lt;/h2>
-&lt;p>Templates receive comprehensive recipe data:&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Mon, 22 Sep 2025 19:30:34 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>The &lt;code>update&lt;/code> command allows you to automatically update CookCLI to the latest version from GitHub releases.&lt;/p>
+&lt;p>Templates receive comprehensive recipe data:&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>The &lt;code>lsp&lt;/code> command starts a Language Server Protocol (LSP) server for Cooklang recipe files. It enables IDE features in text editors and development environments.&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>CookCLI can check for new releases and automatically download and install updates. The update process:&lt;/p>
+&lt;p>The LSP server provides intelligent editing features for &lt;code>.cook&lt;/code> files:&lt;/p>
 &lt;ul>
-&lt;li>Checks the latest release on GitHub&lt;/li>
-&lt;li>Downloads the appropriate binary for your platform&lt;/li>
-&lt;li>Replaces the current executable with the new version&lt;/li>
-&lt;li>Preserves all your configurations and data&lt;/li>
+&lt;li>&lt;strong>Real-time syntax checking&lt;/strong> – Catch errors as you type&lt;/li>
+&lt;li>&lt;strong>Auto-completion&lt;/strong> – Suggestions for ingredients, cookware, and timers&lt;/li>
+&lt;li>&lt;strong>Semantic highlighting&lt;/strong> – Rich syntax coloring beyond basic highlighting&lt;/li>
+&lt;li>&lt;strong>Hover documentation&lt;/strong> – Information about ingredients and references&lt;/li>
+&lt;li>&lt;strong>Document symbols&lt;/strong> – Navigate recipe structure quickly&lt;/li>
+&lt;li>&lt;strong>Go to definition&lt;/strong> – Jump to referenced recipes&lt;/li>
 &lt;/ul>
 &lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-&lt;p>Update to the latest version:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook update&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Check for updates without installing:&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Mon, 22 Sep 2025 19:30:33 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>The &lt;code>pantry&lt;/code> command helps you manage and analyze your pantry inventory, tracking what items are low on stock, expiring soon, or available for cooking.&lt;/p>
+&lt;p>Start the LSP server:&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>The &lt;code>pantry&lt;/code> command helps you manage and analyze your pantry inventory, tracking what items are low on stock, expiring soon, or available for cooking.&lt;/p>
 &lt;h2 id="overview">Overview&lt;/h2>
 
 
@@ -229,4 +226,19 @@ cook seed recipes/examples
 &lt;/ul>
 &lt;h2 id="subcommands">Subcommands&lt;/h2>
 &lt;h3 id="depleted-alias-d">&lt;code>depleted&lt;/code> (alias: &lt;code>d&lt;/code>)&lt;/h3>
-&lt;p>Shows items that are out of stock or have low quantities.&lt;/p></description></item></channel></rss>
+&lt;p>Shows items that are out of stock or have low quantities.&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>The &lt;code>update&lt;/code> command allows you to automatically update CookCLI to the latest version from GitHub releases.&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>CookCLI can check for new releases and automatically download and install updates. The update process:&lt;/p>
+&lt;ul>
+&lt;li>Checks the latest release on GitHub&lt;/li>
+&lt;li>Downloads the appropriate binary for your platform&lt;/li>
+&lt;li>Replaces the current executable with the new version&lt;/li>
+&lt;li>Preserves all your configurations and data&lt;/li>
+&lt;/ul>
+&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+&lt;p>Update to the latest version:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook update&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>Check for updates without installing:&lt;/p></description></item></channel></rss>
