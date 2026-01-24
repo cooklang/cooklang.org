@@ -41,6 +41,9 @@ To get the best experience with Cooklang on desktop, consider setting up:
 If you prefer writing recipes in a text editor, enabling syntax highlighting for Cooklang makes editing easier. Many editors support custom syntax highlighting:
 
 - **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
+
+![VSCode autocomplete with CookCLI](/guide/vscode.png)
+
 - **Vim/Neovim**: Add a [Cooklang syntax file](https://github.com/luizribeiro/vim-cooklang) for highlighting.
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
