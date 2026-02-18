@@ -63,8 +63,6 @@ Syntax highlighting makes writing recipes easier. Set up your preferred editor:
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
 
-![Sublime Screen](/guide/sublime-demo.png)
-
 ### Obsidian Plugin
 
 You can also manage recipes alongside your notes in Obsidian with the [Cooklang Editor](https://github.com/cooklang/cooklang-obsidian) plugin.
@@ -112,8 +110,6 @@ cook server                               # browse in your browser
 ```
 
 **See the `cook server` web UI in action at [demo.cooklang.org](https://demo.cooklang.org)!**
-
-{{< server-carousel >}}
 
 Install from [GitHub Releases](https://github.com/cooklang/cookcli/releases/latest), or on macOS: `brew install cookcli`. For the full CLI reference, see the [CLI documentation](/docs/getting-started-commands/).
 
