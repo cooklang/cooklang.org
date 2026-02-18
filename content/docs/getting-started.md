@@ -145,7 +145,7 @@ Grab the latest CookCLI build from [GitHub Releases](https://github.com/cooklang
 - **Daily recipe flow**: `cook recipe` to render any `.cook` file, `cook doctor` to catch syntax slips, `cook search` to find recipes by ingredient, and `cook import` when a blog recipe wins your heart.
 - **Plan and shop smarter**: `cook shopping-list` combines multiple recipes (with scaling) into one list, while `cook pantry` keeps tabs on what’s low or expiring.
 - **Kickstart or stay current**: `cook seed` drops sample recipes into a folder, and `cook update` keeps everything fresh.
-- **Share or show off**: Spin up `cook server` for a browsable collection, and `cook report` turns templated PDFs or summaries into reality.
+- **Share or show off**: Spin up `cook server` for a browsable collection, and `cook report` turns templated PDFs or summaries into reality. **Try it live at [demo.cooklang.org](https://demo.cooklang.org)!**
 
   {{< server-carousel >}}
 
