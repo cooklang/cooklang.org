@@ -142,7 +142,7 @@ Run a web-server:
     $ cook server
     Started server on http://127.0.0.1:9080, serving cook files from /Users/pochho/recipes.
 
-![server](https://user-images.githubusercontent.com/4168619/148116974-7010e265-5aa8-4990-a4b9-f85abe3eafb0.png)
+![server](/server/recipes.png)
 
 ## Mobile apps
 

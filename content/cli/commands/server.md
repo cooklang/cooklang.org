@@ -8,10 +8,10 @@ date: 2026-02-26T12:59:19+00:00
 
 Start a local web server to browse and view your recipe collection.
 
-<img width="600" height="359" alt="recipes" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
-<img width="600" height="359" alt="recipe" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
-<img width="600" height="359" alt="shopping" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
-<img width="600" height="359" alt="pantry" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
+<img width="600" height="360" alt="recipes" src="/server/recipes.png" />
+<img width="600" height="360" alt="recipe" src="/server/recipe.png" />
+<img width="600" height="360" alt="shopping" src="/server/shopping.png" />
+<img width="600" height="360" alt="pantry" src="/server/pantry.png" />
 
 ## Usage
 
