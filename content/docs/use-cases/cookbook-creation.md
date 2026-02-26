@@ -6,6 +6,8 @@ description: "Turn your Cooklang recipes into PDF cookbooks with LaTeX export"
 
 CookCLI can export recipes as LaTeX, which you compile into professional PDF cookbooks. Ingredients, cookware, and timers are color-coded automatically.
 
+For a ready-made solution, see the [cookbook-creator](https://github.com/cooklang/cookbook-creator) script ([sample PDF](https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf)).
+
 ## Prerequisites
 
 1. **CookCLI installed** ([Installation guide](/cli/download))
