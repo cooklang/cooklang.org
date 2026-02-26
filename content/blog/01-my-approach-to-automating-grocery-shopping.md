@@ -1,138 +1,75 @@
 ---
-title: 'My approach to automating grocery shopping'
+title: 'How to Automate Grocery Shopping with Plain Text Recipes'
 date: 2021-05-20T19:27:37+10:00
 weight: 100
-summary: How and why I created Cooklang in the first place.
+summary: How I automated my grocery shopping by creating Cooklang — a markup language that turns recipe files into shopping lists. From sticky notes to command-line automation.
 ---
 
-The pandemic has presented everyone with unique challenges. For me, it became particularly hard to switch to online grocery shopping.
+I used to buy groceries by wandering through the store, picking things up as I went. It worked when I could physically walk the aisles. When I switched to online ordering, I couldn't do that anymore. I had to know exactly what I needed before I started.
 
-When I do my shopping offline, I usually don’t have to plan much, moving through the isles and picking up stuff as I go. It’s rare that I forget something, but more often I buy things I don’t actually need, but isn’t that part of how supermarkets work? In my typical order, I'd buy groceries for seven to ten days at a time and it would contain sixty to eighty items in my cart.
+So I began writing meal plans on sticky notes, listing ingredients by hand, then combining them into an order. After a few weeks of this, the developer in me couldn't take it anymore. The process was repetitive and mechanical — exactly the kind of thing a computer should handle.
 
-Shopping online is a different story. I can't reproduce the same behaviour and go down every isle. So, I realized I needed to plan my meals. I started writing down ingredients for meals I wanted to make on sticky notes and combining them to make an order.
+That's how [Cooklang](/) was born.
 
-This was really tedious. After a few orders, I noticed that it was kind of repetitive. Although my wife will tell you that I just was lazy and didn't want to do boring stuff, the developer in me said, ”It's time to automate this and never solve the same problem again.”
+## The Idea
 
-That's how [Cooklang](https://cooklang.org/) was born.
+What if recipes were plain text files where ingredients were tagged with `@`? Like this:
 
-# About Cooklang
-
-I thought, *what if I store my recipes in Markdown-like text files and tag ingredients with @ symbol?* Like this:
-
-```
-    Then add @salt and @ground black pepper{} to taste.
-    Poke holes in @potato{2}.
-    Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
+```cooklang
+Then add @salt and @ground black pepper{} to taste.
+Poke holes in @potato{2}.
+Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
 ```
 
-That will make recipe files human and machine readable.
+The recipe stays readable — you can follow it as-is. But a computer can also parse it, extract every ingredient with its quantity, and build a shopping list automatically.
 
-Given these recipe files, computers can create a shopping list and much more: calculate nutrition values, costs or whatever else you could need, given that information for ingredients provided.
+Because it's plain text, I can store recipes in Git, edit them in any text editor, and sync them across devices with whatever I already use. No database, no app subscription, no vendor lock-in.
 
-And the recipe is still human readable, so I can be agile and store my recipes in git and perfect them over time (like code refactoring).
+## The Tools
 
-Also, because it's just a simple text format I avoid "vendor lock-in" problems and can use my recipes the same way when I retire. My recipes are mine, forever.
+A markup language alone isn't useful without tools to process it. I built [CookCLI](/cli/) — a command-line program that reads `.cook` files and does practical things with them.
 
-# About tools
-
-Having only a language specification isn't really helpful. Yes, I can store my recipes on GitHub and own them, but that's it.
-
-I imagined it would be nice to have many small applications which can understand the language and do their own thing very well: calculate calories, shopping, costs, smart meal planning, etc. I was really excited.
-
-I read a wonderful book, [Crafting Interpreters](http://craftinginterpreters.com/) by Robert Nystrom, and did a few experiments. I created a simple [parser](https://github.com/cooklang/CookInSwift) and [CLI app](https://github.com/cooklang/CookCLI). In this post, I wanted to focus on how I automated shopping. I might write another post about the parser and CLI, if anyone interested, so I will skip all the details about those for now.
-
-So CLI can understand Cooklang files, extract ingredients, and group them:
+The one I use most is `shopping-list`. Point it at a few recipe files and it combines all ingredients, grouped by store aisle:
 
 ```
-    $ cook shopping-list \
-    > Neapolitan\ Pizza.cook \
-    > Root\ Vegetable\ Tray\ Bake.cook
-    BREADS AND BAKED GOODS
-        breadcrumbs                   150 g
+$ cook shopping-list Neapolitan\ Pizza.cook Root\ Vegetable\ Tray\ Bake.cook
 
-    DRIED HERBS AND SPICES
-        dried oregano                 3 tbsp
-        dried sage                    1 tsp
-        pepper                        1 pinch
-        salt                          25 g, 2 pinches
+DRIED HERBS AND SPICES
+    dried oregano                 3 tbsp
+    dried sage                    1 tsp
+    pepper                        1 pinch
+    salt                          25 g, 2 pinches
 
-    FRUIT AND VEG
-        beetroots                     300 g
-        carrots                       300 g
-        celeriac                      300 g
-        fresh basil                   18 leaves
-        garlic                        3 gloves
-        lemon                         1 item
-        onion                         1 large
-        red onion                     2 items
-        thyme                         2 springs
+FRUIT AND VEG
+    beetroots                     300 g
+    carrots                       300 g
+    fresh basil                   18 leaves
+    garlic                        3 cloves
+    onion                         1 large
 
-    MEAT AND SEAFOOD
-        parma ham                     3 packs
+MILK AND DAIRY
+    butter                        15 g
+    mozzarella                    3 packs
 
-    MILK AND DAIRY
-        butter                        15 g
-        egg                           1 item
-        mozzarella                    3 packs
-
-    OILS AND DRESSINGS
-        Dijon mustard                 1 tsp
-        Marmite                       1 tsp
-        cider                         150 ml
-        olive oil                     3 tbsp
-
-    OTHER (add new items into aisle.conf)
-        tipo zero flour               820 g
-
-    PACKAGED GOODS, PASTA AND SAUCES
-        vegetable stock               150 ml
-        water                         530 ml
-
-    TINNED GOODS AND BAKING
-        cannellini beans              400 g
-        chopped tomato                3 cans
-        fresh yeast                   1.6 g
-        redcurrant jelly              1 tsp
-
+TINNED GOODS AND BAKING
+    chopped tomato                3 cans
+    fresh yeast                   1.6 g
 ```
 
-I can set output format to json or yaml and feed this into other programs, or just use good old plain text output manipulation. CLI has a few more features like a web-server to explore the recipes with cooking mode and make shopping list in the browser.
+Output can be JSON or YAML for piping into other programs. CookCLI also includes a [web server](/cli/commands/server/) for browsing recipes from a phone or tablet, and a [search command](/cli/commands/search/) for finding recipes by ingredient.
 
-I migrated a bunch of recipes from scattered sources into Cooklang format and stored them on GitHub repository [https://github.com/dubadub/cookbook](https://github.com/dubadub/cookbook).
+## My Workflow
 
-# My grocery shopping approach
+I organize recipes into directories that represent meal plans. Generating a shopping list for the week is one command:
 
-Unfortunately, I haven't fully automated my grocery shopping yet. I still need to do some manual steps, because my shop doesn't provide any API access (surprise!).
-
-That's how my process looks now:
-
-1/ I generate a list of all ingredients. I added directories with symlinks to recipes, which represent a meal plan. So it's easy to generate a list of ingredients for the whole directory like that:
-
-```
-    $ cook shopping-list --only-ingredients ./Plan\ I
+```bash
+cook shopping-list ./this-week/*.cook
 ```
 
-2/ I remove anything I already have at home from the list.
+I cross off what I already have, then order the rest. The process takes about five minutes instead of the thirty-plus it used to take with sticky notes. More importantly, I buy exactly what I need — no forgotten ingredients, no impulse purchases.
 
-3/ I paste all the ingredients to a multi search input on the shop's web-site.
+I keep all my recipes in a [Git repository](https://github.com/dubadub/cookbook). They've been evolving for years — adjusting quantities, adding notes, trying variations. Git tracks every change.
 
-4/ I manually go through each item and add it to my cart 😓.
-
-5/ Done!
-
-It has a manual step, but:
-
-* it’s much faster than before.
-* it’s less for me to think about;
-* it makes the entire process more precise.
-
-I'm really happy with this precision part. I noticed that I now cover all my needs but no longer over consume. I see this as a form of eco-sufficiency in some ways.
-
-# What's next
-
-I have only solved 80% of my problem, and I want to do more. I'm thinking about creating a mapping between ingredients from my recipes and links to them at my shop's website. That will allow me to use curl or Selenium to complete my solution.
-
+**Update (2025):** I've since built a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my grocery store's website, making the ordering process almost fully automatic. The ecosystem has also grown — there are now [mobile apps](/app/), an [Obsidian plugin](/blog/how-to-manage-recipes-in-obsidian-with-cooklang/), a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=nicholasglazer.cooklang-vscode-support), and a [community recipe index](https://recipes.cooklang.org). Check the [getting started guide](/docs/getting-started/) to try it yourself.
 
 -Alexey
-
-Note, originally posted on [Daniweb](https://www.daniweb.com/programming/software-development/threads/537481/my-approach-to-automating-grocery-shopping).

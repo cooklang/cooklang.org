@@ -2,354 +2,56 @@
 title: 'Server'
 weight: 30
 description: 'CookCLI Server command documentation'
-date: 2026-01-22T19:46:15+00:00
+date: 2026-02-26T12:59:19+00:00
 ---
 
 
-The `server` command starts a local web server that makes your recipe collection browsable from any device with a web browser. It's perfect for cooking from a tablet, sharing recipes with family, or browsing your collection comfortably.
+Start a local web server to browse and view your recipe collection.
 
 <img width="600" height="359" alt="recipes" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
 <img width="600" height="359" alt="recipe" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
 <img width="600" height="359" alt="shopping" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
 <img width="600" height="359" alt="pantry" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
 
+## Usage
 
-## Basic Usage
-
-```bash
-cook server
+```
+cook server [OPTIONS] [BASE_PATH]
 ```
 
-This starts a web server on `http://localhost:9080` serving recipes from the current directory.
+## Arguments
 
-## Starting the Server
+| Argument | Description |
+|----------|-------------|
+| `[BASE_PATH]` | Root directory containing recipe files (default: current directory) |
 
-### Serve Current Directory
+## Options
+
+| Option | Description |
+|--------|-------------|
+| `--host [<ADDRESS>]` | Allow connections from external hosts (default: localhost only). Optionally bind to a specific address. |
+| `-p, --port <PORT>` | Port number (default: 9080) |
+| `--open` | Automatically open the web interface in your default browser |
+
+## Examples
 
 ```bash
+# Start on localhost:9080
 cook server
-# Server running at http://localhost:9080
-```
 
-### Serve Specific Directory
-
-```bash
+# Serve recipes from a specific directory
 cook server ~/my-recipes
-# Or
-cd ~/my-recipes && cook server
-```
 
-### Custom Port
+# Custom port with auto-open
+cook server --port 8080 --open
 
-```bash
-cook server --port 8080
-# Server running at http://localhost:8080
-```
-
-### Allow External Access
-
-By default, the server only accepts connections from localhost. To access from other devices:
-
-```bash
+# Allow access from other devices on the network
 cook server --host
-# Server accessible at http://YOUR-IP:9080
-
-# With custom port
-cook server --host --port 3000
 ```
 
-⚠️ **Security Note**: Only use `--host` on trusted networks. Your recipes will be accessible to anyone on the network.
-
-### Auto-Open Browser
-
-```bash
-cook server --open
-# Automatically opens http://localhost:9080 in your default browser
-```
-
-## Features
-
-### Recipe Browsing
-
-* **Tree view** of all recipes organized by folders
-* **Search** across all recipes
-* **Quick preview** with cooking time and servings
-* **Full recipe view** with ingredients and steps
-
-### Recipe Scaling
-
-Scale any recipe directly in the web interface:
-* Use the scaling controls to adjust servings
-* All quantities update automatically
-* Print or save the scaled version
-
-### Shopping Lists
-
-Create shopping lists from the web interface:
-* Select multiple recipes
-* Set scaling for each recipe
-* Generate combined shopping list
-* Export or print the list
-
-### Mobile-Friendly
-
-The web interface is responsive and works great on:
-* Phones – Quick reference while shopping
-* Tablets – Perfect for cooking
-* Desktops – Comfortable browsing and planning
-
-## Network Access
-
-### Local Network
-
-Share recipes with devices on your home network:
-
-```bash
-# Find your IP address
-ip addr show  # Linux
-ifconfig      # macOS
-
-# Start server with external access
-cook server --host --port 8080
-
-# Access from other devices at:
-# http://192.168.1.100:8080 (replace with your IP)
-```
-
-### Kitchen Setup
-
-Ideal setup for cooking:
-
-```bash
-# On your computer
-cook server ~/recipes --host
-
-# On your tablet/phone
-# Open browser to http://computer-ip:9080
-```
-
-### Family Sharing
-
-Let family members browse recipes:
-
-```bash
-# Create a read-only recipe directory
-cp -r ~/recipes ~/shared-recipes
-
-# Serve the shared directory
-cook server ~/shared-recipes --host --port 8080
-
-# Family can access at http://your-ip:8080
-```
-
-## Advanced Usage
-
-### Running as a Service
-
-#### systemd (Linux)
-
-Create `/etc/systemd/system/cooklang.service`:
-
-```ini
-[Unit]
-Description=Cooklang Recipe Server
-After=network.target
-
-[Service]
-Type=simple
-User=YOUR-USER
-WorkingDirectory=/home/YOUR-USER/recipes
-ExecStart=/usr/local/bin/cook server --host --port 8080
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable and start:
-
-```bash
-sudo systemctl enable cooklang
-sudo systemctl start cooklang
-```
-
-#### launchd (macOS)
-
-Create `~/Library/LaunchAgents/org.cooklang.server.plist`:
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" 
-  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>org.cooklang.server</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>/usr/local/bin/cook</string>
-        <string>server</string>
-        <string>/Users/YOUR-USER/recipes</string>
-        <string>--port</string>
-        <string>8080</string>
-    </array>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <true/>
-</dict>
-</plist>
-```
-
-Load the service:
-
-```bash
-launchctl load ~/Library/LaunchAgents/org.cooklang.server.plist
-```
-
-### Docker Deployment
-
-Create a `Dockerfile`:
-
-```dockerfile
-FROM rust:latest
-RUN cargo install cookcli
-WORKDIR /recipes
-COPY ./recipes /recipes
-EXPOSE 9080
-CMD ["cook", "server", "--host"]
-```
-
-Build and run:
-
-```bash
-docker build -t my-recipes .
-docker run -p 9080:9080 my-recipes
-```
-
-### Reverse Proxy
-
-Use with nginx for production deployment:
-
-```nginx
-server {
-    listen 80;
-    server_name recipes.example.com;
-
-    location / {
-        proxy_pass http://localhost:9080;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-    }
-}
-```
-
-## Web Interface Guide
-
-### Home Page
-
-* **Recipe tree** – Browse by folder structure
-* **Search bar** – Find recipes quickly
-* **Recent recipes** – Quick access to recently viewed
-
-### Recipe View
-
-* **Ingredients panel** – Checklist with quantities
-* **Steps** – Clear cooking instructions
-* **Scaling control** – Adjust servings dynamically
-* **Timer highlights** – Click to start timers
-* **Print view** – Optimized for printing
-
-### Shopping List Builder
-
-1. Click "Shopping List" in navigation
-2. Select recipes to include
-3. Set quantities for each
-4. Click "Generate List"
-5. Print or export the results
-
-## Tips and Tricks
-
-### Quick Access
-
-Create shortcuts for common uses:
-
-```bash
-# Add to ~/.bashrc or ~/.zshrc
-alias recipes='cook server ~/recipes --open'
-alias cookbook='cook server ~/cookbook --host --port 8080'
-```
-
-### Bookmarks
-
-Save commonly used recipe URLs:
-* `http://localhost:9080/recipes/favorites/`
-* `http://localhost:9080/recipe/Pizza.cook`
-* `http://localhost:9080/shopping-list`
-
-### Tablet Mode
-
-For dedicated kitchen tablet:
-
-1. Start server with `--host`
-2. Create tablet bookmark to server URL
-3. Use "Add to Home Screen" for app-like experience
-4. Enable "Reader Mode" for cleaner display
-
-### Development Workflow
-
-When developing recipes:
-
-```bash
-# Auto-reload on file changes (using external tools)
-fswatch -o ~/recipes | xargs -n1 -I{} curl http://localhost:9080/api/reload
-
-# Split terminal: edit and preview
-# Terminal 1: Editor
-vim ~/recipes/new-recipe.cook
-# Terminal 2: Server
-cook server ~/recipes --open
-```
-
-## Troubleshooting
-
-### Port Already in Use
-
-```bash
-# Check what's using the port
-lsof -i :9080  # macOS/Linux
-
-# Use a different port
-cook server --port 8081
-```
-
-### Can't Access from Other Devices
-
-1. Check firewall settings
-2. Ensure using `--host` flag
-3. Verify IP address is correct
-4. Check network connectivity
-
-### Slow Loading
-
-* Large recipe collections may take time to index
-* Consider organizing recipes into folders
-* Reduce image sizes in recipe directories
-
-## Security Considerations
-
-### Local Network Only
-
-By default, the server only accepts local connections. This is the safest option.
-
-### Network Access
-
-When using `--host`:
-* Only use on trusted networks
-* Consider using a firewall
-* Don't expose to the internet directly
-* Use reverse proxy with authentication for public access
-
-### Read-Only Access
-
-The web interface provides read-only access to recipes. Files cannot be modified through the web interface.
+## Notes
+
+- By default, only accepts connections from localhost
+- Use `--host` on trusted networks only — recipes become accessible to anyone on the network
+- The web interface supports recipe browsing, scaling, search, and shopping list management
+- Mobile-friendly responsive layout

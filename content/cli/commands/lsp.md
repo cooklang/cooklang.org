@@ -2,41 +2,36 @@
 title: 'Lsp'
 weight: 99
 description: 'CookCLI Lsp command documentation'
-date: 2026-01-22T19:46:15+00:00
+date: 2026-02-26T12:59:18+00:00
 ---
 
 
-The `lsp` command starts a Language Server Protocol (LSP) server for Cooklang recipe files. It enables IDE features in text editors and development environments.
+Start the Language Server Protocol server for Cooklang editor integration.
 
-## Overview
+## Usage
 
-The LSP server provides intelligent editing features for `.cook` files:
-
-- **Real-time syntax checking** – Catch errors as you type
-- **Auto-completion** – Suggestions for ingredients, cookware, and timers
-- **Semantic highlighting** – Rich syntax coloring beyond basic highlighting
-- **Hover documentation** – Information about ingredients and references
-- **Document symbols** – Navigate recipe structure quickly
-- **Go to definition** – Jump to referenced recipes
-
-## Basic Usage
-
-Start the LSP server:
-```bash
-cook lsp
+```
+cook lsp [OPTIONS]
 ```
 
-The server communicates over stdin/stdout using the standard LSP protocol. You typically don't run this command directly—your editor starts it automatically.
+The server communicates over stdin/stdout. You typically don't run this directly — your editor starts it automatically.
+
+## Features
+
+- Real-time syntax checking and validation
+- Auto-completion for ingredients, cookware, and timers
+- Semantic syntax highlighting
+- Hover documentation
+- Document symbols and navigation
+- Go to definition for recipe references
 
 ## Editor Integration
 
 ### Visual Studio Code
 
-Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang) from the VS Code marketplace. The extension automatically uses `cook lsp` when available.
+Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang). It uses `cook lsp` automatically.
 
-**Manual Configuration:**
-
-Add to your `settings.json`:
+Manual configuration in `settings.json`:
 ```json
 {
   "cooklang.languageServer.path": "cook",
@@ -68,7 +63,7 @@ lspconfig.cooklang.setup{}
 
 ### Vim with CoC
 
-Add to your `coc-settings.json`:
+Add to `coc-settings.json`:
 ```json
 {
   "languageserver": {
@@ -107,7 +102,7 @@ Using [eglot](https://github.com/joaotavora/eglot):
 
 ### Helix
 
-Add to your `languages.toml`:
+Add to `languages.toml`:
 ```toml
 [[language]]
 name = "cooklang"
@@ -124,7 +119,6 @@ args = ["lsp"]
 
 Using [LSP package](https://github.com/sublimelsp/LSP):
 
-Add to LSP settings:
 ```json
 {
   "clients": {
@@ -139,7 +133,7 @@ Add to LSP settings:
 
 ### Zed
 
-Add to your `settings.json`:
+Add to `settings.json`:
 ```json
 {
   "lsp": {
@@ -153,113 +147,20 @@ Add to your `settings.json`:
 }
 ```
 
-## Features
-
-### Diagnostics
-
-The LSP server reports syntax errors and warnings in real-time:
-
-```
-Line 5: Invalid ingredient syntax - missing quantity
-Line 8: Timer format should be ~{time%unit}
-Line 12: Referenced recipe not found: ./Missing Recipe.cook
-```
-
-### Completions
-
-Auto-completion triggers in various contexts:
-
-- **Ingredients** – After typing `@`, suggests known ingredients
-- **Cookware** – After typing `#`, suggests equipment
-- **Timers** – After typing `~`, suggests time formats
-- **References** – Suggests recipe files for `@./` paths
-- **Metadata** – Suggests common metadata keys in frontmatter
-
-### Hover Information
-
-Hover over elements to see details:
-
-- **Ingredients** – Quantity, unit, and any notes
-- **Timers** – Formatted duration
-- **Recipe references** – Preview of referenced recipe
-- **Metadata** – Description of metadata fields
-
-### Document Symbols
-
-Navigate recipe structure:
-
-- Sections and steps
-- Ingredients list
-- Cookware list
-- Timers
-- Metadata fields
-
-### Semantic Tokens
-
-Enhanced syntax highlighting for:
-
-- Ingredients (with quantity and unit distinction)
-- Cookware
-- Timers
-- Comments
-- Metadata keys and values
-- Recipe references
-
 ## Troubleshooting
 
-### Server Not Starting
-
-Verify the cook command is in your PATH:
+Verify `cook` is in your PATH:
 ```bash
 which cook
 cook --version
 ```
 
-### Connection Issues
-
-Check server logs by running manually:
+Check server logs:
 ```bash
 cook lsp 2>/tmp/cooklang-lsp.log
 ```
 
-### Editor Not Detecting Server
-
-Ensure your editor:
-1. Recognizes `.cook` files as Cooklang
-2. Has LSP client support enabled
-3. Is configured with the correct command path
-
-### Debugging
-
-Enable verbose logging:
+Enable debug logging:
 ```bash
 RUST_LOG=debug cook lsp 2>/tmp/cooklang-lsp-debug.log
 ```
-
-## Protocol Details
-
-The server implements LSP specification features:
-
-| Feature | Support |
-|---------|---------|
-| textDocument/didOpen | Yes |
-| textDocument/didChange | Yes |
-| textDocument/didClose | Yes |
-| textDocument/completion | Yes |
-| textDocument/hover | Yes |
-| textDocument/definition | Yes |
-| textDocument/documentSymbol | Yes |
-| textDocument/semanticTokens | Yes |
-| textDocument/publishDiagnostics | Yes |
-
-### Transport
-
-- **Protocol**: JSON-RPC 2.0
-- **Transport**: stdin/stdout
-- **Encoding**: UTF-8
-
-## See Also
-
-- [Language Server Protocol Specification](https://microsoft.github.io/language-server-protocol/)
-- [Cooklang Syntax Reference](https://cooklang.org/docs/spec/)
-- [Editor Integrations](https://cooklang.org/cli/editors/)

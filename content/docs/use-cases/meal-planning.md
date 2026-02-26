@@ -1,16 +1,16 @@
 ---
 title: 'Meal Planning'
 weight: 20
-description: 'Transform weekly cooking from chaos to calm with structured meal planning'
+description: 'Plan weekly meals with .menu files and generate combined shopping lists'
 ---
 
-Meal planning is the cornerstone of efficient home cooking. It transforms the daily question of "what's for dinner?" from a source of stress into an organized system that saves time, money, and mental energy. Cooklang provides the structure to make meal planning both systematic and flexible.
+CookCLI supports `.menu` files that let you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.
 
-> `*.menu` files support is only in CookCLI at the moment
+> `.menu` file support is only available in CookCLI at the moment.
 
-### A Real-World Menu Example
+### Example Menu File
 
-Here's an actual three-day Cooklang `*.menu` file that shows how meal planning works in practice:
+Here's a real three-day plan from an actual Cooklang cookbook:
 
 ```cooklang
 ---
@@ -66,33 +66,30 @@ Dinner:
 
 ### How Menu Files Work
 
-This menu demonstrates several powerful concepts:
+**Recipe references** like `@./Breakfast/Mexican Style Burrito{2%servings}` point to `.cook` files in your recipe directory. When generating a shopping list, the system pulls all ingredients from the referenced recipes.
 
-**Recipe References**: Items like `@./Breakfast/Mexican Style Burrito{2%servings}` reference complete recipes stored elsewhere. The system pulls in all ingredients from these recipes when generating shopping lists.
+**Direct ingredients** like `@filter coffee{1%cup}` work for simple items that don't need a full recipe.
 
-**Direct Ingredients**: Simple items like `@filter coffee{1%cup}` are listed directly when they don't need a full recipe.
+**Scaling** is built in. `{2%servings}` adjusts recipe quantities for the number of people. `{1/2}` means half of a batch recipe.
 
-**Scaling Built-In**: The `{2%servings}` notation adjusts recipes for the number of people. The beef stew uses `{1/2}` to indicate using half of a previously prepared batch.
+**Day sections** (`==Day 1==`) organize meals chronologically.
 
-**Organization by Day**: The `==Day 1==` sections create clear temporal structure, making it easy to see what's planned when.
+**Comments** (`-- do prep for burrito`) add reminders about timing and logistics.
 
-**Comments as Reminders**: Notes like `-- do prep for burrito` and `-- delivery around 4pm` integrate preparation timing and external events into the plan.
+**Snacks and batch prep** sections ensure these items appear on the shopping list too.
 
-**Snacks and Extras**: The separate snacks section ensures these items aren't forgotten when shopping, while batch prep reminds you of cooking for future meals.
+### Reusing Ingredients Across Days
 
-### Connecting Meals Across Days
+Notice how this plan reuses elements efficiently:
+- Mexican Style Burritos appear on two mornings — worth prepping in bulk
+- The Boring Salad accompanies different mains, using up fresh greens
+- Beef stew is made in advance and portioned across meals
+- Coffee and tea quantities reflect daily consumption
 
-Notice how the menu reuses elements efficiently:
-- Mexican Style Burritos appear on multiple mornings, justifying bulk prep
-- The Boring Salad accompanies different meals, using up fresh greens
-- Slow-cooker beef stew is made in advance and portioned across two meals
-- Coffee and tea quantities account for daily consumption patterns
-
-This interconnected planning reduces both prep time and waste while ensuring variety.
-
+This reduces both prep time and waste.
 
 ## See Also
 
-- [Shopping Lists](../shopping/) - Execute your meal plan efficiently
-- [Pantry Management](../pantry/) - Foundation for meal planning
-- [CookCLI Commands](/cli/commands/) - Technical tools for meal planning
+- [Shopping Lists](../shopping/) — Generate lists from your meal plan
+- [Pantry Management](../pantry/) — Exclude items you already have
+- [CookCLI Commands](/cli/commands/) — Full command reference

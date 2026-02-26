@@ -1,16 +1,16 @@
 ---
 title: 'Pantry Management'
 weight: 30
-description: 'Transform your pantry from chaos to culinary command center'
+description: 'Track what you have so shopping lists only include what you need'
 ---
 
-A well-managed pantry is the foundation of confident cooking. It's the difference between last-minute grocery runs and spontaneous delicious meals. Cooklang transforms pantry management from mental burden to systematic practice, ensuring you always know what you have, what you need, and what you can make.
+CookCLI uses a `pantry.conf` file to track what's already in your kitchen. When you generate a shopping list, items in your pantry are automatically excluded — so you only buy what you actually need.
 
-#### The Pantry Configuration File
+> Pantry support is only available in CookCLI at the moment.
 
-> Only works in CookCLI at the moment
+### The Pantry Configuration File
 
-Here's how a `pantry.conf` file tracks your inventory using TOML format:
+The file uses TOML format, organized by storage location:
 
 ```toml
 [freezer]
@@ -46,38 +46,30 @@ cinnamon = "1%jar"
 black_pepper = "100%g"
 ```
 
-#### How Pantry Tracking Works
+### How It Works
 
-This configuration serves multiple purposes:
+**Simple tracking**: `rice = "5%kg"` records what you have. If a recipe calls for rice, it won't appear on your shopping list.
 
-**Simple Tracking**: Items like `rice = "5%kg"` simply note what you have and how much. When a recipe needs rice, the system knows you have it in stock.
+**Quantity awareness**: If a recipe needs 500g of flour and you have 5kg, the system knows you're covered. If you need 6 eggs and have none listed, they'll be added to the list.
 
-**Expiration Management**: Entries like `milk = { expire = "2024-11-15", quantity = "2%L" }` track both amount and freshness. The system can alert you to use items before they spoil and prioritize recipes using soon-to-expire ingredients.
+**Expiration dates**: `milk = { expire = "2024-11-15", quantity = "2%L" }` tracks freshness alongside quantity.
 
-**Frozen Goods Tracking**: The freezer section with dates like `frozen = "2024-10-15"` helps rotate stock properly. First in, first out becomes automatic rather than archaeological.
+**Frozen goods**: Dates like `frozen = "2024-10-15"` help with stock rotation.
 
-**Shopping List Integration**: When generating shopping lists, the system automatically excludes items in your pantry. If a recipe needs 500g of flour and you have 5kg, it won't appear on your shopping list. But if you need 6 eggs and have none, they'll be added.
+**Leftovers**: Entries like `leftovers_beef_stew` with `made` dates track what needs using up.
 
-**Leftover Management**: Items like `leftovers_beef_stew` with `made` dates help track what needs using. This prevents the guilty fridge clean-out of mystery containers.
+### Shopping List Integration
 
-True inventory knowledge goes beyond presence to include quantity and condition. Knowing you have pasta is good; knowing you have 1kg of penne in the pantry is better. This precision enables confident meal planning without kitchen archaeology.
+The pantry file plugs directly into the `cook shopping-list` command:
 
-## Categories and Zones
+```bash
+cook shopping-list --pantry pantry.conf "Monday Dinner.cook" "Tuesday Dinner.cook"
+```
 
-### Physical Organization
-
-Pantry organization reflects cooking patterns. Baking ingredients cluster together - flour, sugar, baking powder within reach of each other. Asian cooking essentials group separately from Mediterranean staples. This physical organization speeds cooking while reducing mental load.
-
-Zones can reflect frequency too. Daily-use items at eye level, weekly ingredients within easy reach, occasional items higher or lower. The pantry layout becomes a heat map of your cooking habits.
-
-### Storage Strategies
-
-Different ingredients demand different storage. Grains need protection from pests, oils from light, potatoes from onions. Understanding these needs prevents waste while maintaining quality.
-
-The freezer extends pantry possibilities. Nuts stay fresh longer frozen. Bread freezes beautifully. That bumper crop of basil becomes frozen pesto. The freezer isn't just for leftovers but strategic ingredient preservation.
+The output includes only the ingredients you need to buy, with pantry items already subtracted.
 
 ## See Also
 
-- [Shopping Lists](../shopping/) - Restocking your pantry efficiently
-- [Meal Planning](../meal-planning/) - Planning with pantry awareness
-- [CookCLI Commands](/cli/commands/) - Technical tools for pantry tracking
+- [Shopping Lists](../shopping/) — Full shopping list workflow
+- [Meal Planning](../meal-planning/) — Plan meals with pantry awareness
+- [CookCLI Commands](/cli/commands/) — Full command reference

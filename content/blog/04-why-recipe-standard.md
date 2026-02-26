@@ -1,46 +1,77 @@
 ---
-title: 'Why Recipe Standard is Important'
+title: 'What Is a Standardized Recipe and Why It Matters'
 date: 2024-11-09T21:27:37+00:00
 weight: 80
-summary: A universal recipe standard would transform cooking by providing a shared structure that enables consistency, accessibility, and innovation, much like standardized music notation or programming syntax. Without it, recipes often lose their integrity across kitchens, making cooking needlessly frustrating and unpredictable. While some argue that variability in recipes adds charm, standardization would allow for precise replication, smarter kitchen devices, and a deeper focus on creativity. It’s time to elevate recipes from subjective interpretations to a precise, scalable foundation that benefits everyone—from novice cooks to professional chefs.
+summary: A standardized recipe uses a consistent format for ingredients, quantities, and instructions so anyone can reproduce the same dish reliably. Learn what standardized recipes are, why they matter, and how Cooklang provides a practical standard for the digital age.
 ---
 
-There’s a problem in how we think about recipes.
+Recipes fail for a stupid reason: ambiguity. "A generous amount of oil." "Cook until done." "Season to taste." These instructions work when you already know how to make the dish. For everyone else, they're guesswork.
 
-If you've ever tried to follow a recipe only to end up with something that doesn’t quite match the photo or, worse, fails outright, you know the frustration. Recipes are often unstructured lists of ingredients and steps that, depending on the author’s assumptions, can be wildly inconsistent. This inconsistency isn't just annoying; it represents a fundamental flaw in how we think about, share, and interact with recipes.
+We've standardized nearly every other form of instruction. Musical notation lets someone in Tokyo perform a piece written in Vienna two centuries ago. Programming languages compile the same way on every machine. Building codes ensure that a wall is a wall, everywhere. But recipes — something humans share and reproduce daily — still have no standard format.
 
-At the heart of the issue lies a basic question: Should recipes have a standard? A part of me says, “Doesn't that take the art out of cooking?” But the engineer in me insists that having no standard is what keeps cooking as a science from evolving. In an era where we can transmit data at the speed of light, our approach to recipes looks like it's still in the Dark Ages. And the consequences are more profound than you might imagine.
+The cost isn't just failed dinners. Without structure, recipes can't be processed by software. A computer can't generate a shopping list from "a few cloves of garlic." It can't scale "some butter" by 1.5x. It can't calculate nutrition from "a handful of spinach." Every vague measurement is a dead end for automation.
 
-### Recipes: The Hidden Language
+## What Standardization Enables
 
-Think of a recipe as a kind of language. A language, by definition, needs some shared structure. Grammar, syntax, rules—all those things we take for granted when we speak or write. But recipes, those things we expect people to recreate as if by code, are missing these fundamentals. We might all speak the same culinary “language,” but with vastly different dialects. This means that sharing a recipe often turns into a kind of culinary game of telephone, where each version strays further from the original.
+A recipe with precise, structured data unlocks capabilities that unstructured recipes can't:
 
-This is no small problem. We’re living in a time when software is capable of replicating the most intricate procedures, from orchestrating trading algorithms to diagnosing diseases. Yet recipes—something as simple as making a risotto—get lost in translation as soon as they cross the kitchen threshold. Why? Because without a standard, we lose the ability to scale, automate, or even reliably share what is arguably the world's most universal human activity.
+**Consistent reproduction.** When a recipe specifies `@flour{250%g}` instead of "about 2 cups of flour," anyone with a kitchen scale gets the same result. Weight is universal; cup measurements vary by how you scoop.
 
-### The Absurdity of No Standards
+**Automated shopping lists.** If ingredients are tagged and quantified, software can extract them, combine duplicates across recipes, and produce a list grouped by store aisle. No manual work, no forgotten items.
 
-Imagine if there were no standards for other types of instructions. Imagine if every math formula, for example, were presented in a unique way depending on the author’s style and personal flair. Imagine if the software world allowed each programmer to define functions in a different syntax for each project. The result? Chaos. Unreadable code, unsolvable math, an end to collaboration and progress. Yet, we somehow tolerate this state of chaos in cooking.
+**Recipe scaling.** Double the recipe? Multiply every quantity by 2. This is trivial when quantities are structured data. It's impossible when they're prose.
 
-There’s something almost absurd about it. We've created systems to ensure that an iPhone charger fits the port of every iPhone, and yet there’s no universal standard to ensure that your grandmother’s cake recipe will work in your kitchen, on your stove. And so, the real question is: Why have we come to accept this?
+**Nutritional calculation.** Structured ingredients with precise quantities can be mapped to nutritional databases. "400g chicken breast" has a known calorie count. "Some chicken" does not.
 
-### What a Standard Would Enable
+**Smart kitchen integration.** An oven that knows the recipe calls for 200°C for 25 minutes could set itself. A kitchen display could show timers for each step. None of this works without structured data.
 
-The benefits of a recipe standard go beyond mere consistency. Imagine being able to take a recipe, plug it into any cooking app or device, and have it translate perfectly, down to the last gram of flour. A standard could enable smart devices to follow instructions accurately, from kitchen scales to ovens that adjust time and temperature automatically. Cooking, even at a home level, could become a precise science, allowing anyone to replicate complex dishes, from professional chefs to beginners. 
+## Why It Hasn't Happened
 
-A recipe standard would also allow us to map ingredients across cultures, translating flavors in ways that don’t lose the essence of a dish. A universal recipe structure could also promote inclusivity in cooking, making recipes accessible to a global audience by removing guesswork. How many recipes fail because of an implicit assumption about what “medium heat” means, or what size an “average” egg should be?
+Recipes resist standardization for cultural reasons, not technical ones. Cooking feels like art, and standards feel like constraints. People associate precision with sterility — as if measuring flour by weight somehow removes the soul from bread.
 
-### Innovation Thrives on Constraints
+But standards don't constrain creativity. They constrain ambiguity. Music notation didn't make music less creative — it made it shareable. Standardized recipes would do the same for cooking: free people to focus on flavor and technique instead of guessing what "medium heat" means on someone else's stove.
 
-There's a belief in the tech world that innovation often thrives on constraints. It’s when you have a framework—a standard—that you’re freed from the lowest-level choices, allowing you to explore the higher-level creative ones. When there’s a recipe standard, people can focus on what actually matters: the taste, the creativity, the art. Standards don’t stifle creativity; they elevate it. They enable people to create a shared foundation from which they can build better, more intricate ideas.
+The other barrier is fragmentation. There's no incentive for recipe websites to adopt a standard format. Their business model depends on keeping you on their page, scrolling past ads. Structured recipes that could be extracted and used elsewhere work against that model.
 
-Imagine what recipes could become if we took the same approach to them that we've taken to music notation or software code. A musician today can write a piece that someone halfway across the world can reproduce with precision. Standards, rather than limiting the music’s potential, amplify its reach. Recipes, if given the same treatment, could achieve this level of universal accessibility and impact.
+## A Practical Standard
 
-### Embracing the Controversy
+[Cooklang](/docs/spec/) is our answer to this. It's a markup language that adds structure to natural recipe text:
 
-Of course, not everyone wants standardization. There’s a beauty, they argue, in the variability of recipes. In the quirks and idiosyncrasies that make each one unique. But we have to ask ourselves if this beauty is worth the trade-off. When so many people can’t recreate even basic dishes because of vague instructions, we should reconsider our allegiance to "quirkiness." The insistence on variability seems more a vestige of a time when knowledge was passed orally and less of a principle worth preserving in the age of digital precision.
+```cooklang
+Preheat the #oven to 200°C.
 
-If anything, embracing a recipe standard could open up a whole new world for cooking. With the basics encoded and universally understood, chefs and home cooks alike would be free to push boundaries, try new things, and share their innovations in a format anyone could follow. 
+Season @chicken thighs{4} with @salt{1%tsp} and @smoked paprika{1%tsp}.
 
-So, is it time we standardized recipes? Absolutely. It’s time to let recipes grow up. We owe it to ourselves to take something as fundamental as cooking and give it the clarity, the accessibility, and the scalability it deserves.
+Roast for ~{35%minutes} until the internal temperature reaches 75°C.
+```
+
+The recipe reads naturally. The `@`, `#`, and `~` annotations make it machine-parseable. Tools can extract ingredients, generate shopping lists, run timers, and scale quantities — all from the same file a human reads while cooking.
+
+This isn't the only possible standard. But it's a working one, with an [ecosystem of tools](/cli/) that demonstrate what structured recipes make possible.
+
+## Frequently Asked Questions
+
+### What is a standardized recipe?
+
+A standardized recipe is a recipe that has been tested and refined to produce consistent results every time it is prepared. It specifies exact ingredient quantities, preparation methods, cooking times, temperatures, and serving sizes in a structured format. In the food service industry, standardized recipes are essential for consistency, cost control, and training. In the digital world, a standardized recipe format like [Cooklang](/docs/spec/) extends this idea further — making recipes machine-readable so that software can generate shopping lists, calculate nutrition, and scale portions automatically.
+
+### What is the meaning of a standard recipe?
+
+A standard recipe is one that follows a fixed format and has been tested to produce predictable results. It removes ambiguity ("a pinch of salt," "cook until done") and replaces it with precise measurements and clear instructions. The goal is that anyone, anywhere, following the same standard recipe should get the same result.
+
+### Why are standardized recipes important?
+
+Standardized recipes are important because they enable:
+
+- **Consistency** — the same dish tastes the same every time, regardless of who prepares it
+- **Cost control** — exact quantities prevent waste and allow accurate budgeting
+- **Scalability** — recipes can be multiplied or divided precisely for different serving sizes
+- **Training** — new cooks can follow a standardized recipe without guesswork
+- **Automation** — machine-readable recipe formats enable shopping list generation, nutrition calculation, and integration with smart kitchen devices
+- **Preservation** — a recipe written in a standard format won't degrade as it's shared and copied
+
+### How does Cooklang help standardize recipes?
+
+[Cooklang](/) is an open-source markup language designed to be a practical recipe standard. It uses simple text annotations to mark ingredients (`@`), cookware (`#`), and timers (`~`) within natural recipe text. This makes recipes both human-readable and machine-readable. Tools built around Cooklang — like [CookCLI](/cli/), mobile apps, and editor plugins — can then parse these recipes to generate shopping lists, run cooking timers, calculate costs, and more.
 
 -Alexey

@@ -1,23 +1,24 @@
 ---
-title: 'CookCLI'
+title: 'CookCLI — Command-Line Recipe Manager and Shopping List Generator'
 date: 2021-05-20T15:14:39+10:00
-summary: All about the CookCLI command line toolbox
+summary: CookCLI is a free, open-source command-line tool that generates shopping lists from recipes, runs a local recipe server, imports recipes from websites, and automates your cooking workflow.
 ---
 
-The Cook CLI command line program provides a suite of tools to create shopping lists, maintain recipes, and manage your cooking workflow. We've built it to be simple and useful for automating your cooking and shopping routine with existing UNIX command line and scripting tools.
+A command-line interface for managing and working with Cooklang recipes.
 
-## Available Commands
+## Commands
 
-Click on any command below to see detailed documentation:
-
-
-* **[recipe](commands/recipe)** – Parse and display recipe files in various formats
-* **[shopping-list](commands/shopping-list)** – Generate shopping lists from multiple recipes
-* **[server](commands/server)** – Run a web server to browse your recipe collection
-* **[search](commands/search)** – Search through your recipes by ingredient or text
-* **[import](commands/import)** – Import recipes from websites and convert to Cooklang
-* **[update](commands/update)** – Update CookCLI to the latest version
-* **[doctor](commands/doctor)** – Validate recipes and check for issues
-* **[seed](commands/seed)** – Initialize a directory with example recipes
-* **[report](commands/report)** – Generate custom reports using templates
+| Command | Alias | Description |
+|---------|-------|-------------|
+| [recipe](commands/recipe) | `r` | Parse, validate and display recipe files |
+| [shopping-list](commands/shopping-list) | `sl` | Generate a combined shopping list from recipes |
+| [server](commands/server) | `s` | Start a web server to browse recipes |
+| [search](commands/search) | `f` | Search through your recipe collection |
+| [import](commands/import) | `i` | Import recipes from websites |
+| [report](commands/report) | `rp` | Generate custom reports using templates |
+| [doctor](commands/doctor) | | Analyze recipes for issues |
+| [pantry](commands/pantry) | `p` | Manage and analyze pantry inventory |
+| [seed](commands/seed) | | Initialize with example recipes |
+| [lsp](commands/lsp) | | Start the Language Server Protocol server |
+| [update](commands/update) | `u` | Update CookCLI to the latest version |
 

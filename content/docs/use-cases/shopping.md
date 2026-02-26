@@ -1,24 +1,18 @@
 ---
 title: 'Shopping Lists'
 weight: 10
-description: 'Smart grocery shopping with automated list generation'
+description: 'Generate grocery lists from recipes, organized by store aisle'
 ---
 
-One of the most practical applications of Cooklang is transforming meal planning into efficient shopping trips. Instead of manually writing lists or trying to remember what you need, Cooklang tools automatically generate comprehensive shopping lists from your planned meals.
+CookCLI generates shopping lists directly from your `.cook` files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.
 
-### From Recipes to Shopping Cart
+```bash
+cook shopping-list "Monday Dinner.cook" "Tuesday Dinner.cook" "Wednesday Dinner.cook"
+```
 
-When you select recipes for the week, Cooklang understands every ingredient needed and combines them intelligently. If Monday's pasta and Thursday's pizza both need mozzarella, your shopping list shows the total amount needed, not separate entries.
+### Organizing by Store Aisle
 
-This intelligent combining extends to understanding that "olive oil" for sautéing and "extra virgin olive oil" for salad dressing might be the same item in your pantry, depending on your preferences when using ingredient aliases.
-
-### Store Layout Organization
-
-Shopping becomes more efficient when your list matches your store's layout. By organizing ingredients into categories like produce, dairy, and pantry items, you can navigate the store systematically without backtracking.
-
-#### The Aisle Configuration File
-
-Here's how you can organize your shopping list to match your store's layout using an `aisle.conf` file:
+An `aisle.conf` file maps ingredients to store sections so your shopping list follows your natural path through the store:
 
 ```
 [produce]
@@ -75,39 +69,52 @@ ice cream
 frozen fruit
 ```
 
-#### How Aisle Configuration Works
+Use it with the shopping list command:
 
-This configuration file maps ingredients to store sections. When generating shopping lists, the system groups items according to these categories, creating a list that follows your natural path through the store.
+```bash
+cook shopping-list -a aisle.conf "Dinner.cook"
+```
 
-**Smart Matching**: The system understands variations - "cherry tomatoes" and "Roma tomatoes" both map to the tomatoes entry in produce. "Cheddar" and "mozzarella" both fall under cheese in dairy.
+**Ingredient aliases**: The pipe syntax (`tomatoes | cherry tomatoes | Roma tomatoes`) groups variations under one aisle entry. Similarly, `olive oil | extra virgin olive oil` maps both to the same section.
 
-**Unknown Items**: Ingredients not in your configuration appear in an "other" category, reminding you to add them to your aisle map for future efficiency.
+**Unknown items**: Ingredients not in your config appear in an "other" category — a reminder to update your aisle map.
 
-**Multiple Store Layouts**: You can maintain different configurations for different stores - one for your regular supermarket, another for the farmer's market, a third for the bulk store. This flexibility accommodates varied shopping patterns.
+**Multiple stores**: You can maintain separate configs for different stores — one for the supermarket, another for the farmers market.
 
-Some people prefer organizing by store entirely - separating items for the farmers market, bulk store, and regular supermarket. This approach optimizes both time and budget, letting you buy fresh produce at the market while getting bulk grains at warehouse stores.
+### Scaling
 
-## Scaling and Portion Management
+Recipes can be scaled when generating lists:
 
-### Cooking for Different Occasions
+```bash
+# Double recipe
+cook shopping-list "Dinner.cook:2"
 
-The same recipe that feeds your family of four on Tuesday can be scaled up for Saturday's dinner party of twelve. Cooklang handles the math, adjusting every ingredient proportionally while maintaining the recipe's balance.
+# Scale to 10 servings
+cook shopping-list "Party Food.cook:10"
+```
 
-This scaling intelligence understands context - doubling a soup recipe doubles the salt, but experienced cooks might want to adjust seasonings more conservatively. The system provides the math while leaving room for cook's judgment.
+Individual ingredients can be locked from scaling with `=`:
 
-Ingredients can be locked from scaling with `=` sign like that `@salt{=1%tbsp}`.
+```cooklang
+Add @salt{=1%tbsp} and @flour{2%cups}.
+```
 
-## Pantry Awareness
+Here, flour scales but salt stays at 1 tbsp regardless of the multiplier.
 
-### What You Already Have
+### Pantry Awareness
 
-The most efficient shopping list knows what's already in your pantry. By maintaining a pantry inventory, your shopping lists automatically exclude items you already have, showing only what you need to buy.
+With a `pantry.conf` file, shopping lists automatically exclude items you already have:
 
-This system can track quantities too - if a recipe needs 500g of flour and you have 2kg in the pantry, it doesn't appear on your shopping list. But if you only have 200g, the list might suggest buying more.
+```bash
+cook shopping-list -a aisle.conf -p pantry.conf "Weekly Plan/*.cook"
+```
 
+If a recipe needs 500g of flour and your pantry shows 5kg, flour won't appear on the list.
+
+See [Pantry Management](../pantry/) for the full pantry.conf format.
 
 ## See Also
 
-- [Meal Planning](../meal-planning/) - Plan before you shop
-- [Pantry Management](../pantry/) - Track what you have
-- [CookCLI Shopping List Command](/cli/commands/shopping-list/) - Technical implementation details
+- [Meal Planning](../meal-planning/) — plan meals and generate combined lists
+- [Pantry Management](../pantry/) — track what you already have
+- [CookCLI Shopping List Command](/cli/commands/shopping-list/) — full command reference
