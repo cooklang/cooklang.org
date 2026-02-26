@@ -576,6 +576,7 @@ cook import https://example.com/recipe --skip-conversion
 # Extract metadata only as JSON
 cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
 &lt;/div></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI can export recipes as LaTeX, which you compile into professional PDF cookbooks. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
+&lt;p>For a ready-made solution, see the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>).&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/li>
