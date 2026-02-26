@@ -1,0 +1,162 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster | Cooklang: recipe markup language</title>
+<meta name=description content="A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same …"><meta property="og:title" content="Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster | Cooklang: recipe markup language"><meta property="og:description" content="A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same …"><meta property="og:type" content="article"><meta property="og:url" content="https://cooklang.org/blog/19-recipe-formats-compared/"><meta property="og:image" content="https://cooklang.org/example.png"><meta property="og:site_name" content="Cooklang: recipe markup language"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster"><meta name=twitter:description content="A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same …"><meta name=twitter:image content="https://cooklang.org/example.png"><meta name=author content="Alexey"><link rel=canonical href=https://cooklang.org/blog/19-recipe-formats-compared/><link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preconnect href=https://plausible.io><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet media=print onload='this.media="all"'><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet></noscript><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous defer></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous defer></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous defer></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","headline":"Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster","description":"A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same …","url":"https:\/\/cooklang.org\/blog\/19-recipe-formats-compared\/","datePublished":"2026-02-25T00:00:00Z","dateModified":"2026-02-25T00:00:00Z","author":{"@type":"Person","name":"Alexey"},"publisher":{"@type":"Organization","name":"Cooklang","url":"https:\/\/cooklang.org\/","logo":{"@type":"ImageObject","url":"https:\/\/cooklang.org\/logo.svg"}}}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Cooklang","url":"https:\/\/cooklang.org\/","logo":"https:\/\/cooklang.org\/logo.svg","sameAs":["https://github.com/cooklang","https://reddit.com/r/cooklang","https://discord.gg/fUVVvUzEEK","https://x.com/cooklangorg"]}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=https://cooklang.org/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto" width=120 height=120>
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><article class=bg-white><div class="container mx-auto px-4 py-8 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster</h1><div class=text-cooklang-gray-600><time datetime=2026-02-25T00:00:00+00:00>February 25, 2026</time></div></header><div class="prose prose-lg max-w-none text-cooklang-gray-700 overflow-x-auto"><p>There's no single standard for storing recipes digitally. Different formats emerged from different eras and different needs — BBS systems, XML web services, SEO, and plain text editing. Each makes trade-offs between human readability, machine parseability, and ecosystem support.</p><p>Here's the same simple recipe — a tomato pasta — written in six different formats, with honest pros and cons for each.</p><h2 id=cooklang>Cooklang</h2><p><a href=/docs/spec/>Cooklang</a> annotates natural recipe text with markers for ingredients (<code>@</code>), cookware (<code>#</code>), and timers (<code>~</code>). The recipe reads naturally while being machine-parseable.</p><div class=code-toolbar><pre class=language-cooklang data-language=cooklang><code class=language-cooklang>&amp;gt;&amp;gt; servings: 4
+&amp;gt;&amp;gt; time: 20 minutes
+
+Heat @olive oil{2%tbsp} in a #saucepan{} over medium heat.
+
+Add @garlic{4%cloves}, minced, and cook until fragrant, about ~{1%minute}.
+
+Add @canned tomatoes{400%g}, @salt{1/4%tsp}, and @black pepper{1/4%tsp}. Simmer for ~{10%minutes}, stirring occasionally.
+
+Cook @spaghetti{400%g} according to package directions. Drain and toss with the sauce.</code></pre></div><p><strong>Pros:</strong> Reads like a normal recipe. Ingredients, cookware, and timers are embedded in the instructions, so you never lose context. Plain text files work with Git, any text editor, and any sync service. Growing ecosystem of tools (CLI, mobile apps, editor plugins).</p><p><strong>Cons:</strong> Not a web standard — doesn't give you SEO rich snippets. Fewer tools than formats backed by Google or the food blogging industry.</p><p><strong>Best for:</strong> Personal recipe collections, developers, anyone who wants recipes as portable text files.</p><h2 id=plain-markdown>Plain Markdown</h2><p>The most common "format" for digital recipes — just write it in Markdown with no formal structure.</p><div class=code-toolbar><pre class=language-markdown data-language=markdown><code class=language-markdown># Simple Tomato Pasta
+
+**Servings:** 4
+**Time:** 20 minutes
+
+## Ingredients
+
+- 2 tbsp olive oil
+- 4 cloves garlic, minced
+- 400g canned tomatoes
+- 1/4 tsp salt
+- 1/4 tsp black pepper
+- 400g spaghetti
+
+## Instructions
+
+1. Heat olive oil in a saucepan over medium heat.
+2. Add minced garlic and cook until fragrant, about 1 minute.
+3. Add canned tomatoes, salt, and pepper. Simmer for 10 minutes.
+4. Cook spaghetti according to package directions. Drain and toss with sauce.</code></pre></div><p><strong>Pros:</strong> Everyone knows Markdown. Renders nicely everywhere. No special tools needed.</p><p><strong>Cons:</strong> Not machine-parseable — a computer can't reliably extract "400g canned tomatoes" from a Markdown list because there's no standard structure. No automated shopping lists, no scaling, no nutritional calculation. Every Markdown recipe template is slightly different.</p><p><strong>Best for:</strong> Notes, quick drafts, blogs that don't need structured recipe data.</p><h2 id=schemaorg-json-ld>Schema.org JSON-LD</h2><p>The format that powers recipe rich snippets in Google search results. Embedded as a <code>&lt;script></code> tag in HTML pages.</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;@context&amp;#34;: &amp;#34;https://schema.org/&amp;#34;,
+  &amp;#34;@type&amp;#34;: &amp;#34;Recipe&amp;#34;,
+  &amp;#34;name&amp;#34;: &amp;#34;Simple Tomato Pasta&amp;#34;,
+  &amp;#34;prepTime&amp;#34;: &amp;#34;PT5M&amp;#34;,
+  &amp;#34;cookTime&amp;#34;: &amp;#34;PT15M&amp;#34;,
+  &amp;#34;totalTime&amp;#34;: &amp;#34;PT20M&amp;#34;,
+  &amp;#34;recipeYield&amp;#34;: &amp;#34;4 servings&amp;#34;,
+  &amp;#34;recipeIngredient&amp;#34;: [
+    &amp;#34;2 tbsp olive oil&amp;#34;,
+    &amp;#34;4 cloves garlic, minced&amp;#34;,
+    &amp;#34;400g canned tomatoes&amp;#34;,
+    &amp;#34;1/4 tsp salt&amp;#34;,
+    &amp;#34;1/4 tsp black pepper&amp;#34;,
+    &amp;#34;400g spaghetti&amp;#34;
+  ],
+  &amp;#34;recipeInstructions&amp;#34;: [
+    {
+      &amp;#34;@type&amp;#34;: &amp;#34;HowToStep&amp;#34;,
+      &amp;#34;text&amp;#34;: &amp;#34;Heat olive oil in a saucepan over medium heat.&amp;#34;
+    },
+    {
+      &amp;#34;@type&amp;#34;: &amp;#34;HowToStep&amp;#34;,
+      &amp;#34;text&amp;#34;: &amp;#34;Add minced garlic and cook until fragrant.&amp;#34;
+    },
+    {
+      &amp;#34;@type&amp;#34;: &amp;#34;HowToStep&amp;#34;,
+      &amp;#34;text&amp;#34;: &amp;#34;Add canned tomatoes, salt, and pepper. Simmer for 10 minutes.&amp;#34;
+    },
+    {
+      &amp;#34;@type&amp;#34;: &amp;#34;HowToStep&amp;#34;,
+      &amp;#34;text&amp;#34;: &amp;#34;Cook spaghetti, drain, and toss with sauce.&amp;#34;
+    }
+  ]
+}</code></pre></div><p><strong>Pros:</strong> Google, Bing, Pinterest, and other platforms understand it. Gets you rich search results with images, ratings, and cook times. The dominant format for recipe SEO.</p><p><strong>Cons:</strong> Not human-readable or human-writable. Nobody writes recipes in JSON — it's generated by CMS plugins. Ingredients are still free-text strings (no structured quantities). Web-only — useless for offline recipe management.</p><p><strong>Best for:</strong> Food blogs and recipe websites that need search engine visibility.</p><h2 id=mealmaster>MealMaster</h2><p>Created in the late 1990s for Episoft Systems' MealMaster software. Designed for BBS compatibility with strict column-based formatting.</p><div class=code-toolbar><pre class=language- data-language><code class=language->MMMMM----- Recipe via Meal-Master (tm) v8.06
+
+      Title: Simple Tomato Pasta
+ Categories: Italian, Pasta, Vegetarian
+      Yield: 4 Servings
+
+      2 tb Olive oil
+      4    Garlic cloves, minced
+      1 cn Canned tomatoes (400g)
+    1/4 ts Salt
+    1/4 ts Black pepper
+    400 g  Spaghetti
+
+Heat olive oil in a saucepan over medium heat. Add minced garlic
+and cook until fragrant, about 1 minute. Add canned tomatoes,
+salt, and pepper. Simmer for 10 minutes, stirring occasionally.
+Cook spaghetti according to package directions. Drain and toss
+with the sauce.
+
+MMMMM</code></pre></div><p><strong>Pros:</strong> Huge legacy archive of recipes from the BBS era — thousands of recipes exist in this format. Simple and readable.</p><p><strong>Cons:</strong> Strict column-width requirements make it fragile and hard to parse reliably. Limited metadata support. No active development. The ecosystem is decades old.</p><p><strong>Best for:</strong> Archival purposes. If you have a MealMaster collection, tools exist to convert them to modern formats.</p><h2 id=recipeml-xml>RecipeML (XML)</h2><p>An XML-based format created in 2000, originally called DESSERT. The first attempt at a structured, platform-independent recipe format.</p><div class=code-toolbar><pre class=language-xml data-language=xml><code class=language-xml>&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt;
+&amp;lt;recipeml&amp;gt;
+  &amp;lt;recipe&amp;gt;
+    &amp;lt;head&amp;gt;
+      &amp;lt;title&amp;gt;Simple Tomato Pasta&amp;lt;/title&amp;gt;
+      &amp;lt;yield&amp;gt;4&amp;lt;/yield&amp;gt;
+    &amp;lt;/head&amp;gt;
+    &amp;lt;ingredients&amp;gt;
+      &amp;lt;ing&amp;gt;
+        &amp;lt;amt&amp;gt;&amp;lt;qty&amp;gt;2&amp;lt;/qty&amp;gt;&amp;lt;unit&amp;gt;tbsp&amp;lt;/unit&amp;gt;&amp;lt;/amt&amp;gt;
+        &amp;lt;item&amp;gt;olive oil&amp;lt;/item&amp;gt;
+      &amp;lt;/ing&amp;gt;
+      &amp;lt;ing&amp;gt;
+        &amp;lt;amt&amp;gt;&amp;lt;qty&amp;gt;4&amp;lt;/qty&amp;gt;&amp;lt;unit&amp;gt;clove&amp;lt;/unit&amp;gt;&amp;lt;/amt&amp;gt;
+        &amp;lt;item&amp;gt;garlic, minced&amp;lt;/item&amp;gt;
+      &amp;lt;/ing&amp;gt;
+      &amp;lt;ing&amp;gt;
+        &amp;lt;amt&amp;gt;&amp;lt;qty&amp;gt;400&amp;lt;/qty&amp;gt;&amp;lt;unit&amp;gt;g&amp;lt;/unit&amp;gt;&amp;lt;/amt&amp;gt;
+        &amp;lt;item&amp;gt;canned tomatoes&amp;lt;/item&amp;gt;
+      &amp;lt;/ing&amp;gt;
+    &amp;lt;/ingredients&amp;gt;
+    &amp;lt;directions&amp;gt;
+      &amp;lt;step&amp;gt;Heat olive oil in a saucepan.&amp;lt;/step&amp;gt;
+      &amp;lt;step&amp;gt;Add garlic and cook until fragrant.&amp;lt;/step&amp;gt;
+      &amp;lt;step&amp;gt;Add tomatoes and simmer 10 minutes.&amp;lt;/step&amp;gt;
+      &amp;lt;step&amp;gt;Cook spaghetti, drain, toss with sauce.&amp;lt;/step&amp;gt;
+    &amp;lt;/directions&amp;gt;
+  &amp;lt;/recipe&amp;gt;
+&amp;lt;/recipeml&amp;gt;</code></pre></div><p><strong>Pros:</strong> Properly structured — ingredients have separate quantity, unit, and item fields. Enables unit conversion, scaling, and nutritional calculation. XML validation catches errors.</p><p><strong>Cons:</strong> Extremely verbose. Nobody wants to write recipes in XML. The format never gained mainstream adoption and is essentially dead.</p><p><strong>Best for:</strong> Historical interest. If you need structured ingredient data, Cooklang achieves the same result with less syntax.</p><h2 id=open-recipe-format-yaml>Open Recipe Format (YAML)</h2><p>A YAML-based format designed for developer-friendly recipe storage with support for professional kitchen metadata (HACCP instructions, processing keywords).</p><div class=code-toolbar><pre class=language-yaml data-language=yaml><code class=language-yaml>name: Simple Tomato Pasta
+servings: 4
+time:
+  prep: 5 minutes
+  cook: 15 minutes
+
+ingredients:
+  - name: olive oil
+    amount: 2
+    unit: tbsp
+  - name: garlic
+    amount: 4
+    unit: clove
+    note: minced
+  - name: canned tomatoes
+    amount: 400
+    unit: g
+  - name: spaghetti
+    amount: 400
+    unit: g
+
+steps:
+  - Heat olive oil in a saucepan over medium heat.
+  - Add minced garlic and cook until fragrant.
+  - Add canned tomatoes and simmer for 10 minutes.
+  - Cook spaghetti, drain, and toss with sauce.</code></pre></div><p><strong>Pros:</strong> Clean and readable. YAML converts easily to JSON. Structured ingredient data with separate fields. Version control friendly.</p><p><strong>Cons:</strong> Ingredients and instructions are separate — you lose the connection between "add garlic" in the steps and the garlic entry in the ingredients list. Small ecosystem with limited tooling.</p><p><strong>Best for:</strong> Developers building recipe applications who want structured data without XML verbosity.</p><h2 id=summary>Summary</h2><table><thead><tr><th>Format</th><th style=text-align:center>Human Readable</th><th style=text-align:center>Machine Parseable</th><th style=text-align:center>Ecosystem</th><th style=text-align:center>Active Development</th></tr></thead><tbody><tr><td><strong>Cooklang</strong></td><td style=text-align:center>Excellent</td><td style=text-align:center>Yes</td><td style=text-align:center>Growing</td><td style=text-align:center>Yes</td></tr><tr><td><strong>Markdown</strong></td><td style=text-align:center>Excellent</td><td style=text-align:center>No</td><td style=text-align:center>Huge (generic)</td><td style=text-align:center>N/A</td></tr><tr><td><strong>JSON-LD</strong></td><td style=text-align:center>Poor</td><td style=text-align:center>Yes</td><td style=text-align:center>Massive (SEO)</td><td style=text-align:center>Yes</td></tr><tr><td><strong>MealMaster</strong></td><td style=text-align:center>Good</td><td style=text-align:center>Fragile</td><td style=text-align:center>Legacy</td><td style=text-align:center>No</td></tr><tr><td><strong>RecipeML</strong></td><td style=text-align:center>Poor</td><td style=text-align:center>Yes</td><td style=text-align:center>Dead</td><td style=text-align:center>No</td></tr><tr><td><strong>Open Recipe Format</strong></td><td style=text-align:center>Good</td><td style=text-align:center>Yes</td><td style=text-align:center>Small</td><td style=text-align:center>Minimal</td></tr></tbody></table><p>The fundamental tension is between human readability and machine parseability. Markdown is the easiest to write but computers can't reliably extract structured data from it. JSON-LD is perfectly machine-readable but nobody writes it by hand.</p><p>Cooklang sits in the middle — you write natural recipe text, and the <code>@</code>, <code>#</code>, <code>~</code> annotations make it machine-parseable without sacrificing readability. That's why we built it.</p><p><a href=/docs/getting-started/>Try Cooklang →</a> | <a href=/docs/spec/>Language specification →</a></p><p>-Alex</p></div></div></article></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><picture><source type=image/webp srcset=/google-play-badge.webp><img src=/google-play-badge.png alt="Download on Google Play" class="h-10 w-auto" width=394 height=128 loading=lazy>
+</picture></a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><picture><source type=image/webp srcset=/app-store-badge.webp><img src=/app-store-badge.png alt="Download on App Store" class="h-10 w-auto" width=394 height=129 loading=lazy></picture></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2026 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>

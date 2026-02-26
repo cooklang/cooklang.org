@@ -1,244 +1,583 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Thu, 22 Jan 2026 19:46:15 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>The &lt;code>recipe&lt;/code> command parses and displays Cooklang recipe files. It's your primary tool for viewing recipes, validating syntax, and converting between formats.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Thu, 26 Feb 2026 12:59:19 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Thu, 26 Feb 2026 12:59:18 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook recipe &amp;amp;#34;Neapolitan Pizza.cook&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>File extension is optional, that works too:&lt;/p>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook recipe [OPTIONS] [RECIPE]&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>[RECIPE]&lt;/code>&lt;/td>
+ &lt;td>Recipe file to read (stdin if not specified). Supports full path, relative path, recipe name, or scaling syntax (&lt;code>recipe.cook:2&lt;/code>). The &lt;code>.cook&lt;/code> extension is optional.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-f, --format &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Output format: &lt;code>human&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>, &lt;code>cooklang&lt;/code>, &lt;code>markdown&lt;/code>, &lt;code>latex&lt;/code>, &lt;code>typst&lt;/code>, &lt;code>schema&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-s, --scale &amp;lt;SCALE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Scaling factor for ingredient quantities (default: 1)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-o, --output &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Output file (format inferred from extension)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--pretty&lt;/code>&lt;/td>
+ &lt;td>Pretty-print JSON and YAML output&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This displays the recipe in a human-readable format with ingredients, steps, and metadata clearly organized.&lt;/p>
-&lt;h2 id="menu-files">Menu Files&lt;/h2>
-&lt;p>CookCLI also supports &lt;a href="https://cooklang.org/docs/use-cases/meal-planning/">&lt;code>.menu&lt;/code> files&lt;/a> for meal planning. Menu files can reference multiple recipes and organize them by meals or days:&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>The &lt;code>shopping-list&lt;/code> command creates organized shopping lists from one or more recipes. It automatically combines ingredients, converts units (some day!), and groups items by store section.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># View a recipe
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34;
+
+# Scale a recipe 2x
+cook recipe &amp;amp;#34;Pasta.cook:2&amp;amp;#34;
+
+# Export as JSON
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f json --pretty
+
+# Save as Markdown
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f markdown -o pizza.md
+
+# Read from stdin
+cat recipe.cook | cook recipe
+
+# View a menu file
+cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;ul>
+&lt;li>The &lt;code>.cook&lt;/code> extension is optional and added automatically&lt;/li>
+&lt;li>Scaling can use inline &lt;code>:N&lt;/code> syntax or &lt;code>--scale N&lt;/code> flag; inline takes precedence&lt;/li>
+&lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported and scaling applies to all referenced recipes&lt;/li>
+&lt;li>Output format is inferred from &lt;code>-o&lt;/code> file extension when &lt;code>-f&lt;/code> is not specified&lt;/li>
+&lt;/ul></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook shopping-list &amp;amp;#34;Pasta.cook&amp;amp;#34; &amp;amp;#34;Salad.cook&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This creates a combined shopping list with all ingredients from both recipes.&lt;/p>
-&lt;h2 id="creating-shopping-lists">Creating Shopping Lists&lt;/h2>
-&lt;h3 id="single-recipe">Single Recipe&lt;/h3>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook shopping-list [OPTIONS] [RECIPES]...&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>[RECIPES]...&lt;/code>&lt;/td>
+ &lt;td>Recipe files to include. Each can have a scaling factor using &lt;code>:N&lt;/code> syntax (e.g., &lt;code>&amp;quot;Pasta.cook:3&amp;quot;&lt;/code>). Glob patterns supported (e.g., &lt;code>*.cook&lt;/code>).&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Base directory to search for recipe files (default: current directory)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-o, --output &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Output file (format inferred from extension)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-p, --plain&lt;/code>&lt;/td>
+ &lt;td>Display ingredients without aisle categories&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-f, --format &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Output format: &lt;code>human&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>, &lt;code>markdown&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--pretty&lt;/code>&lt;/td>
+ &lt;td>Pretty-print structured output&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-a, --aisle &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Path to aisle configuration file&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-i, --ignore-references&lt;/code>&lt;/td>
+ &lt;td>Don't expand referenced recipes&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--ingredients-only&lt;/code>&lt;/td>
+ &lt;td>Display only ingredient names without quantities&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook shopping-list &amp;amp;#34;Breakfast/Easy Pancakes&amp;amp;#34; &amp;amp;#34;Neapolitan Pizza&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Output:&lt;/p>
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Shopping list from multiple recipes
+cook shopping-list &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; &amp;amp;#34;Easy Pancakes&amp;amp;#34;
 
+# Scale individual recipes
+cook shopping-list &amp;amp;#34;Pizza.cook:2&amp;amp;#34; &amp;amp;#34;Salad.cook&amp;amp;#34;
 
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">[dried herbs and spices]
-salt 24.6 g
-sea salt 1 pinch
+# Plain list without categories
+cook shopping-list &amp;amp;#34;Pizza.cook&amp;amp;#34; --plain
 
-[milk and dairy]
-eggs 3
+# Export as JSON
+cook shopping-list *.cook -f json -o list.json
 
-[oils and dressings]
-oil
-olive oil 1 drizzle
+# Names only
+cook shopping-list &amp;amp;#34;Cake.cook&amp;amp;#34; --ingredients-only
 
-[other]
-San Marzano tomato sauce 5 tbsp
-basil leaves
-mozzarella cheese 100 grams
-semolina&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="multiple-recipes">Multiple Recipes&lt;/h3>
-&lt;p>Combine ingredients from several recipes:&lt;/p></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>The &lt;code>server&lt;/code> command starts a local web server that makes your recipe collection browsable from any device with a web browser. It's perfect for cooking from a tablet, sharing recipes with family, or browsing your collection comfortably.&lt;/p>
+# Use custom aisle config
+cook shopping-list &amp;amp;#34;Recipe.cook&amp;amp;#34; -a ~/my-store.conf
+
+# From a menu file
+cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;ul>
+&lt;li>Ingredients with the same name are automatically combined&lt;/li>
+&lt;li>Items are grouped by aisle category from &lt;code>aisle.conf&lt;/code> (use &lt;code>--plain&lt;/code> to disable)&lt;/li>
+&lt;li>Uncategorized items appear in an &amp;quot;other&amp;quot; category; run &lt;code>cook doctor aisle&lt;/code> to find them&lt;/li>
+&lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported with their own scaling&lt;/li>
+&lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
 &lt;img width="600" height="359" alt="recipes" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
 &lt;img width="600" height="359" alt="recipe" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
 &lt;img width="600" height="359" alt="shopping" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
 &lt;img width="600" height="359" alt="pantry" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook server&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This starts a web server on &lt;code>http://localhost:9080&lt;/code> serving recipes from the current directory.&lt;/p>
-&lt;h2 id="starting-the-server">Starting the Server&lt;/h2>
-&lt;h3 id="serve-current-directory">Serve Current Directory&lt;/h3>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook server [OPTIONS] [BASE_PATH]&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>[BASE_PATH]&lt;/code>&lt;/td>
+ &lt;td>Root directory containing recipe files (default: current directory)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>--host [&amp;lt;ADDRESS&amp;gt;]&lt;/code>&lt;/td>
+ &lt;td>Allow connections from external hosts (default: localhost only). Optionally bind to a specific address.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-p, --port &amp;lt;PORT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Port number (default: 9080)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--open&lt;/code>&lt;/td>
+ &lt;td>Automatically open the web interface in your default browser&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook server
-# Server running at http://localhost:9080&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="serve-specific-directory">Serve Specific Directory&lt;/h3>
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Start on localhost:9080
+cook server
 
+# Serve recipes from a specific directory
+cook server ~/my-recipes
 
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook server ~/my-recipes
-# Or
-cd ~/my-recipes &amp;amp;amp;&amp;amp;amp; cook server&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="custom-port">Custom Port&lt;/h3>
+# Custom port with auto-open
+cook server --port 8080 --open
 
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook server --port 8080
-# Server running at http://localhost:8080&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="allow-external-access">Allow External Access&lt;/h3>
-&lt;p>By default, the server only accepts connections from localhost. To access from other devices:&lt;/p></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>The &lt;code>search&lt;/code> command helps you find recipes quickly by searching through titles, ingredients, instructions, and metadata. It's perfect for answering &amp;quot;what can I cook with what I have?&amp;quot; or finding that recipe you remember but can't locate.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook search chicken&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This searches all recipes for the word &amp;quot;chicken&amp;quot; and returns matching recipes sorted by relevance.&lt;/p>
-&lt;h2 id="search-basics">Search Basics&lt;/h2>
-&lt;h3 id="single-term-search">Single Term Search&lt;/h3>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook search tomato&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Output:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">Pasta with Tomato Sauce.cook
-Tomato Soup.cook
-Caprese Salad.cook
-Pizza Margherita.cook&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="multiple-terms">Multiple Terms&lt;/h3>
-&lt;p>All terms must match (AND logic):&lt;/p></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>The &lt;code>import&lt;/code> command fetches recipes from websites and automatically converts them to Cooklang format. It supports hundreds of popular recipe websites and extracts ingredients, instructions, and metadata intelligently.&lt;/p>
-&lt;p>Requires &lt;code>OPENAI_API_KEY&lt;/code> environment variable set to perform the conversion to Cooklang. Without the key you still can downlad recipe original content, but it won't be converted to Cooklang.&lt;/p>
-&lt;p>Note that you can use &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a> if you don't have OpenAI key.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This downloads the recipe and outputs it in Cooklang format into stdout.&lt;/p></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>The &lt;code>doctor&lt;/code> command helps maintain a healthy recipe collection by checking for syntax errors, validating references, and ensuring proper organization. Think of it as a health check for your recipes.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook doctor&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This runs all available checks on your recipe collection and reports any issues found.&lt;/p>
-&lt;h2 id="available-checks">Available Checks&lt;/h2>
-&lt;h3 id="recipe-validation">Recipe Validation&lt;/h3>
-&lt;p>Check all recipes for syntax errors and warnings:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook doctor validate&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This command:&lt;/p>
+# Allow access from other devices on the network
+cook server --host&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
 &lt;ul>
-&lt;li>Detects syntax errors that prevent parsing&lt;/li>
-&lt;li>Reports warnings about potential issues&lt;/li>
-&lt;li>Validates recipe references (when one recipe includes another)&lt;/li>
-&lt;li>Checks for invalid units or quantities&lt;/li>
-&lt;li>Identifies deprecated syntax&lt;/li>
-&lt;/ul>
-&lt;h3 id="aisle-configuration">Aisle Configuration&lt;/h3>
-&lt;p>Check for ingredients missing from your aisle configuration:&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>The &lt;code>seed&lt;/code> command populates a directory with example Cooklang recipes. It's perfect for getting started, learning the syntax, or setting up a demo.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+&lt;li>By default, only accepts connections from localhost&lt;/li>
+&lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
+&lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
+&lt;li>Mobile-friendly responsive layout&lt;/li>
+&lt;/ul></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook seed&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This creates a collection of example recipes in the current directory.&lt;/p>
-&lt;h2 id="what-gets-created">What Gets Created&lt;/h2>
-&lt;p>The seed command creates:&lt;/p>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook search [OPTIONS] &amp;amp;lt;TERMS&amp;amp;gt;...&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;TERMS&amp;gt;...&lt;/code>&lt;/td>
+ &lt;td>One or more search terms. Multiple terms are treated as AND (all must match).&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-dir &amp;lt;DIR&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Directory to search for recipes (default: current directory, recursive)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Find recipes mentioning chicken
+cook search chicken
+
+# Find recipes with both chicken and rice
+cook search chicken rice
+
+# Search in a specific directory
+cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
 &lt;ul>
-&lt;li>&lt;strong>Example recipes&lt;/strong> – Various cuisines and complexity levels&lt;/li>
-&lt;li>&lt;strong>Organized folders&lt;/strong> – Structured by meal type&lt;/li>
-&lt;li>&lt;strong>Configuration files&lt;/strong> – Including &lt;code>aisle.conf&lt;/code> for shopping lists&lt;/li>
-&lt;li>&lt;strong>README&lt;/strong> – Documentation about the recipes&lt;/li>
-&lt;/ul>
+&lt;li>Searches through recipe titles, ingredients, instructions, and metadata&lt;/li>
+&lt;li>Case-insensitive&lt;/li>
+&lt;li>Results are ranked by relevance&lt;/li>
+&lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Thu, 26 Feb 2026 12:59:18 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
+&lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">.
-├── Breakfast/
-│ ├── Easy Pancakes.cook
-│ └── Mexican Style Burrito.cook
-├── Dinners/
-│ ├── Neapolitan Pizza.cook
-│ ├── Pasta Carbonara.cook
-│ └── Roast Chicken.cook
-├── Shared/
-│ ├── Pizza Dough.cook
-│ ├── Tomato Sauce.cook
-│ └── Guacamole.cook
-├── config/
-│ └── aisle.conf
-└── README.md&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="seeding-options">Seeding Options&lt;/h2>
-&lt;h3 id="current-directory">Current Directory&lt;/h3>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook import [OPTIONS] &amp;amp;lt;URL&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;URL&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>URL of the recipe webpage to import. Works with sites using Recipe Schema.org markup.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-s, --skip-conversion&lt;/code>&lt;/td>
+ &lt;td>Output original recipe data without converting to Cooklang&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--metadata &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Metadata format: &lt;code>frontmatter&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>, &lt;code>none&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--metadata-only&lt;/code>&lt;/td>
+ &lt;td>Output only metadata, no recipe content&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook seed
-# Creates recipes in current directory&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="specific-directory">Specific Directory&lt;/h3>
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Import and convert to Cooklang
+cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta
+
+# Save to file
+cook import https://example.com/recipe &amp;amp;gt; lasagna.cook
+
+# Get raw data without conversion
+cook import https://example.com/recipe --skip-conversion
+
+# Extract metadata only as JSON
+cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
+&lt;/div></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Thu, 26 Feb 2026 12:59:18 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook seed ~/my-recipes
-# Creates recipes in ~/my-recipes
-
-# Or
-cook seed recipes/examples
-# Creates recipes in recipes/examples&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="creating-directory">Creating Directory&lt;/h3>
-&lt;p>If the directory doesn't exist, it will be created:&lt;/p></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>The &lt;code>report&lt;/code> command generates custom reports from recipes using minijinja templates. It's a powerful tool for creating recipe cards, nutrition labels, meal plans, or any custom format you need.&lt;/p>
-&lt;p>⚠️ &lt;strong>Note&lt;/strong>: The report command is currently a prototype feature and will evolve in future versions.&lt;/p>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor [OPTIONS] [COMMAND]&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="subcommands">Subcommands&lt;/h2>
+&lt;h3 id="validate">&lt;code>validate&lt;/code>&lt;/h3>
+&lt;p>Validate all recipes for syntax errors and warnings.&lt;/p>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook report -t template.jinja recipe.cook&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>This processes the recipe through the template and outputs the result.&lt;/p>
-&lt;h2 id="how-it-works">How It Works&lt;/h2>
-&lt;p>The report command:&lt;/p>
-&lt;ol>
-&lt;li>Parses the recipe file&lt;/li>
-&lt;li>Applies any scaling&lt;/li>
-&lt;li>Loads aisle and pantry configurations (if provided)&lt;/li>
-&lt;li>Passes recipe data to the Jinja2 template&lt;/li>
-&lt;li>Outputs the rendered result&lt;/li>
-&lt;/ol>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor validate [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Directory to scan for recipe files (default: current directory)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--strict&lt;/code>&lt;/td>
+ &lt;td>Exit with error code 1 if any issues are found (useful for CI/CD)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p>
+&lt;h3 id="aisle">&lt;code>aisle&lt;/code>&lt;/h3>
+&lt;p>Check for ingredients missing from your aisle configuration.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook seed [OPTIONS] [DIR]&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>[DIR]&lt;/code>&lt;/td>
+ &lt;td>Directory to create example recipes in (default: current directory). Created if it doesn't exist.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Add examples to current directory
+cook seed
+
+# Create examples in a specific directory
+cook seed ~/my-recipes&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;ul>
+&lt;li>Creates example recipes demonstrating Cooklang features (ingredients, cookware, timers, metadata, recipe references)&lt;/li>
+&lt;li>Includes folder structure and an &lt;code>aisle.conf&lt;/code> configuration file&lt;/li>
+&lt;/ul></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>Generate custom reports from recipes using templates.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Note&lt;/strong>: The report command is currently a prototype feature.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="usage">Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook report [OPTIONS] --template &amp;amp;lt;TEMPLATE&amp;amp;gt; &amp;amp;lt;RECIPE&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;RECIPE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Recipe file to process. Supports scaling with &lt;code>:N&lt;/code> syntax (e.g., &lt;code>recipe.cook:2&lt;/code>).&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-t, --template &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Path to the Jinja2 template file (required)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-d, --datastore &amp;lt;DIR&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Path to datastore directory with additional recipe data (nutrition, costs)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-a, --aisle &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Path to aisle configuration file&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-p, --pantry &amp;lt;FILE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Path to pantry configuration file&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Base path for resolving recipe references (default: current directory)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
 &lt;h2 id="template-variables">Template Variables&lt;/h2>
-&lt;p>Templates receive comprehensive recipe data:&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>The &lt;code>lsp&lt;/code> command starts a Language Server Protocol (LSP) server for Cooklang recipe files. It enables IDE features in text editors and development environments.&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>The LSP server provides intelligent editing features for &lt;code>.cook&lt;/code> files:&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>Real-time syntax checking&lt;/strong> – Catch errors as you type&lt;/li>
-&lt;li>&lt;strong>Auto-completion&lt;/strong> – Suggestions for ingredients, cookware, and timers&lt;/li>
-&lt;li>&lt;strong>Semantic highlighting&lt;/strong> – Rich syntax coloring beyond basic highlighting&lt;/li>
-&lt;li>&lt;strong>Hover documentation&lt;/strong> – Information about ingredients and references&lt;/li>
-&lt;li>&lt;strong>Document symbols&lt;/strong> – Navigate recipe structure quickly&lt;/li>
-&lt;li>&lt;strong>Go to definition&lt;/strong> – Jump to referenced recipes&lt;/li>
-&lt;/ul>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-&lt;p>Start the LSP server:&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>The &lt;code>pantry&lt;/code> command helps you manage and analyze your pantry inventory, tracking what items are low on stock, expiring soon, or available for cooking.&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
+&lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>Update CookCLI to the latest version.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook pantry [OPTIONS] &amp;amp;lt;SUBCOMMAND&amp;amp;gt;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="options">Options&lt;/h2>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook update [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>Alias: &lt;code>cook u&lt;/code>&lt;/p>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>--check-only&lt;/code>&lt;/td>
+ &lt;td>Check for updates without installing&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--force&lt;/code>&lt;/td>
+ &lt;td>Force update even if already on the latest version&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Update to latest version
+cook update
+
+# Check for updates without installing
+cook update --check-only
+
+# Force reinstall
+cook update --force&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
 &lt;ul>
-&lt;li>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code> - Base path for recipes and configuration files&lt;/li>
-&lt;li>&lt;code>-f, --format &amp;lt;FORMAT&amp;gt;&lt;/code> - Output format: &lt;code>human&lt;/code> (default), &lt;code>json&lt;/code>, or &lt;code>yaml&lt;/code>&lt;/li>
-&lt;li>&lt;code>-v, --verbose&lt;/code> - Increase verbosity (can be used multiple times)&lt;/li>
-&lt;li>&lt;code>-h, --help&lt;/code> - Print help information&lt;/li>
+&lt;li>Downloads from GitHub releases over HTTPS&lt;/li>
+&lt;li>Automatically detects your platform and architecture&lt;/li>
+&lt;li>May require &lt;code>sudo&lt;/code> if installed in a system directory (e.g., &lt;code>/usr/local/bin/&lt;/code>)&lt;/li>
+&lt;li>Verify with &lt;code>cook --version&lt;/code> after updating&lt;/li>
+&lt;/ul></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Thu, 26 Feb 2026 12:59:18 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook lsp [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>The server communicates over stdin/stdout. You typically don't run this directly — your editor starts it automatically.&lt;/p>
+&lt;h2 id="features">Features&lt;/h2>
+&lt;ul>
+&lt;li>Real-time syntax checking and validation&lt;/li>
+&lt;li>Auto-completion for ingredients, cookware, and timers&lt;/li>
+&lt;li>Semantic syntax highlighting&lt;/li>
+&lt;li>Hover documentation&lt;/li>
+&lt;li>Document symbols and navigation&lt;/li>
+&lt;li>Go to definition for recipe references&lt;/li>
 &lt;/ul>
+&lt;h2 id="editor-integration">Editor Integration&lt;/h2>
+&lt;h3 id="visual-studio-code">Visual Studio Code&lt;/h3>
+&lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Thu, 26 Feb 2026 12:59:18 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook pantry [OPTIONS] &amp;amp;lt;COMMAND&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Base path for recipes and configuration files&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-f, --format &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Output format: &lt;code>human&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
 &lt;h2 id="subcommands">Subcommands&lt;/h2>
 &lt;h3 id="depleted-alias-d">&lt;code>depleted&lt;/code> (alias: &lt;code>d&lt;/code>)&lt;/h3>
-&lt;p>Shows items that are out of stock or have low quantities.&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Thu, 22 Jan 2026 19:46:15 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>The &lt;code>update&lt;/code> command allows you to automatically update CookCLI to the latest version from GitHub releases.&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
-&lt;p>CookCLI can check for new releases and automatically download and install updates. The update process:&lt;/p>
-&lt;ul>
-&lt;li>Checks the latest release on GitHub&lt;/li>
-&lt;li>Downloads the appropriate binary for your platform&lt;/li>
-&lt;li>Replaces the current executable with the new version&lt;/li>
-&lt;li>Preserves all your configurations and data&lt;/li>
-&lt;/ul>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
-&lt;p>Update to the latest version:&lt;/p>
+&lt;p>Show items that are out of stock or have low quantities.&lt;/p>
 
 
 &lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook update&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Check for updates without installing:&lt;/p></description></item></channel></rss>
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook pantry depleted [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>--all&lt;/code>&lt;/td>
+ &lt;td>Show all items including those without quantities&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Items are flagged when current quantity is at or below the &lt;code>low&lt;/code> threshold. Without a &lt;code>low&lt;/code> threshold, uses heuristics.&lt;/p></description></item></channel></rss>

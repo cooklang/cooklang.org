@@ -1,22 +1,166 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Use Cases on Cooklang: recipe markup language</title><link>https://cooklang.org/docs/use-cases/</link><description>Recent content in Use Cases on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://cooklang.org/docs/use-cases/index.xml" rel="self" type="application/rss+xml"/><item><title>Importing Recipes</title><link>https://cooklang.org/docs/use-cases/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/importing-recipes/</guid><description>&lt;p>Building your recipe collection doesn't mean starting from scratch. Cooklang provides multiple ways to import recipes from websites, PDFs, and other formats, automatically converting them into structured &lt;code>.cook&lt;/code> files that you can edit, organize, and use across all your devices.&lt;/p>
-&lt;h3 id="why-import-to-cooklang">Why Import to Cooklang?&lt;/h3>
-&lt;p>When you save recipes from websites, you often end up with bookmarks that can disappear, screenshots that are hard to search, or copied text that loses structure.&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>One of the most practical applications of Cooklang is transforming meal planning into efficient shopping trips. Instead of manually writing lists or trying to remember what you need, Cooklang tools automatically generate comprehensive shopping lists from your planned meals.&lt;/p>
-&lt;h3 id="from-recipes-to-shopping-cart">From Recipes to Shopping Cart&lt;/h3>
-&lt;p>When you select recipes for the week, Cooklang understands every ingredient needed and combines them intelligently. If Monday's pasta and Thursday's pizza both need mozzarella, your shopping list shows the total amount needed, not separate entries.&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/docs/use-cases/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/recipe-discovery/</guid><description>&lt;p>Finding reliable recipes shouldn't mean scrolling through lengthy blog posts filled with ads and questionable modifications. The Cooklang Federation provides a centralized search system for discovering recipes that community members actually use and trust.&lt;/p>
-&lt;h2 id="what-is-the-cooklang-federation">What is the Cooklang Federation?&lt;/h2>
-&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> is a decentralized recipe discovery platform that indexes Cooklang recipes from across the community. Recipe creators maintain their recipes on their own websites, blogs, or GitHub repositories, while the federation makes them all searchable in one place.&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/docs/use-cases/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/publishing-recipes/</guid><description>&lt;p>Once you've built a collection of recipes you love, sharing them with the Cooklang community helps others discover tried-and-true recipes while maintaining full control of your content. The Cooklang Federation provides a decentralized platform for recipe publishing without requiring you to give up ownership or host on a specific platform.&lt;/p>
-&lt;h2 id="how-federation-publishing-works">How Federation Publishing Works&lt;/h2>
-&lt;p>Unlike traditional recipe platforms where you upload content to their servers, the federation uses a fundamentally different approach:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/meal-planning/</guid><description>&lt;p>Meal planning is the cornerstone of efficient home cooking. It transforms the daily question of &amp;quot;what's for dinner?&amp;quot; from a source of stress into an organized system that saves time, money, and mental energy. Cooklang provides the structure to make meal planning both systematic and flexible.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Use Cases on Cooklang: recipe markup language</title><link>https://cooklang.org/docs/use-cases/</link><description>Recent content in Use Cases on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><atom:link href="https://cooklang.org/docs/use-cases/index.xml" rel="self" type="application/rss+xml"/><item><title>Importing Recipes</title><link>https://cooklang.org/docs/use-cases/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/importing-recipes/</guid><description>&lt;p>Building a recipe collection doesn't mean starting from scratch. Most cooks have recipes scattered across browser bookmarks, screenshots, handwritten cards, and half-remembered favorites from cooking websites. The problem is that bookmarks disappear, screenshots are impossible to search, and copied text loses all structure. &lt;a href="https://cook.md">cook.md&lt;/a> converts recipes from any of these sources into structured &lt;code>.cook&lt;/code> files you can edit, organize, and use across all your devices.&lt;/p>
+&lt;h3 id="the-quick-way-prefix-any-url">The Quick Way: Prefix Any URL&lt;/h3>
+&lt;p>The fastest way to import a recipe from the web is to prepend &lt;code>cook.md/&lt;/code> to any recipe URL in your browser's address bar:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>CookCLI generates shopping lists directly from your &lt;code>.cook&lt;/code> files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook shopping-list &amp;amp;#34;Monday Dinner.cook&amp;amp;#34; &amp;amp;#34;Tuesday Dinner.cook&amp;amp;#34; &amp;amp;#34;Wednesday Dinner.cook&amp;amp;#34;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="organizing-by-store-aisle">Organizing by Store Aisle&lt;/h3>
+&lt;p>An &lt;code>aisle.conf&lt;/code> file maps ingredients to store sections so your shopping list follows your natural path through the store:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">[produce]
+potatoes
+tomatoes | cherry tomatoes | Roma tomatoes
+onions
+garlic
+lettuce
+carrots
+apples
+bananas
+
+[dairy]
+milk
+cheese
+yogurt
+butter
+eggs
+Cheddar
+cream
+
+[meat &amp;amp;amp; seafood]
+chicken
+beef
+pork
+fish
+shrimp
+
+[bakery]
+bread
+bagels
+croissants
+
+[pantry]
+flour
+sugar
+rice
+pasta
+canned tomatoes
+beans
+olive oil | extra virgin olive oil
+
+[spices &amp;amp;amp; condiments]
+salt | sea salt
+pepper | black pepper
+cumin
+paprika
+soy sauce
+vinegar
+
+[frozen]
+frozen vegetables
+ice cream
+frozen fruit&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>Use it with the shopping list command:&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/docs/use-cases/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes Cooklang recipes from community members' repositories and websites, making them searchable in one place. Every result points to a real recipe someone actually cooks — no ads, no SEO filler.&lt;/p>
+&lt;p>Recipe creators host their own content. The federation just makes it discoverable.&lt;/p>
+&lt;h2 id="searching-for-recipes">Searching for Recipes&lt;/h2>
+&lt;h3 id="basic-search">Basic Search&lt;/h3>
+&lt;p>Search by keyword across recipe titles and ingredients:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">chicken pasta
+chocolate cake
+vegetarian curry&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="filtering">Filtering&lt;/h3>
+&lt;p>Filter by tag:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">tags:vegan
+tags:breakfast
+tags:italian&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>By difficulty:&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/docs/use-cases/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes recipes from community members' repositories and makes them searchable. You host your recipes wherever you want — GitHub, your own website, a blog — and the federation makes them discoverable.&lt;/p>
+&lt;p>You keep full control. Update, remove, or modify recipes anytime.&lt;/p>
+&lt;h2 id="publishing-via-github">Publishing via GitHub&lt;/h2>
+&lt;p>The simplest approach. Put your &lt;code>.cook&lt;/code> files in a public GitHub repository:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">mkdir my-cooklang-recipes
+cd my-cooklang-recipes
+git init
+
+mkdir breakfast lunch dinner desserts
+# Add your .cook files to these folders...
+
+git add .
+git commit -m &amp;amp;#34;Initial recipe collection&amp;amp;#34;
+git remote add origin https://github.com/yourusername/my-recipes.git
+git push -u origin main&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>Then add your repository to the federation:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/meal-planning/</guid><description>&lt;p>CookCLI supports &lt;code>.menu&lt;/code> files that let you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.&lt;/p>
 &lt;blockquote>
-&lt;p>&lt;code>*.menu&lt;/code> files support is only in CookCLI at the moment&lt;/p>
+&lt;p>&lt;code>.menu&lt;/code> file support is only available in CookCLI at the moment.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="a-real-world-menu-example">A Real-World Menu Example&lt;/h3>
-&lt;p>Here's an actual three-day Cooklang &lt;code>*.menu&lt;/code> file that shows how meal planning works in practice:&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/pantry/</guid><description>&lt;p>A well-managed pantry is the foundation of confident cooking. It's the difference between last-minute grocery runs and spontaneous delicious meals. Cooklang transforms pantry management from mental burden to systematic practice, ensuring you always know what you have, what you need, and what you can make.&lt;/p>
-&lt;h4 id="the-pantry-configuration-file">The Pantry Configuration File&lt;/h4>
+&lt;h3 id="example-menu-file">Example Menu File&lt;/h3>
+&lt;p>Here's a real three-day plan from an actual Cooklang cookbook:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-cooklang" data-language="cooklang">&lt;code class="language-cooklang">---
+servings: 2
+---
+
+==Day 0==
+
+-- delivery around 4pm
+
+Dinner:
+- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings}
+- @./Salads/Boring{2%servings}
+
+-- do prep for burrito
+
+==Day 1==
+
+Breakfast:
+- @./Breakfast/Mexican Style Burrito{2%servings}
+- @filter coffee{1%cup} and @tea{1%cup}
+
+Lunch:
+- @./Lunches/Spaghetti Bolognese{}
+- @./Salads/Boring{2%servings}
+
+Dinner:
+- @./Salads/Caprese{2}
+
+==Day 2==
+
+Breakfast:
+- @./Breakfast/Mexican Style Burrito{2%servings}
+- @filter coffee{1%cup} and @tea{1%cup}
+
+Lunch:
+- @./Slowcooker/Slow-cooker beef stew{1/2} with @rice{1%cup}(boiled)
+
+Dinner:
+- @./Salads/Prawn Evening Salad{2} &amp;#43; @sourdough bread{1%slice}
+
+== Snacks ==
+- @kefir{2}
+- @dates
+- @apples
+- @yogurt biscuits{3}
+
+== Batch Prep ==
+- @./Freezable/Kotletter{}&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>&lt;a href="https://github.com/dubadub/cookbook/blob/main/Plans/3%20Day%20Plan%20I.menu">source&lt;/a>&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/pantry/</guid><description>&lt;p>CookCLI uses a &lt;code>pantry.conf&lt;/code> file to track what's already in your kitchen. When you generate a shopping list, items in your pantry are automatically excluded — so you only buy what you actually need.&lt;/p>
 &lt;blockquote>
-&lt;p>Only works in CookCLI at the moment&lt;/p>
+&lt;p>Pantry support is only available in CookCLI at the moment.&lt;/p>
 &lt;/blockquote>
-&lt;p>Here's how a &lt;code>pantry.conf&lt;/code> file tracks your inventory using TOML format:&lt;/p>
+&lt;h3 id="the-pantry-configuration-file">The Pantry Configuration File&lt;/h3>
+&lt;p>The file uses TOML format, organized by storage location:&lt;/p>
 
 
 &lt;div class="code-toolbar">
@@ -51,10 +195,81 @@ cumin = { bought = &amp;amp;#34;2024-06-01&amp;amp;#34; }
 paprika = { bought = &amp;amp;#34;2024-03-15&amp;amp;#34; }
 cinnamon = &amp;amp;#34;1%jar&amp;amp;#34;
 black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h4 id="how-pantry-tracking-works">How Pantry Tracking Works&lt;/h4>
-&lt;p>This configuration serves multiple purposes:&lt;/p></description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/reports/</guid><description>&lt;p>Cooklang's report system transforms recipes into any format you need through powerful templates and data management. Whether you're creating shopping lists, nutrition labels, recipe cards, or custom exports, the report command combined with the database system provides complete control over your recipe data.&lt;/p>
-&lt;h2 id="the-report-system">The Report System&lt;/h2>
-&lt;p>The &lt;code>cook report&lt;/code> command uses Jinja2 templates to generate custom outputs from your recipes. This flexibility means you can create anything from simple ingredient lists to complex meal planning documents.&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>&lt;strong>In 30 minutes&lt;/strong>, you'll transform a $35 Raspberry Pi into your personal recipe server that runs 24/7 in your kitchen. No cloud subscriptions, no privacy concerns - just your recipes, always available.&lt;/p>
+&lt;/div>&lt;h3 id="how-it-works">How It Works&lt;/h3>
+&lt;p>&lt;strong>Simple tracking&lt;/strong>: &lt;code>rice = &amp;quot;5%kg&amp;quot;&lt;/code> records what you have. If a recipe calls for rice, it won't appear on your shopping list.&lt;/p></description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/reports/</guid><description>&lt;p>The &lt;code>cook report&lt;/code> command uses &lt;a href="https://github.com/mitsuhiko/minijinja">minijinja&lt;/a> templates to transform your recipes into any output format — shopping lists with product links, cost breakdowns, nutrition labels, recipe cards, or anything else you can template.&lt;/p>
+&lt;blockquote>
+&lt;p>The report command is currently a prototype feature.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook report -t recipe-card.jinja &amp;amp;#39;Pasta Carbonara.cook&amp;amp;#39;&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>A simple recipe card template:&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-jinja2" data-language="jinja2">&lt;code class="language-jinja2"># {{ metadata.title }}
+**Servings:** {{ metadata.servings }} | **Time:** {{ metadata.time }}
+
+## Ingredients
+{%- for ingredient in ingredients %}
+- {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+{%- endfor %}
+
+## Instructions
+{% for section in sections %}
+{% for content in section %}
+{{ content }}
+{%- endfor %}
+{%- endfor %}&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="the-database-system">The Database System&lt;/h2>
+&lt;p>The database (&lt;code>-d&lt;/code> flag) enriches recipes with external data — nutrition, cost, shopping links. It's organized as a directory tree where each ingredient has its own folder:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI can export recipes as LaTeX, which you compile into professional PDF cookbooks. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
+&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/li>
+&lt;li>&lt;strong>LaTeX distribution&lt;/strong> installed:
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># macOS
+brew install --cask mactex
+
+# Ubuntu/Debian
+sudo apt-get install texlive-full
+
+# Windows - download MiKTeX from https://miktex.org/&lt;/code>&lt;/pre>
+&lt;/div>&lt;/li>
+&lt;li>&lt;strong>Your recipes&lt;/strong> organized in folders (folders become chapters):
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">recipes/
+├── breakfast/
+│ ├── pancakes.cook
+│ └── french-toast.cook
+├── dinner/
+│ ├── roast-chicken.cook
+│ └── pasta-carbonara.cook
+└── desserts/
+ └── chocolate-cake.cook&lt;/code>&lt;/pre>
+&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="exporting-a-single-recipe">Exporting a Single Recipe&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Generate LaTeX output
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex &amp;amp;gt; pizza.tex
+
+# Compile to PDF
+pdflatex pizza.tex
+open pizza.pdf
+
+# Or pipe directly
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex | pdflatex -jobname=&amp;amp;#34;pizza-recipe&amp;amp;#34;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="building-a-full-cookbook">Building a Full Cookbook&lt;/h2>
+&lt;p>Generate LaTeX for all recipes and combine them into a single document:&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running CookCLI serves your recipes to every device on your home network. No cloud, no subscription — just a $35 board drawing less power than a LED bulb.&lt;/p>
 &lt;style>
 .server-carousel {
  position: relative;
@@ -218,68 +433,12 @@ black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
 })();
 &lt;/script>
 
-&lt;h2 id="table-of-contents">Table of Contents&lt;/h2>
+&lt;h2 id="what-you-need">What You Need&lt;/h2>
 &lt;ul>
-&lt;li>&lt;a href="#quick-start-5-steps-to-your-recipe-server">Quick Start: 5 Steps to Your Recipe Server&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#installation-deep-dive">Installation Deep Dive&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="#preparing-your-raspberry-pi">Preparing Your Raspberry Pi&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#installing-cookcli">Installing CookCLI&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#optimizing-for-raspberry-pi">Optimizing for Raspberry Pi&lt;/a>&lt;/li>
+&lt;li>Raspberry Pi 3B+ or newer (2GB+ RAM)&lt;/li>
+&lt;li>MicroSD card (16GB+)&lt;/li>
+&lt;li>Power supply and network connection&lt;/li>
 &lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="#production-deployment">Production Deployment&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="#systemd-service-setup">Systemd Service Setup&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#network-access">Network Access&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#mobile-access">Mobile Access&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="#advanced-configurations">Advanced Configurations&lt;/a>
-&lt;ul>
-&lt;li>&lt;a href="#performance-tuning">Performance Tuning&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#multi-user-household">Multi-User Household&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#backup--sync">Backup &amp;amp; Sync&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;a href="#troubleshooting-quick-fixes">Troubleshooting: Quick Fixes&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#security-best-practices">Security Best Practices&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#performance--cost">Performance &amp;amp; Cost&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#tips-and-best-practices">Tips and Best Practices&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#your-recipe-server-journey">Your Recipe Server Journey&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h3 id="what-youll-achieve">What You'll Achieve&lt;/h3>
-&lt;ul>
-&lt;li>✓ &lt;strong>Always-on recipe access&lt;/strong> from any device on your network&lt;/li>
-&lt;li>✓ &lt;strong>Zero monthly fees&lt;/strong> - one-time setup, years of service&lt;/li>
-&lt;li>✓ &lt;strong>Complete privacy&lt;/strong> - your recipes stay in your home&lt;/li>
-&lt;li>✓ &lt;strong>Family-friendly&lt;/strong> - multiple users can browse recipes simultaneously&lt;/li>
-&lt;li>✓ &lt;strong>Power-efficient&lt;/strong> - uses less electricity than a LED bulb ($5/year)&lt;/li>
-&lt;/ul>
-&lt;h3 id="this-guide-is-for-you-if">This Guide Is For You If&lt;/h3>
-&lt;ul>
-&lt;li>You have a spare Raspberry Pi (or planning to get one)&lt;/li>
-&lt;li>You want reliable recipe access without internet dependency&lt;/li>
-&lt;li>You're comfortable with basic command-line usage&lt;/li>
-&lt;li>You have 30-60 minutes for initial setup&lt;/li>
-&lt;/ul>
-&lt;h3 id="what-youll-need">What You'll Need&lt;/h3>
-&lt;ul>
-&lt;li>&lt;strong>Raspberry Pi&lt;/strong> (3B+ or newer, 2GB+ RAM)&lt;/li>
-&lt;li>&lt;strong>MicroSD card&lt;/strong> (16GB+)&lt;/li>
-&lt;li>&lt;strong>Power supply&lt;/strong> and network connection&lt;/li>
-&lt;li>&lt;strong>30 minutes&lt;/strong> for basic setup&lt;/li>
-&lt;/ul>
-&lt;h2 id="quick-start-5-steps-to-your-recipe-server">Quick Start: 5 Steps to Your Recipe Server&lt;/h2>
-&lt;p>Follow these steps to get your recipe server running in under 30 minutes:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>Transform your digital recipe collection into a professional cookbook that you can print, share, or publish. This guide shows you how to use CookCLI's LaTeX export feature (supported in version after 0.18.0) to create PDF cookbooks from your Cooklang recipes.&lt;/p>
-&lt;h2 id="-what-youll-create">🎯 What You'll Create&lt;/h2>
-&lt;p>By the end of this tutorial, you'll have:&lt;/p>
-&lt;ul>
-&lt;li>A professionally formatted PDF cookbook&lt;/li>
-&lt;li>Organized chapters by meal type&lt;/li>
-&lt;li>Color-coded ingredients and equipment&lt;/li>
-&lt;li>Automatic table of contents and index&lt;/li>
-&lt;li>Print-ready or digital ebook format&lt;/li>
-&lt;/ul>
-&lt;h2 id="-prerequisites">📋 Prerequisites&lt;/h2>
-&lt;p>Before starting, make sure you have:&lt;/p></description></item></channel></rss>
+&lt;h2 id="quick-start">Quick Start&lt;/h2>
+&lt;h3 id="1-prepare-the-pi">1. Prepare the Pi&lt;/h3>
+&lt;p>Flash &lt;a href="https://www.raspberrypi.com/software/">Raspberry Pi OS Lite&lt;/a> to your SD card. Enable SSH and configure WiFi during imaging.&lt;/p></description></item></channel></rss>
