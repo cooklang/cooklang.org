@@ -168,10 +168,10 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Uncategorized items appear in an &amp;quot;other&amp;quot; category; run &lt;code>cook doctor aisle&lt;/code> to find them&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported with their own scaling&lt;/li>
 &lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Thu, 26 Feb 2026 12:59:19 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
-&lt;img width="600" height="359" alt="recipes" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
-&lt;img width="600" height="359" alt="recipe" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
-&lt;img width="600" height="359" alt="shopping" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
-&lt;img width="600" height="359" alt="pantry" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
+&lt;img width="600" height="360" alt="recipes" src="https://cooklang.org/server/recipes.png" />
+&lt;img width="600" height="360" alt="recipe" src="https://cooklang.org/server/recipe.png" />
+&lt;img width="600" height="360" alt="shopping" src="https://cooklang.org/server/shopping.png" />
+&lt;img width="600" height="360" alt="pantry" src="https://cooklang.org/server/pantry.png" />
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
