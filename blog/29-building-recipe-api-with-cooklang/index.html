@@ -1,0 +1,175 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Building a Recipe API with Cooklang | Cooklang: recipe markup language</title>
+<meta name=description content="Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."><meta property="og:title" content="Building a Recipe API with Cooklang | Cooklang: recipe markup language"><meta property="og:description" content="Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."><meta property="og:type" content="article"><meta property="og:url" content="https://cooklang.org/blog/29-building-recipe-api-with-cooklang/"><meta property="og:image" content="https://cooklang.org/example.png"><meta property="og:site_name" content="Cooklang: recipe markup language"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Building a Recipe API with Cooklang"><meta name=twitter:description content="Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."><meta name=twitter:image content="https://cooklang.org/example.png"><meta name=author content="Alexey"><link rel=canonical href=https://cooklang.org/blog/29-building-recipe-api-with-cooklang/><link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preconnect href=https://plausible.io><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.5e28d0b350553e3561e5f801556f07d1046d05bbab0b9c05eacc2b4e55ca6a74.css integrity="sha256-XijQs1BVPjVh5fgBVW8H0QRtBburC5wF6swrTlXKanQ=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet media=print onload='this.media="all"'><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet></noscript><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous defer></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous defer></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous defer></script><script defer data-domain=cooklang.org src=https://plausible.io/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Article","headline":"Building a Recipe API with Cooklang","description":"Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control.","url":"https:\/\/cooklang.org\/blog\/29-building-recipe-api-with-cooklang\/","datePublished":"2026-02-28T00:00:00Z","dateModified":"2026-02-28T00:00:00Z","author":{"@type":"Person","name":"Alexey"},"publisher":{"@type":"Organization","name":"Cooklang","url":"https:\/\/cooklang.org\/","logo":{"@type":"ImageObject","url":"https:\/\/cooklang.org\/logo.svg"}}}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Cooklang","url":"https:\/\/cooklang.org\/","logo":"https:\/\/cooklang.org\/logo.svg","sameAs":["https://github.com/cooklang","https://reddit.com/r/cooklang","https://discord.gg/fUVVvUzEEK","https://x.com/cooklangorg"]}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=https://cooklang.org/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt="Cooklang: recipe markup language" src=/logo.svg class="h-10 w-auto" width=120 height=120>
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">CLI
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><article class=bg-white><div class="container mx-auto px-4 py-8 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Building a Recipe API with Cooklang</h1><div class=text-cooklang-gray-600><time datetime=2026-02-28T00:00:00+00:00>February 28, 2026</time></div></header><div class="prose prose-lg max-w-none text-cooklang-gray-700 overflow-x-auto"><p>Most recipe APIs charge per request, lock your data into their schema, and limit what you can do with recipes you own. There's a simpler path: your <code>.cook</code> files already contain structured data. CookCLI can expose that data as JSON, run a local server, and give you everything you need to build a recipe app — without signing up for anything.</p><p>This post walks through using CookCLI as a recipe API backend, building a minimal frontend, generating a static JSON API, and extending with Schema.org output and the Rust parser library.</p><h2 id=the-json-output>The JSON Output</h2><p>Every <code>.cook</code> file parses to structured JSON with a single command. Given a recipe file like <code>risotto.cook</code>:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook recipe risotto.cook --format json</code></pre></div><p>The output is a complete structured representation of the recipe:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;name&amp;#34;: &amp;#34;Risotto&amp;#34;,
+  &amp;#34;metadata&amp;#34;: {
+    &amp;#34;servings&amp;#34;: &amp;#34;4&amp;#34;,
+    &amp;#34;time&amp;#34;: &amp;#34;45 minutes&amp;#34;,
+    &amp;#34;tags&amp;#34;: &amp;#34;italian, comfort, vegetarian&amp;#34;
+  },
+  &amp;#34;ingredients&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;chicken stock&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;litre&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;butter&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;30&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;g&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;shallots&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;arborio rice&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;320&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;g&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;dry white wine&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;150&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;ml&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;parmesan&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;60&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;g&amp;#34; }
+  ],
+  &amp;#34;cookware&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;small saucepan&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;large heavy-bottomed pan&amp;#34; }
+  ],
+  &amp;#34;steps&amp;#34;: [
+    {
+      &amp;#34;items&amp;#34;: [
+        { &amp;#34;type&amp;#34;: &amp;#34;text&amp;#34;, &amp;#34;value&amp;#34;: &amp;#34;Warm &amp;#34; },
+        { &amp;#34;type&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;chicken stock&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;litre&amp;#34; },
+        { &amp;#34;type&amp;#34;: &amp;#34;text&amp;#34;, &amp;#34;value&amp;#34;: &amp;#34; in a &amp;#34; },
+        { &amp;#34;type&amp;#34;: &amp;#34;cookware&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;small saucepan&amp;#34; },
+        { &amp;#34;type&amp;#34;: &amp;#34;text&amp;#34;, &amp;#34;value&amp;#34;: &amp;#34; over low heat.&amp;#34; }
+      ]
+    }
+  ]
+}</code></pre></div><p>The steps array preserves the inline structure of the original prose — ingredients and cookware appear in context, not just as a flat list. This means you can render step text with ingredient quantities highlighted, the same way Cooklang apps do.</p><p>Scaling works too. Pass a serving count with the <code>:N</code> syntax:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook recipe risotto.cook:2 --format json</code></pre></div><p>All ingredient quantities in the JSON output adjust to the scaled serving count. The API layer is just the command.</p><h2 id=the-built-in-server>The Built-in Server</h2><p><code>cook server</code> starts a web interface for browsing your recipe collection:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook server ./recipes/</code></pre></div><p>This runs at <code>http://localhost:9080</code> by default and serves the full web UI. But the server also exposes recipe data as JSON through its API endpoints. You can query individual recipes, browse collections, and pull ingredient data programmatically.</p><p>The server is a single Rust binary with no database and no configuration. Point it at a directory of <code>.cook</code> files and it works. The server reads files from disk on each request, so adding or editing a recipe is reflected immediately.</p><p>For a different port:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook server ./recipes/ --port 8888</code></pre></div><p>If you're building a frontend that needs live data from your local collection, this is the backend. No setup beyond installing CookCLI.</p><h2 id=building-a-static-json-api>Building a Static JSON API</h2><p>For production deployments, you probably want a static JSON API rather than a running server process. A simple shell script turns a folder of <code>.cook</code> files into a directory of JSON files:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>#!/bin/bash
+# build-api.sh — generates a static JSON API from a recipes directory
+
+RECIPES_DIR=&amp;#34;./recipes&amp;#34;
+OUTPUT_DIR=&amp;#34;./api&amp;#34;
+
+mkdir -p &amp;#34;$OUTPUT_DIR&amp;#34;
+
+# Build an index of all recipes
+echo &amp;#34;[]&amp;#34; &amp;gt; &amp;#34;$OUTPUT_DIR/index.json&amp;#34;
+INDEX=&amp;#34;[]&amp;#34;
+
+for file in &amp;#34;$RECIPES_DIR&amp;#34;/**/*.cook &amp;#34;$RECIPES_DIR&amp;#34;/*.cook; do
+    [ -f &amp;#34;$file&amp;#34; ] || continue
+
+    # Derive a slug from the filename
+    basename=$(basename &amp;#34;$file&amp;#34; .cook)
+    slug=$(echo &amp;#34;$basename&amp;#34; | tr &amp;#39;[:upper:]&amp;#39; &amp;#39;[:lower:]&amp;#39; | tr &amp;#39; &amp;#39; &amp;#39;-&amp;#39;)
+
+    # Parse the recipe to JSON
+    cook recipe &amp;#34;$file&amp;#34; --format json &amp;gt; &amp;#34;$OUTPUT_DIR/${slug}.json&amp;#34;
+
+    echo &amp;#34;Built: $slug&amp;#34;
+done
+
+echo &amp;#34;Done. JSON files written to $OUTPUT_DIR/&amp;#34;</code></pre></div><p>Run the script after any recipe change and you have a <code>/api/</code> directory of static JSON files. Serve it with Nginx, GitHub Pages, Netlify, or any static host. No server process, no database — just files.</p><p>For CI, add the script to your pipeline. Every push to your recipe repo rebuilds the API automatically.</p><h2 id=a-minimal-recipe-frontend>A Minimal Recipe Frontend</h2><p>With the JSON API in place, rendering a recipe in a browser takes about thirty lines of JavaScript:</p><div class=code-toolbar><pre class=language-html data-language=html><code class=language-html>&amp;lt;!DOCTYPE html&amp;gt;
+&amp;lt;html lang=&amp;#34;en&amp;#34;&amp;gt;
+&amp;lt;head&amp;gt;
+  &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt;
+  &amp;lt;title&amp;gt;Recipe&amp;lt;/title&amp;gt;
+  &amp;lt;style&amp;gt;
+    body { font-family: system-ui, sans-serif; max-width: 680px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { margin-bottom: 0.25rem; }
+    .meta { color: #666; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .ingredient { font-weight: 600; }
+    li { margin-bottom: 0.5rem; }
+  &amp;lt;/style&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+  &amp;lt;div id=&amp;#34;recipe&amp;#34;&amp;gt;&amp;lt;/div&amp;gt;
+
+  &amp;lt;script&amp;gt;
+    const slug = new URLSearchParams(window.location.search).get(&amp;#34;recipe&amp;#34;) || &amp;#34;risotto&amp;#34;;
+
+    fetch(`/api/${slug}.json`)
+      .then(res =&amp;gt; res.json())
+      .then(recipe =&amp;gt; {
+        const el = document.getElementById(&amp;#34;recipe&amp;#34;);
+
+        const meta = Object.entries(recipe.metadata || {})
+          .map(([k, v]) =&amp;gt; `${k}: ${v}`)
+          .join(&amp;#34; · &amp;#34;);
+
+        const ingredients = recipe.ingredients
+          .map(i =&amp;gt; `&amp;lt;li&amp;gt;${i.quantity} ${i.units} ${i.name}`.trim() &#43; `&amp;lt;/li&amp;gt;`)
+          .join(&amp;#34;&amp;#34;);
+
+        const steps = recipe.steps.map((step, idx) =&amp;gt; {
+          const text = step.items.map(item =&amp;gt; {
+            if (item.type === &amp;#34;ingredient&amp;#34;) {
+              return `&amp;lt;span class=&amp;#34;ingredient&amp;#34;&amp;gt;${item.name}&amp;lt;/span&amp;gt;`;
+            }
+            return item.value || item.name || &amp;#34;&amp;#34;;
+          }).join(&amp;#34;&amp;#34;);
+          return `&amp;lt;li&amp;gt;${text}&amp;lt;/li&amp;gt;`;
+        }).join(&amp;#34;&amp;#34;);
+
+        el.innerHTML = `
+          &amp;lt;h1&amp;gt;${recipe.name}&amp;lt;/h1&amp;gt;
+          &amp;lt;p class=&amp;#34;meta&amp;#34;&amp;gt;${meta}&amp;lt;/p&amp;gt;
+          &amp;lt;h2&amp;gt;Ingredients&amp;lt;/h2&amp;gt;
+          &amp;lt;ul&amp;gt;${ingredients}&amp;lt;/ul&amp;gt;
+          &amp;lt;h2&amp;gt;Method&amp;lt;/h2&amp;gt;
+          &amp;lt;ol&amp;gt;${steps}&amp;lt;/ol&amp;gt;
+        `;
+      });
+  &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;</code></pre></div><p>Open <code>recipe.html?recipe=risotto</code> and it fetches <code>/api/risotto.json</code>, renders the ingredient list, and walks through the steps with ingredient names highlighted inline.</p><p>This works from any static host. No backend required once you've built the JSON files. Add a second fetch to <code>/api/index.json</code> for a recipe list page, and you have a complete browsable recipe site.</p><h2 id=shopping-lists-as-json>Shopping Lists as JSON</h2><p>The same JSON flag works for shopping lists:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook shopping-list --format json risotto.cook pasta-sauce.cook roast-chicken.cook</code></pre></div><p>The output is a combined, deduplicated ingredient list across all three recipes:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;shopping_list&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;garlic&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;4&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;cloves&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;olive oil&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;60&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;ml&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;arborio rice&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;320&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;g&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;chicken&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1.5&amp;#34;, &amp;#34;units&amp;#34;: &amp;#34;kg&amp;#34; }
+  ]
+}</code></pre></div><p>Matching ingredients from different recipes are combined and quantities summed. This output pipes directly into any frontend that needs a shopping list, or into a grocery integration if you're building one.</p><p>With <code>:N</code> scaling per recipe:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook shopping-list --format json risotto.cook:2 pasta-sauce.cook:6</code></pre></div><p>Each recipe scales independently before the lists merge.</p><h2 id=schemaorg-output-for-seo>Schema.org Output for SEO</h2><p>If you're publishing recipes on a public site, structured data matters. Search engines use Schema.org Recipe markup to display cooking times, ingredients, and ratings in search results.</p><p>CookCLI generates this directly:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash>cook recipe risotto.cook --format schema</code></pre></div><p>Output:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;@context&amp;#34;: &amp;#34;https://schema.org&amp;#34;,
+  &amp;#34;@type&amp;#34;: &amp;#34;Recipe&amp;#34;,
+  &amp;#34;name&amp;#34;: &amp;#34;Risotto&amp;#34;,
+  &amp;#34;recipeIngredient&amp;#34;: [
+    &amp;#34;1 litre chicken stock&amp;#34;,
+    &amp;#34;30 g butter&amp;#34;,
+    &amp;#34;320 g arborio rice&amp;#34;,
+    &amp;#34;150 ml dry white wine&amp;#34;,
+    &amp;#34;60 g parmesan&amp;#34;
+  ],
+  &amp;#34;recipeInstructions&amp;#34;: [
+    {
+      &amp;#34;@type&amp;#34;: &amp;#34;HowToStep&amp;#34;,
+      &amp;#34;text&amp;#34;: &amp;#34;Warm chicken stock in a small saucepan over low heat. Keep it at a gentle simmer throughout.&amp;#34;
+    }
+  ],
+  &amp;#34;recipeYield&amp;#34;: &amp;#34;4 servings&amp;#34;,
+  &amp;#34;totalTime&amp;#34;: &amp;#34;PT45M&amp;#34;
+}</code></pre></div><p>Drop this into a <code>&lt;script type="application/ld+json"></code> tag in your recipe page and search engines can parse the recipe structure directly. Add it to the build script:</p><div class=code-toolbar><pre class=language-bash data-language=bash><code class=language-bash># Add to build-api.sh alongside the regular JSON
+cook recipe &amp;#34;$file&amp;#34; --format schema &amp;gt; &amp;#34;$OUTPUT_DIR/${slug}.schema.json&amp;#34;</code></pre></div><p>Then include it in your HTML template alongside the regular recipe data.</p><h2 id=other-output-formats>Other Output Formats</h2><p><code>cook recipe</code> supports several other formats you might find useful depending on your use case:</p><ul><li><code>--format yaml</code> — same structure as JSON but YAML, useful if you're feeding into Ansible playbooks or other YAML-native tooling</li><li><code>--format markdown</code> — renders the recipe as formatted Markdown, good for documentation sites or static site generators</li><li><code>--format cooklang</code> — round-trips the recipe back to Cooklang syntax, useful for normalization</li><li><code>--format latex</code> — generates LaTeX output for printable recipe books (pairs with the cookbook PDF scripts covered <a href=/docs/>in the server docs</a>)</li></ul><p>For an API use case, JSON and schema are the most useful. YAML is handy if you're generating recipe data for a Hugo or Jekyll site where YAML front matter is expected.</p><h2 id=embedding-the-parser-directly>Embedding the Parser Directly</h2><p>For tighter integration, the <code>cooklang-rs</code> Rust library lets you embed the parser in your own application rather than shelling out to CookCLI:</p><div class=code-toolbar><pre class=language-toml data-language=toml><code class=language-toml># Cargo.toml
+[dependencies]
+cooklang = &amp;#34;0.14&amp;#34;</code></pre></div><div class=code-toolbar><pre class=language-rust data-language=rust><code class=language-rust>use cooklang::{CooklangParser, Extensions};
+
+fn main() {
+    let parser = CooklangParser::new(Extensions::all());
+    let source = std::fs::read_to_string(&amp;#34;risotto.cook&amp;#34;).unwrap();
+    let (recipe, _warnings) = parser.parse(&amp;amp;source).into_result().unwrap();
+
+    for ingredient in &amp;amp;recipe.ingredients {
+        println!(&amp;#34;{}: {} {}&amp;#34;, ingredient.name, ingredient.quantity, ingredient.unit.as_deref().unwrap_or(&amp;#34;&amp;#34;));
+    }
+}</code></pre></div><p>This is the same parser CookCLI uses internally. You get full access to the parsed AST — ingredients, steps, metadata, cookware, timers — with no subprocess overhead.</p><p>The library also compiles to WebAssembly. The <a href=https://cooklang.github.io/cooklang-rs/>cooklang-rs playground</a> runs it in-browser, which means you can parse <code>.cook</code> files on the client side with zero server round-trips. A recipe editor that parses and validates as you type is a straightforward WASM integration.</p><p>For other languages, there are parser libraries in Python, TypeScript, Go, Swift, and others. The full list is at <a href=/docs/for-developers/>/docs/for-developers/</a>.</p><h2 id=what-you-end-up-with>What You End Up With</h2><p>Putting this together, the full stack looks like:</p><ol><li><code>.cook</code> files as the source of truth — version-controlled, plain text, human-readable</li><li>A build script that runs <code>cook recipe --format json</code> on each file and writes to <code>/api/</code></li><li>A static frontend that fetches from <code>/api/</code> and renders recipe pages</li><li>Schema.org JSON-LD embedded in each page for search engine structured data</li><li>The CookCLI server for local development and in-kitchen browsing</li></ol><p>No third-party API keys. No rate limits. No data locked in someone else's schema. The files are yours, the API is yours, and the whole stack runs on a $5 VPS or a Raspberry Pi.</p><p>The <a href=/cli/>CookCLI documentation at /cli/</a> covers every flag. If you want to understand the Cooklang format itself before writing recipes programmatically, the <a href=/docs/spec/>spec at /docs/spec/</a> is the canonical reference.</p><p><a href=/docs/getting-started/>Get started with Cooklang →</a></p><p>-Alex</p></div></div></article></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><picture><source type=image/webp srcset=/google-play-badge.webp><img src=/google-play-badge.png alt="Download on Google Play" class="h-10 w-auto" width=394 height=128 loading=lazy>
+</picture></a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><picture><source type=image/webp srcset=/app-store-badge.webp><img src=/app-store-badge.png alt="Download on App Store" class="h-10 w-auto" width=394 height=129 loading=lazy></picture></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2026 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>
