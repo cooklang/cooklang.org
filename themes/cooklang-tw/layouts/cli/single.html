@@ -53,7 +53,7 @@
           <div class="flex justify-between">
             {{ with .PrevInSection }}
             <a href="{{ .Permalink }}" class="text-cooklang-orange hover:text-orange-600">
-              ← {{ .Title }}
+              &larr; {{ .Title }}
             </a>
             {{ else }}
             <span></span>
@@ -61,7 +61,7 @@
             
             {{ with .NextInSection }}
             <a href="{{ .Permalink }}" class="text-cooklang-orange hover:text-orange-600">
-              {{ .Title }} →
+              {{ .Title }} &rarr;
             </a>
             {{ else }}
             <span></span>
