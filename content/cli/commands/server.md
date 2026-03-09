@@ -8,10 +8,11 @@ date: 2026-02-26T12:59:19+00:00
 
 Start a local web server to browse and view your recipe collection.
 
-<img width="600" height="360" alt="recipes" src="/server/recipes.png" />
-<img width="600" height="360" alt="recipe" src="/server/recipe.png" />
-<img width="600" height="360" alt="shopping" src="/server/shopping.png" />
-<img width="600" height="360" alt="pantry" src="/server/pantry.png" />
+<img width="600" alt="recipes" src="/server/recipes.png" />
+<img width="600" alt="recipe" src="/server/recipe.png" />
+<img width="600" alt="menu" src="/server/menu.png" />
+<img width="600" alt="shopping" src="/server/shopping.png" />
+<img width="600" alt="pantry" src="/server/pantry.png" />
 
 ## Usage
 
