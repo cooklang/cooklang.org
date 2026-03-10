@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Tue, 10 Mar 2026 07:52:28 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang: recipe markup language</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang: recipe markup language</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Tue, 10 Mar 2026 07:59:24 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -73,7 +73,7 @@ cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Scaling can use inline &lt;code>:N&lt;/code> syntax or &lt;code>--scale N&lt;/code> flag; inline takes precedence&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported and scaling applies to all referenced recipes&lt;/li>
 &lt;li>Output format is inferred from &lt;code>-o&lt;/code> file extension when &lt;code>-f&lt;/code> is not specified&lt;/li>
-&lt;/ul></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
+&lt;/ul></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -167,7 +167,7 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Items are grouped by aisle category from &lt;code>aisle.conf&lt;/code> (use &lt;code>--plain&lt;/code> to disable)&lt;/li>
 &lt;li>Uncategorized items appear in an &amp;quot;other&amp;quot; category; run &lt;code>cook doctor aisle&lt;/code> to find them&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported with their own scaling&lt;/li>
-&lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
+&lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
 &lt;img width="600" alt="recipes" src="https://cooklang.org/server/recipe-list.png" />
 &lt;img width="600" alt="recipe" src="https://cooklang.org/server/recipe-detail.png" />
 &lt;img width="600" alt="shopping list" src="https://cooklang.org/server/shopping-list.png" />
@@ -236,7 +236,7 @@ cook server --host&lt;/code>&lt;/pre>
 &lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
 &lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
 &lt;li>Mobile-friendly responsive layout&lt;/li>
-&lt;/ul></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
+&lt;/ul></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -289,7 +289,7 @@ cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
 &lt;li>Searches through recipe titles, ingredients, instructions, and metadata&lt;/li>
 &lt;li>Case-insensitive&lt;/li>
 &lt;li>Results are ranked by relevance&lt;/li>
-&lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Tue, 10 Mar 2026 07:52:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
+&lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
 &lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
@@ -349,7 +349,7 @@ cook import https://example.com/recipe --skip-conversion
 
 # Extract metadata only as JSON
 cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
-&lt;/div></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Tue, 10 Mar 2026 07:52:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
+&lt;/div></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -382,7 +382,7 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
 &lt;/table>
 &lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p>
 &lt;h3 id="aisle">&lt;code>aisle&lt;/code>&lt;/h3>
-&lt;p>Check for ingredients missing from your aisle configuration.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
+&lt;p>Check for ingredients missing from your aisle configuration.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -416,7 +416,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>Creates example recipes demonstrating Cooklang features (ingredients, cookware, timers, metadata, recipe references)&lt;/li>
 &lt;li>Includes folder structure and an &lt;code>aisle.conf&lt;/code> configuration file&lt;/li>
-&lt;/ul></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>Generate custom reports from recipes using templates.&lt;/p>
+&lt;/ul></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>Generate custom reports from recipes using templates.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Note&lt;/strong>: The report command is currently a prototype feature.&lt;/p>
 &lt;/blockquote>
@@ -472,51 +472,12 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="template-variables">Template Variables&lt;/h2>
-&lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Tue, 10 Mar 2026 07:52:28 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>Update CookCLI to the latest version.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook update [OPTIONS]&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Alias: &lt;code>cook u&lt;/code>&lt;/p>
-&lt;h2 id="options">Options&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Option&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>--check-only&lt;/code>&lt;/td>
- &lt;td>Check for updates without installing&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>--force&lt;/code>&lt;/td>
- &lt;td>Force update even if already on the latest version&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Update to latest version
-cook update
-
-# Check for updates without installing
-cook update --check-only
-
-# Force reinstall
-cook update --force&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
-&lt;ul>
-&lt;li>Downloads from GitHub releases over HTTPS&lt;/li>
-&lt;li>Automatically detects your platform and architecture&lt;/li>
-&lt;li>May require &lt;code>sudo&lt;/code> if installed in a system directory (e.g., &lt;code>/usr/local/bin/&lt;/code>)&lt;/li>
-&lt;li>Verify with &lt;code>cook --version&lt;/code> after updating&lt;/li>
-&lt;/ul></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Tue, 10 Mar 2026 07:52:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
+&lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Home_assistant_integration_research</title><link>https://cooklang.org/cli/commands/home_assistant_integration_research/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/home_assistant_integration_research/</guid><description>&lt;p>&lt;strong>Research Date:&lt;/strong> March 2026
+&lt;strong>Focus:&lt;/strong> Popular integrations, patterns, food/recipe systems, and what drives adoption&lt;/p>
+&lt;hr>
+&lt;h2 id="executive-summary">Executive Summary&lt;/h2>
+&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p>
+&lt;p>&lt;strong>Key Insight for CookCLI:&lt;/strong> Food/recipe integrations like Mealie are gaining traction (2,079 active installations as of 2024.7), but no comprehensive cooking/recipe CLI integration exists yet.&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -534,7 +495,7 @@ cook update --force&lt;/code>&lt;/pre>
 &lt;/ul>
 &lt;h2 id="editor-integration">Editor Integration&lt;/h2>
 &lt;h3 id="visual-studio-code">Visual Studio Code&lt;/h3>
-&lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Tue, 10 Mar 2026 07:52:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory.&lt;/p>
+&lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
 
 
@@ -580,4 +541,48 @@ cook update --force&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;p>Items are flagged when current quantity is at or below the &lt;code>low&lt;/code> threshold. Without a &lt;code>low&lt;/code> threshold, uses heuristics.&lt;/p></description></item></channel></rss>
+&lt;p>Items are flagged when current quantity is at or below the &lt;code>low&lt;/code> threshold. Without a &lt;code>low&lt;/code> threshold, uses heuristics.&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Tue, 10 Mar 2026 07:59:24 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>Update CookCLI to the latest version.&lt;/p>
+&lt;h2 id="usage">Usage&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook update [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>Alias: &lt;code>cook u&lt;/code>&lt;/p>
+&lt;h2 id="options">Options&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>--check-only&lt;/code>&lt;/td>
+ &lt;td>Check for updates without installing&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--force&lt;/code>&lt;/td>
+ &lt;td>Force update even if already on the latest version&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples">Examples&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Update to latest version
+cook update
+
+# Check for updates without installing
+cook update --check-only
+
+# Force reinstall
+cook update --force&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;ul>
+&lt;li>Downloads from GitHub releases over HTTPS&lt;/li>
+&lt;li>Automatically detects your platform and architecture&lt;/li>
+&lt;li>May require &lt;code>sudo&lt;/code> if installed in a system directory (e.g., &lt;code>/usr/local/bin/&lt;/code>)&lt;/li>
+&lt;li>Verify with &lt;code>cook --version&lt;/code> after updating&lt;/li>
+&lt;/ul></description></item></channel></rss>
