@@ -2,7 +2,7 @@
 title: 'Report'
 weight: 80
 description: 'CookCLI Report command documentation'
-date: 2026-02-26T12:59:19+00:00
+date: 2026-03-10T07:52:28+00:00
 ---
 
 
