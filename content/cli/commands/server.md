@@ -2,7 +2,7 @@
 title: 'Server'
 weight: 30
 description: 'CookCLI Server command documentation'
-date: 2026-03-10T07:52:28+00:00
+date: 2026-03-10T07:59:24+00:00
 ---
 
 

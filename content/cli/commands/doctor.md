@@ -2,7 +2,7 @@
 title: 'Doctor'
 weight: 60
 description: 'CookCLI Doctor command documentation'
-date: 2026-03-10T07:52:27+00:00
+date: 2026-03-10T07:59:24+00:00
 ---
 
 
