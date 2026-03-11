@@ -14,8 +14,10 @@ Here's the same simple recipe — a tomato pasta — written in six different fo
 [Cooklang](/docs/spec/) annotates natural recipe text with markers for ingredients (`@`), cookware (`#`), and timers (`~`). The recipe reads naturally while being machine-parseable.
 
 ```cooklang
->> servings: 4
->> time: 20 minutes
+---
+servings: 4
+time: 20 minutes
+---
 
 Heat @olive oil{2%tbsp} in a #saucepan{} over medium heat.
 

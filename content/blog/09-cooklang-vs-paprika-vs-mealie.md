@@ -1,8 +1,8 @@
 ---
-title: "Recipe Manager Showdown: Cooklang vs. Paprika vs. Mealie vs. KitchenOwl"
+title: "Mealie vs Paprika vs KitchenOwl vs Cooklang: Recipe Manager Comparison (2026)"
 date: 2025-01-04
 weight: 90
-summary: "Comparing four popular recipe management solutions — the minimalist text-based Cooklang, the polished commercial Paprika, the open-source self-hosted Mealie, and the household-friendly KitchenOwl. Find out which one fits your cooking workflow best."
+summary: "Comparing four popular recipe management solutions — the open-source self-hosted Mealie, the polished commercial Paprika, the household-friendly KitchenOwl, and the plain-text Cooklang. An honest look at what each does best and which fits your cooking workflow."
 ---
 
 You're standing in the grocery store, trying to remember if you need garlic for tonight's dinner. Your recipe is somewhere — maybe bookmarked on your laptop, maybe screenshotted on your phone.

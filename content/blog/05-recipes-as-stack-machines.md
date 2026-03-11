@@ -1,8 +1,8 @@
 ---
-title: "Understanding Recipes as Stack Machines"
+title: "Recipe Algorithms: How Recipes Work Like Computer Programs"
 date: 2024-11-29
 weight: 80
-summary: "Recipes push ingredients onto a workspace, transform them through operations, and produce a finished dish — the same way a stack machine pushes data, applies functions, and returns results."
+summary: "Every recipe is an algorithm — a sequence of operations transforming inputs into output. Here's the formal model behind cooking instructions, why it matters for recipe validation and automation, and how Cooklang uses it."
 ---
 
 I keep finding computer science in the kitchen.

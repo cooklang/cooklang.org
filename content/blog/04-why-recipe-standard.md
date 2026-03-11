@@ -70,6 +70,14 @@ Standardized recipes are important because they enable:
 - **Automation** — machine-readable recipe formats enable shopping list generation, nutrition calculation, and integration with smart kitchen devices
 - **Preservation** — a recipe written in a standard format won't degrade as it's shared and copied
 
+### What is the difference between a standard recipe and a regular recipe?
+
+A regular recipe is informal — it might say "some olive oil," "cook until golden," or "season to taste." It assumes the cook already has experience and can fill in the gaps. A standardized recipe eliminates those gaps: every ingredient has a precise quantity and unit, every step has specific times and temperatures, and the format is consistent enough that software can parse it. The difference isn't about creativity — it's about whether someone else (or a computer) can reproduce the dish reliably without guessing.
+
+### What is the purpose of standardized recipes in food service?
+
+In restaurants and commercial kitchens, standardized recipes serve three purposes: consistency, cost control, and training. A standardized recipe ensures that every plate of the same dish tastes the same regardless of which cook prepares it. It allows managers to calculate exact food costs per portion and maintain profit margins. And it lets new kitchen staff produce dishes to the expected standard without relying on a senior cook's verbal instructions. Many food service establishments are required to maintain standardized recipes for health and safety compliance as well.
+
 ### How does Cooklang help standardize recipes?
 
 [Cooklang](/) is an open-source markup language designed to be a practical recipe standard. It uses simple text annotations to mark ingredients (`@`), cookware (`#`), and timers (`~`) within natural recipe text. This makes recipes both human-readable and machine-readable. Tools built around Cooklang — like [CookCLI](/cli/), mobile apps, and editor plugins — can then parse these recipes to generate shopping lists, run cooking timers, calculate costs, and more.

@@ -1,8 +1,8 @@
 ---
-title: "Cooking for Programmers: Why Recipes Are Just Algorithms"
+title: "Recipe Programming Language — Write and Manage Recipes as Code"
 date: 2026-02-25
 weight: 60
-summary: "Recipes are algorithms. Ingredients are variables. Techniques are functions. If you can read code, you can cook — and if you think about cooking like programming, your food gets better."
+summary: "Cooklang is a programming language for recipes. Declare ingredients as typed variables, generate shopping lists automatically, scale servings with a command, and version-control your cookbook with Git. Here's how recipes and code are the same thing — and why that matters."
 ---
 
 If you've ever followed a recipe, you've executed an algorithm. The pan is your runtime environment. Ingredients are input data. The finished dish is the output. And that moment when the recipe says "season to taste"? That's an untyped parameter with no validation.
