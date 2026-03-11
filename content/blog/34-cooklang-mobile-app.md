@@ -35,7 +35,7 @@ The Android app works with any folder on your device.
 2. Copy your `.cook` files into it — use subfolders to organize by category.
 3. Open the app and select the folder.
 
-For syncing between your computer and phone, install the [Desktop Sync app](https://cook.md/download) on your computer. It keeps your recipe folder in sync across devices.
+For syncing between your computer and phone, install the [Sync Agent](https://cook.md/download) on your computer. It's a lightweight background service that keeps your recipe folder in sync across devices.
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=md.cook.android).
 
@@ -104,7 +104,7 @@ The app is a viewer and a shopping tool. Your recipes don't live inside it — t
 ## Getting Started
 
 1. Write a few recipes in [Cooklang format](/docs/spec/) — it takes about two minutes per recipe
-2. Put them in a synced folder (iCloud Drive, Google Drive, or use the Desktop Sync app)
+2. Put them in a synced folder (iCloud Drive, Google Drive, or use the [Sync Agent](https://cook.md/download))
 3. Install the app ([iOS](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone) / [Android](https://play.google.com/store/apps/details?id=md.cook.android))
 4. Cook from your phone
 

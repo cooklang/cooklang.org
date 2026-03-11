@@ -39,9 +39,7 @@ If you're using the iOS app with iCloud sync, it will create a folder in iCloud 
 
 ### Syncing Across Devices
 
-To keep recipes in sync between your phone and computer, install the [Cook Desktop App](https://cook.md/download) — a lightweight sync agent that runs in the background. Point it at your recipes folder and sign in.
-
-![Cook Desktop Screen](/guide/desktop-app-demo.png)
+To keep recipes in sync between your phone and computer, install the [Cook Sync Agent](https://cook.md/download) — a lightweight background service that runs in your system tray. Point it at your recipes folder and sign in.
 
 **Cook Cloud** is a built-in sync service that works across macOS, Windows, Linux, iOS, and Android — no third-party cloud setup required.
 
