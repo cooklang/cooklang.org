@@ -24,13 +24,14 @@ Here's what you get:
 - **Secure login** — OAuth-based authentication, tokens stored in your OS keyring (macOS Keychain, Windows Credential Manager, Linux Secret Service)
 - **Auto-updates** — updates itself silently in the background
 - **Cross-platform** — macOS, Windows, Linux (AppImage)
+- **Open source** — the code is on [GitHub](https://github.com/cooklang/sync-agent)
 - **CLI interface** — `start`, `stop`, `status`, `login`, `config` — everything you'd expect
 
 ## Installation
 
 Download it from [cook.md/download](https://cook.md/download). Run the installer, sign in, pick your recipes folder. The agent starts automatically on boot.
 
-If you had the old desktop app installed, the sync agent migrates your settings automatically.
+If you had the old desktop app installed, you'll need to uninstall it and install the sync agent manually.
 
 ## For the Terminal-Inclined
 
