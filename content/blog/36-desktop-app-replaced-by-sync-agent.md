@@ -24,7 +24,7 @@ Here's what you get:
 - **Secure login** — OAuth-based authentication, tokens stored in your OS keyring (macOS Keychain, Windows Credential Manager, Linux Secret Service)
 - **Auto-updates** — updates itself silently in the background
 - **Cross-platform** — macOS, Windows, Linux (AppImage)
-- **Open source** — the code is on [GitHub](https://github.com/cooklang/sync-agent)
+- **Open source** — the code is on [GitHub](https://github.com/cook-md/sync-agent)
 - **CLI interface** — `start`, `stop`, `status`, `login`, `config` — everything you'd expect
 
 ## Installation
