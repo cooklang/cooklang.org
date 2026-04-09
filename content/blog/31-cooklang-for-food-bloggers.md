@@ -46,7 +46,7 @@ You edit this one file. Everything else is generated.
 
 ## Publish to Your Blog
 
-CookCLI reads your `.cook` file and outputs formats you can use directly. For blog content, the markdown format gives you clean, structured text:
+[CookCLI](/cli/) reads your `.cook` file and outputs formats you can use directly. For blog content, the markdown format gives you clean, structured text:
 
 ```bash
 cook recipe "country-sourdough.cook" --format markdown

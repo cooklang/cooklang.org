@@ -3,6 +3,7 @@ title: "The Best Open Source Recipe Managers in 2026"
 date: 2026-02-25
 weight: 60
 summary: "A practical comparison of the best open source recipe managers — Cooklang, Mealie, KitchenOwl, Tandoor, and more. What each does well, where they fall short, and which one fits your workflow."
+description: "Comparing the best open source recipe managers in 2026: Mealie, KitchenOwl, Tandoor, Cooklang, and more. Honest look at features, self-hosting, and which fits your workflow."
 ---
 
 There are now several solid open source options for managing recipes. Each takes a different approach — from plain text files to full web applications — and the right choice depends on how you cook and how much infrastructure you want to run.
@@ -22,7 +23,7 @@ Here's an honest look at the main options.
 - Free and open source, no vendor lock-in
 
 **Limitations:**
-- No built-in web scraping for importing recipes from websites (CookCLI's `import` command handles this but requires an OpenAI API key)
+- No built-in web scraping for importing recipes from websites ([CookCLI](/cli/)'s `import` command handles this but requires an OpenAI API key)
 - No multi-user access control — it's files, so permissions are filesystem-level
 - Requires comfort with text editing and command line for full power
 

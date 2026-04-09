@@ -44,7 +44,7 @@ The beauty of this approach is that it's truly decentralized. You maintain full 
 2. Add your feed to `feeds.yaml`
 3. Submit a pull request
 
-It's still early days for the project, expect changes. I'm planning to integrate API into CookCLI for searching recipes online.
+It's still early days for the project, expect changes. I'm planning to integrate API into [CookCLI](/cli/) for searching recipes online.
 
 There's a draft specification if you're curious [here](https://github.com/cooklang/federation/blob/main/spec.md).
 

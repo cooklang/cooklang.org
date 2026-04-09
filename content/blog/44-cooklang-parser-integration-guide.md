@@ -76,7 +76,7 @@ For web apps and Node.js: [cooklang-ts](https://github.com/cooklang/cooklang-ts)
 [py-cooklang](https://github.com/luizribeiro/py-cooklang) — straightforward to install and use for scripts, data pipelines, and notebooks.
 
 **Rust**
-[cooklang-rs](https://github.com/cooklang/cooklang-rs) — the reference parser. Rich error reporting, optional extensions, unit conversion, and recipe scaling built in. This is what CookCLI uses internally. The [online playground](https://cooklang.github.io/cooklang-rs/) runs it compiled to WebAssembly.
+[cooklang-rs](https://github.com/cooklang/cooklang-rs) — the reference parser. Rich error reporting, optional extensions, unit conversion, and recipe scaling built in. This is what [CookCLI](/cli/) uses internally. The [online playground](https://cooklang.github.io/cooklang-rs/) runs it compiled to WebAssembly.
 
 **Swift**
 [CookInSwift](https://github.com/cooklang/CookInSwift) — the official Swift implementation, used by the iOS app.

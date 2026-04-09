@@ -46,7 +46,7 @@ No table definitions. No foreign keys. No migrations when you add a new category
 
 ## The Query Layer
 
-CookCLI is the query engine for this database. Most of its commands map directly to operations you would write in SQL if you had bothered to spin up a database.
+[CookCLI](/cli/) is the query engine for this database. Most of its commands map directly to operations you would write in SQL if you had bothered to spin up a database.
 
 **Full-text search** is `cook search`. It scans your entire recipe collection for a term — a `SELECT ... WHERE body LIKE '%keyword%'` across every file:
 

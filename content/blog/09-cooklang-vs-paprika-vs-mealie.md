@@ -23,7 +23,7 @@ Bake for ~{45%minutes} at 350F.
 That's it. That's a Cooklang recipe. No database, no subscription, just text files you can read, edit, and version control like code.
 
 **The Ecosystem Advantage**: Here's what makes Cooklang revolutionary - it's not just one app, it's a foundation for an entire ecosystem:
-- **CookCLI**: Command-line interface for power users
+- **[CookCLI](/cli/)**: Command-line interface for power users
 - **[Chef CLI](https://github.com/Zheoni/cooklang-chef/)**: Enhanced CLI with recipe scaling, interactive cooking mode, and rich terminal UI
 - **iOS/Android apps**: Native mobile experiences
 - **VS Code extension**: Edit recipes with syntax highlighting

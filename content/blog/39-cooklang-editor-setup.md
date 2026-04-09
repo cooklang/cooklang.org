@@ -105,7 +105,7 @@ In both cases, the underlying grammar is the same one used by Neovim and Emacs, 
 
 ## LSP: Any Editor That Supports It
 
-CookCLI ships a Language Server Protocol implementation. Run it with:
+[CookCLI](/cli/) ships a Language Server Protocol implementation. Run it with:
 
 ```bash
 cook lsp

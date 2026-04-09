@@ -98,7 +98,7 @@ Social media platforms will come and go. File formats tied to specific apps will
 By converting recipes to Cooklang format, you get:
 
 - **Permanence.** Text files don't depend on any service.
-- **Searchability.** Grep, file search, or CookCLI's search command.
+- **Searchability.** Grep, file search, or [CookCLI](/cli/)'s search command.
 - **Portability.** Copy the folder to any device.
 - **No lock-in.** Switch tools anytime. The recipes are yours.
 

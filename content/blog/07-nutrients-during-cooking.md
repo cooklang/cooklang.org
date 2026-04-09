@@ -1,8 +1,9 @@
 ---
-title: "How Nutrients Change During Cooking"
+title: "How to Cook Spinach, Broccoli & Other Vegetables Without Losing Nutrients"
 date: 2024-12-16
 weight: 80
 summary: "Cooking transforms the nutritional content of food — sometimes for better, sometimes for worse. Understanding these changes is the first step toward recipes that optimize for both flavor and nutrition."
+description: "Does cooking spinach destroy nutrients? Here's what happens to iron, vitamins, and minerals when you saute, boil, or steam vegetables — and the best cooking methods to retain them."
 ---
 
 Raw broccoli has more vitamin C than steamed broccoli. But steamed broccoli has more bioavailable sulforaphane than raw. Boiled carrots release more beta-carotene than raw carrots — unless you boil them too long, in which case the beta-carotene degrades.
@@ -41,7 +42,7 @@ If a recipe knows that it contains spinach and the cooking method is boiling, it
 
 This is where Cooklang's structured format becomes relevant. A `.cook` file with tagged ingredients (`@spinach{200%g}`), cooking methods, and timers (`~{5%minutes}`) contains enough structured data for a tool to analyze nutritional implications of the cooking process — not just the raw ingredient list.
 
-We haven't built this into CookCLI yet. But the structured data is already there in every Cooklang recipe. The ingredient annotations, cookware tags, and timer values provide the foundation. What's needed is a nutrient database mapping and rules about how cooking methods affect specific nutrients.
+We haven't built this into [CookCLI](/cli/) yet. But the structured data is already there in every Cooklang recipe. The ingredient annotations, cookware tags, and timer values provide the foundation. What's needed is a nutrient database mapping and rules about how cooking methods affect specific nutrients.
 
 ## Practical Takeaways
 

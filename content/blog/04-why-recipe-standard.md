@@ -1,8 +1,20 @@
 ---
-title: 'What Is a Standardized Recipe and Why It Matters'
+title: 'What Is a Standardized Recipe? Definition, Examples & Format'
 date: 2024-11-09T21:27:37+00:00
 weight: 80
 summary: A standardized recipe uses a consistent format for ingredients, quantities, and instructions so anyone can reproduce the same dish reliably. Learn what standardized recipes are, why they matter, and how Cooklang provides a practical standard for the digital age.
+description: "A standardized recipe is a tested set of instructions that produces the same quality and quantity every time. Learn the definition, key components, examples, and how to create your own standard recipes."
+faq:
+  - q: "What is a standardized recipe?"
+    a: "A standardized recipe is a recipe that has been tested and refined to produce consistent results every time it is prepared. It specifies exact ingredient quantities, preparation methods, cooking times, temperatures, and serving sizes in a structured format."
+  - q: "Why are standardized recipes important?"
+    a: "Standardized recipes ensure consistency (the same dish tastes the same every time), enable cost control (exact quantities prevent waste), allow scalability (recipes can be precisely multiplied or divided), support training (new cooks follow without guesswork), and enable automation (shopping lists, nutrition calculation, smart kitchen integration)."
+  - q: "What is the difference between a standard recipe and a regular recipe?"
+    a: "A regular recipe is informal — it might say 'some olive oil' or 'cook until golden.' A standardized recipe eliminates those gaps: every ingredient has a precise quantity and unit, every step has specific times and temperatures, and the format is consistent enough that someone else (or a computer) can reproduce the dish reliably."
+  - q: "What is the purpose of standardized recipes in food service?"
+    a: "In restaurants and commercial kitchens, standardized recipes ensure consistency across cooks, enable accurate food cost calculation per portion, and allow new staff to produce dishes to the expected standard without verbal instructions from senior cooks."
+  - q: "What does a standardized recipe include?"
+    a: "A standardized recipe includes exact ingredient names with quantities and units, step-by-step preparation instructions, cooking times and temperatures, equipment needed, yield and serving size, and often metadata like source, category, and nutritional information."
 ---
 
 Recipes fail for a stupid reason: ambiguity. "A generous amount of oil." "Cook until done." "Season to taste." These instructions work when you already know how to make the dish. For everyone else, they're guesswork.

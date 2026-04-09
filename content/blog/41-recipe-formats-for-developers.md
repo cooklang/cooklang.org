@@ -140,7 +140,7 @@ MMMMM
 
 **Parser availability.** This is where Cooklang stands apart. There are 15+ independent implementations: `cooklang-rs` (Rust, the reference parser), `cooklang-ts` (TypeScript), plus community implementations in Python, Go, Swift, Haskell, Dart, Clojure, Lua, Perl, Ruby, .NET, C, and a Tree-sitter grammar for editor integration. An EBNF grammar and canonical test suite give all of them a shared contract. If your target language isn't on the list, the EBNF is the spec you implement against.
 
-**Output formats.** CookCLI converts `.cook` files to JSON, YAML, Markdown, HTML, LaTeX, and Schema.org without any code on your part:
+**Output formats.** [CookCLI](/cli/) converts `.cook` files to JSON, YAML, Markdown, HTML, LaTeX, and Schema.org without any code on your part:
 
 ```bash
 cook recipe pasta.cook --format json

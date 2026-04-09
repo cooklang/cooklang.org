@@ -45,6 +45,43 @@
   }
 }
 </script>
+{{ if .Params.faq }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {{ range $i, $item := .Params.faq }}{{ if $i }},{{ end }}
+    {
+      "@type": "Question",
+      "name": "{{ $item.q }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ $item.a }}"
+      }
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
+{{ if .Params.howto }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "{{ .Title }}",
+  "description": "{{ if .Description }}{{ .Description }}{{ else }}{{ .Summary | truncate 155 }}{{ end }}",
+  "step": [
+    {{ range $i, $step := .Params.howto }}{{ if $i }},{{ end }}
+    {
+      "@type": "HowToStep",
+      "name": "{{ $step.name }}",
+      "text": "{{ $step.text }}"
+    }{{ end }}
+  ]
+}
+</script>
+{{ end }}
 {{ else if eq .Section "docs" }}
 <script type="application/ld+json">
 {

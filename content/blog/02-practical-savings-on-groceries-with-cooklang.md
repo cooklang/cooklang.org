@@ -1,6 +1,6 @@
 ---
 title: 'Automated Grocery List: Save Time and Money with Meal Planning'
-date: 2021-05-20T19:27:37+10:00
+date: 2026-04-09
 weight: 90
 summary: Build an automated grocery list from your meal plan using Cooklang. Practical tips for shopping list automation, reducing food waste, and cutting your grocery bill.
 ---
@@ -39,7 +39,7 @@ Generate the combined shopping list:
 cook shopping-list ./this-week/*.cook
 ```
 
-CookCLI extracts every ingredient, combines duplicates, and groups them by store aisle. Five recipes become one list in under a second.
+[CookCLI](/cli/) extracts every ingredient, combines duplicates, and groups them by store aisle. Five recipes become one list in under a second.
 
 ## Why This Saves Money
 

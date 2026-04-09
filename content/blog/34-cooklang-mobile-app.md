@@ -95,7 +95,7 @@ The app displays the photo at the top of the recipe. Take a photo of the finishe
 Recipe apps store your recipes in their database. The Cooklang app reads your files. The difference matters:
 
 - **Switch phones?** Your recipes are files on a cloud drive. Nothing to migrate.
-- **App discontinued?** Your `.cook` files still work in any text editor, in CookCLI, in other Cooklang tools.
+- **App discontinued?** Your `.cook` files still work in any text editor, in [CookCLI](/cli/), in other Cooklang tools.
 - **Want to edit?** Open the file in any text editor on any device. No app-specific editor with its own quirks.
 - **Want to share?** Send the file. The recipient can read it as plain text even without the app.
 

@@ -1,13 +1,14 @@
 ---
-title: "Cooklang + Home Assistant: Smart Kitchen Integration"
+title: "Cooklang + Home Assistant: Smart Kitchen Meal Planning & Recipes"
 date: 2026-02-28
 weight: 60
 summary: "Turn Home Assistant into a smart kitchen hub by integrating CookCLI — display today's recipe, trigger shopping lists, track expiring pantry items, and fire smart timers from your recipes."
+description: "Integrate recipe management and meal planning into Home Assistant. Display recipes, generate shopping lists, and run cooking timers from your HA dashboard."
 ---
 
 Home Assistant controls your lights, thermostat, and door locks. It knows when you wake up and when you leave the house. So why doesn't it know what's for dinner?
 
-With CookCLI running on your local network, the answer is a few lines of YAML away. This post shows how to pull your recipes into a Home Assistant dashboard, generate shopping lists from HA automations, fire smart timers from recipe step data, and surface expiring pantry items without leaving the HA UI.
+With [CookCLI](/cli/) running on your local network, the answer is a few lines of YAML away. This post shows how to pull your recipes into a Home Assistant dashboard, generate shopping lists from HA automations, fire smart timers from recipe step data, and surface expiring pantry items without leaving the HA UI.
 
 This is a companion to the [Raspberry Pi kitchen display post](/blog/17-raspberry-pi-kitchen-display/), which covers the hardware setup and getting CookCLI running as a service. Read that first if you're starting from scratch. This post assumes CookCLI is already running on your network — either on a Pi or any other machine — and focuses entirely on the Home Assistant side.
 

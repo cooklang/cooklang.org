@@ -3,6 +3,20 @@ title: "Build a Raspberry Pi Kitchen Display for Your Recipes"
 date: 2026-02-25
 weight: 60
 summary: "Turn a Raspberry Pi into a dedicated kitchen recipe display. Run CookCLI's web server on the Pi, sync your Cooklang recipes, and browse them from a touchscreen or any device on your network."
+description: "Step-by-step guide to setting up a Raspberry Pi as a kitchen recipe display. Install a recipe server, browse on a touchscreen, and keep your hands free while cooking."
+howto:
+  - name: "Gather hardware"
+    text: "Get a Raspberry Pi 4 or 5, microSD card, and optionally a touchscreen display."
+  - name: "Install Raspberry Pi OS"
+    text: "Flash Raspberry Pi OS Lite to the microSD card and boot the Pi."
+  - name: "Install CookCLI"
+    text: "Download and install CookCLI on the Pi using the provided install script."
+  - name: "Add your recipes"
+    text: "Copy your Cooklang recipe files to the Pi via Git, rsync, or USB."
+  - name: "Start the recipe server"
+    text: "Run CookCLI's built-in web server to serve recipes on your local network."
+  - name: "Browse recipes"
+    text: "Open the server URL from any device on your network, or use kiosk mode on the Pi's touchscreen."
 ---
 
 A Raspberry Pi with a small display makes a practical kitchen companion. Run [CookCLI](/cli/) on it, point it at your recipe collection, and you get a browsable recipe server accessible from any device on your network — or directly on a touchscreen mounted in your kitchen.
@@ -37,7 +51,7 @@ ssh pi@kitchen.local
 
 ### Option A: Docker (Recommended)
 
-Install Docker on the Pi:
+Install [Docker](/blog/self-hosting-recipes-with-docker/) on the Pi:
 
 ```bash
 curl -fsSL https://get.docker.com | sh

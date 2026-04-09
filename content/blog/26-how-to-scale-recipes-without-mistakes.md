@@ -3,6 +3,7 @@ title: "How to Scale Recipes Without Mistakes"
 date: 2026-02-28
 weight: 60
 summary: "Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right."
+description: "Learn how to scale recipes up or down without ruining them. Covers the math, the pitfalls, and tools that auto-calculate ingredient quantities for any serving size."
 ---
 
 Doubling a recipe should be simple math. So why does doubling chocolate chip cookies always turn out wrong?

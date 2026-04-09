@@ -3,6 +3,18 @@ title: "Self-Hosting Your Recipe Collection with Docker and CookCLI"
 date: 2026-02-25
 weight: 60
 summary: "Set up a self-hosted recipe server in minutes with Docker and CookCLI. Browse recipes from any device, generate shopping lists, and keep your data private — no cloud accounts required."
+description: "Self-host your recipe collection with Docker and CookCLI. Browse, search, and generate shopping lists from any device on your network — no cloud required."
+howto:
+  - name: "Install Docker"
+    text: "Install Docker and Docker Compose on your server or local machine."
+  - name: "Create a Docker Compose file"
+    text: "Write a docker-compose.yml that mounts your recipe directory and exposes the CookCLI web server."
+  - name: "Add your recipes"
+    text: "Place your Cooklang .cook recipe files in the mounted directory."
+  - name: "Start the server"
+    text: "Run docker compose up to start the recipe server."
+  - name: "Access from any device"
+    text: "Open the server URL from any device on your network to browse, search, and generate shopping lists."
 ---
 
 If you keep your recipes in [Cooklang format](/docs/spec/), you can serve them on your local network with a single Docker command. [CookCLI](/cli/) runs a lightweight web server that lets you browse, search, and generate shopping lists from any device — phone, tablet, or laptop.
@@ -62,7 +74,7 @@ The server is read-only — it serves your recipe files but doesn't modify them.
 
 ## Accessing from Other Devices
 
-By default, CookCLI's Docker image binds to all interfaces (`--host`), so it's accessible from any device on your local network.
+By default, [CookCLI](/cli/)'s Docker image binds to all interfaces (`--host`), so it's accessible from any device on your local network.
 
 Find your server's IP address:
 

@@ -56,6 +56,6 @@ This means:
 - Recipe scaling could account for which steps are affected by quantity changes
 - Cooking timelines could be built showing parallel processes and critical paths
 
-The approach could be integrated into CookCLI and the mobile apps, parsing existing recipe collections into graph form without requiring users to learn any new syntax.
+The approach could be integrated into [CookCLI](/cli/) and the mobile apps, parsing existing recipe collections into graph form without requiring users to learn any new syntax.
 
 -Alexey
