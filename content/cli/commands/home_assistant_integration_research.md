@@ -2,7 +2,7 @@
 title: 'Home_assistant_integration_research'
 weight: 99
 description: 'CookCLI Home_assistant_integration_research command documentation'
-date: 2026-03-11T14:48:15+00:00
+date: 2026-04-10T18:01:50+00:00
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 title: 'Cooklang Specification'
-date: 2026-03-07T20:52:22+00:00
+date: 2026-04-10T18:01:32+00:00
 draft: false
 weight: 2
 summary: This is the specification and reference for writing a recipe in Cooklang.
