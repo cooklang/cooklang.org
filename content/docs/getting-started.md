@@ -57,6 +57,7 @@ Syntax highlighting makes writing recipes easier. Set up your preferred editor:
 
 ![VSCode autocomplete with CookCLI](/guide/vscode.png)
 
+- **Cook Editor** (Alpha): A standalone [desktop app](https://cook.md/editor) with Cooklang syntax highlighting, recipe preview, shopping lists, and built-in AI assistance. Available for macOS, Windows, and Linux.
 - **Vim/Neovim**: Add a [Cooklang syntax file](https://github.com/luizribeiro/vim-cooklang) for highlighting.
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
@@ -113,11 +114,11 @@ Install from [GitHub Releases](https://github.com/cooklang/cookcli/releases/late
 
 ### AI-Powered Recipe Management
 
-If you use an AI coding assistant like Claude Code or Codex CLI, you can supercharge your workflow with **Cooklang Skills** — AI skills that let you create, convert, validate, and manage recipes using natural language.
+If you use an AI coding assistant like Claude Code or Codex CLI, you can supercharge your workflow with [Cooklang Skills](https://github.com/cooklang/cooklang-skills) — AI skills that let you create, convert, validate, and manage recipes using natural language.
 
 Some skills work standalone (`create-recipe`, `convert-recipe`, `organize-collection`), while others benefit from having CookCLI installed.
 
-If you don't use these tools, try [Cookbot](https://cooklang.org/app/#:~:text=Cookbot,-New) — built specifically for working with Cooklang recipes and plans.
+If you don't use these tools, try [Cook Editor](https://cook.md/editor) — a free desktop app for writing, previewing, and planning meals from your Cooklang files, with AI assistance built in.
 
 ## What's Next?
 

@@ -38,22 +38,20 @@ Submit your feedback in [discussions](https://github.com/cook-md/android-app/dis
 
 Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
 
-## Cookbot <span class="new-label">New</span> {#cookbot}
+## Cook Editor <span class="new-label">New</span> {#cook-editor}
 
-![Cookbot Screenshot](/guide/cookbot.png)
+![Cook Editor Screenshot](/guide/cook-editor.png)
 
-Cookbot is a terminal app (TUI) for managing Cooklang recipes with AI assistance. It lets you work with your recipes in natural language:
+Cook Editor is a free desktop app for writing, previewing, and planning meals from your `.cook` files. Available for macOS, Windows, and Linux.
 
-* Find new top-rated recipes online that you might like
-* Build meal plans for the coming days
-* Update recipe metadata to be consistent with your collection
-* Convert units to metric
-* Make recipes healthier or substitute ingredients
-* Review and improve cooking instructions
+* Syntax highlighting, inline validation, and autocomplete for Cooklang
+* Recipe preview with scaling and ingredient chips
+* Shopping lists combined from multiple recipes, grouped by aisle
+* Multi-day meal plans with `.menu` files
+* Built-in CookBot AI sidebar that can import recipes, draft meal plans, and edit your collection — with your approval
+* Syncs with iOS and Android apps
 
-Powered by Claude Sonnet, you can ask it to do almost anything with your recipes—because your recipes are just files.
+The editor is free. An optional **Cookbot Pro** subscription unlocks unlimited AI conversations, recipe import from any URL, and AI meal planning.
 
-**Pricing:** €10/month for the first 100 users.
-
-[Documentation](https://cook.md/help/cookbot) | [Installation & Issues](https://github.com/cook-md/cookbot)
+[Download](https://github.com/cook-md/editor/releases/latest) | [Documentation](https://cook.md/help/editor) | [Source](https://github.com/cook-md/editor)
 
