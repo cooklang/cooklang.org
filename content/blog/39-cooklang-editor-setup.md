@@ -82,7 +82,7 @@ The plugin gives you:
 
 Your `.cook` files behave like any other note in your vault. They show up in search, appear in the graph view, support tags, and accept backlinks from other notes. A recipe index note can link to individual recipes; meal plan notes can reference whatever you're cooking that week.
 
-There's a full walkthrough in [How to Manage Recipes in Obsidian with Cooklang](/blog/how-to-manage-recipes-in-obsidian-with-cooklang/).
+There's a full walkthrough in [How to Manage Recipes in Obsidian with Cooklang](/blog/15-cooklang-obsidian-guide/).
 
 ## Emacs
 
