@@ -9,6 +9,7 @@ summary: Links on projects helpful for developers.
 Formal EBNF definition of the language can be found [here](https://github.com/cooklang/spec/blob/main/EBNF.md).
 
 ### General
+* **[Awesome Cooklang](https://github.com/cooklang/awesome-cooklang)** — curated list of apps, CLIs, libraries, and integrations across the ecosystem
 * [Playground](https://cooklang.github.io/cooklang-rs/) with raw parser output
 * [Canonical tests](https://github.com/cooklang/spec/tree/main/tests) for your project
 * [Tree-sitter](https://github.com/addcninblue/tree-sitter-cooklang)
