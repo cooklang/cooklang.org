@@ -152,6 +152,10 @@ While it's convinient to manage recipes on your computer, it's more convinient t
 ![Recipe](/app/recipe-ingredients.png)
 ![Shopping list](/app/shopping-list.png)
 
+## Ecosystem
+
+Beyond the official apps and CLI, the community has built parsers in over a dozen languages, editor plugins, smart-home integrations, build-tool plugins, and AI agent skills. See [awesome-cooklang](https://github.com/cooklang/awesome-cooklang) for the curated list.
+
 ## Get updates
 
 {{< newsletter-form >}}
