@@ -51,7 +51,7 @@ ssh pi@kitchen.local
 
 ### Option A: Docker (Recommended)
 
-Install [Docker](/blog/self-hosting-recipes-with-docker/) on the Pi:
+Install [Docker](/blog/21-self-hosting-recipes-with-docker/) on the Pi:
 
 ```bash
 curl -fsSL https://get.docker.com | sh

@@ -97,7 +97,7 @@ Timers keep running in the background. Lock your phone, switch to another app, p
 
 The timer syntax works everywhere in the Cooklang ecosystem, not just the mobile app:
 
-- **[Obsidian plugin](/blog/cooklang-obsidian-guide/)** — interactive countdown timers right in your note, with notification sounds
+- **[Obsidian plugin](/blog/15-cooklang-obsidian-guide/)** — interactive countdown timers right in your note, with notification sounds
 - **[CookCLI](/cli/)** — the web server displays timers in recipe steps
 - **Custom integrations** — any parser that reads Cooklang can extract timer data and build UI around it
 

@@ -1,20 +1,9 @@
 ---
-title: 'What Is a Standardized Recipe? Definition, Examples & Format'
+title: "Why Recipes Don't Have a Standard Format (And Why That's a Problem)"
 date: 2024-11-09T21:27:37+00:00
 weight: 80
-summary: A standardized recipe uses a consistent format for ingredients, quantities, and instructions so anyone can reproduce the same dish reliably. Learn what standardized recipes are, why they matter, and how Cooklang provides a practical standard for the digital age.
-description: "A standardized recipe is a tested set of instructions that produces the same quality and quantity every time. Learn the definition, key components, examples, and how to create your own standard recipes."
-faq:
-  - q: "What is a standardized recipe?"
-    a: "A standardized recipe is a recipe that has been tested and refined to produce consistent results every time it is prepared. It specifies exact ingredient quantities, preparation methods, cooking times, temperatures, and serving sizes in a structured format."
-  - q: "Why are standardized recipes important?"
-    a: "Standardized recipes ensure consistency (the same dish tastes the same every time), enable cost control (exact quantities prevent waste), allow scalability (recipes can be precisely multiplied or divided), support training (new cooks follow without guesswork), and enable automation (shopping lists, nutrition calculation, smart kitchen integration)."
-  - q: "What is the difference between a standard recipe and a regular recipe?"
-    a: "A regular recipe is informal — it might say 'some olive oil' or 'cook until golden.' A standardized recipe eliminates those gaps: every ingredient has a precise quantity and unit, every step has specific times and temperatures, and the format is consistent enough that someone else (or a computer) can reproduce the dish reliably."
-  - q: "What is the purpose of standardized recipes in food service?"
-    a: "In restaurants and commercial kitchens, standardized recipes ensure consistency across cooks, enable accurate food cost calculation per portion, and allow new staff to produce dishes to the expected standard without verbal instructions from senior cooks."
-  - q: "What does a standardized recipe include?"
-    a: "A standardized recipe includes exact ingredient names with quantities and units, step-by-step preparation instructions, cooking times and temperatures, equipment needed, yield and serving size, and often metadata like source, category, and nutritional information."
+summary: "Music has notation. Code has formal grammar. Recipes — something humans share daily — still don't have a standard format. Here's why that matters and what a real recipe standard looks like."
+description: "Music has notation. Code has formal grammar. Recipes — something humans share daily — still don't have a standard format. Here's why that matters."
 ---
 
 Recipes fail for a stupid reason: ambiguity. "A generous amount of oil." "Cook until done." "Season to taste." These instructions work when you already know how to make the dish. For everyone else, they're guesswork.
@@ -60,38 +49,5 @@ Roast for ~{35%minutes} until the internal temperature reaches 75°C.
 The recipe reads naturally. The `@`, `#`, and `~` annotations make it machine-parseable. Tools can extract ingredients, generate shopping lists, run timers, and scale quantities — all from the same file a human reads while cooking.
 
 This isn't the only possible standard. But it's a working one, with an [ecosystem of tools](/cli/) that demonstrate what structured recipes make possible.
-
-## Frequently Asked Questions
-
-### What is a standardized recipe?
-
-A standardized recipe is a recipe that has been tested and refined to produce consistent results every time it is prepared. It specifies exact ingredient quantities, preparation methods, cooking times, temperatures, and serving sizes in a structured format. In the food service industry, standardized recipes are essential for consistency, cost control, and training. In the digital world, a standardized recipe format like [Cooklang](/docs/spec/) extends this idea further — making recipes machine-readable so that software can generate shopping lists, calculate nutrition, and scale portions automatically.
-
-### What is the meaning of a standard recipe?
-
-A standard recipe is one that follows a fixed format and has been tested to produce predictable results. It removes ambiguity ("a pinch of salt," "cook until done") and replaces it with precise measurements and clear instructions. The goal is that anyone, anywhere, following the same standard recipe should get the same result.
-
-### Why are standardized recipes important?
-
-Standardized recipes are important because they enable:
-
-- **Consistency** — the same dish tastes the same every time, regardless of who prepares it
-- **Cost control** — exact quantities prevent waste and allow accurate budgeting
-- **Scalability** — recipes can be multiplied or divided precisely for different serving sizes
-- **Training** — new cooks can follow a standardized recipe without guesswork
-- **Automation** — machine-readable recipe formats enable shopping list generation, nutrition calculation, and integration with smart kitchen devices
-- **Preservation** — a recipe written in a standard format won't degrade as it's shared and copied
-
-### What is the difference between a standard recipe and a regular recipe?
-
-A regular recipe is informal — it might say "some olive oil," "cook until golden," or "season to taste." It assumes the cook already has experience and can fill in the gaps. A standardized recipe eliminates those gaps: every ingredient has a precise quantity and unit, every step has specific times and temperatures, and the format is consistent enough that software can parse it. The difference isn't about creativity — it's about whether someone else (or a computer) can reproduce the dish reliably without guessing.
-
-### What is the purpose of standardized recipes in food service?
-
-In restaurants and commercial kitchens, standardized recipes serve three purposes: consistency, cost control, and training. A standardized recipe ensures that every plate of the same dish tastes the same regardless of which cook prepares it. It allows managers to calculate exact food costs per portion and maintain profit margins. And it lets new kitchen staff produce dishes to the expected standard without relying on a senior cook's verbal instructions. Many food service establishments are required to maintain standardized recipes for health and safety compliance as well.
-
-### How does Cooklang help standardize recipes?
-
-[Cooklang](/) is an open-source markup language designed to be a practical recipe standard. It uses simple text annotations to mark ingredients (`@`), cookware (`#`), and timers (`~`) within natural recipe text. This makes recipes both human-readable and machine-readable. Tools built around Cooklang — like [CookCLI](/cli/), mobile apps, and editor plugins — can then parse these recipes to generate shopping lists, run cooking timers, calculate costs, and more.
 
 -Alexey

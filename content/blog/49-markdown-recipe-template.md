@@ -146,7 +146,7 @@ What changes compared to Markdown:
 - **Scaling works.** Change the servings number and tools recalculate every `{400%g}` accordingly. No manual math.
 - **The text is still readable.** It reads like a recipe. Someone who has never heard of Cooklang can follow it in the kitchen.
 
-It's still plain text. It still works with Git, any sync service, any text editor. But now a computer can do useful things with it. See the [format comparison](/blog/recipe-formats-compared/) for how this stacks up against JSON-LD, MealMaster, and others.
+It's still plain text. It still works with Git, any sync service, any text editor. But now a computer can do useful things with it. See the [format comparison](/blog/19-recipe-formats-compared/) for how this stacks up against JSON-LD, MealMaster, and others.
 
 ## Using Either Format in Obsidian
 
@@ -159,7 +159,7 @@ With the plugin, `.cook` files get:
 - Interactive timers that run directly in the editor
 - An ingredient checklist while you cook
 
-The [Obsidian guide](/blog/cooklang-obsidian-guide/) covers setup in detail. It takes about three minutes.
+The [Obsidian guide](/blog/15-cooklang-obsidian-guide/) covers setup in detail. It takes about three minutes.
 
 If you're already using Markdown recipes in Obsidian, you can migrate gradually — convert recipes to Cooklang as you use them, or leave old ones as Markdown. There's no conflict.
 

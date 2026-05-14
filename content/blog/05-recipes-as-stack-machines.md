@@ -98,7 +98,7 @@ Every `@ingredient` is a push. Every step that transforms ingredients is an oper
 - Impossible operations (type mismatches)
 - Parallel opportunities (independent stacks that could run concurrently)
 
-This is where [recipe graphs](/blog/generating-a-recipe-graph-with-chatgpt/) connect — a graph is what you get when you lay a stack machine's execution trace out spatially instead of temporally.
+This is where [recipe graphs](/blog/03-ai-and-the-evolution-of-recipe-formats/) connect — a graph is what you get when you lay a stack machine's execution trace out spatially instead of temporally.
 
 ## The Point
 

@@ -154,7 +154,7 @@ Recipe references go further: a `.cook` file can reference another `.cook` file 
 Serve the duck with @./Sauces/Salsa Verde{} spooned over the top.
 ```
 
-The parser follows that path, finds `Salsa Verde.cook`, and includes its ingredients in the aggregate shopping list. You don't have to copy-paste the salsa verde ingredients into the main recipe — the reference does it. This is [recipe composition](/blog/recipe-programming-language-write-and-manage-recipes-as-code/), and it changes how you organize a cookbook.
+The parser follows that path, finds `Salsa Verde.cook`, and includes its ingredients in the aggregate shopping list. You don't have to copy-paste the salsa verde ingredients into the main recipe — the reference does it. This is [recipe composition](/blog/22-cooking-for-programmers/), and it changes how you organize a cookbook.
 
 ## Metadata and the YAML Frontmatter Decision
 

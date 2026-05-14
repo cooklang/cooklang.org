@@ -70,6 +70,6 @@ I cross off what I already have, then order the rest. The process takes about fi
 
 I keep all my recipes in a [Git repository](https://github.com/dubadub/cookbook). They've been evolving for years — adjusting quantities, adding notes, trying variations. Git tracks every change.
 
-**Update (2025):** I've since built a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my grocery store's website, making the ordering process almost fully automatic. The ecosystem has also grown — there are now [mobile apps](/app/), an [Obsidian plugin](/blog/how-to-manage-recipes-in-obsidian-with-cooklang/), a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=nicholasglazer.cooklang-vscode-support), and a [community recipe index](https://recipes.cooklang.org). Check the [getting started guide](/docs/getting-started/) to try it yourself.
+**Update (2025):** I've since built a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my grocery store's website, making the ordering process almost fully automatic. The ecosystem has also grown — there are now [mobile apps](/app/), an [Obsidian plugin](/blog/15-cooklang-obsidian-guide/), a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=nicholasglazer.cooklang-vscode-support), and a [community recipe index](https://recipes.cooklang.org). Check the [getting started guide](/docs/getting-started/) to try it yourself.
 
 -Alexey

@@ -1,9 +1,9 @@
 ---
-title: "How to Manage Recipes in Obsidian with Cooklang"
+title: "Cooklang for Obsidian: Manage Recipes in Your Vault (2026 Guide)"
 date: 2026-02-25
 weight: 60
 summary: "A step-by-step guide to using the Cooklang plugin for Obsidian. Turn your vault into a recipe manager with syntax highlighting, interactive timers, shopping lists, and a beautiful preview mode."
-description: "Use the Cooklang plugin to manage recipes in Obsidian. Get syntax highlighting, interactive cooking timers, shopping lists, and recipe preview in your vault."
+description: "Use the Cooklang Obsidian plugin to manage recipes in your vault — syntax highlighting, interactive cooking timers, shopping lists, and recipe preview."
 howto:
   - name: "Install the Cooklang plugin"
     text: "Open Obsidian Settings, go to Community Plugins, search for Cooklang Editor, and install it."

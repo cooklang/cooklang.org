@@ -45,7 +45,7 @@ cook shopping-list ./this-week/*.cook
 
 **You buy exactly what you need.** No "that looks good, I'll figure out what to do with it." Every item on the list exists because a recipe calls for it. Over a month, this cuts 15–20% of impulse purchases.
 
-**You stop buying duplicates.** Before I tracked my pantry, I owned three jars of cumin. With Cooklang's [pantry tracking](/blog/the-pantry-problem/), the shopping list excludes what you already have.
+**You stop buying duplicates.** Before I tracked my pantry, I owned three jars of cumin. With Cooklang's [pantry tracking](/blog/10-the-pantry-problem/), the shopping list excludes what you already have.
 
 **You use everything you buy.** When every ingredient has a destination recipe, nothing rots in the back of the fridge. Plan leftovers deliberately — Monday's roast chicken becomes Tuesday's chicken salad.
 

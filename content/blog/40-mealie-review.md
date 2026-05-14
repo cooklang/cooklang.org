@@ -130,7 +130,7 @@ These are different philosophies, not a ranking. Mealie is excellent at what it 
 
 ---
 
-For a side-by-side comparison of Mealie, Paprika, KitchenOwl, and Cooklang across more criteria, see [this full comparison](/blog/mealie-vs-paprika-vs-kitchenowl-vs-cooklang-recipe-manager-comparison/).
+For a side-by-side comparison of Mealie, Paprika, KitchenOwl, and Cooklang across more criteria, see [this full comparison](/blog/09-cooklang-vs-paprika-vs-mealie/).
 
 If you want to try Cooklang, the [getting started guide](/docs/getting-started/) takes about five minutes.
 

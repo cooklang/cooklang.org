@@ -89,7 +89,7 @@ Once recipes are in Cooklang format, you can:
 - **Generate shopping lists:** `cook shopping-list recipe1.cook recipe2.cook` combines ingredients from multiple recipes.
 - **Browse from your phone:** `cook server ~/Recipes --host` starts a web server accessible from any device on your network.
 - **Scale recipes:** The server UI lets you adjust serving sizes and ingredient quantities update automatically.
-- **Edit in Obsidian:** The [Cooklang Obsidian plugin](/blog/how-to-manage-recipes-in-obsidian-with-cooklang/) adds syntax highlighting, preview mode, and interactive timers.
+- **Edit in Obsidian:** The [Cooklang Obsidian plugin](/blog/15-cooklang-obsidian-guide/) adds syntax highlighting, preview mode, and interactive timers.
 
 ## Why Plain Text Wins for Recipe Storage
 

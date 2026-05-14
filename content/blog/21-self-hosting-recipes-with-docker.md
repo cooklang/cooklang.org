@@ -230,7 +230,7 @@ It runs well on a Raspberry Pi, an old laptop, a NAS, or any VPS.
 
 ## Comparison with Other Self-Hosted Options
 
-If you're evaluating self-hosted recipe managers, CookCLI's server is the simplest option — no database, no configuration, just point it at a directory. For more features (meal planning calendars, multi-user access, web scraping), see our [comparison of open source recipe managers](/blog/the-best-open-source-recipe-managers-in-2026/).
+If you're evaluating self-hosted recipe managers, CookCLI's server is the simplest option — no database, no configuration, just point it at a directory. For more features (meal planning calendars, multi-user access, web scraping), see our [comparison of open source recipe managers](/blog/18-open-source-recipe-managers-2026/).
 
 The trade-off is clear: CookCLI gives you simplicity and data portability (plain text files). Database-backed tools like Mealie and Tandoor give you richer features at the cost of more infrastructure.
 

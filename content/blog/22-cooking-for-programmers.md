@@ -80,7 +80,7 @@ Simple recipes are sequential. Real cooking involves concurrency:
 
 This is parallel execution with synchronization points. The pasta and sauce are independent threads that join at the "combine" step. If the sauce finishes before the pasta, it waits (you keep it warm). If the pasta finishes first, it also waits (you drain it and toss with oil). The synchronization point is plating.
 
-[Meal planning takes this further](/blog/meal-planning-as-compilation/) — planning a week of meals is like compiling a program. You're optimizing for resource usage (fridge space), dependency resolution (Monday's roast chicken becomes Tuesday's chicken salad), and scheduling (batch cook on Sunday, reheat Wednesday).
+[Meal planning takes this further](/blog/11-meal-planning-as-compilation/) — planning a week of meals is like compiling a program. You're optimizing for resource usage (fridge space), dependency resolution (Monday's roast chicken becomes Tuesday's chicken salad), and scheduling (batch cook on Sunday, reheat Wednesday).
 
 ## Recipes Need a Type System
 
@@ -113,7 +113,7 @@ If any of this resonates, here's where to start:
 
 3. **Version control your recipes.** Put them in a Git repo. Start tracking changes. You'll never wonder "didn't this used to have more garlic?" again.
 
-4. **Read the deep dives.** If you want the full CS theory, we've written about [recipes as stack machines](/blog/understanding-recipes-as-stack-machines/) and [meal planning as compilation](/blog/meal-planning-as-compilation/). They go much further than this introduction.
+4. **Read the deep dives.** If you want the full CS theory, we've written about [recipes as stack machines](/blog/05-recipes-as-stack-machines/) and [meal planning as compilation](/blog/11-meal-planning-as-compilation/). They go much further than this introduction.
 
 Cooking is one of the few activities that translates directly from programming concepts. The skills transfer in both directions. The more systematically you think about cooking, the better your food gets — and the more you appreciate that algorithms are everywhere, not just on screens.
 

@@ -36,7 +36,7 @@ Most recipe formats are good at one or two of these. Few are good at all four.
 
 **Handwritten cards and PDFs** — completely portable, completely unprocessable. Great for heirlooms, useless for automation.
 
-See the [full format comparison](/blog/recipe-formats-compared/) for side-by-side examples of the same recipe in each format.
+See the [full format comparison](/blog/19-recipe-formats-compared/) for side-by-side examples of the same recipe in each format. If you're building software against recipe data, [Recipe Formats for Developers](/blog/41-recipe-formats-for-developers/) goes deeper into parsers and AST structure.
 
 ## The Standard Recipe Format Problem
 
@@ -90,9 +90,9 @@ From this single file, tools can:
 - Display the recipe in a readable format without the markup showing
 - Search your collection by ingredient or tag
 
-This is what the [format comparison post](/blog/recipe-formats-compared/) calls the "fundamental tension" — plain text is human-readable but not machine-parseable; JSON is machine-readable but not human-writable. Cooklang is both, because the annotations stay out of the way when you're reading.
+This is what the [format comparison post](/blog/19-recipe-formats-compared/) calls the "fundamental tension" — plain text is human-readable but not machine-parseable; JSON is machine-readable but not human-writable. Cooklang is both, because the annotations stay out of the way when you're reading.
 
-If you want to understand the theory behind why this matters, [why we built a recipe standard](/blog/why-recipe-standard/) goes into the broader argument.
+If you want to understand the theory behind why this matters, [why we built a recipe standard](/blog/04-why-recipe-standard/) goes into the broader argument.
 
 ## Storing Recipes as Files
 
@@ -116,7 +116,7 @@ recipes/
 
 **Sync.** Put the folder in iCloud Drive, Dropbox, or Google Drive. The [mobile app](/app/) reads directly from iCloud. The [CLI](/cli/) reads from wherever you point it.
 
-**Git.** If you want version control — and you should, if you develop recipes over time — a Git repo lets you track every change. You can see exactly when you reduced the salt, what happened when you tried a different technique, and roll back experiments that didn't work. The post on [recipes as code](/blog/cooking-for-programmers/) covers this in more detail.
+**Git.** If you want version control — and you should, if you develop recipes over time — a Git repo lets you track every change. You can see exactly when you reduced the salt, what happened when you tried a different technique, and roll back experiments that didn't work. The post on [recipes as code](/blog/22-cooking-for-programmers/) covers this in more detail.
 
 ```bash
 git log --oneline chicken-stir-fry.cook

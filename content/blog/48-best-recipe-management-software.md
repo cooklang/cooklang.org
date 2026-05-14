@@ -1,5 +1,5 @@
 ---
-title: "Best Recipe Management Software in 2026: Apps for Every Cook"
+title: "Best Recipe Management Software in 2026: 9 Apps Compared"
 date: 2026-04-09
 weight: 70
 summary: "A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs."
@@ -50,13 +50,13 @@ This category has grown significantly. If you are comfortable with Docker and wa
 
 The limitations are real. Your recipes live in a database inside a Docker volume. You cannot grep your collection. You cannot put a single recipe in Git. Offline access requires your server to be reachable. Schema migrations during updates occasionally break things. If the project went dark tomorrow, recovering your data would require running the export process before that happened.
 
-Full details in the [Mealie review](/blog/mealie-review/).
+Full details in the [Mealie review](/blog/40-mealie-review/).
 
 **Tandoor Recipes** is the power-user option. Nutritional tracking, meal cost calculation, calendar export, granular permissions, support for a dozen import/export formats. If you want maximum features and are willing to spend time on setup and configuration, Tandoor delivers. The trade-off is real complexity — it requires PostgreSQL from the start, has more moving parts, and a steeper learning curve. Heavier on resources too.
 
 **KitchenOwl** takes a different emphasis: household collaboration and mobile. Built with Flutter for the frontend, it has genuinely native mobile apps rather than responsive web wrappers. Real-time shopping list sync is the headline feature — multiple people see updates instantly, which actually matters in a grocery store with spotty cell coverage. It is lighter than the others and simpler on the recipe management side, but if shared grocery lists and mobile-first design are the priority, KitchenOwl fits better than Mealie or Tandoor.
 
-For a direct comparison of all three, see [Tandoor vs Mealie vs KitchenOwl](/blog/tandoor-vs-mealie-vs-kitchenowl/).
+For a direct comparison of all three, see [Tandoor vs Mealie vs KitchenOwl](/blog/42-tandoor-vs-mealie-vs-kitchenowl/).
 
 ### Plain Text and Developer Tools
 
@@ -102,7 +102,7 @@ There is no universal answer, but the decision is not complicated if you are hon
 
 **Ease of use over everything:** Paprika. It is polished, works offline, handles web scraping well, and requires no configuration. Pay once, use it immediately. The data portability limitations are real, but for most people they will never matter in practice.
 
-**Self-hosted with multi-user and meal planning:** Mealie. The UI is the best in this category, the API is solid, and the community is large enough that issues get fixed quickly. If you are comfortable with Docker and want a turnkey web application for your household, Mealie is the right starting point. For a deeper look at self-hosted options, see the [open source recipe managers guide](/blog/open-source-recipe-managers-2026/).
+**Self-hosted with multi-user and meal planning:** Mealie. The UI is the best in this category, the API is solid, and the community is large enough that issues get fixed quickly. If you are comfortable with Docker and want a turnkey web application for your household, Mealie is the right starting point. For a deeper look at self-hosted options, see the [open source recipe managers guide](/blog/18-open-source-recipe-managers-2026/).
 
 **Maximum features and willing to configure:** Tandoor. Nutritional tracking, calendar export, granular permissions — Tandoor has depth that the others lack. Worth it if you will actually use the features.
 
@@ -110,7 +110,7 @@ There is no universal answer, but the decision is not complicated if you are hon
 
 **Data ownership, flexibility, developer use:** Cooklang. If you want your recipes to be yours — readable, editable, version-controllable, portable to anything — plain text is the only answer. The ecosystem is real, the format is simple enough to learn in ten minutes, and you will never be stuck because of an app decision someone else made.
 
-For a direct side-by-side on Cooklang, Paprika, Mealie, and KitchenOwl, the [detailed comparison](/blog/cooklang-vs-paprika-vs-mealie/) covers the main trade-offs in one place.
+For a direct side-by-side on Cooklang, Paprika, Mealie, and KitchenOwl, the [detailed comparison](/blog/09-cooklang-vs-paprika-vs-mealie/) covers the main trade-offs in one place.
 
 ---
 

@@ -15,7 +15,7 @@ Recipe sites are advertising businesses that happen to contain recipes. The econ
 
 Search engines reward length and engagement, so recipe authors pad their posts. They also modify recipes to avoid duplication — swapping ingredients, changing ratios, inventing variations. The result is a race to the bottom where the recipes themselves get worse while the content around them gets longer.
 
-This is what we called [the Dishwasher Salmon problem](/blog/the-dishwasher-salmon-problem/) — the pressure to create "unique" content produces recipes nobody asked for, like cooking salmon in a dishwasher.
+This is what we called [the Dishwasher Salmon problem](/blog/13-the-dishwasher-salmon-problem/) — the pressure to create "unique" content produces recipes nobody asked for, like cooking salmon in a dishwasher.
 
 ## What Good Recipe Discovery Looks Like
 

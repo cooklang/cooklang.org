@@ -3,6 +3,7 @@ title: "Tandoor vs Mealie vs KitchenOwl: Choosing a Self-Hosted Recipe Manager i
 date: 2026-03-24
 weight: 44
 summary: "An honest comparison of three popular self-hosted recipe managers — Tandoor, Mealie, and KitchenOwl. Setup complexity, UI, recipe import, meal planning, mobile experience, and data portability."
+description: "Tandoor vs Mealie vs KitchenOwl, compared honestly: setup, UI, recipe import, meal planning, mobile, and data portability. Pick the right self-hosted recipe manager."
 ---
 
 Three open source recipe managers. All Docker-based. All actively maintained. All free to self-host. And yet they make quite different decisions about what matters.
@@ -136,6 +137,6 @@ Cooklang is a markup language for recipes. You write `.cook` files in any text e
 
 The trade-off is real: no GUI recipe import, no multi-user dashboard, no polished web interface for non-technical household members. But your recipes are text files. They open in any editor, diff cleanly in Git, survive any app going offline, and never require a migration.
 
-For a broader comparison that includes Cooklang alongside Mealie, KitchenOwl, and Paprika, see the [full recipe manager comparison](/blog/mealie-vs-paprika-vs-kitchenowl-vs-cooklang-recipe-manager-comparison/). If Cooklang's approach sounds interesting, the [getting started guide](/docs/getting-started/) is a five-minute read.
+For a broader comparison that includes Cooklang alongside Mealie, KitchenOwl, and Paprika, see the [full recipe manager comparison](/blog/09-cooklang-vs-paprika-vs-mealie/). If Cooklang's approach sounds interesting, the [getting started guide](/docs/getting-started/) is a five-minute read.
 
 -Alex

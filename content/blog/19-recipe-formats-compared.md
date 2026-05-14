@@ -1,8 +1,9 @@
 ---
-title: "Recipe File Formats Compared: Cooklang vs Markdown vs JSON-LD vs MealMaster"
+title: "6 Recipe File Formats Compared: Cooklang, Markdown, JSON-LD & More"
 date: 2026-02-25
 weight: 60
 summary: "A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same recipe in each format, with pros, cons, and when to use each."
+description: "Six recipe file formats compared side by side — Cooklang, Markdown, JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same recipe in each, with pros and cons."
 ---
 
 There's no single standard for storing recipes digitally. Different formats emerged from different eras and different needs — BBS systems, XML web services, SEO, and plain text editing. Each makes trade-offs between human readability, machine parseability, and ecosystem support.
@@ -243,6 +244,8 @@ steps:
 The fundamental tension is between human readability and machine parseability. Markdown is the easiest to write but computers can't reliably extract structured data from it. JSON-LD is perfectly machine-readable but nobody writes it by hand.
 
 Cooklang sits in the middle — you write natural recipe text, and the `@`, `#`, `~` annotations make it machine-parseable without sacrificing readability. That's why we built it.
+
+If you're building software around recipe data and want a code-level view — parser availability, AST structure, what your code actually gets back from each format — see [Recipe Formats for Developers](/blog/41-recipe-formats-for-developers/).
 
 [Try Cooklang →](/docs/getting-started/) | [Language specification →](/docs/spec/)
 
