@@ -14,6 +14,7 @@ CookCLI is a free, open-source command-line tool for working with [Cooklang](htt
 | [recipe](commands/recipe) | `r` | Parse, validate and display recipe files |
 | [shopping-list](commands/shopping-list) | `sl` | Generate a combined shopping list from recipes |
 | [server](commands/server) | `s` | Start a web server to browse recipes |
+| [build](commands/build) | | Generate a static website from your recipes |
 | [search](commands/search) | `f` | Search through your recipe collection |
 | [import](commands/import) | `i` | Import recipes from websites |
 | [report](commands/report) | `rp` | Generate custom reports using templates |

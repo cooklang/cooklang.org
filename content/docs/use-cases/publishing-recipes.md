@@ -81,15 +81,20 @@ For blog-based sharing, create an Atom feed pointing to your `.cook` files:
 
 Host both the feed and your `.cook` files, then add the feed URL to `config/feeds.yaml` with `feed_type: web`.
 
-## Publishing with Static Site Generators
+## Publishing as a Static Website
 
-If you run a Hugo, Jekyll, or similar site, you can serve recipes as HTML pages while keeping raw `.cook` files available for the federation.
+The fastest way to publish your collection as a browsable website is `cook build`. It generates a complete static site — HTML, CSS, search, and all — from your `.cook` files in one command:
 
-### Workflow
+```bash
+cook build
+# Site written to ./_site — open _site/index.html or upload anywhere
+```
 
-1. Keep `.cook` source files in a dedicated directory
-2. Export to Markdown for your site with CookCLI
-3. Copy raw `.cook` files to your static directory for federation access
+Push the output to GitHub Pages, drop it into Netlify, sync it to S3, or copy it to a USB stick. No server, no build pipeline, no extra tools. See [Hosting Recipes as a Static Website](../static-website/) for the full walkthrough including hosting options and a GitHub Actions workflow.
+
+## Integrating with Existing Static Site Generators
+
+If you already run a Hugo, Jekyll, or similar site and want recipes alongside other content, export each recipe to Markdown and let your existing pipeline render it:
 
 ```bash
 #!/bin/bash
@@ -101,47 +106,14 @@ for recipe in recipes-source/*.cook; do
   cook recipe -f markdown "$recipe" > "content/recipes/${basename}.md"
 done
 
-# Copy raw .cook files for federation
+# Copy raw .cook files for federation access
 cp recipes-source/*.cook static/recipes/
 
 # Build site
 hugo  # or jekyll build, etc.
 ```
 
-### Automate with GitHub Actions
-
-```yaml
-# .github/workflows/publish-recipes.yml
-name: Publish Recipes
-
-on:
-  push:
-    branches: [main]
-    paths:
-      - 'recipes-source/**'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install CookCLI
-        run: |
-          curl -L https://github.com/cooklang/cookcli/releases/latest/download/cook-linux-amd64 -o cook
-          chmod +x cook
-          sudo mv cook /usr/local/bin/
-
-      - name: Convert and deploy
-        run: |
-          mkdir -p content/recipes static/recipes
-          for recipe in recipes-source/*.cook; do
-            basename=$(basename "$recipe" .cook)
-            cook recipe -f markdown "$recipe" > "content/recipes/${basename}.md"
-          done
-          cp recipes-source/*.cook static/recipes/
-          hugo
-```
+For a standalone recipe site, prefer `cook build` — it ships the same template the federation uses and handles search automatically.
 
 ## Recipe Metadata
 
@@ -169,6 +141,7 @@ difficulty: easy
 
 ## See Also
 
+- [Hosting Recipes as a Static Website](../static-website/) — generate a browsable site with `cook build`
 - [Recipe Discovery](../recipe-discovery/) — how users find your recipes
 - [Federation Repository](https://github.com/cooklang/federation) — submit your feed
 - [Creating Cookbooks](../cookbook-creation/) — turn recipes into a PDF cookbook
