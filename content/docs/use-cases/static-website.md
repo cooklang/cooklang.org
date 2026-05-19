@@ -4,7 +4,7 @@ weight: 17
 description: 'Generate a self-contained static website from your recipe collection with one command'
 ---
 
-`cook build` turns a folder of `.cook` files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.
+`cook build web` turns a folder of `.cook` files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.
 
 The output is the same browsing experience as [`cook server`](/cli/commands/server/), with dynamic features (shopping list, pantry, editor, scaling) stripped out.
 
@@ -12,24 +12,24 @@ The output is the same browsing experience as [`cook server`](/cli/commands/serv
 
 ```bash
 cd ~/my-recipes
-cook build
+cook build web
 open _site/index.html
 ```
 
 That's it. Your browser opens a fully functional recipe site — including search — running entirely off the local filesystem.
 
-To rebuild after editing recipes, just re-run `cook build`. The command is idempotent.
+To rebuild after editing recipes, just re-run `cook build web`. The command is idempotent.
 
 ## When to Use This vs. `cook server`
 
-| Use `cook build` when… | Use `cook server` when… |
+| Use `cook build web` when… | Use `cook server` when… |
 |------------------------|--------------------------|
 | You want to publish recipes for others to read | You're cooking and want a live, editable site |
 | You want zero-cost hosting (GitHub Pages, Netlify) | You're on a single machine or LAN |
 | You need offline access on a tablet or phone | You want the shopping-list and pantry features |
 | Your recipes change occasionally, not constantly | You want to edit recipes in the browser |
 
-The two commands share the same templates, so a site you serve at home with `cook server` looks identical when published with `cook build`.
+The two commands share the same templates, so a site you serve at home with `cook server` looks identical when published with `cook build web`.
 
 ## Hosting Options
 
@@ -38,7 +38,7 @@ The two commands share the same templates, so a site you serve at home with `coo
 The most popular free option. Push the generated site to a `gh-pages` branch:
 
 ```bash
-cook build
+cook build web
 cd _site
 git init
 git add .
@@ -52,7 +52,7 @@ Enable Pages in the repository settings, choose the `gh-pages` branch, and your 
 If the site lives under a subpath (anything other than the domain root), build with `--base-url` so internal links resolve correctly:
 
 ```bash
-cook build --base-url /recipes/
+cook build web --base-url /recipes/
 ```
 
 ### Netlify or Vercel
@@ -60,7 +60,7 @@ cook build --base-url /recipes/
 Drag and drop the `_site/` folder into Netlify Drop, or wire it up to your Git repo with a build command:
 
 ```bash
-cook build && mv _site dist
+cook build web && mv _site dist
 ```
 
 Set the publish directory to `dist`.
@@ -78,7 +78,7 @@ aws s3 sync _site/ s3://my-recipes-bucket --delete
 Because internal links are page-relative by default, the site runs straight from `file://`:
 
 ```bash
-cook build
+cook build web
 open _site/index.html
 ```
 
@@ -109,7 +109,7 @@ jobs:
           sudo mv cook /usr/local/bin/
 
       - name: Build site
-        run: cook build --base-url /recipes/
+        run: cook build web --base-url /recipes/
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -147,7 +147,7 @@ Static sites pair well with the [Cooklang Federation](https://recipes.cooklang.o
 
 ## See Also
 
-- [`cook build` command reference](/cli/commands/build/) — all options and outputs
+- [`cook build web` command reference](/cli/commands/build/) — all options and outputs
 - [`cook server`](/cli/commands/server/) — the live, editable counterpart
 - [Publishing Your Recipes](/docs/use-cases/publishing-recipes/) — share via the federation
 - [Raspberry Pi Kitchen Server](/docs/use-cases/raspberry-pi/) — host a live server at home

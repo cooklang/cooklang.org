@@ -83,10 +83,10 @@ Host both the feed and your `.cook` files, then add the feed URL to `config/feed
 
 ## Publishing as a Static Website
 
-The fastest way to publish your collection as a browsable website is `cook build`. It generates a complete static site — HTML, CSS, search, and all — from your `.cook` files in one command:
+The fastest way to publish your collection as a browsable website is `cook build web`. It generates a complete static site — HTML, CSS, search, and all — from your `.cook` files in one command:
 
 ```bash
-cook build
+cook build web
 # Site written to ./_site — open _site/index.html or upload anywhere
 ```
 
@@ -113,7 +113,7 @@ cp recipes-source/*.cook static/recipes/
 hugo  # or jekyll build, etc.
 ```
 
-For a standalone recipe site, prefer `cook build` — it ships the same template the federation uses and handles search automatically.
+For a standalone recipe site, prefer `cook build web` — it ships the same template the federation uses and handles search automatically.
 
 ## Recipe Metadata
 
@@ -141,7 +141,7 @@ difficulty: easy
 
 ## See Also
 
-- [Hosting Recipes as a Static Website](../static-website/) — generate a browsable site with `cook build`
+- [Hosting Recipes as a Static Website](../static-website/) — generate a browsable site with `cook build web`
 - [Recipe Discovery](../recipe-discovery/) — how users find your recipes
 - [Federation Repository](https://github.com/cooklang/federation) — submit your feed
 - [Creating Cookbooks](../cookbook-creation/) — turn recipes into a PDF cookbook
