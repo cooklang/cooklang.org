@@ -174,14 +174,14 @@ git add .
 git commit -m &amp;amp;#34;Initial recipe collection&amp;amp;#34;
 git remote add origin https://github.com/yourusername/my-recipes.git
 git push -u origin main&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Then add your repository to the federation:&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/docs/use-cases/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/static-website/</guid><description>&lt;p>&lt;code>cook build&lt;/code> turns a folder of &lt;code>.cook&lt;/code> files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.&lt;/p>
+&lt;/div>&lt;p>Then add your repository to the federation:&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/docs/use-cases/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/static-website/</guid><description>&lt;p>&lt;code>cook build web&lt;/code> turns a folder of &lt;code>.cook&lt;/code> files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.&lt;/p>
 &lt;p>The output is the same browsing experience as &lt;a href="https://cooklang.org/cli/commands/server/">&lt;code>cook server&lt;/code>&lt;/a>, with dynamic features (shopping list, pantry, editor, scaling) stripped out.&lt;/p>
 &lt;h2 id="quick-start">Quick Start&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cd ~/my-recipes
-cook build
+cook build web
 open _site/index.html&lt;/code>&lt;/pre>
 &lt;/div>&lt;p>That's it. Your browser opens a fully functional recipe site — including search — running entirely off the local filesystem.&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
 &lt;h2 id="usage">Usage&lt;/h2>
