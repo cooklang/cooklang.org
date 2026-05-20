@@ -9,7 +9,7 @@ For a more in-depth review of the CLI commands and their usages, [use this page]
 ## Install the Cook CLI Program
 ```bash
 # macOS (Homebrew)
-brew install cooklang/tap/cookcli
+brew install cookcli
 
 # Build from source
 git clone https://github.com/cooklang/cookcli.git

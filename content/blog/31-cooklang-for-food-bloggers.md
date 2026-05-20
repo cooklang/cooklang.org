@@ -151,7 +151,7 @@ Install CookCLI, then convert one recipe:
 
 ```bash
 # Install (macOS)
-brew install cooklang/tap/cook
+brew install cookcli
 
 # Parse your recipe and see what's there
 cook recipe "country-sourdough.cook" --format human

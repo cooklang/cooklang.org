@@ -14,7 +14,7 @@ This guide covers every major command with real examples. You should be able to 
 **macOS** via Homebrew is the easiest path:
 
 ```bash
-brew install cooklang/tap/cook
+brew install cookcli
 ```
 
 **Linux and macOS binary** — download the latest release directly from GitHub:
