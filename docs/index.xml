@@ -7,7 +7,7 @@
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># macOS (Homebrew)
-brew install cooklang/tap/cookcli
+brew install cookcli
 
 # Build from source
 git clone https://github.com/cooklang/cookcli.git
