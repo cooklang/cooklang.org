@@ -20,7 +20,27 @@ Baking is worse. Leavening agents — baking soda, baking powder, yeast — oper
 
 Then there's cookware. Doubling a recipe doesn't double your pan size. A recipe designed for a 10-inch skillet won't work in the same skillet with double the ingredients — the heat distribution changes, the steam can't escape properly, and you end up braising when you meant to sear. Surface-area-to-volume ratios matter.
 
+Dairy is a quieter trap. Cream and milk in sauces don't always scale linearly because the proteins behave differently at volume. Doubling a cream sauce often produces something thinner than expected — at scale, dairy needs more reduction time, not just more dairy. If a recipe calls for 1 cup of milk and you 4x it, you'll likely want to simmer longer rather than just use 4 cups. The same applies to cheese in baked dishes: too much at scale can release water and split the sauce.
+
 Units cause their own problems. You're scaling a recipe that uses "1/3 cup" and you need 5x. That's 1 and 2/3 cups. Is that 1 cup and 10 tablespoons and 2 teaspoons? Most people don't have that memorized, and mental conversion errors add up across a recipe with 12 ingredients.
+
+## The Scaling Factor: Quick Math
+
+Before you can scale anything you need the scaling factor. The formula is:
+
+**scaling factor = target servings ÷ original servings**
+
+A few worked examples:
+
+- Recipe serves 4, you need 8 servings → factor = 8 ÷ 4 = **2x**
+- Recipe serves 4, you need 6 servings → factor = 6 ÷ 4 = **1.5x**
+- Recipe serves 6, you need 8 servings → factor = 8 ÷ 6 = **≈1.33x**
+- Recipe serves 4, you need 35 servings → factor = 35 ÷ 4 = **8.75x**
+- Recipe serves 4, you need 2 servings → factor = 2 ÷ 4 = **0.5x**
+
+Multiply every ingredient quantity by that number. For an 8.75x scale, a 1 tsp ingredient really does become 8.75 tsp (about 2 tbsp + 2¾ tsp). This is the kind of arithmetic where a tool earns its keep — particularly when you're cooking for 35 people and the recipe has fifteen ingredients.
+
+The caveats from the previous section still apply: linear scaling works for most ingredients, but seasoning, leavening, and dairy may need adjustment beyond the math.
 
 ## The Manual Approach
 
@@ -121,6 +141,21 @@ In the pasta recipe, marking salt as fixed means someone cooking the 8-serving v
 Cookware doesn't scale either — the recipe still refers to a large skillet regardless of how many servings you're making. Cooklang leaves cookware alone during scaling because there's no sensible automatic adjustment. You have to make that call yourself.
 
 Timers also don't scale. The pasta still takes 10 minutes to cook whether you're making 200g or 800g (though in practice you'd use a bigger pot). Cooking time is a physical property of the process, not the quantity.
+
+## Scaling Down: When 0.5x or 0.25x Doesn't Quite Work
+
+Scaling up is forgiving. Scaling down hits hard limits sooner than people expect.
+
+A recipe with "1 egg" doesn't divide cleanly by 0.5 — you can't use half an egg without weighing or splitting yolks. A 0.25x scale of a baked good often falls below the minimum dough mass needed for proper rise. A sauce that reduces for 30 minutes in a 2-quart pan can't reduce the same way in a tiny saucepan at 0.25x volume — the surface-area-to-volume ratio breaks.
+
+Practical rules for scaling down:
+
+- **0.5x works for most savory recipes** with multiple eggs or non-egg-dependent batters. Single-egg recipes get awkward.
+- **0.5x baking** sometimes works, but tray bakes and yeasted doughs have a minimum mass. A half-loaf of bread is a different animal than a full one.
+- **0.25x rarely works for baking.** Find a smaller original recipe instead.
+- **Sauces and reductions scale poorly downward.** A small batch reduces too fast. Use a smaller pan, lower heat, and watch carefully.
+
+CookCLI handles the arithmetic with `cook recipe "Recipe.cook:0.5"` — but the arithmetic isn't the hard part. Knowing when to ignore the result and find a different recipe is.
 
 ## Scaling Across Multiple Recipes
 

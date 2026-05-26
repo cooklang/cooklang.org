@@ -1,8 +1,9 @@
 ---
-title: "Chef (the Esoteric Programming Language) vs Cooklang: What's the Difference?"
+title: "Chef Language vs Cooklang Explained"
 date: 2026-02-28
 weight: 60
 summary: "Two languages that look like recipes — but only one of them helps you cook dinner. A light-hearted comparison of Chef, the joke programming language, and Cooklang."
+description: "The Chef esoteric programming language and Cooklang both look like recipes — but solve opposite problems. A clear comparison with code examples."
 ---
 
 If you search for "chef programming language" or "chef coding language," you will find two very different things. One is a weird, wonderful esoteric language from 2002 where programs look like recipes. The other is Cooklang — a practical markup language where recipes actually are recipes.

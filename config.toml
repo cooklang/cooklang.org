@@ -1,6 +1,6 @@
 baseURL = "https://cooklang.org/"
 languageCode = "en-ie"
-title = "Cooklang: recipe markup language"
+title = "Cooklang"
 themesDir = "./themes"
 theme = "cooklang-tw"
 
