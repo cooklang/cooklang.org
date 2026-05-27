@@ -51,13 +51,15 @@ YAML frontmatter is mandatory (per global convention — never the deprecated `>
 
 **Five new hub index files** at `content/categories/<slug>/_index.md` (Hugo's standard location for taxonomy term content — the URL is overridden to `/blog/<slug>/` by the permalink config above):
 
-| File path | Term value (in post frontmatter) | Rendered URL |
+| File path | Term value (in post frontmatter, also breadcrumb display) | Rendered URL |
 |---|---|---|
 | `content/categories/comparisons/_index.md` | `Comparisons` | `/blog/comparisons/` |
-| `content/categories/guides-and-tutorials/_index.md` | `Guides & Tutorials` | `/blog/guides-and-tutorials/` |
-| `content/categories/self-hosting-and-integrations/_index.md` | `Self-Hosting & Integrations` | `/blog/self-hosting-and-integrations/` |
+| `content/categories/guides-and-tutorials/_index.md` | `Guides and Tutorials` | `/blog/guides-and-tutorials/` |
+| `content/categories/self-hosting-and-integrations/_index.md` | `Self-Hosting and Integrations` | `/blog/self-hosting-and-integrations/` |
 | `content/categories/recipe-workflows/_index.md` | `Recipe Workflows` | `/blog/recipe-workflows/` |
-| `content/categories/format-and-design/_index.md` | `Format & Design` | `/blog/format-and-design/` |
+| `content/categories/format-and-design/_index.md` | `Format and Design` | `/blog/format-and-design/` |
+
+Term values use the word `and` rather than `&`. Hugo's term-slug derivation collapses `&` characters, which would make `"Self-Hosting & Integrations"` slug to `self-hosting-integrations` — mismatching our content path and URL. The hub page H1 (rendered from `.Title` in `_index.md`) may use `&` for display polish, but the category value (and therefore the breadcrumb display) uses `and`.
 
 Each `_index.md` contains:
 - `title`, `description` (SEO meta, ≤155 chars), `date`
@@ -113,16 +115,16 @@ Every post ends up with both a direct link from `/blog/` (preserved flat grid) *
 ### Comparisons (10)
 09 paprika/mealie · 18 OSS 2026 · 19 6 formats compared · 24 chef · 40 mealie review · 41 formats for developers · 42 tandoor/mealie/kitchenowl · 48 best software · 51 vs mealie · 52 vs tandoor
 
-### Guides & Tutorials (12)
+### Guides and Tutorials (12)
 15 obsidian · 23 cookcli guide · 25 publishing collection · 28 migrating · 30 playground · 33 beginners · 39 editor setup · 44 parser integration · 45 reports/dashboards · 47 format guide · 49 markdown template · 50 cook build web
 
-### Self-Hosting & Integrations (8)
+### Self-Hosting and Integrations (8)
 06 sync library · 17 raspberry pi · 21 docker · 29 recipe API · 32 home assistant · 34 mobile app · 36 desktop/sync agent · 38 plain-text database
 
 ### Recipe Workflows (11)
 01 grocery shopping · 02 savings · 10 pantry · 11 meal planning · 13 dishwasher salmon · 14 greedy coverage/pantry · 16 discovery · 20 social media · 26 scaling · 31 food bloggers · 43 version control
 
-### Format & Design (10)
+### Format and Design (10)
 03 AI evolution · 04 why standard · 05 stack machines · 07 nutrients · 08 mundie interview · 12 why plain text · 22 cooking for programmers · 35 markup language · 37 designing markup · 46 timers
 
 ## Edge cases & safety
