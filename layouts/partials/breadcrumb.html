@@ -1,0 +1,25 @@
+{{ with .Params.categories }}
+{{ $category := index . 0 }}
+{{ $categorySlug := urlize $category }}
+{{ $categoryURL := printf "/blog/%s/" $categorySlug }}
+<nav class="text-sm text-cooklang-gray-600 mb-4" aria-label="Breadcrumb">
+  <ol class="flex flex-wrap items-center gap-x-2">
+    <li><a href="/blog/" class="hover:text-cooklang-orange">Blog</a></li>
+    <li class="text-cooklang-gray-400" aria-hidden="true">›</li>
+    <li><a href="{{ $categoryURL }}" class="hover:text-cooklang-orange">{{ $category }}</a></li>
+    <li class="text-cooklang-gray-400" aria-hidden="true">›</li>
+    <li class="text-cooklang-gray-900 truncate max-w-xs" aria-current="page">{{ $.Title }}</li>
+  </ol>
+</nav>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Blog", "item": "{{ "/blog/" | absURL }}"},
+    {"@type": "ListItem", "position": 2, "name": {{ $category | jsonify }}, "item": "{{ $categoryURL | absURL }}"},
+    {"@type": "ListItem", "position": 3, "name": {{ $.Title | jsonify }}}
+  ]
+}
+</script>
+{{ end }}
