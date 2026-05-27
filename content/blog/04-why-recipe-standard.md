@@ -4,6 +4,7 @@ date: 2024-11-09T21:27:37+00:00
 weight: 80
 summary: "Music has notation. Code has formal grammar. Recipes — something humans share daily — still don't have a standard format. Here's why that matters and what a real recipe standard looks like."
 description: "Music has notation. Code has formal grammar. Recipes — something humans share daily — still don't have a standard format. Here's why that matters."
+categories: ["Format and Design"]
 ---
 
 Recipes fail for a stupid reason: ambiguity. "A generous amount of oil." "Cook until done." "Season to taste." These instructions work when you already know how to make the dish. For everyone else, they're guesswork.

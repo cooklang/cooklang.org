@@ -3,6 +3,7 @@ title: "Plain Text Recipes: A Beginner's Guide to the Cooklang Format"
 date: 2026-03-11
 weight: 50
 summary: "A step-by-step introduction to writing recipes in Cooklang — the plain text format that turns your recipes into structured data. Convert your first recipe in five minutes."
+categories: ["Guides and Tutorials"]
 ---
 
 You have recipes everywhere. Screenshots on your phone. Bookmarks you'll never revisit. A notes app with 40 entries and no organization. Maybe a recipe app that stopped syncing last year.

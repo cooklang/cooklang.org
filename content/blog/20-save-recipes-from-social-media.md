@@ -3,6 +3,7 @@ title: "How to Save Recipes from Social Media and Keep Them Forever"
 date: 2026-02-25
 weight: 60
 summary: "Recipes you save on Instagram, TikTok, and Facebook disappear when creators delete posts or platforms change. Here's a workflow to capture social media recipes and store them permanently as plain text files you control."
+categories: ["Recipe Workflows"]
 ---
 
 You find a recipe on Instagram Reels. You save it. A month later you go looking for it and the post is gone — the creator deleted it, the account went private, or the platform's algorithm just won't surface it again.

@@ -3,6 +3,7 @@ title: "Building with Cooklang: A Parser Integration Guide"
 date: 2026-03-24
 weight: 50
 summary: "You want structured recipe data — ingredients with quantities, steps with inline references, timers, cookware. Here's how to parse Cooklang in your language of choice, with quick-start examples in TypeScript and Python, and a map of the full ecosystem."
+categories: ["Guides and Tutorials"]
 ---
 
 You want to build something with recipes. A meal planner, a grocery app, a cooking timer, a nutrition calculator. The problem is always the same: recipe data is unstructured. Ingredients buried in prose. Quantities as strings. Steps with no machine-readable references to what ingredient goes in when.

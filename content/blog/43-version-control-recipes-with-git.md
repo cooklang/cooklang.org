@@ -3,6 +3,7 @@ title: "Version Control Your Recipes with Git"
 date: 2026-03-24
 weight: 50
 summary: "Every recipe app has a 'what if the company dies?' problem. If your recipes are plain text .cook files in a Git repo, that problem disappears. Here's how to set up a proper recipe repo, track changes meaningfully, collaborate with family, and publish to the Cooklang Federation."
+categories: ["Recipe Workflows"]
 ---
 
 Every recipe app eventually dies. MacGourmet, Panna, Evernote Food, ChefTap — they all took user recipes with them. The "what if the company shuts down?" problem is not paranoia. It is an industry pattern.

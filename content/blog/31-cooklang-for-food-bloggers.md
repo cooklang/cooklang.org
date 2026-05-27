@@ -3,6 +3,7 @@ title: "Cooklang for Food Bloggers: Write Once, Publish Everywhere"
 date: 2026-02-28
 weight: 60
 summary: "One .cook file can generate your blog post, Google-ready Schema.org markup, a printable PDF, and a shopping list — without reformatting anything by hand."
+categories: ["Recipe Workflows"]
 ---
 
 You've perfected your sourdough recipe. Now you need to format it for your blog (SEO-optimized), your newsletter (clean text), your cookbook PDF (print-ready), and Google (JSON-LD structured data). That's the same recipe, reformatted four different ways — and every time you tweak a hydration percentage or a rise time, you update it in four different places.

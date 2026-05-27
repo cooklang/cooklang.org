@@ -4,6 +4,7 @@ date: 2026-04-09
 weight: 80
 summary: "Most cooking timers are separate from the recipe. Cooklang embeds timers directly in your instructions — tap a step and the timer starts. Run multiple timers at once, get lock-screen notifications, and set timers up to 999 hours for fermentation and slow processes."
 description: "Embed cooking timers directly in your recipe text. Tap a step to start the timer, run multiple timers at once, and set long timers up to 999 hours for fermentation. Works on iOS and Android."
+categories: ["Format and Design"]
 ---
 
 You're halfway through a recipe. Three things are happening: pasta is boiling, garlic bread is in the oven, and the sauce needs to simmer for ten more minutes. You set three separate timers on your phone, but now you can't remember which timer is which. Was the 12-minute one the pasta or the bread?

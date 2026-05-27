@@ -3,6 +3,7 @@ title: "Build Custom Recipe Reports with CookCLI and Templates"
 date: 2026-03-24
 weight: 50
 summary: "CookCLI has a template system that turns .cook files into shopping lists with store links, cost breakdowns, aisle-organized lists, and CSV exports. This post walks through the cook report command, the ingredient database, and real working templates."
+categories: ["Guides and Tutorials"]
 ---
 
 Your `.cook` files already contain structured ingredient data — names, quantities, units. The `cook report` command lets you turn that structured data into anything: a shopping list with product URLs, a cost breakdown per serving, a LaTeX recipe card, a CSV for a spreadsheet. It uses a Jinja2-style template engine called minijinja, so the output format is entirely up to you.

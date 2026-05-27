@@ -3,6 +3,7 @@ title: 'Generating a Recipe Graph with ChatGPT'
 date: 2023-05-26T19:27:37+10:00
 weight: 80
 summary: "Using GPT-4 to trace ingredients through cooking steps and generate a recipe graph — a visual representation of how raw ingredients transform into a finished dish."
+categories: ["Format and Design"]
 ---
 
 ![](/blog/part-recipe-graph.png)

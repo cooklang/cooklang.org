@@ -4,6 +4,7 @@ date: 2026-04-09
 weight: 70
 summary: "Recipes are scattered across screenshots, apps, bookmarks, and handwritten cards — all in incompatible formats. Here's what makes a good recipe format, how the existing options compare, and why Cooklang solves the problem that plain text and JSON-LD can't."
 description: "A guide to recipe format: what makes one good, how common formats compare, and how Cooklang gives you a recipe file format that's human and machine readable."
+categories: ["Guides and Tutorials"]
 ---
 
 Your recipes are probably in at least five places right now. A folder of screenshots. Browser bookmarks you've never revisited. A recipe app from 2019. A notes file with no structure. A stack of index cards. Maybe a shared Google Doc that stopped being updated.

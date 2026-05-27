@@ -4,6 +4,7 @@ date: 2026-02-28
 weight: 60
 summary: "Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right."
 description: "Scaling a recipe isn't just multiplication — salt, leavening, and pan size break the math. Here's how to scale recipes correctly, with worked examples."
+categories: ["Recipe Workflows"]
 ---
 
 Doubling a recipe should be simple math. So why does doubling chocolate chip cookies always turn out wrong?

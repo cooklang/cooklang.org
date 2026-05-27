@@ -17,6 +17,7 @@ howto:
     text: "Run CookCLI's built-in web server to serve recipes on your local network."
   - name: "Browse recipes"
     text: "Open the server URL from any device on your network, or use kiosk mode on the Pi's touchscreen."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 A Raspberry Pi with a small display makes a practical kitchen companion. Run [CookCLI](/cli/) on it, point it at your recipe collection, and you get a browsable recipe server accessible from any device on your network — or directly on a touchscreen mounted in your kitchen.

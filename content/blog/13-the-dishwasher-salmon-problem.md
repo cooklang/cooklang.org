@@ -3,6 +3,7 @@ title: "The Dishwasher Salmon Problem"
 date: 2025-10-26
 weight: 60
 summary: "Recipe blogs prioritize ads over quality, creating bizarre dishes like dishwasher salmon. Cooklang Federation solves this by connecting you to tried and true community recipes."
+categories: ["Recipe Workflows"]
 ---
 
 Blogs or websites you find recipes on exist to make money for their owners. They show ads and write long descriptions to rank higher in search engines. What they also do is modify recipes they copied somewhere to make them unique, hoping people share links (although I'm not confident why they do that).

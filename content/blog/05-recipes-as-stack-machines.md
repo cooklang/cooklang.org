@@ -3,6 +3,7 @@ title: "Recipe Algorithms: How Recipes Work Like Computer Programs"
 date: 2024-11-29
 weight: 80
 summary: "Every recipe is an algorithm — a sequence of operations transforming inputs into output. Here's the formal model behind cooking instructions, why it matters for recipe validation and automation, and how Cooklang uses it."
+categories: ["Format and Design"]
 ---
 
 I keep finding computer science in the kitchen.

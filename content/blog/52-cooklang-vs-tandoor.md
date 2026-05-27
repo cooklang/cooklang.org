@@ -4,6 +4,7 @@ date: 2026-05-26
 weight: 50
 summary: "Tandoor packs every recipe-management feature into one self-hosted app. Cooklang does one thing — structured plain text — and lets you script the rest. Honest comparison."
 description: "Tandoor packs every recipe-management feature into one app. Cooklang does one thing — structured plain text — and lets you script the rest. Which fits?"
+categories: ["Comparisons"]
 ---
 
 Tandoor is the most feature-rich self-hosted recipe manager in active development. Cooklang is, by design, one of the most minimalist tools in the same space. The decision between them isn't really about features — it's about your relationship with complexity.

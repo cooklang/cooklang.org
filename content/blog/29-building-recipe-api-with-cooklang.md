@@ -3,6 +3,7 @@ title: "Building a Recipe API with Cooklang"
 date: 2026-02-28
 weight: 60
 summary: "Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 Most recipe APIs charge per request, lock your data into their schema, and limit what you can do with recipes you own. There's a simpler path: your `.cook` files already contain structured data. CookCLI can expose that data as JSON, run a local server, and give you everything you need to build a recipe app — without signing up for anything.

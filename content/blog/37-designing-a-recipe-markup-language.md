@@ -3,6 +3,7 @@ title: "What Goes Into Designing a Recipe Markup Language"
 date: 2026-03-24
 weight: 50
 summary: "Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time."
+categories: ["Format and Design"]
 ---
 
 Recipes are one of the most structured documents humans produce. They have a preamble (title, yield, timing), a list of typed inputs (ingredients with quantities and units), an ordered list of operations, and tool references throughout. You could almost describe a recipe formally. In fact, you can — and that turns out to be harder than it sounds.

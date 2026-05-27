@@ -4,6 +4,7 @@ date: 2026-03-24
 weight: 44
 summary: "An honest comparison of three popular self-hosted recipe managers — Tandoor, Mealie, and KitchenOwl. Setup complexity, UI, recipe import, meal planning, mobile experience, and data portability."
 description: "Tandoor vs Mealie vs KitchenOwl, compared honestly: setup, UI, recipe import, meal planning, mobile, and data portability. Pick the right self-hosted recipe manager."
+categories: ["Comparisons"]
 ---
 
 Three open source recipe managers. All Docker-based. All actively maintained. All free to self-host. And yet they make quite different decisions about what matters.

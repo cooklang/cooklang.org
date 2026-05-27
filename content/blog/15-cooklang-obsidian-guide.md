@@ -15,6 +15,7 @@ howto:
     text: "Click any timer in preview mode to start a countdown with sound notifications."
   - name: "Organize your recipe vault"
     text: "Structure recipes in folders by cuisine, meal type, or season for easy browsing."
+categories: ["Guides and Tutorials"]
 ---
 
 If you already use Obsidian for notes, it makes sense to keep your recipes there too. The [Cooklang Editor plugin](https://github.com/cooklang/cooklang-obsidian) adds native support for the Cooklang recipe format — [syntax highlighting](/docs/syntax-highlighting/), a recipe preview mode, interactive cooking timers, and ingredient checklists, all inside your vault.

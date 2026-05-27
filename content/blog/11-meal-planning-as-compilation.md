@@ -3,6 +3,7 @@ title: "Meal Planning as Compilation"
 date: 2025-09-05
 description: "Why planning meals is like compiling code, and why most people are still using interpreters"
 weight: 70
+categories: ["Recipe Workflows"]
 ---
 
 I used to think meal planning was for people with too much time. Then I realized I was spending more time not planning meals than it would take to plan them.

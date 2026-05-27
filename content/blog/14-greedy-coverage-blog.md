@@ -3,6 +3,7 @@ title: "Building the Perfect Pantry with CookCLI: How the Greedy Coverage Algori
 date: 2025-12-06
 weight: 60
 summary: "A practical deep dive into how CookCLI uses algorithmic coverage analysis to help users build the most efficient pantry for their recipe collection."
+categories: ["Recipe Workflows"]
 ---
 
 I used to run into a problem quite frequently where I would realize that my pantry didn't have the ingredients I needed at the moment for a recipe I was hoping to craft. *Whoosh*, the wind would be taken right out of my sails. There went my dinner plans, my joyful mindset, and (in a small but meaningful way) my desire to cook the recipe at all. After all, if it was going to be this much of a hassle and I had to make a separate trip to the store just to cook a meal, why bother?

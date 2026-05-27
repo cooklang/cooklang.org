@@ -4,6 +4,7 @@ date: 2024-12-16
 weight: 80
 summary: "Cooking method changes nutrition as much as the ingredients do. Recipe apps know neither. Here's what structured recipe data could finally make possible."
 description: "Cooking method changes nutrition as much as the ingredients do. Recipe apps know neither. Here's what structured recipe data could finally make possible."
+categories: ["Format and Design"]
 ---
 
 Steamed broccoli has more bioavailable sulforaphane than raw. Sautéed spinach delivers more usable vitamin A than boiled. Boiling broccoli for 10 minutes destroys roughly 50% of its vitamin C; steaming for 5 destroys almost none.

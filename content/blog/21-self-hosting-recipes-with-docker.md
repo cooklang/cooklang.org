@@ -15,6 +15,7 @@ howto:
     text: "Run docker compose up to start the recipe server."
   - name: "Access from any device"
     text: "Open the server URL from any device on your network to browse, search, and generate shopping lists."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 If you keep your recipes in [Cooklang format](/docs/spec/), you can serve them on your local network with a single Docker command. [CookCLI](/cli/) runs a lightweight web server that lets you browse, search, and generate shopping lists from any device — phone, tablet, or laptop.

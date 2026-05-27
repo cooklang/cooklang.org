@@ -4,6 +4,7 @@ date: 2026-05-20
 weight: 60
 summary: "CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly."
 description: "The new `cook build web` command compiles a Cooklang recipe collection into a read-only static site you can host anywhere or browse offline."
+categories: ["Guides and Tutorials"]
 ---
 
 If you keep your recipes as `.cook` files, you already have something most recipe apps don't: a folder you fully control. The new `cook build web` command does the obvious next thing — turns that folder into a website you can share.

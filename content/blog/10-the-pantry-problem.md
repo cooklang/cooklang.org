@@ -3,6 +3,7 @@ title: "The Pantry Problem"
 date: 2025-09-04
 weight: 75
 description: "Why your kitchen is a distributed database problem, and how treating it like one changes everything"
+categories: ["Recipe Workflows"]
 ---
 
 I realized something was wrong with how we manage food when I opened my third jar of cumin. Not because I love cumin that much, but because I'd forgotten about the other two.

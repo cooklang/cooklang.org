@@ -3,6 +3,7 @@ title: "What Is a Recipe Markup Language? (And Why You'd Want One)"
 date: 2026-03-11
 weight: 50
 summary: "A markup language adds structure to text without making it unreadable. HTML does this for web pages. Cooklang does it for recipes. Here's what that means and why it matters for anyone who cooks."
+categories: ["Format and Design"]
 ---
 
 You already use markup languages. When you write `**bold**` in a message, that's markup — plain text with annotations that a renderer interprets. Markdown, HTML, LaTeX — they all work the same way: take readable text, add markers, and let software do something useful with the structure.

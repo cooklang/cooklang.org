@@ -4,6 +4,7 @@ date: 2026-03-24
 weight: 50
 summary: "A code-level comparison of the four recipe file formats you'll encounter when building recipe software: Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster. The same recipe in each format, with parser availability, data structures, and honest trade-offs."
 description: "Code-level comparison of Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster — parser availability, AST structure, and what your code actually gets back."
+categories: ["Comparisons"]
 ---
 
 If you're building a recipe app, a meal planner, a grocery integration, or anything that ingests or stores recipe data, you need to pick a format — or at least understand the formats you'll encounter. There are four that actually matter: Cooklang, JSON-LD with Schema.org vocabulary, RecipeML, and MealMaster. Each one comes from a different era and makes different trade-offs between human readability, machine parseability, and available tooling.

@@ -3,6 +3,7 @@ title: "Migrating Your Recipes to Cooklang (From Any App or Format)"
 date: 2026-02-28
 weight: 60
 summary: "Stuck in a recipe app you can't escape? Here's how to migrate your recipes to plain .cook files from websites, Paprika, Mealie, photos, and Markdown — without doing it all at once."
+categories: ["Guides and Tutorials"]
 ---
 
 Every recipe app promises to be the last one you'll ever need. Then the company gets acquired, the subscription doubles, or the export feature disappears behind a paywall. You spent years collecting recipes, and now they're locked inside a format only one piece of software can read.

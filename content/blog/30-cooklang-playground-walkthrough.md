@@ -3,6 +3,7 @@ title: "Try Cooklang in Your Browser: Playground Walkthrough"
 date: 2026-02-28
 weight: 60
 summary: "The fastest way to try Cooklang requires nothing but a browser tab. This walkthrough shows you exactly what to expect when you open the playground."
+categories: ["Guides and Tutorials"]
 ---
 
 The fastest way to try Cooklang is to open a browser tab. No download, no setup, no account. Just open [the playground](https://cooklang.github.io/cooklang-rs/) and start writing recipes.

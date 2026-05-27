@@ -3,6 +3,7 @@ title: "Why Plain Text Recipes Beat Databases Every Time"
 date: 2025-01-20
 weight: 70
 summary: "After years of building recipe apps with databases, I discovered that plain text files solve the real problems better. Here's why the future of digital recipes isn't in the cloud - it's in your text editor."
+categories: ["Format and Design"]
 ---
 
 You know what file format has survived since the 1960s? Plain text. You know what hasn't? Every recipe database format from the past 20 years.

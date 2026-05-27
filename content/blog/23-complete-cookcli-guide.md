@@ -3,6 +3,7 @@ title: "The Complete CookCLI Guide: From Install to Daily Use"
 date: 2026-02-28
 weight: 60
 summary: "A hands-on walkthrough of CookCLI covering installation, parsing recipes, generating shopping lists, scaling servings, and every command you'll actually use."
+categories: ["Guides and Tutorials"]
 ---
 
 If you keep your recipes as `.cook` files, CookCLI is the tool that makes them useful. Parse a recipe, generate a combined shopping list from a week's worth of dinners, serve your whole collection on your local network, scale any dish to any number of servings — all from the terminal.

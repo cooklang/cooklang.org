@@ -4,6 +4,7 @@ date: 2026-02-25
 weight: 60
 summary: "A practical comparison of the best open source recipe managers — Cooklang, Mealie, KitchenOwl, Tandoor, and more. What each does well, where they fall short, and which one fits your workflow."
 description: "Comparing the best open source recipe managers in 2026: Mealie, KitchenOwl, Tandoor, Cooklang, and more. Honest look at features, self-hosting, and which fits your workflow."
+categories: ["Comparisons"]
 ---
 
 There are now several solid open source options for managing recipes. Each takes a different approach — from plain text files to full web applications — and the right choice depends on how you cook and how much infrastructure you want to run.

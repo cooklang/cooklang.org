@@ -4,6 +4,7 @@ date: 2026-02-25
 weight: 60
 summary: "A side-by-side comparison of recipe file formats — Cooklang, plain Markdown, Schema.org JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same recipe in each format, with pros, cons, and when to use each."
 description: "Six recipe file formats compared side by side — Cooklang, Markdown, JSON-LD, MealMaster, RecipeML, and Open Recipe Format. The same recipe in each, with pros and cons."
+categories: ["Comparisons"]
 ---
 
 There's no single standard for storing recipes digitally. Different formats emerged from different eras and different needs — BBS systems, XML web services, SEO, and plain text editing. Each makes trade-offs between human readability, machine parseability, and ecosystem support.

@@ -3,6 +3,7 @@ title: "Publishing Your Recipe Collection as a Website"
 date: 2026-02-28
 weight: 60
 summary: "Your .cook files are already structured data. Here's how to turn them into a real website — static, fast, free to host, and readable by Google's recipe search."
+categories: ["Guides and Tutorials"]
 ---
 
 Your recipe collection is sitting in a folder on your laptop. Maybe it's a hundred `.cook` files organized by cuisine, maybe it's twenty files you actually use. Either way, it deserves better than being invisible.

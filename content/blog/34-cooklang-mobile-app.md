@@ -3,6 +3,7 @@ title: "Cooklang Mobile App: Read, Cook, and Shop from Your Phone"
 date: 2026-03-11
 weight: 50
 summary: "A walkthrough of the Cooklang mobile app for iOS and Android — how to set up your recipe collection, cook from your phone, and generate shopping lists on the go."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 Your recipes live on your computer. You cook in your kitchen. These are different rooms.

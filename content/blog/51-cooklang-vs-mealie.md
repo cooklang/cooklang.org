@@ -4,6 +4,7 @@ date: 2026-05-26
 weight: 50
 summary: "Mealie gives you a polished self-hosted web app for your household. Cooklang gives you plain-text recipes you fully own. Honest fitness-for-purpose comparison."
 description: "Mealie gives you a polished web app for your household. Cooklang gives you plain-text recipes you fully own. Here's which fits which kind of cook."
+categories: ["Comparisons"]
 ---
 
 If you're looking at Mealie and wondering whether Cooklang might be a better fit, the honest answer depends less on features and more on how you actually want to interact with your recipes.

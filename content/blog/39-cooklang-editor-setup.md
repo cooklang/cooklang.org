@@ -3,6 +3,7 @@ title: "Cooklang Editor Setup: VS Code, Vim, Obsidian, and More"
 date: 2026-03-24
 weight: 47
 summary: "Cooklang files are plain text, so any editor works. But syntax highlighting and LSP support make the experience much better. Here's how to set up your editor of choice."
+categories: ["Guides and Tutorials"]
 ---
 
 Cooklang files are plain text, so any editor works — Notepad, nano, whatever you already have open. But syntax highlighting and proper tooling make a real difference when you're writing recipes. Ingredients pop out visually, timers are easy to spot, and the LSP catches errors before you do.

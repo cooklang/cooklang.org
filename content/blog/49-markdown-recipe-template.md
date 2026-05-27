@@ -4,6 +4,7 @@ date: 2026-04-09
 weight: 60
 summary: "Copy-paste Markdown recipe templates that work in any text editor, Obsidian, or static site — plus an honest look at where Markdown falls short and what Cooklang adds."
 description: "Free markdown recipe template with YAML frontmatter. Copy-paste and use today — then see why Cooklang does more with the same plain text approach."
+categories: ["Guides and Tutorials"]
 ---
 
 Markdown is a reasonable place to store recipes. It's readable in any text editor, renders nicely in Obsidian, GitHub, or a Jekyll site, and doesn't require any app to open. If you want your recipes in plain text, starting with Markdown makes sense.

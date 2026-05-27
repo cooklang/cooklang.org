@@ -4,6 +4,7 @@ date: 2026-04-09
 weight: 70
 summary: "A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs."
 description: "The best recipe management software in 2026, compared honestly: Paprika, Mealie, Tandoor, KitchenOwl, Cooklang, and more. Find what fits your workflow."
+categories: ["Comparisons"]
 ---
 
 Your recipes are everywhere. A dozen browser bookmarks. Screenshots on your phone you'll never find again. A dog-eared card from your grandmother. Three different apps you tried and abandoned. A Notion page that made sense at the time.

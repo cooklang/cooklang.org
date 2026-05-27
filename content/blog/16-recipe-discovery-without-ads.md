@@ -3,6 +3,7 @@ title: "Recipe Discovery Without the Ads and Life Stories"
 date: 2026-02-25
 weight: 60
 summary: "Modern recipe sites bury recipes under ads, pop-ups, and SEO filler. Cooklang Federation offers a different approach — a searchable index of community-tested recipes with no ads, no tracking, and no stories about someone's trip to Tuscany."
+categories: ["Recipe Workflows"]
 ---
 
 You search for "chicken parmesan recipe." The first result has a 2,000-word story about the author's childhood in New Jersey, three video ads, a newsletter popup, and a cookie consent banner. Somewhere below the fold, there's a recipe — but it's been modified to be "unique" enough to avoid duplicate content penalties.

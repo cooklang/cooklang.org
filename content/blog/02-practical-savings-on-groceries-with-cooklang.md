@@ -3,6 +3,7 @@ title: 'Automated Grocery List: Save Time and Money with Meal Planning'
 date: 2026-04-09
 weight: 90
 summary: Build an automated grocery list from your meal plan using Cooklang. Practical tips for shopping list automation, reducing food waste, and cutting your grocery bill.
+categories: ["Recipe Workflows"]
 ---
 
 The single biggest change I made to reduce my grocery spending was switching from "buy what looks good" to "buy what I need." That sounds obvious, but doing it consistently requires a system, not willpower.

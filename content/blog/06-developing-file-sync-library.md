@@ -3,6 +3,7 @@ title: "Developing file sync library"
 date: 2024-11-29
 weight: 80
 summary: Alexey on a quest of solving recipe sync problem for Cooklang apps.
+categories: ["Self-Hosting and Integrations"]
 ---
 
 _Originally posted in our newsletter._

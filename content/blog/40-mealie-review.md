@@ -3,6 +3,7 @@ title: "Mealie Review: A Developer's Honest Look at the Self-Hosted Recipe Manag
 date: 2026-03-24
 weight: 45
 summary: "Mealie is one of the most popular self-hosted recipe managers. Here's an honest look at what it does well, where it falls short, and who it's actually for — from someone who builds a different kind of recipe tool."
+categories: ["Comparisons"]
 ---
 
 Mealie keeps coming up whenever developers ask about self-hosted recipe management. It's got 11,000+ GitHub stars, an active community, and a genuinely polished web interface. If you're evaluating recipe management options and Mealie is on your list, here's what you actually need to know.

@@ -3,6 +3,7 @@ title: "David A. Mundie on Cooking and Technology"
 date: 2024-12-26
 weight: 80
 summary: "An interview with David A. Mundie, creator of RxOL - the first programming language for recipes in 1985. He shares his vision of simplifying cooking through technology, his thoughts on recipe formats, and perspectives on the future of kitchen automation."
+categories: ["Format and Design"]
 ---
 
 David A. Mundie in his little book ["Computerised Cooking"](http://diyhpl.us/~bryan/papers2/CompCook.html) introduces RxOL, the first programming language for recipes, and also Cocina software for Macintosh that uses it. In 1985.

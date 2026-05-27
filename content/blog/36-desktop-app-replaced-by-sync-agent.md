@@ -3,6 +3,7 @@ title: "The Desktop App Is Gone. Here's What Replaced It."
 date: 2026-03-11
 weight: 48
 summary: "We replaced the Cooklang desktop app with a lightweight sync agent — a tiny background service that does the same job faster, with less overhead."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 The Cooklang desktop app is no more. We've replaced it with something better: a lightweight sync agent that does exactly one thing — keeps your recipe folder in sync between your computer and your phone.

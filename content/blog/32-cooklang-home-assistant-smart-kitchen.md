@@ -4,6 +4,7 @@ date: 2026-02-28
 weight: 60
 summary: "Turn Home Assistant into a smart kitchen hub by integrating CookCLI — display today's recipe, trigger shopping lists, track expiring pantry items, and fire smart timers from your recipes."
 description: "Integrate recipe management and meal planning into Home Assistant. Display recipes, generate shopping lists, and run cooking timers from your HA dashboard."
+categories: ["Self-Hosting and Integrations"]
 ---
 
 Home Assistant controls your lights, thermostat, and door locks. It knows when you wake up and when you leave the house. So why doesn't it know what's for dinner?
