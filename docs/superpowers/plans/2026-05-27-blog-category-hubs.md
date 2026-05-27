@@ -532,16 +532,17 @@ Create `layouts/partials/breadcrumb.html`:
     <li class="text-cooklang-gray-900 truncate max-w-xs" aria-current="page">{{ $.Title }}</li>
   </ol>
 </nav>
+{{ $ld := dict
+  "@context" "https://schema.org"
+  "@type" "BreadcrumbList"
+  "itemListElement" (slice
+    (dict "@type" "ListItem" "position" 1 "name" "Blog" "item" ("/blog/" | absURL))
+    (dict "@type" "ListItem" "position" 2 "name" $category "item" ($categoryURL | absURL))
+    (dict "@type" "ListItem" "position" 3 "name" $.Title)
+  )
+}}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "Blog", "item": "{{ "/blog/" | absURL }}"},
-    {"@type": "ListItem", "position": 2, "name": {{ $category | jsonify }}, "item": "{{ $categoryURL | absURL }}"},
-    {"@type": "ListItem", "position": 3, "name": {{ $.Title | jsonify }}}
-  ]
-}
+{{ $ld | jsonify (dict "indent" "  ") | safeJS }}
 </script>
 {{ end }}
 ```
@@ -549,7 +550,7 @@ Create `layouts/partials/breadcrumb.html`:
 Notes:
 - `urlize` converts the category name to its URL slug (matching how Hugo computes the term permalink: e.g., `"Self-Hosting and Integrations"` → `"self-hosting-and-integrations"`). Category names use the word `and` rather than `&` because Hugo's slug derivation collapses `&` characters, which would mismatch our content path.
 - The third `ListItem` deliberately omits `item` (current page, per Google's BreadcrumbList guidance).
-- `jsonify` is used for `name` fields to safely escape any quotes/special characters in titles or category names.
+- **JSON-LD construction**: Hugo's html/template applies JS-context escaping inside `<script>` tags, which would double-escape string interpolations like `{{ $title | jsonify }}` (producing `"\"Title\""` instead of `"Title"`). To avoid this, we build the structured-data object as a Hugo `dict`/`slice`, then emit it via `jsonify | safeJS` so the template engine treats the output as already-safe JSON.
 - `with` block means posts without `categories` render nothing — no breadcrumb, no schema, no build error.
 
 - [ ] **Step 2: Smoke-test the partial standalone**
