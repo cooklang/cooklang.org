@@ -10,6 +10,17 @@
       {{ end }}
     </header>
 
+    <nav class="mb-10" aria-label="Browse by topic">
+      <h2 class="text-sm uppercase tracking-wide text-cooklang-gray-500 mb-3">Browse by topic</h2>
+      <ul class="flex flex-wrap gap-2">
+        <li><a href="/blog/comparisons/" class="inline-block px-4 py-2 rounded-full border border-cooklang-gray-200 text-cooklang-gray-700 hover:border-cooklang-orange hover:text-cooklang-orange transition-colors">Comparisons</a></li>
+        <li><a href="/blog/guides-and-tutorials/" class="inline-block px-4 py-2 rounded-full border border-cooklang-gray-200 text-cooklang-gray-700 hover:border-cooklang-orange hover:text-cooklang-orange transition-colors">Guides and Tutorials</a></li>
+        <li><a href="/blog/self-hosting-and-integrations/" class="inline-block px-4 py-2 rounded-full border border-cooklang-gray-200 text-cooklang-gray-700 hover:border-cooklang-orange hover:text-cooklang-orange transition-colors">Self-Hosting and Integrations</a></li>
+        <li><a href="/blog/recipe-workflows/" class="inline-block px-4 py-2 rounded-full border border-cooklang-gray-200 text-cooklang-gray-700 hover:border-cooklang-orange hover:text-cooklang-orange transition-colors">Recipe Workflows</a></li>
+        <li><a href="/blog/format-and-design/" class="inline-block px-4 py-2 rounded-full border border-cooklang-gray-200 text-cooklang-gray-700 hover:border-cooklang-orange hover:text-cooklang-orange transition-colors">Format and Design</a></li>
+      </ul>
+    </nav>
+
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {{ $pages := .Pages }}
       {{ $sortedPages := sort $pages ".Weight" }}
