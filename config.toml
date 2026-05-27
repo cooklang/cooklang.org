@@ -3,10 +3,17 @@ languageCode = "en-ie"
 title = "Cooklang"
 themesDir = "./themes"
 theme = "cooklang-tw"
+disableKinds = ["taxonomy"]
 
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
 pygmentsUseClasses = true
+
+[taxonomies]
+  category = "categories"
+
+[permalinks]
+  categories = "/blog/:slug/"
 
 # Syntax highlighting configuration
 [markup]
