@@ -1,7 +1,7 @@
 ---
 title: "Cooklang Comparisons: How We Stack Up Against Other Recipe Tools"
 slug: "comparisons"
-description: "Honest head-to-heads between Cooklang and other recipe managers — Mealie, Tandoor, Paprika, KitchenOwl, and more. Where Cooklang fits, and where it doesn't."
+description: "Honest head-to-heads between Cooklang and other recipe managers — Mealie, Tandoor, Paprika, KitchenOwl, and more. Where Cooklang fits, where it doesn't."
 date: 2026-05-27
 ---
 
