@@ -1,0 +1,29 @@
+{{ with .Params.categories }}
+{{ $category := index . 0 }}
+{{ $categorySlug := urlize $category }}
+{{ $categoryURL := printf "/blog/%s/" $categorySlug }}
+{{ $current := $ }}
+{{ $blogPages := where site.RegularPages "Section" "blog" }}
+{{ $sameCategory := where $blogPages ".Params.categories" "intersect" (slice $category) }}
+{{ $siblings := where $sameCategory "Permalink" "!=" $current.Permalink }}
+{{ $siblings = first 3 ($siblings.ByDate.Reverse) }}
+{{ if $siblings }}
+<aside class="mt-12 pt-8 border-t border-cooklang-gray-200">
+  <h3 class="text-lg font-semibold text-cooklang-gray-900 mb-4">
+    Part of the <a href="{{ $categoryURL }}" class="text-cooklang-orange hover:text-orange-600">{{ $category }}</a> series →
+  </h3>
+  <div class="grid gap-4 md:grid-cols-3">
+    {{ range $siblings }}
+    <article class="bg-white border border-cooklang-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
+      <h4 class="text-base font-semibold mb-1">
+        <a href="{{ .RelPermalink }}" class="text-cooklang-gray-900 hover:text-cooklang-orange">{{ .LinkTitle }}</a>
+      </h4>
+      {{ if .Summary }}
+      <p class="text-sm text-cooklang-gray-600">{{ .Summary | truncate 100 }}</p>
+      {{ end }}
+    </article>
+    {{ end }}
+  </div>
+</aside>
+{{ end }}
+{{ end }}
