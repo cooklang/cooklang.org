@@ -181,11 +181,14 @@ git commit -m "blog: add category taxonomy term template"
 
 Each file uses YAML frontmatter (never the deprecated `>>` syntax). All five are created in this single task so the hub pages exist together before posts are assigned.
 
+**Note on the `slug:` field:** Each frontmatter explicitly sets `slug:` to the short slug. Hugo's `:slug` token in `[permalinks] categories = "/blog/:slug/"` resolves from the page's `Slug` property, which for taxonomy terms defaults to a slugified `.Title` — not the directory name. Without an explicit `slug:`, the long marketing titles would produce ugly URLs like `/blog/cooklang-comparisons-how-we-stack-up-against-other-recipe-tools/`.
+
 - [ ] **Step 1: Create `content/categories/comparisons/_index.md`**
 
 ```markdown
 ---
 title: "Cooklang Comparisons: How We Stack Up Against Other Recipe Tools"
+slug: "comparisons"
 description: "Honest head-to-head comparisons between Cooklang and other recipe managers — Mealie, Tandoor, Paprika, KitchenOwl, and more. Where Cooklang fits, and where it doesn't."
 date: 2026-05-27
 ---
@@ -208,6 +211,7 @@ Start with the comparison closest to your shortlist, or read [Best Recipe Manage
 ```markdown
 ---
 title: "Cooklang Guides and Tutorials: From Zero to Working Recipes"
+slug: "guides-and-tutorials"
 description: "Step-by-step guides for Cooklang — beginners, CLI usage, editor integrations, migration paths, parser embedding, and publishing your collection."
 date: 2026-05-27
 ---
@@ -230,6 +234,7 @@ If you're stuck somewhere in the middle of one, the [CookCLI guide](/blog/23-com
 ```markdown
 ---
 title: "Self-Hosting Cooklang and Integrations with Other Tools"
+slug: "self-hosting-and-integrations"
 description: "Docker, Home Assistant, Raspberry Pi, mobile and desktop apps, sync agents, parser APIs — running Cooklang in your own infrastructure."
 date: 2026-05-27
 ---
@@ -250,6 +255,7 @@ A common pattern across all of these: the integration is usually a thin shim. Co
 ```markdown
 ---
 title: "Recipe Workflows: Meal Planning, Shopping, and Cooking with Cooklang"
+slug: "recipe-workflows"
 description: "How Cooklang fits the practical work of cooking — meal planning, grocery shopping, scaling, pantry management, and version-controlling your recipes."
 date: 2026-05-27
 ---
@@ -270,6 +276,7 @@ The thread that runs through all of these is that the value of structured recipe
 ```markdown
 ---
 title: "Recipe Format and Design: Why Cooklang Looks the Way It Does"
+slug: "format-and-design"
 description: "Design decisions, language history, and format philosophy behind Cooklang — why plain text, why this syntax, and what a recipe format should optimise for."
 date: 2026-05-27
 ---

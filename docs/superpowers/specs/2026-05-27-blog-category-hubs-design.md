@@ -62,9 +62,11 @@ YAML frontmatter is mandatory (per global convention — never the deprecated `>
 Term values use the word `and` rather than `&`. Hugo's term-slug derivation collapses `&` characters, which would make `"Self-Hosting & Integrations"` slug to `self-hosting-integrations` — mismatching our content path and URL. The hub page H1 (rendered from `.Title` in `_index.md`) may use `&` for display polish, but the category value (and therefore the breadcrumb display) uses `and`.
 
 Each `_index.md` contains:
-- `title`, `description` (SEO meta, ≤155 chars), `date`
+- `title`, `slug`, `description` (SEO meta, ≤155 chars), `date`
 - 300–500 words of editorial intro framing the topic, what readers will find, and pointers to 3–4 anchor posts
 - No explicit post listing — the template auto-renders posts below the intro
+
+The explicit `slug` field is required because Hugo's `:slug` token in the permalink override resolves from the page's `Slug` property, which for taxonomy term pages defaults to a slugified `.Title` (not the directory name). Without it, the long marketing titles would produce ugly URLs like `/blog/cooklang-comparisons-how-we-stack-up-against-other-recipe-tools/`. Setting `slug` to the short term — e.g., `comparisons` — gives the clean URLs the design requires.
 
 ### Templates
 
