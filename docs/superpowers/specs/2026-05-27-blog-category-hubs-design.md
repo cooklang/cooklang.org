@@ -23,7 +23,7 @@ Create five topic-cluster hub pages under `/blog/<topic>/`, each acting as a ran
 
 ### Hugo configuration
 
-Two additions to `config.toml`:
+Three additions to `config.toml`:
 
 ```toml
 [taxonomies]
@@ -31,9 +31,13 @@ Two additions to `config.toml`:
 
 [permalinks]
   categories = "/blog/:slug/"
+
+disableKinds = ["taxonomy"]
 ```
 
 The `permalinks` override flattens the category URL from Hugo's default `/categories/<slug>/` to `/blog/<slug>/`, putting the hub at the same depth as posts and keeping the keyword in the URL.
+
+`disableKinds = ["taxonomy"]` suppresses the auto-generated `/categories/` landing page that would otherwise list all term names. That page would be a thin SEO liability. Individual term pages (kind: `term`) still render — only the list-of-all-terms page is disabled.
 
 ### Content structure
 
@@ -45,15 +49,15 @@ categories: ["Comparisons"]
 
 YAML frontmatter is mandatory (per global convention — never the deprecated `>>` metadata syntax).
 
-**Five new hub index files** at `content/blog/<slug>/_index.md`:
+**Five new hub index files** at `content/categories/<slug>/_index.md` (Hugo's standard location for taxonomy term content — the URL is overridden to `/blog/<slug>/` by the permalink config above):
 
-| Slug | Title | Category value |
+| File path | Term value (in post frontmatter) | Rendered URL |
 |---|---|---|
-| `comparisons` | Comparisons | `Comparisons` |
-| `guides-and-tutorials` | Guides & Tutorials | `Guides & Tutorials` |
-| `self-hosting-and-integrations` | Self-Hosting & Integrations | `Self-Hosting & Integrations` |
-| `recipe-workflows` | Recipe Workflows | `Recipe Workflows` |
-| `format-and-design` | Format & Design | `Format & Design` |
+| `content/categories/comparisons/_index.md` | `Comparisons` | `/blog/comparisons/` |
+| `content/categories/guides-and-tutorials/_index.md` | `Guides & Tutorials` | `/blog/guides-and-tutorials/` |
+| `content/categories/self-hosting-and-integrations/_index.md` | `Self-Hosting & Integrations` | `/blog/self-hosting-and-integrations/` |
+| `content/categories/recipe-workflows/_index.md` | `Recipe Workflows` | `/blog/recipe-workflows/` |
+| `content/categories/format-and-design/_index.md` | `Format & Design` | `/blog/format-and-design/` |
 
 Each `_index.md` contains:
 - `title`, `description` (SEO meta, ≤155 chars), `date`
