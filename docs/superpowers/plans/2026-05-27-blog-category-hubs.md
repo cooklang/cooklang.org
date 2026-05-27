@@ -189,7 +189,7 @@ Each file uses YAML frontmatter (never the deprecated `>>` syntax). All five are
 ---
 title: "Cooklang Comparisons: How We Stack Up Against Other Recipe Tools"
 slug: "comparisons"
-description: "Honest head-to-head comparisons between Cooklang and other recipe managers — Mealie, Tandoor, Paprika, KitchenOwl, and more. Where Cooklang fits, and where it doesn't."
+description: "Honest head-to-heads between Cooklang and other recipe managers — Mealie, Tandoor, Paprika, KitchenOwl, and more. Where Cooklang fits, and where it doesn't."
 date: 2026-05-27
 ---
 
