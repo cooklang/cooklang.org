@@ -1,0 +1,163 @@
+{{ define "main" }}
+<div class="bg-white">
+
+  <!-- Hero -->
+  <section class="container mx-auto px-4 py-16 md:py-24">
+    <div class="text-center max-w-4xl mx-auto">
+      <img src="/cook-editor-icon.png" alt="Cook Editor icon" width="96" height="96" class="mx-auto mb-6 rounded-2xl shadow-sm">
+      <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">
+        Cook Editor
+      </h1>
+      <p class="text-xl md:text-2xl text-cooklang-gray-600 mb-4">
+        A plain-text recipe workspace for your desktop — write, preview, and plan meals from your <code class="bg-gray-100 px-2 py-1 rounded">.cook</code> files, with a built-in AI assistant.
+      </p>
+      <p class="text-lg md:text-xl text-cooklang-gray-600 mb-8">
+        Free and open source. Available for macOS, Windows, and Linux.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a href="https://github.com/cook-md/editor/releases/latest" class="btn btn-primary">
+          Download
+        </a>
+        <a href="https://cook.md/help/editor" class="btn btn-secondary">
+          Documentation
+        </a>
+      </div>
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-cooklang-gray-500">
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          macOS · Windows · Linux
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Free &amp; open source
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+          Your files stay yours
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Editor screenshot -->
+  <section class="py-8">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <img src="/guide/cook-editor.png" alt="Cook Editor showing a Cooklang recipe with syntax highlighting and live preview" class="w-full rounded-lg shadow-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Editor workspace features -->
+  <section class="bg-cooklang-gray-50 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-4">
+        A focused workspace for your recipes
+      </h2>
+      <p class="text-lg text-center text-cooklang-gray-600 mb-12 max-w-3xl mx-auto">
+        Built on a familiar VS Code-style editor, tuned for Cooklang
+      </p>
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Write with confidence</h3>
+          <p class="text-cooklang-gray-600">
+            Cooklang syntax highlighting, inline validation, and autocomplete for ingredients and cookware as you type.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Live recipe preview</h3>
+          <p class="text-cooklang-gray-600">
+            See a formatted recipe alongside your text, with one-click scaling and tappable ingredient chips.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Shopping lists by aisle</h3>
+          <p class="text-cooklang-gray-600">
+            Combine ingredients across multiple recipes into a single shopping list, grouped by store department.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Multi-day meal plans</h3>
+          <p class="text-cooklang-gray-600">
+            Plan whole weeks with <code class="bg-gray-100 px-1 py-0.5 rounded">.menu</code> files and compile their shopping lists in one step.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CookBot AI -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+        <div>
+          <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">
+            Meet CookBot, your AI sous-chef
+          </h2>
+          <p class="text-lg text-cooklang-gray-600 mb-6">
+            A built-in AI sidebar that works directly on your recipe files — and always asks for your approval before it changes anything.
+          </p>
+          <ul class="space-y-3 text-cooklang-gray-700">
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-cooklang-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Import recipes</strong> from pasted text or a link, converted into clean Cooklang.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-cooklang-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Draft meal plans</strong> from what you already have in your collection.</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg class="w-5 h-5 text-cooklang-orange mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              <span><strong>Edit across your library</strong> — tidy metadata, fix units, restructure steps — with every change shown for review first.</span>
+            </li>
+          </ul>
+          <p class="text-sm text-cooklang-gray-500 mt-6">
+            The editor and CookBot are free to use. An optional <strong>Cookbot Pro</strong> subscription adds unlimited AI conversations, recipe import from any URL, and AI meal planning.
+          </p>
+        </div>
+        <div>
+          <img src="/guide/cookbot.png" alt="CookBot AI sidebar drafting a recipe inside Cook Editor" class="w-full rounded-lg shadow-xl">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sync note -->
+  <section class="py-12 bg-cooklang-gray-50">
+    <div class="container mx-auto px-4 text-center max-w-3xl">
+      <h2 class="text-2xl font-bold text-cooklang-gray-900 mb-3">Works with your phone, too</h2>
+      <p class="text-lg text-cooklang-gray-600">
+        Cook Editor syncs with the <a href="/app/" class="text-cooklang-orange hover:underline">iOS and Android apps</a>, so the recipes you write at your desk are in your pocket at the shop.
+      </p>
+    </div>
+  </section>
+
+  <!-- Download footer -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4 text-center max-w-3xl">
+      <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">Get Cook Editor</h2>
+      <p class="text-lg text-cooklang-gray-600 mb-8">
+        Pre-built downloads for macOS (Apple silicon &amp; Intel), Windows, and Linux (deb, rpm, AppImage).
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a href="https://github.com/cook-md/editor/releases/latest" class="btn btn-primary">
+          Download for your platform
+        </a>
+        <a href="https://github.com/cook-md/editor" class="btn btn-secondary">
+          View source on GitHub
+        </a>
+      </div>
+      <h3 class="text-xl font-semibold text-cooklang-gray-900 mb-3">Get updates</h3>
+      <p class="text-cooklang-gray-600 mb-4">New features and recipes, about once a month.</p>
+      {{ partial "newsletter-inline.html" . }}
+    </div>
+  </section>
+
+</div>
+{{ end }}
