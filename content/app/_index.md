@@ -20,7 +20,7 @@ Store your Cooklang recipes files in iCloud Drive and seamlessly use them on you
 
 [Download on the App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone).
 
-_Note: Requires Mac or PC to store recipes on iCloud Drive._
+_Two ways to sync: the [Sync Agent](https://cook.md/download), or a local folder kept in sync by an app like iCloud Drive — see [Syncing your recipes](#syncing-your-recipes) below._
 
 Submit your feedback in [discussions](https://github.com/cook-md/ios-app/discussions) or by email: {{< email >}}.
 
@@ -32,11 +32,20 @@ Store your Cooklang recipes files in any folder on your Desktop and seamlessly u
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=md.cook.android).
 
-_Note: Optionally [Sync Agent](https://cook.md/download) to be installed on your computer._
+_Two ways to sync: the [Sync Agent](https://cook.md/download), or a local folder kept in sync by an app like Dropbox or Syncthing — see [Syncing your recipes](#syncing-your-recipes) below._
 
 Submit your feedback in [discussions](https://github.com/cook-md/android-app/discussions) or by email: {{< email >}}.
 
 Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
+
+## Syncing your recipes
+
+Your recipes are plain-text files, so there are two easy ways to keep them in sync between your computer and your phone:
+
+- **Sync Agent** — install the [Sync Agent](https://cook.md/download) on your Mac, PC, or Linux machine, and your recipes sync automatically across all your devices through CookCloud.
+- **A folder synced by another app** — keep your recipes in a folder that a service you already use keeps in sync (iCloud Drive, Dropbox, Syncthing, and the like), then point the app at that folder.
+
+Either way, your files stay plain text and fully under your control.
 
 ## Prefer a desktop app?
 
