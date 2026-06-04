@@ -79,14 +79,19 @@ summaryLength = 30
     weight = 3
 
 [[menu.main]]
+    name = "Editor"
+    url = "/editor/"
+    weight = 4
+
+[[menu.main]]
     name = "Mobile App"
     url = "/app/"
-    weight = 4
+    weight = 5
 
 [[menu.main]]
     name = "Blog"
     url = "/blog/"
-    weight = 5
+    weight = 6
 
 
 [params]
@@ -95,7 +100,7 @@ summaryLength = 30
   # homepage_button_text = 'Read The Docs'
   # homepage_intro = 'Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal.'
   # homepage_image = '/images/terminal.gif'
-  mainSections = ["docs", "cli", "app", "blog"]
+  mainSections = ["docs", "cli", "editor", "app", "blog"]
 
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true
