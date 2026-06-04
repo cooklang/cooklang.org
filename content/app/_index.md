@@ -38,20 +38,7 @@ Submit your feedback in [discussions](https://github.com/cook-md/android-app/dis
 
 Please open an issue [here](https://github.com/cook-md/android-app/issues) to report a bug.
 
-## Cook Editor <span class="new-label">New</span> {#cook-editor}
+## Prefer a desktop app?
 
-![Cook Editor Screenshot](/guide/cook-editor.png)
-
-Cook Editor is a free desktop app for writing, previewing, and planning meals from your `.cook` files. Available for macOS, Windows, and Linux.
-
-* Syntax highlighting, inline validation, and autocomplete for Cooklang
-* Recipe preview with scaling and ingredient chips
-* Shopping lists combined from multiple recipes, grouped by aisle
-* Multi-day meal plans with `.menu` files
-* Built-in CookBot AI sidebar that can import recipes, draft meal plans, and edit your collection — with your approval
-* Syncs with iOS and Android apps
-
-The editor is free. An optional **Cookbot Pro** subscription unlocks unlimited AI conversations, recipe import from any URL, and AI meal planning.
-
-[Download](https://github.com/cook-md/editor/releases/latest) | [Documentation](https://cook.md/help/editor) | [Source](https://github.com/cook-md/editor)
+[Cook Editor](/editor/) is a free desktop app for writing, previewing, and planning meals from your `.cook` files on macOS, Windows, and Linux — with a built-in CookBot AI assistant. It syncs with the mobile apps.
 
