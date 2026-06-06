@@ -19,6 +19,8 @@ When processed using apps, this recipe extracts ingredients while keeping the in
 
 ![Android Screens](/guide/app-screens-demo.jpg)
 
+{{< quickstart-callout >}}
+
 ## 1. Try It Right Now
 
 No installation needed — try Cooklang instantly:
