@@ -1,6 +1,6 @@
 ---
 title: 'Getting Started'
-date: 2022-02-15T19:30:08+10:00
+date: 2026-06-07
 draft: false
 weight: 1
 summary: All you need to get started with Cooklang
@@ -35,7 +35,7 @@ No installation needed — try Cooklang instantly:
 
 ## 2. Start Cooking With the App
 
-Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open the app and choose to sync recipes with CookCloud, iCloud, or a local folder.
+Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open the app and choose to sync recipes with Cook Cloud, iCloud, or a local folder.
 
 If you're using the iOS app with iCloud sync, it will create a folder in iCloud Drive called `CooklangApp` where it expects to see recipes. The sync method can be changed later in the app settings.
 
@@ -55,7 +55,7 @@ For the full syntax reference, see the [Cooklang specification](/docs/spec/). To
 
 Syntax highlighting makes writing recipes easier. Set up your preferred editor:
 
-- **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook\&ssr=false#overview) from the marketplace.
+- **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook&ssr=false#overview) from the marketplace.
 
 ![VSCode autocomplete with CookCLI](/guide/vscode.png)
 
@@ -120,7 +120,7 @@ If you use an AI coding assistant like Claude Code or Codex CLI, you can superch
 
 Some skills work standalone (`create-recipe`, `convert-recipe`, `organize-collection`), while others benefit from having CookCLI installed.
 
-If you don't use these tools, try [Cook Editor](https://cook.md/editor) — a free desktop app for writing, previewing, and planning meals from your Cooklang files, with AI assistance built in.
+If you don't use those tools, the [Cook Editor](https://cook.md/editor) desktop app (introduced under [Editor Setup](#editor-setup) above) brings the same create, convert, and meal-planning workflow into a GUI with AI built in — no command line needed.
 
 ## What's Next?
 
