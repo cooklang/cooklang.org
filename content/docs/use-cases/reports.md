@@ -184,5 +184,6 @@ Find more example reports [in the repository](https://github.com/cooklang/cookla
 ## See Also
 
 * [CLI Report Command](/cli/commands/report/) — full command reference
+* [Reports in Cook Editor](https://cook.md/blog/custom-recipe-reports) — run these templates visually in the desktop editor, with a live preview that updates as you write
 * [Shopping Lists](../shopping/) — focused shopping list workflows
 * [Pantry Management](../pantry/) — managing your ingredient inventory
