@@ -24,7 +24,7 @@ Place @bacon strips{1%kg} on a baking sheet and glaze with @syrup{1/2%tbsp}.
 
 The recipe stays readable — you can follow it as-is. But a computer can also parse it, extract every ingredient with its quantity, and build a shopping list automatically.
 
-Because it's plain text, I can store recipes in Git, edit them in any text editor, and sync them across devices with whatever I already use. No database, no app subscription, no vendor lock-in.
+Because it's plain text, I can store recipes in Git, edit them in any text editor, and sync them across devices with whatever I already use. No database, no app subscription, no vendor lock-in. (If you'd rather have managed sync that keeps that promise, that's the idea behind [recipe sync without the lock-in](https://cook.md/blog/recipe-sync-without-lock-in).)
 
 ## The Tools
 

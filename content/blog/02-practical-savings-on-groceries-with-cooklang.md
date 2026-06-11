@@ -91,6 +91,8 @@ This turns shopping from "walk every aisle looking for things" into "walk throug
 
 After doing this consistently, I spend about 30% less on groceries and throw away almost nothing. The time investment is 15 minutes on Sunday — plan the meals, run `cook shopping-list`, check the pantry, go shopping.
 
+If you're currently paying for meal kits, the savings are even larger — I ran the numbers in [the real cost of meal kits vs plain-text planning](https://cook.md/blog/meal-kits-vs-cook-cost), and laid out a [HelloFresh alternative that plans your whole week for less](https://cook.md/blog/hellofresh-alternative).
+
 The tools are free and open source. Start with [CookCLI](/cli/) and one week of recipes. The savings compound from there.
 
 [Get started with Cooklang →](/docs/getting-started/)

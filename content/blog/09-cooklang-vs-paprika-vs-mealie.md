@@ -59,6 +59,8 @@ Paprika charges per device. Want it on your phone ($4.99), tablet ($4.99), and c
 
 One user reported saving 2 hours weekly on meal planning after switching to Paprika. At $40, that's paid for itself in two weeks.
 
+If you're weighing Paprika specifically against an own-your-data approach with AI meal planning, there's a focused head-to-head in [Paprika vs Cook](https://cook.md/blog/paprika-vs-cook).
+
 ### Mealie: The Self-Hosted Revolution
 
 Mealie asks a different question: Why should a tech company own your family recipes?

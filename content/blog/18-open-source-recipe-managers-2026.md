@@ -96,7 +96,7 @@ Here's an honest look at the main options.
 
 **[Grocy](https://grocy.info/)** — Not strictly a recipe manager — it's a household management system that includes recipes alongside inventory tracking, chore management, and battery tracking. If you want to manage your entire household, not just recipes, Grocy covers more ground.
 
-**[Paprika](https://www.paprikaapp.com/)** — Not open source, but worth mentioning because it's the commercial benchmark. Excellent web scraping, polished UX, works offline. One-time purchase per platform ($4.99 mobile, $29.99 desktop). If you don't care about open source and want something that works immediately, Paprika is hard to beat.
+**[Paprika](https://www.paprikaapp.com/)** — Not open source, but worth mentioning because it's the commercial benchmark. Excellent web scraping, polished UX, works offline. One-time purchase per platform ($4.99 mobile, $29.99 desktop). If you don't care about open source and want something that works immediately, Paprika is hard to beat. (Weighing it against a plain-text plus AI approach? See [Paprika vs Cook](https://cook.md/blog/paprika-vs-cook).)
 
 ## How to Choose
 

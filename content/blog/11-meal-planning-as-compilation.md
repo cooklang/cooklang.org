@@ -8,7 +8,7 @@ categories: ["Recipe Workflows"]
 
 I used to think meal planning was for people with too much time. Then I realized I was spending more time not planning meals than it would take to plan them.
 
-Let me be clear: what I'm about to describe isn't fully built yet. It's how I want meal planning to work, how it should work. Some pieces exist in Cooklang today, others are still being developed. Think of this as a design document for the future of meal planning, not a manual for current software.
+Let me be clear: what I'm about to describe isn't fully built yet. It's how I want meal planning to work, how it should work. Some pieces exist in Cooklang today, others are still being developed. Think of this as a design document for the future of meal planning, not a manual for current software. (Since writing this, some of it is real: here's [planning a week of dinners with AI from your own collection](https://cook.md/blog/plan-a-week-of-dinners-with-ai).)
 
 Every evening around 5 PM, the same ritual: stare into the fridge, evaluate ingredients like a puzzle, realize I'm missing something crucial, order takeout. I was treating cooking like an interpreted language - parsing each meal at runtime. What I needed was compilation.
 

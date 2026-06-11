@@ -35,9 +35,9 @@ Before evaluating any specific app, it helps to know what questions to ask.
 
 **Paprika** is the benchmark for polished commercial recipe management software. It scrapes recipes from any URL reliably, handles scaling cleanly, generates shopping lists, works completely offline, and has native apps on iOS, Android, macOS, and Windows. The one-time purchase ($4.99 mobile, $29.99 desktop) is reasonable. The catch is per-platform pricing — phone, tablet, and desktop together costs around $40. Your recipes also live in Paprika's format. Export exists but migration is not seamless.
 
-If you want something that works immediately without any configuration and you are not particularly worried about data ownership, Paprika is hard to argue with. It earns its reputation.
+If you want something that works immediately without any configuration and you are not particularly worried about data ownership, Paprika is hard to argue with. It earns its reputation. For a direct head-to-head with the plain-text plus AI-meal-planning approach, see [Paprika vs Cook](https://cook.md/blog/paprika-vs-cook).
 
-**Whisk** is a free recipe management app that handles URL import and basic meal planning. The UI is modern and the mobile experience is decent. It is owned by Samsung, which tells you something about the business model. Not a bad choice for casual use; not a choice I'd make for a recipe collection I care about.
+**Whisk** is a free recipe management app that handles URL import and basic meal planning. The UI is modern and the mobile experience is decent. It is owned by Samsung, which tells you something about the business model. Not a bad choice for casual use; not a choice I'd make for a recipe collection I care about — more on that trade-off in [Samsung Food (Whisk) vs Cook: what happens to your data](https://cook.md/blog/samsung-food-vs-cook).
 
 **CopyMeThat** focuses on clipping recipes from the web. Does that one thing well. Less useful once you want meal planning or shopping list generation.
 

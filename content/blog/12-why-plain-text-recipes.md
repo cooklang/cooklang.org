@@ -10,7 +10,7 @@ You know what file format has survived since the 1960s? Plain text. You know wha
 
 There's a disturbing pattern in recipe apps: MacGourmet (abandoned by Mariner Software), Panna (absorbed by Food Network 2020), Yummly (acquired by Whirlpool 2017), Evernote Food (killed 2015), ChefTap (shut down 2023). Each transition forced users to export, migrate, or lose their recipes entirely. Meanwhile, my grandmother's index cards from 1962 still work perfectly.
 
-After using recipe apps for a decade, I discovered something counterintuitive: the most advanced way to store recipes isn't in a database at all. Here's why treating recipes as plain text files is paradoxically more powerful than any app.
+After using recipe apps for a decade, I discovered something counterintuitive: the most advanced way to store recipes isn't in a database at all. Here's why treating recipes as plain text files is paradoxically more powerful than any app. (For the wider case, see [the plain-text canon — why recipes belong in it](https://cook.md/blog/plain-text-canon).)
 
 ## The Database Trap
 

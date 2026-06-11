@@ -71,6 +71,8 @@ That's the entire syntax. Three symbols.
 
 Take any recipe you have. Here's a typical one from a website:
 
+> Prefer a guided walkthrough? [Write your first recipe in Cooklang in five minutes](https://cook.md/blog/write-your-first-cooklang-recipe).
+
 > **Simple Tomato Soup** (Serves 4)
 >
 > Heat 2 tablespoons olive oil in a large pot. Add 1 diced onion and 3 cloves garlic, cook 5 minutes until soft. Add two 400g cans crushed tomatoes, 1 cup vegetable broth, 1 teaspoon sugar, salt and pepper to taste. Simmer 20 minutes. Blend until smooth.

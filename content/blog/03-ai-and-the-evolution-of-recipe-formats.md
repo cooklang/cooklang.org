@@ -51,6 +51,8 @@ What's notable is how GPT-4 creates meaningful names for intermediate states. Wh
 
 If this approach works reliably at scale, it changes how recipe tools can work. You wouldn't need a specialized syntax for graph-based recipes — you'd write recipes however you want (including in Cooklang), and the AI extracts the graph structure automatically.
 
+Using ChatGPT for meal planning directly has a catch, though — it doesn't know your actual recipe collection. Here's why that matters: [ChatGPT vs Cook for meal planning](https://cook.md/blog/chatgpt-vs-cook-meal-planning).
+
 This means:
 - Step-by-step cooking apps could show exactly which ingredients are needed for the current step
 - Shopping lists could be generated with context about how each ingredient is used
