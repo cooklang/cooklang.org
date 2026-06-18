@@ -1,7 +1,7 @@
 ---
 title: "Cooklang for Obsidian: Manage Recipes in Your Vault (2026 Guide)"
-date: 2026-02-25
-weight: 60
+date: 2026-06-18
+weight: 45
 summary: "A step-by-step guide to using the Cooklang plugin for Obsidian. Turn your vault into a recipe manager with syntax highlighting, interactive timers, shopping lists, and a beautiful preview mode."
 description: "Use the Cooklang Obsidian plugin to manage recipes in your vault — syntax highlighting, interactive cooking timers, shopping lists, and recipe preview."
 howto:
@@ -35,8 +35,10 @@ That's it. Obsidian now recognizes `.cook` files.
 Right-click any folder in your vault and select **Create Recipe**. This creates a new `.cook` file. Write a recipe using Cooklang syntax:
 
 ```
->> servings: 2
->> time: 30 minutes
+---
+servings: 2
+time: 30 minutes
+---
 
 Preheat the #oven to 200°C.
 
@@ -89,12 +91,14 @@ A simple folder structure works well:
 └── 📁 Reference/
 ```
 
-Because `.cook` files are plain text, they work with everything Obsidian already does — backlinks, tags, search, graph view. Tag your recipes with metadata:
+Because `.cook` files are plain text, they work with everything Obsidian already does — backlinks, tags, search, graph view. Tag your recipes with YAML frontmatter at the top of the file:
 
 ```
->> tags: italian, quick, weeknight
->> source: https://example.com/recipe
->> author: Nonna
+---
+tags: italian, quick, weeknight
+source: https://example.com/recipe
+author: Nonna
+---
 ```
 
 The plugin renders tags with `#` prefixes and URLs as clickable links.
