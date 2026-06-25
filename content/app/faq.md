@@ -25,10 +25,10 @@ summary: The questions we're pretty sure you want to know the answers to.
     Baked Potato.cook
     Baked Potato.jpg
 
-You can also add images for specific steps by including a step number before the file extension.
+You can also add images for specific steps by including a step number before the file extension. Step numbers are 1-based, so the first step's image ends in .1.
 
     Chicken French.cook
-    Chicken French.0.jpg
+    Chicken French.1.jpg
     Chicken French.3.jpg
 
     `
