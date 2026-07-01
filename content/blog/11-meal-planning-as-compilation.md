@@ -31,50 +31,50 @@ servings: 2
 
 ==Monday==
 
-Breakfast:
-- @oatmeal{2%bowls} with @blueberries{100%g} and @honey
+Breakfast: \
+- @oatmeal{2%bowls} with @blueberries{100%g} and @honey \
 - @coffee{2%cups}
 
-Lunch:
+Lunch: \
 - @./Soups/Minestrone{4%servings} --make double batch
 
-Dinner:
-- @./Mains/Sheet-Pan Chicken{2} with @./Sides/Roasted Vegetables{}
+Dinner: \
+- @./Mains/Sheet-Pan Chicken{2} with @./Sides/Roasted Vegetables{} \
 - @./Salads/Simple Green{2%servings}
 
 ==Tuesday==
 
-Breakfast:
-- @yogurt{2%cups} with @granola{100%g} and @banana{2}
+Breakfast: \
+- @yogurt{2%cups} with @granola{100%g} and @banana{2} \
 - @coffee{2%cups}
 
-Lunch:
+Lunch: \
 - @./Soups/Minestrone{}(leftover from Monday)
 
-Dinner:
-- @./Pastas/Aglio e Olio{2} 
+Dinner: \
+- @./Pastas/Aglio e Olio{2} \
 - @./Salads/Caesar{2}
 
--- date night, make something nice
+> date night, make something nice
 
 ==Wednesday==
 
-Breakfast:
-- @scrambled eggs{4} with @toast{4%slices}
+Breakfast: \
+- @scrambled eggs{4} with @toast{4%slices} \
 - @coffee{2%cups}
 
-Lunch:
+Lunch: \
 - @./Sandwiches/Grilled Cheese{2} with @tomato soup{1%can}
 
-Dinner:
-- @./Mains/Thai Green Curry{3} --freeze 1 portion
+Dinner: \
+- @./Mains/Thai Green Curry{3} --freeze 1 portion \
 - @jasmine rice{2%cups}(cooked)
 
 == Snacks ==
-- @apples{6}
-- @almonds{200%g}
-- @hummus{1%container} with @carrots{500%g}
-- @greek yogurt{4%cups}
+- @apples{6} \
+- @almonds{200%g} \
+- @hummus{1%container} with @carrots{500%g} \
+- @greek yogurt{4%cups} \
 - @dark chocolate{1%bar}
 ```
 

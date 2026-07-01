@@ -25,17 +25,17 @@ Menu files use sections to organise days (or meals) and recipe references to pul
 ```
 = Monday
 
-@./mains/pasta carbonara{2}
+@./mains/pasta carbonara{2} \
 @./sides/green salad{}
 
 = Tuesday
 
-@./mains/chicken stir fry{4}
+@./mains/chicken stir fry{4} \
 @./sides/steamed rice{4}
 
 = Wednesday
 
-@./soups/minestrone{6}
+@./soups/minestrone{6} \
 @./breads/focaccia{1}
 ```
 

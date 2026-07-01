@@ -19,43 +19,43 @@ servings: 2
 
 ==Day 0==
 
--- delivery around 4pm
+> delivery around 4pm
 
-Dinner:
-- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings}
+Dinner: \
+- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings} \
 - @./Salads/Boring{2%servings}
 
--- do prep for burrito
+> do prep for burrito
 
 ==Day 1==
 
-Breakfast:
-- @./Breakfast/Mexican Style Burrito{2%servings}
+Breakfast: \
+- @./Breakfast/Mexican Style Burrito{2%servings} \
 - @filter coffee{1%cup} and @tea{1%cup}
 
-Lunch:
-- @./Lunches/Spaghetti Bolognese{}
+Lunch: \
+- @./Lunches/Spaghetti Bolognese{} \
 - @./Salads/Boring{2%servings}
 
-Dinner:
+Dinner: \
 - @./Salads/Caprese{2}
 
 ==Day 2==
 
-Breakfast:
-- @./Breakfast/Mexican Style Burrito{2%servings}
+Breakfast: \
+- @./Breakfast/Mexican Style Burrito{2%servings} \
 - @filter coffee{1%cup} and @tea{1%cup}
 
-Lunch:
+Lunch: \
 - @./Slowcooker/Slow-cooker beef stew{1/2} with @rice{1%cup}(boiled)
 
-Dinner:
+Dinner: \
 - @./Salads/Prawn Evening Salad{2} + @sourdough bread{1%slice}
 
 == Snacks ==
-- @kefir{2}
-- @dates
-- @apples
+- @kefir{2} \
+- @dates \
+- @apples \
 - @yogurt biscuits{3}
 
 == Batch Prep ==
@@ -74,7 +74,7 @@ Dinner:
 
 **Day sections** (`==Day 1==`) organize meals chronologically.
 
-**Comments** (`-- do prep for burrito`) add reminders about timing and logistics.
+**Notes** (`> do prep for burrito`) add reminders about timing and logistics.
 
 **Snacks and batch prep** sections ensure these items appear on the shopping list too.
 
