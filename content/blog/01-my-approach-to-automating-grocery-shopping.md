@@ -3,6 +3,7 @@ title: 'How to Automate Grocery Shopping with Plain Text Recipes'
 date: 2026-04-09
 weight: 100
 summary: How I automated my grocery shopping by creating Cooklang — a markup language that turns recipe files into shopping lists. From sticky notes to command-line automation.
+description: "Automate your grocery shopping with plain-text recipes. How Cooklang turns .cook files into shopping lists automatically — from sticky notes to the command line."
 categories: ["Recipe Workflows"]
 ---
 

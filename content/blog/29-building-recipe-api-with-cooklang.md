@@ -3,6 +3,7 @@ title: "Building a Recipe API with Cooklang"
 date: 2026-02-28
 weight: 60
 summary: "Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."
+description: "Build a recipe API with CookCLI: turn your plain-text .cook files into a structured JSON backend you own — no third-party recipe API required."
 categories: ["Self-Hosting and Integrations"]
 ---
 

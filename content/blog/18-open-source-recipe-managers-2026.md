@@ -32,7 +32,7 @@ Here's an honest look at the main options.
 
 ## Mealie
 
-[Mealie](https://mealie.io/) is a self-hosted web application focused on recipe management and meal planning. It runs as a Docker container and provides a polished web interface.
+[Mealie](https://mealie.io/) is a self-hosted web application focused on recipe management and meal planning. It runs as a Docker container and provides a polished web interface. (For a deeper look, see our full [Mealie review](/blog/40-mealie-review/).)
 
 **Strengths:**
 - Polished UI — looks good, easy to use

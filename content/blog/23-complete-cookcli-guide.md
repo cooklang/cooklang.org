@@ -3,6 +3,7 @@ title: "The Complete CookCLI Guide: From Install to Daily Use"
 date: 2026-02-28
 weight: 60
 summary: "A hands-on walkthrough of CookCLI covering installation, parsing recipes, generating shopping lists, scaling servings, and every command you'll actually use."
+description: "The complete CookCLI guide: install CookCLI, parse recipes, generate shopping lists, and scale servings from the command line. Every command you'll actually use."
 categories: ["Guides and Tutorials"]
 ---
 
