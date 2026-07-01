@@ -11,7 +11,7 @@ If you're building a recipe app, a meal planner, a grocery integration, or anyth
 
 This post shows the same recipe — a simple tomato pasta — in all four formats, then compares them at the code level. No abstractions. Just what the bytes look like and what that means for your parser.
 
-If you want a broader, less code-focused tour that also covers Markdown and Open Recipe Format, see [6 Recipe File Formats Compared](/blog/19-recipe-formats-compared/).
+If you want a broader, less code-focused tour that also covers Markdown and Open Recipe Format, see the [recipe format guide](/blog/47-recipe-format-guide/).
 
 ## The Same Recipe in Four Formats
 

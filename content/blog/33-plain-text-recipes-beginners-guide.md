@@ -203,6 +203,7 @@ Edit with any text editor. There are syntax highlighting plugins for [VS Code](h
 - [Install CookCLI](/cli/download/) — the command-line tool
 - [Get the mobile app](/app/) — cook and shop from your phone
 - [Language specification](/docs/spec/) — the full syntax reference
+- [Why plain text recipes beat databases](/blog/12-why-plain-text-recipes/) — the case for the approach
 
 Start with one recipe. The one you make most often. Convert it, save it as a `.cook` file, and see if you like working this way. Most people convert their whole collection within a week.
 

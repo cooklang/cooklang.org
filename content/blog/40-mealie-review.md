@@ -1,9 +1,9 @@
 ---
-title: "Mealie Review: A Developer's Honest Look at the Self-Hosted Recipe Manager"
+title: "Mealie Review 2026: Honest Pros, Cons & Who It's For"
 date: 2026-03-24
 weight: 45
 summary: "Mealie is one of the most popular self-hosted recipe managers. Here's an honest look at what it does well, where it falls short, and who it's actually for — from someone who builds a different kind of recipe tool."
-description: "Mealie review: an honest developer's look at the popular self-hosted recipe manager — what it does well, where it frustrates, and who it's really for."
+description: "An honest Mealie review for 2026 — real pros and cons of the self-hosted recipe manager, where it frustrates, and who should pick it (or Cooklang instead)."
 categories: ["Comparisons"]
 ---
 

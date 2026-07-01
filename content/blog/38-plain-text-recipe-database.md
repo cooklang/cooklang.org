@@ -194,6 +194,8 @@ If you have recipes already, the path is: install CookCLI, create a `recipes/` f
 
 The [CLI download is at /cli/](/cli/). The full command reference covers everything from search to report templating. The [getting started guide](/docs/getting-started/) walks through the initial setup if you are starting from scratch.
 
+For the why behind the approach, see [why plain text recipes beat databases](/blog/12-why-plain-text-recipes/); if you're just starting, the [beginner's guide](/blog/33-plain-text-recipes-beginners-guide/) converts your first recipe in five minutes.
+
 The database you need is the filesystem you already have. You just need the query tools.
 
 -Alex

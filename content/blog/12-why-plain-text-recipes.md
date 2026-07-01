@@ -209,6 +209,8 @@ If you're convinced, here's how to start:
 
 Don't overthink it. It's just text files.
 
+New to the format? The [beginner's guide to plain-text recipes](/blog/33-plain-text-recipes-beginners-guide/) walks through converting your first recipe in five minutes. If you want the technical framing — your filesystem *as* a queryable database — see [a plain text recipe database you already know how to use](/blog/38-plain-text-recipe-database/).
+
 ## The Counterarguments (And Why They're Wrong)
 
 **"But I like pretty pictures!"**

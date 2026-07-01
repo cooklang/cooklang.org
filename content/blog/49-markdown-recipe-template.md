@@ -147,7 +147,7 @@ What changes compared to Markdown:
 - **Scaling works.** Change the servings number and tools recalculate every `{400%g}` accordingly. No manual math.
 - **The text is still readable.** It reads like a recipe. Someone who has never heard of Cooklang can follow it in the kitchen.
 
-It's still plain text. It still works with Git, any sync service, any text editor. But now a computer can do useful things with it. See the [format comparison](/blog/19-recipe-formats-compared/) for how this stacks up against JSON-LD, MealMaster, and others.
+It's still plain text. It still works with Git, any sync service, any text editor. But now a computer can do useful things with it. See the [recipe format guide](/blog/47-recipe-format-guide/) for how this stacks up against JSON-LD, MealMaster, and others.
 
 ## Using Either Format in Obsidian
 

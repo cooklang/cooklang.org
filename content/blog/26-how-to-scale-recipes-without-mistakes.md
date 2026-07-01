@@ -1,9 +1,9 @@
 ---
-title: "How to Scale a Recipe Up or Down Without Ruining It"
+title: "How to Double or Halve a Recipe (Without It Going Wrong)"
 date: 2026-02-28
 weight: 60
 summary: "Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right."
-description: "Scaling a recipe isn't just multiplication — salt, leavening, and pan size break the math. Here's how to scale recipes correctly, with worked examples."
+description: "Doubling a recipe isn't just ×2 — salt, leavening, and pan size break the math. Quick rules for scaling any recipe up or down, plus a conversion table."
 categories: ["Recipe Workflows"]
 ---
 
@@ -12,6 +12,22 @@ Doubling a recipe should be simple math. So why does doubling chocolate chip coo
 You've been there. The original batch was perfect. You multiplied everything by two, followed the same steps, baked for the same time — and something was off. The texture wasn't right. The flavor was unbalanced. You ate them anyway and told yourself they were fine.
 
 The problem isn't your math. Scaling recipes fails for reasons most cooks don't think about until they've already made the mistake.
+
+## Recipe scaling: the quick version
+
+To scale a recipe, multiply each ingredient by **target servings ÷ original servings**. But not everything scales linearly — this is what trips people up:
+
+| Ingredient / factor | How it scales |
+|---|---|
+| Flour, liquids, most produce, meat | **Linear** — multiply directly |
+| Salt, spices, acid | **Sub-linear** — start low, adjust to taste at the end |
+| Baking soda / powder, yeast | **~75% of linear** — too much makes baked goods metallic or collapse |
+| Eggs | **Round to whole** — you can't use half an egg cleanly |
+| Cream / dairy sauces | **Reduce longer**, don't just add more |
+| Pan / cookware size | **Doesn't scale** — bigger batch needs a wider pan, not the same one |
+| Cook time & timers | **Doesn't scale** — a physical property of the process, not the quantity |
+
+The rest of this post explains each of these, then shows how a structured recipe format makes the arithmetic automatic.
 
 ## Why Scaling Goes Wrong
 

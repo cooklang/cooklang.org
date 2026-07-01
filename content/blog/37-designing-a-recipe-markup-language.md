@@ -5,11 +5,19 @@ weight: 50
 summary: "Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time."
 description: "How we designed the Cooklang recipe markup language to keep recipes both human-readable and machine-parseable — the trade-offs behind the format."
 categories: ["Format and Design"]
+aliases:
+  - /blog/35-recipe-markup-language/
 ---
 
 Recipes are one of the most structured documents humans produce. They have a preamble (title, yield, timing), a list of typed inputs (ingredients with quantities and units), an ordered list of operations, and tool references throughout. You could almost describe a recipe formally. In fact, you can — and that turns out to be harder than it sounds.
 
 Most recipe formats solve half the problem. Plain text is readable but unstructured. JSON and XML are structured but unreadable. The markup language approach — lightweight annotations inside natural text — is the only approach that actually keeps both properties. This post is about how we designed Cooklang and why we made the choices we did.
+
+## What a Recipe Markup Language Is
+
+You already use markup languages. When you write `**bold**` in a message, that's markup — plain text with annotations a renderer interprets. HTML does it for web pages: `<h1>Title</h1>` tells a browser "this is a heading" while the text stays readable. A recipe markup language does the same for recipes — it adds lightweight markers to natural recipe text so software knows what each piece *is*, without making the text unreadable to the cook.
+
+That's the difference between a recipe on a blog (which a computer can only display) and a structured recipe (which software can turn into a shopping list, scale, or run timers from). Ask software to extract ingredients from typical prose and it hits a wall immediately: is "2 large eggs, beaten" one ingredient or two? Is "one 400g can of crushed tomatoes" 1 can or 400 grams? Without structure, every recipe is an ambiguous blob of text. Markup resolves that ambiguity — and the rest of this post is about the choices that go into designing one.
 
 ## Why Not Just Use an Existing Format
 
