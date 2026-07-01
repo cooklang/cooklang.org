@@ -3,6 +3,7 @@ title: "Building with Cooklang: A Parser Integration Guide"
 date: 2026-03-24
 weight: 50
 summary: "You want structured recipe data — ingredients with quantities, steps with inline references, timers, cookware. Here's how to parse Cooklang in your language of choice, with quick-start examples in TypeScript and Python, and a map of the full ecosystem."
+description: "How to parse Cooklang in your language — ingredients, quantities, timers, cookware — with quick-start examples in TypeScript and Python and a map of the ecosystem."
 categories: ["Guides and Tutorials"]
 ---
 

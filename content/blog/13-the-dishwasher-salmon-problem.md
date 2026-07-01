@@ -3,6 +3,7 @@ title: "The Dishwasher Salmon Problem"
 date: 2025-10-26
 weight: 60
 summary: "Recipe blogs prioritize ads over quality, creating bizarre dishes like dishwasher salmon. Cooklang Federation solves this by connecting you to tried and true community recipes."
+description: "Recipe blogs prioritise ads over quality, spawning oddities like dishwasher salmon. How the Cooklang Federation connects you to tried-and-true community recipes instead."
 categories: ["Recipe Workflows"]
 ---
 

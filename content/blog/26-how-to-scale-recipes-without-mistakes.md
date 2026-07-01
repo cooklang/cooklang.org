@@ -1,5 +1,5 @@
 ---
-title: "How to Scale a Recipe Up or Down (Without Ruining It)"
+title: "How to Scale a Recipe Up or Down Without Ruining It"
 date: 2026-02-28
 weight: 60
 summary: "Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right."

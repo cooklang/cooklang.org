@@ -3,6 +3,7 @@ title: "Recipe Discovery Without the Ads and Life Stories"
 date: 2026-02-25
 weight: 60
 summary: "Modern recipe sites bury recipes under ads, pop-ups, and SEO filler. Cooklang Federation offers a different approach — a searchable index of community-tested recipes with no ads, no tracking, and no stories about someone's trip to Tuscany."
+description: "Recipe sites bury recipes under ads and SEO filler. The Cooklang Federation is a searchable index of community-tested recipes — no ads, no tracking, no life stories."
 categories: ["Recipe Workflows"]
 ---
 

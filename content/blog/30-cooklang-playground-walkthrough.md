@@ -3,6 +3,7 @@ title: "Try Cooklang in Your Browser: Playground Walkthrough"
 date: 2026-02-28
 weight: 60
 summary: "The fastest way to try Cooklang requires nothing but a browser tab. This walkthrough shows you exactly what to expect when you open the playground."
+description: "The fastest way to try Cooklang needs nothing but a browser tab. A walkthrough of the online playground — what to type and what to expect."
 categories: ["Guides and Tutorials"]
 ---
 

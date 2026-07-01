@@ -1,5 +1,5 @@
 ---
-title: "Best Recipe Management Software in 2026: 9 Apps Compared Honestly"
+title: "Best Recipe Management Software in 2026: 9 Apps Tested & Compared"
 date: 2026-06-18
 weight: 46
 summary: "A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs."
