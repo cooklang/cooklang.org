@@ -51,4 +51,23 @@
   .new-label {
     @apply text-xs font-semibold bg-green-500 text-white px-2 py-0.5 rounded-full ml-2 align-middle;
   }
+
+  /* Clickable heading anchors (Hugo render-heading hook) */
+  .header-anchor {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: inherit;
+  }
+
+  .header-anchor .anchor-icon {
+    margin-left: 0.4rem;
+    color: #E15A29;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+
+  .header-anchor:hover .anchor-icon,
+  .header-anchor:focus-visible .anchor-icon {
+    opacity: 0.6;
+  }
 }
