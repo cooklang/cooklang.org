@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Mon, 18 May 2026 17:18:12 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook recipe [OPTIONS] [RECIPE]&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -19,7 +27,11 @@
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -46,7 +58,11 @@
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -67,19 +83,31 @@ cat recipe.cook | cook recipe
 
 # View a menu file
 cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>The &lt;code>.cook&lt;/code> extension is optional and added automatically&lt;/li>
 &lt;li>Scaling can use inline &lt;code>:N&lt;/code> syntax or &lt;code>--scale N&lt;/code> flag; inline takes precedence&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported and scaling applies to all referenced recipes&lt;/li>
 &lt;li>Output format is inferred from &lt;code>-o&lt;/code> file extension when &lt;code>-f&lt;/code> is not specified&lt;/li>
 &lt;/ul></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook shopping-list [OPTIONS] [RECIPES]...&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -94,7 +122,11 @@ cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -137,7 +169,11 @@ cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -161,7 +197,11 @@ cook shopping-list &amp;amp;#34;Recipe.cook&amp;amp;#34; -a ~/my-store.conf
 
 # From a menu file
 cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Ingredients with the same name are automatically combined&lt;/li>
 &lt;li>Items are grouped by aisle category from &lt;code>aisle.conf&lt;/code> (use &lt;code>--plain&lt;/code> to disable)&lt;/li>
@@ -172,12 +212,20 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;img width="600" alt="recipe" src="https://cooklang.org/server/recipe-detail.png" />
 &lt;img width="600" alt="shopping list" src="https://cooklang.org/server/shopping-list.png" />
 &lt;img width="600" alt="pantry" src="https://cooklang.org/server/pantry.png" />
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook server [OPTIONS] [BASE_PATH]&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -192,7 +240,11 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -215,7 +267,11 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -230,19 +286,31 @@ cook server --port 8080 --open
 
 # Allow access from other devices on the network
 cook server --host&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>By default, only accepts connections from localhost&lt;/li>
 &lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
 &lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
 &lt;li>Mobile-friendly responsive layout&lt;/li>
 &lt;/ul></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook search [OPTIONS] &amp;amp;lt;TERMS&amp;amp;gt;...&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -257,7 +325,11 @@ cook server --host&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -272,7 +344,11 @@ cook server --host&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -284,19 +360,31 @@ cook search chicken rice
 
 # Search in a specific directory
 cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Searches through recipe titles, ingredients, instructions, and metadata&lt;/li>
 &lt;li>Case-insensitive&lt;/li>
 &lt;li>Results are ranked by relevance&lt;/li>
 &lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
 &lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook import [OPTIONS] &amp;amp;lt;URL&amp;amp;gt;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -311,7 +399,11 @@ cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -334,7 +426,11 @@ cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -350,13 +446,25 @@ cook import https://example.com/recipe --skip-conversion
 # Extract metadata only as JSON
 cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
 &lt;/div></description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor [OPTIONS] [COMMAND]&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="subcommands">Subcommands&lt;/h2>
-&lt;h3 id="validate">&lt;code>validate&lt;/code>&lt;/h3>
+&lt;/div>&lt;h2 id="subcommands" class="scroll-mt-24">
+ &lt;a href="#subcommands" class="header-anchor" aria-label="Link to this section: Subcommands">
+ Subcommands&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="validate" class="scroll-mt-24">
+ &lt;a href="#validate" class="header-anchor" aria-label="Link to this section: validate">
+ &lt;code>validate&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>Validate all recipes for syntax errors and warnings.&lt;/p>
 
 
@@ -380,15 +488,21 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p>
-&lt;h3 id="aisle">&lt;code>aisle&lt;/code>&lt;/h3>
-&lt;p>Check for ingredients missing from your aisle configuration.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook seed [OPTIONS] [DIR]&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -403,7 +517,11 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -412,7 +530,11 @@ cook seed
 
 # Create examples in a specific directory
 cook seed ~/my-recipes&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Creates example recipes demonstrating Cooklang features (ingredients, cookware, timers, metadata, recipe references)&lt;/li>
 &lt;li>Includes folder structure and an &lt;code>aisle.conf&lt;/code> configuration file&lt;/li>
@@ -420,12 +542,20 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;blockquote>
 &lt;p>&lt;strong>Note&lt;/strong>: The report command is currently a prototype feature.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook report [OPTIONS] --template &amp;amp;lt;TEMPLATE&amp;amp;gt; &amp;amp;lt;RECIPE&amp;amp;gt;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments">Arguments&lt;/h2>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -440,7 +570,11 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -471,22 +605,41 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="template-variables">Template Variables&lt;/h2>
+&lt;h2 id="template-variables" class="scroll-mt-24">
+ &lt;a href="#template-variables" class="header-anchor" aria-label="Link to this section: Template Variables">
+ Template Variables&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
-&lt;h2 id="cook-build-web">&lt;code>cook build web&lt;/code>&lt;/h2>
+&lt;h2 id="cook-build-web" class="scroll-mt-24">
+ &lt;a href="#cook-build-web" class="header-anchor" aria-label="Link to this section: cook build web">
+ &lt;code>cook build web&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;p>Generate a self-contained static website from your recipe collection. The output mirrors &lt;code>cook server&lt;/code>'s browsing experience but ships as plain HTML, CSS, and JS — no Rust process needed at runtime, so it can be hosted on GitHub Pages, Netlify, S3, or opened directly via &lt;code>file://&lt;/code>.&lt;/p></description></item><item><title>Home_assistant_integration_research</title><link>https://cooklang.org/cli/commands/home_assistant_integration_research/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/home_assistant_integration_research/</guid><description>&lt;p>&lt;strong>Research Date:&lt;/strong> March 2026
 &lt;strong>Focus:&lt;/strong> Popular integrations, patterns, food/recipe systems, and what drives adoption&lt;/p>
 &lt;hr>
-&lt;h2 id="executive-summary">Executive Summary&lt;/h2>
-&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p>
-&lt;p>&lt;strong>Key Insight for CookCLI:&lt;/strong> Food/recipe integrations like Mealie are gaining traction (2,079 active installations as of 2024.7), but no comprehensive cooking/recipe CLI integration exists yet.&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="executive-summary" class="scroll-mt-24">
+ &lt;a href="#executive-summary" class="header-anchor" aria-label="Link to this section: Executive Summary">
+ Executive Summary&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook lsp [OPTIONS]&lt;/code>&lt;/pre>
 &lt;/div>&lt;p>The server communicates over stdin/stdout. You typically don't run this directly — your editor starts it automatically.&lt;/p>
-&lt;h2 id="features">Features&lt;/h2>
+&lt;h2 id="features" class="scroll-mt-24">
+ &lt;a href="#features" class="header-anchor" aria-label="Link to this section: Features">
+ Features&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Real-time syntax checking and validation&lt;/li>
 &lt;li>Auto-completion for ingredients, cookware, and timers&lt;/li>
@@ -495,17 +648,33 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;li>Document symbols and navigation&lt;/li>
 &lt;li>Go to definition for recipe references&lt;/li>
 &lt;/ul>
-&lt;h2 id="editor-integration">Editor Integration&lt;/h2>
-&lt;h3 id="visual-studio-code">Visual Studio Code&lt;/h3>
+&lt;h2 id="editor-integration" class="scroll-mt-24">
+ &lt;a href="#editor-integration" class="header-anchor" aria-label="Link to this section: Editor Integration">
+ Editor Integration&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="visual-studio-code" class="scroll-mt-24">
+ &lt;a href="#visual-studio-code" class="header-anchor" aria-label="Link to this section: Visual Studio Code">
+ Visual Studio Code&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory. Supports full CRUD operations
 on pantry items as well as analysis commands for stock levels, expiry
 dates, and recipe planning.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook pantry [OPTIONS] &amp;amp;lt;COMMAND&amp;amp;gt;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="options">Options&lt;/h2>
+&lt;/div>&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -524,43 +693,32 @@ dates, and recipe planning.&lt;/p>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="subcommands">Subcommands&lt;/h2>
-&lt;h3 id="list-alias-ls">&lt;code>list&lt;/code> (alias: &lt;code>ls&lt;/code>)&lt;/h3>
-&lt;p>Display all pantry items organized by section.&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook pantry list [OPTIONS]&lt;/code>&lt;/pre>
-&lt;/div>&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Option&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>--section &amp;lt;NAME&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Only show items from this section&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook pantry list # All sections
-cook pantry list --section dairy # Only the dairy section
-cook pantry -f json list # JSON output&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="add-alias-a">&lt;code>add&lt;/code> (alias: &lt;code>a&lt;/code>)&lt;/h3>
-&lt;p>Add a new item to the pantry. Creates the pantry file and the section if
-they do not exist yet.&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>Update CookCLI to the latest version.&lt;/p>
-&lt;h2 id="usage">Usage&lt;/h2>
+&lt;h2 id="subcommands" class="scroll-mt-24">
+ &lt;a href="#subcommands" class="header-anchor" aria-label="Link to this section: Subcommands">
+ Subcommands&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="list-alias-ls" class="scroll-mt-24">
+ &lt;a href="#list-alias-ls" class="header-anchor" aria-label="Link to this section: list (alias: ls)">
+ &lt;code>list&lt;/code> (alias: &lt;code>ls&lt;/code>)&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Display all pantry items organized by section.&lt;/p></description></item><item><title>Update</title><link>https://cooklang.org/cli/commands/update/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/update/</guid><description>&lt;p>Update CookCLI to the latest version.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-" data-language="">&lt;code class="language-">cook update [OPTIONS]&lt;/code>&lt;/pre>
 &lt;/div>&lt;p>Alias: &lt;code>cook u&lt;/code>&lt;/p>
-&lt;h2 id="options">Options&lt;/h2>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;table>
  &lt;thead>
  &lt;tr>
@@ -579,7 +737,11 @@ they do not exist yet.&lt;/p></description></item><item><title>Update</title><li
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
-&lt;h2 id="examples">Examples&lt;/h2>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -591,7 +753,11 @@ cook update --check-only
 
 # Force reinstall
 cook update --force&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes">Notes&lt;/h2>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Downloads from GitHub releases over HTTPS&lt;/li>
 &lt;li>Automatically detects your platform and architecture&lt;/li>

@@ -1,89 +1,38 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Use Cases on Cooklang</title><link>https://cooklang.org/docs/use-cases/</link><description>Recent content in Use Cases on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><atom:link href="https://cooklang.org/docs/use-cases/index.xml" rel="self" type="application/rss+xml"/><item><title>Importing Recipes</title><link>https://cooklang.org/docs/use-cases/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/importing-recipes/</guid><description>&lt;p>Building a recipe collection doesn't mean starting from scratch. Most cooks have recipes scattered across browser bookmarks, screenshots, handwritten cards, and half-remembered favorites from cooking websites. The problem is that bookmarks disappear, screenshots are impossible to search, and copied text loses all structure. &lt;a href="https://cook.md">cook.md&lt;/a> converts recipes from any of these sources into structured &lt;code>.cook&lt;/code> files you can edit, organize, and use across all your devices.&lt;/p>
-&lt;h3 id="the-quick-way-prefix-any-url">The Quick Way: Prefix Any URL&lt;/h3>
+&lt;h3 id="the-quick-way-prefix-any-url" class="scroll-mt-24">
+ &lt;a href="#the-quick-way-prefix-any-url" class="header-anchor" aria-label="Link to this section: The Quick Way: Prefix Any URL">
+ The Quick Way: Prefix Any URL&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>The fastest way to import a recipe from the web is to prepend &lt;code>cook.md/&lt;/code> to any recipe URL in your browser's address bar:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>CookCLI generates shopping lists directly from your &lt;code>.cook&lt;/code> files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.&lt;/p>
 
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook shopping-list &amp;amp;#34;Monday Dinner.cook&amp;amp;#34; &amp;amp;#34;Tuesday Dinner.cook&amp;amp;#34; &amp;amp;#34;Wednesday Dinner.cook&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="organizing-by-store-aisle">Organizing by Store Aisle&lt;/h3>
-&lt;p>An &lt;code>aisle.conf&lt;/code> file maps ingredients to store sections so your shopping list follows your natural path through the store:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">[produce]
-potatoes
-tomatoes | cherry tomatoes | Roma tomatoes
-onions
-garlic
-lettuce
-carrots
-apples
-bananas
-
-[dairy]
-milk
-cheese
-yogurt
-butter
-eggs
-Cheddar
-cream
-
-[meat &amp;amp;amp; seafood]
-chicken
-beef
-pork
-fish
-shrimp
-
-[bakery]
-bread
-bagels
-croissants
-
-[pantry]
-flour
-sugar
-rice
-pasta
-canned tomatoes
-beans
-olive oil | extra virgin olive oil
-
-[spices &amp;amp;amp; condiments]
-salt | sea salt
-pepper | black pepper
-cumin
-paprika
-soy sauce
-vinegar
-
-[frozen]
-frozen vegetables
-ice cream
-frozen fruit&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Use it with the shopping list command:&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/docs/use-cases/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes Cooklang recipes from community members' repositories and websites, making them searchable in one place. Every result points to a real recipe someone actually cooks — no ads, no SEO filler.&lt;/p>
+&lt;/div>&lt;h3 id="organizing-by-store-aisle" class="scroll-mt-24">
+ &lt;a href="#organizing-by-store-aisle" class="header-anchor" aria-label="Link to this section: Organizing by Store Aisle">
+ Organizing by Store Aisle&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>An &lt;code>aisle.conf&lt;/code> file maps ingredients to store sections so your shopping list follows your natural path through the store:&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/docs/use-cases/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes Cooklang recipes from community members' repositories and websites, making them searchable in one place. Every result points to a real recipe someone actually cooks — no ads, no SEO filler.&lt;/p>
 &lt;p>Recipe creators host their own content. The federation just makes it discoverable.&lt;/p>
-&lt;h2 id="searching-for-recipes">Searching for Recipes&lt;/h2>
-&lt;h3 id="basic-search">Basic Search&lt;/h3>
-&lt;p>Search by keyword across recipe titles and ingredients:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">chicken pasta
-chocolate cake
-vegetarian curry&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="filtering">Filtering&lt;/h3>
-&lt;p>Filter by tag:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">tags:vegan
-tags:breakfast
-tags:italian&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>By difficulty:&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/docs/use-cases/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes recipes from community members' repositories and makes them searchable. You host your recipes wherever you want — GitHub, your own website, a blog — and the federation makes them discoverable.&lt;/p>
+&lt;h2 id="searching-for-recipes" class="scroll-mt-24">
+ &lt;a href="#searching-for-recipes" class="header-anchor" aria-label="Link to this section: Searching for Recipes">
+ Searching for Recipes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="basic-search" class="scroll-mt-24">
+ &lt;a href="#basic-search" class="header-anchor" aria-label="Link to this section: Basic Search">
+ Basic Search&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Search by keyword across recipe titles and ingredients:&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/docs/use-cases/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes recipes from community members' repositories and makes them searchable. You host your recipes wherever you want — GitHub, your own website, a blog — and the federation makes them discoverable.&lt;/p>
 &lt;p>You keep full control. Update, remove, or modify recipes anytime.&lt;/p>
-&lt;h2 id="publishing-via-github">Publishing via GitHub&lt;/h2>
+&lt;h2 id="publishing-via-github" class="scroll-mt-24">
+ &lt;a href="#publishing-via-github" class="header-anchor" aria-label="Link to this section: Publishing via GitHub">
+ Publishing via GitHub&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;p>The simplest approach. Put your &lt;code>.cook&lt;/code> files in a public GitHub repository:&lt;/p>
 
 
@@ -101,7 +50,11 @@ git remote add origin https://github.com/yourusername/my-recipes.git
 git push -u origin main&lt;/code>&lt;/pre>
 &lt;/div>&lt;p>Then add your repository to the federation:&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/docs/use-cases/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/static-website/</guid><description>&lt;p>&lt;code>cook build web&lt;/code> turns a folder of &lt;code>.cook&lt;/code> files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.&lt;/p>
 &lt;p>The output is the same browsing experience as &lt;a href="https://cooklang.org/cli/commands/server/">&lt;code>cook server&lt;/code>&lt;/a>, with dynamic features (shopping list, pantry, editor, scaling) stripped out.&lt;/p>
-&lt;h2 id="quick-start">Quick Start&lt;/h2>
+&lt;h2 id="quick-start" class="scroll-mt-24">
+ &lt;a href="#quick-start" class="header-anchor" aria-label="Link to this section: Quick Start">
+ Quick Start&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -112,7 +65,11 @@ open _site/index.html&lt;/code>&lt;/pre>
 &lt;blockquote>
 &lt;p>&lt;code>.menu&lt;/code> file support is only available in CookCLI at the moment.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="example-menu-file">Example Menu File&lt;/h3>
+&lt;h3 id="example-menu-file" class="scroll-mt-24">
+ &lt;a href="#example-menu-file" class="header-anchor" aria-label="Link to this section: Example Menu File">
+ Example Menu File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>Here's a real three-day plan from an actual Cooklang cookbook:&lt;/p>
 
 
@@ -168,7 +125,11 @@ Dinner:
 &lt;blockquote>
 &lt;p>Pantry support is only available in CookCLI at the moment.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="the-pantry-configuration-file">The Pantry Configuration File&lt;/h3>
+&lt;h3 id="the-pantry-configuration-file" class="scroll-mt-24">
+ &lt;a href="#the-pantry-configuration-file" class="header-anchor" aria-label="Link to this section: The Pantry Configuration File">
+ The Pantry Configuration File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>The file uses TOML format, organized by storage location:&lt;/p>
 
 
@@ -204,12 +165,20 @@ cumin = { bought = &amp;amp;#34;2024-06-01&amp;amp;#34; }
 paprika = { bought = &amp;amp;#34;2024-03-15&amp;amp;#34; }
 cinnamon = &amp;amp;#34;1%jar&amp;amp;#34;
 black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="how-it-works">How It Works&lt;/h3>
+&lt;/div>&lt;h3 id="how-it-works" class="scroll-mt-24">
+ &lt;a href="#how-it-works" class="header-anchor" aria-label="Link to this section: How It Works">
+ How It Works&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>&lt;strong>Simple tracking&lt;/strong>: &lt;code>rice = &amp;quot;5%kg&amp;quot;&lt;/code> records what you have. If a recipe calls for rice, it won't appear on your shopping list.&lt;/p></description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/reports/</guid><description>&lt;p>The &lt;code>cook report&lt;/code> command uses &lt;a href="https://github.com/mitsuhiko/minijinja">minijinja&lt;/a> templates to transform your recipes into any output format — shopping lists with product links, cost breakdowns, nutrition labels, recipe cards, or anything else you can template.&lt;/p>
 &lt;blockquote>
 &lt;p>The report command is currently a prototype feature.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="basic-usage">Basic Usage&lt;/h2>
+&lt;h2 id="basic-usage" class="scroll-mt-24">
+ &lt;a href="#basic-usage" class="header-anchor" aria-label="Link to this section: Basic Usage">
+ Basic Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -232,10 +201,18 @@ black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
 {{ content }}
 {%- endfor %}
 {%- endfor %}&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="the-database-system">The Database System&lt;/h2>
+&lt;/div>&lt;h2 id="the-database-system" class="scroll-mt-24">
+ &lt;a href="#the-database-system" class="header-anchor" aria-label="Link to this section: The Database System">
+ The Database System&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;p>The database (&lt;code>-d&lt;/code> flag) enriches recipes with external data — nutrition, cost, shopping links. It's organized as a directory tree where each ingredient has its own folder:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI can export recipes as LaTeX, which you compile into professional PDF cookbooks. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
 &lt;p>For a ready-made solution, see the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>).&lt;/p>
-&lt;h2 id="prerequisites">Prerequisites&lt;/h2>
+&lt;h2 id="prerequisites" class="scroll-mt-24">
+ &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
+ Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ol>
 &lt;li>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/li>
 &lt;li>&lt;strong>LaTeX distribution&lt;/strong> installed:
@@ -265,7 +242,11 @@ sudo apt-get install texlive-full
  └── chocolate-cake.cook&lt;/code>&lt;/pre>
 &lt;/div>&lt;/li>
 &lt;/ol>
-&lt;h2 id="exporting-a-single-recipe">Exporting a Single Recipe&lt;/h2>
+&lt;h2 id="exporting-a-single-recipe" class="scroll-mt-24">
+ &lt;a href="#exporting-a-single-recipe" class="header-anchor" aria-label="Link to this section: Exporting a Single Recipe">
+ Exporting a Single Recipe&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 
 
 &lt;div class="code-toolbar">
@@ -278,7 +259,11 @@ open pizza.pdf
 
 # Or pipe directly
 cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex | pdflatex -jobname=&amp;amp;#34;pizza-recipe&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="building-a-full-cookbook">Building a Full Cookbook&lt;/h2>
+&lt;/div>&lt;h2 id="building-a-full-cookbook" class="scroll-mt-24">
+ &lt;a href="#building-a-full-cookbook" class="header-anchor" aria-label="Link to this section: Building a Full Cookbook">
+ Building a Full Cookbook&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;p>Generate LaTeX for all recipes and combine them into a single document:&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running CookCLI serves your recipes to every device on your home network. No cloud, no subscription — just a $35 board drawing less power than a LED bulb.&lt;/p>
 &lt;style>
 .server-carousel {
@@ -443,12 +428,24 @@ cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex | pdflatex -jobn
 })();
 &lt;/script>
 
-&lt;h2 id="what-you-need">What You Need&lt;/h2>
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What You Need">
+ What You Need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
 &lt;ul>
 &lt;li>Raspberry Pi 3B+ or newer (2GB+ RAM)&lt;/li>
 &lt;li>MicroSD card (16GB+)&lt;/li>
 &lt;li>Power supply and network connection&lt;/li>
 &lt;/ul>
-&lt;h2 id="quick-start">Quick Start&lt;/h2>
-&lt;h3 id="1-prepare-the-pi">1. Prepare the Pi&lt;/h3>
+&lt;h2 id="quick-start" class="scroll-mt-24">
+ &lt;a href="#quick-start" class="header-anchor" aria-label="Link to this section: Quick Start">
+ Quick Start&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="1-prepare-the-pi" class="scroll-mt-24">
+ &lt;a href="#1-prepare-the-pi" class="header-anchor" aria-label="Link to this section: 1. Prepare the Pi">
+ 1. Prepare the Pi&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
 &lt;p>Flash &lt;a href="https://www.raspberrypi.com/software/">Raspberry Pi OS Lite&lt;/a> to your SD card. Enable SSH and configure WiFi during imaging.&lt;/p></description></item></channel></rss>
