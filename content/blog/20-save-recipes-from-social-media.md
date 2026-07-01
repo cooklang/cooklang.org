@@ -43,6 +43,8 @@ cook import "https://example.com/the-recipe"
 
 This downloads the recipe and converts it to Cooklang format automatically.
 
+**Using AI import (screenshots and captions):** For recipes that only exist in a Reel or a screenshot, [Cook's Cookify](https://cook.md/blog/import-recipes-from-instagram) turns an Instagram caption or screenshot into a clean, structured recipe file — no retyping.
+
 ### Step 2: Write It in Cooklang
 
 Convert the recipe into a [Cooklang](/docs/spec/) file — a plain text format where ingredients, cookware, and timers are annotated inline:

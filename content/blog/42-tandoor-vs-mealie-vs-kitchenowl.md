@@ -15,7 +15,7 @@ Mealie optimizes for polish and ease of use. Tandoor optimizes for features and 
 
 ## Quick Overview
 
-**Mealie** ([github.com/mealie-recipes/mealie](https://github.com/mealie-recipes/mealie)) is a Python/FastAPI backend with a Vue.js frontend. It is probably the most approachable of the three — the UI is clean, web scraping works well, and the API is documented via OpenAPI. SQLite by default, PostgreSQL if you need it. Large community, frequent releases.
+**Mealie** ([github.com/mealie-recipes/mealie](https://github.com/mealie-recipes/mealie)) is a Python/FastAPI backend with a Vue.js frontend. It is probably the most approachable of the three — the UI is clean, web scraping works well, and the API is documented via OpenAPI. SQLite by default, PostgreSQL if you need it. Large community, frequent releases. (See our full [Mealie review](/blog/40-mealie-review/) for a closer look.)
 
 **Tandoor Recipes** ([github.com/TandoorRecipes/recipes](https://github.com/TandoorRecipes/recipes)) is a Django + Vue.js application that requires PostgreSQL. It is the most feature-rich option here: keyword and tag systems, import/export in multiple formats, granular permissions, nutritional tracking, and meal cost calculation. The trade-off is complexity — more to configure, more to learn.
 

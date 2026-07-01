@@ -3,6 +3,7 @@ title: "What Goes Into Designing a Recipe Markup Language"
 date: 2026-03-24
 weight: 50
 summary: "Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time."
+description: "How we designed the Cooklang recipe markup language to keep recipes both human-readable and machine-parseable — the trade-offs behind the format."
 categories: ["Format and Design"]
 ---
 
