@@ -3,6 +3,7 @@ title: "A Plain Text Recipe Database You Already Know How to Use"
 date: 2026-03-24
 weight: 46
 summary: "You don't need Postgres, schemas, or migrations to build a recipe database. Your filesystem already is one — and CookCLI gives you the query layer on top."
+description: "You don't need Postgres, schemas, or migrations for a recipe database — your filesystem already is one, and CookCLI gives you the query layer on top."
 categories: ["Self-Hosting and Integrations"]
 ---
 

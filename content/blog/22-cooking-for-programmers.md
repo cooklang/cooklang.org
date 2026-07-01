@@ -3,6 +3,7 @@ title: "Recipe Programming Language — Write and Manage Recipes as Code"
 date: 2026-02-25
 weight: 60
 summary: "Cooklang is a programming language for recipes. Declare ingredients as typed variables, generate shopping lists automatically, scale servings with a command, and version-control your cookbook with Git. Here's how recipes and code are the same thing — and why that matters."
+description: "Cooklang treats recipes as code — typed ingredients, auto shopping lists, one-command scaling, Git-versioned cookbooks. Why recipes and code are the same thing."
 categories: ["Format and Design"]
 ---
 

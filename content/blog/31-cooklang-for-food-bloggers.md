@@ -3,6 +3,7 @@ title: "Cooklang for Food Bloggers: Write Once, Publish Everywhere"
 date: 2026-02-28
 weight: 60
 summary: "One .cook file can generate your blog post, Google-ready Schema.org markup, a printable PDF, and a shopping list — without reformatting anything by hand."
+description: "One .cook file can generate your blog post, Schema.org markup, a printable PDF, and a shopping list — no reformatting. Cooklang for food bloggers."
 categories: ["Recipe Workflows"]
 ---
 

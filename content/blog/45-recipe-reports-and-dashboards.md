@@ -3,6 +3,7 @@ title: "Build Custom Recipe Reports with CookCLI and Templates"
 date: 2026-03-24
 weight: 50
 summary: "CookCLI has a template system that turns .cook files into shopping lists with store links, cost breakdowns, aisle-organized lists, and CSV exports. This post walks through the cook report command, the ingredient database, and real working templates."
+description: "Build custom recipe reports with CookCLI's template system — shopping lists with store links, cost breakdowns, aisle-organised lists, and CSV exports."
 categories: ["Guides and Tutorials"]
 ---
 

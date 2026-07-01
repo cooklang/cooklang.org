@@ -3,6 +3,7 @@ title: "Version Control Your Recipes with Git"
 date: 2026-03-24
 weight: 50
 summary: "Every recipe app has a 'what if the company dies?' problem. If your recipes are plain text .cook files in a Git repo, that problem disappears. Here's how to set up a proper recipe repo, track changes meaningfully, collaborate with family, and publish to the Cooklang Federation."
+description: "Keep your recipes as plain-text .cook files in a Git repo and the 'what if the app dies?' problem disappears. Set up a recipe repo, track changes, and collaborate."
 categories: ["Recipe Workflows"]
 ---
 

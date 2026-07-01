@@ -3,6 +3,7 @@ title: "What Is a Recipe Markup Language? (And Why You'd Want One)"
 date: 2026-03-11
 weight: 50
 summary: "A markup language adds structure to text without making it unreadable. HTML does this for web pages. Cooklang does it for recipes. Here's what that means and why it matters for anyone who cooks."
+description: "A markup language adds structure to text without making it unreadable — HTML for web pages, Cooklang for recipes. What that means and why it matters for cooks."
 categories: ["Format and Design"]
 ---
 

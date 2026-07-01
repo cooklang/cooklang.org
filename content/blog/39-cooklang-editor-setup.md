@@ -3,6 +3,7 @@ title: "Cooklang Editor Setup: VS Code, Vim, Obsidian, and More"
 date: 2026-03-24
 weight: 47
 summary: "Cooklang files are plain text, so any editor works. But syntax highlighting and LSP support make the experience much better. Here's how to set up your editor of choice."
+description: "Set up a Cooklang editor with syntax highlighting and LSP support — VS Code, Vim, Obsidian, and more. Any editor works, but these make it much nicer."
 categories: ["Guides and Tutorials"]
 ---
 

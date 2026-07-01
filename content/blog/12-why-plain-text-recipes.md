@@ -3,6 +3,7 @@ title: "Why Plain Text Recipes Beat Databases Every Time"
 date: 2025-01-20
 weight: 70
 summary: "After years of building recipe apps with databases, I discovered that plain text files solve the real problems better. Here's why the future of digital recipes isn't in the cloud - it's in your text editor."
+description: "After years building database recipe apps, why plain-text .cook files solve the real problems better — the case for recipes in a text editor, not the cloud."
 categories: ["Format and Design"]
 ---
 

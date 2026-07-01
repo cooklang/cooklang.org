@@ -3,6 +3,7 @@ title: "Building the Perfect Pantry with CookCLI: How the Greedy Coverage Algori
 date: 2025-12-06
 weight: 60
 summary: "A practical deep dive into how CookCLI uses algorithmic coverage analysis to help users build the most efficient pantry for their recipe collection."
+description: "How CookCLI's greedy coverage algorithm analyses your recipe collection to help you build the most efficient pantry — a practical, worked deep dive."
 categories: ["Recipe Workflows"]
 ---
 
