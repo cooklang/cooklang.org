@@ -3,8 +3,6 @@ title: "Contact"
 layout: "single"
 ---
 
-# Get in Touch
-
 We'd love to hear from you — whether you've found a bug, have a question, want to share a recipe workflow, or just want to say hello.
 
 ## Community
