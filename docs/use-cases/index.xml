@@ -80,43 +80,43 @@ servings: 2
 
 ==Day 0==
 
--- delivery around 4pm
+&amp;amp;gt; delivery around 4pm
 
-Dinner:
-- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings}
+Dinner: \
+- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings} \
 - @./Salads/Boring{2%servings}
 
--- do prep for burrito
+&amp;amp;gt; do prep for burrito
 
 ==Day 1==
 
-Breakfast:
-- @./Breakfast/Mexican Style Burrito{2%servings}
+Breakfast: \
+- @./Breakfast/Mexican Style Burrito{2%servings} \
 - @filter coffee{1%cup} and @tea{1%cup}
 
-Lunch:
-- @./Lunches/Spaghetti Bolognese{}
+Lunch: \
+- @./Lunches/Spaghetti Bolognese{} \
 - @./Salads/Boring{2%servings}
 
-Dinner:
+Dinner: \
 - @./Salads/Caprese{2}
 
 ==Day 2==
 
-Breakfast:
-- @./Breakfast/Mexican Style Burrito{2%servings}
+Breakfast: \
+- @./Breakfast/Mexican Style Burrito{2%servings} \
 - @filter coffee{1%cup} and @tea{1%cup}
 
-Lunch:
+Lunch: \
 - @./Slowcooker/Slow-cooker beef stew{1/2} with @rice{1%cup}(boiled)
 
-Dinner:
+Dinner: \
 - @./Salads/Prawn Evening Salad{2} &amp;#43; @sourdough bread{1%slice}
 
 == Snacks ==
-- @kefir{2}
-- @dates
-- @apples
+- @kefir{2} \
+- @dates \
+- @apples \
 - @yogurt biscuits{3}
 
 == Batch Prep ==
