@@ -4,7 +4,14 @@
  The Quick Way: Prefix Any URL&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h3>
-&lt;p>The fastest way to import a recipe from the web is to prepend &lt;code>cook.md/&lt;/code> to any recipe URL in your browser's address bar:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>CookCLI generates shopping lists directly from your &lt;code>.cook&lt;/code> files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.&lt;/p>
+&lt;p>The fastest way to import a recipe from the web is to prepend &lt;code>cook.md/&lt;/code> to any recipe URL in your browser's address bar:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/meal-planning/</guid><description>&lt;p>A &lt;code>.menu&lt;/code> file lets you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.&lt;/p>
+&lt;p>&lt;code>.menu&lt;/code> files work in &lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> (&lt;code>cook recipe&lt;/code>, &lt;code>cook shopping-list&lt;/code>) and the &lt;a href="https://cook.md/editor">Cook Editor&lt;/a>, which renders them as a week view with a combined shopping list. Apps that recognise &lt;a href="https://cooklang.org/docs/conventions/#menu-files">dated sections&lt;/a> can surface today's menu.&lt;/p>
+&lt;h3 id="example-menu-file" class="scroll-mt-24">
+ &lt;a href="#example-menu-file" class="header-anchor" aria-label="Link to this section: Example Menu File">
+ Example Menu File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+&lt;p>Here's a real three-day plan from an actual Cooklang cookbook:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>CookCLI generates shopping lists directly from your &lt;code>.cook&lt;/code> files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.&lt;/p>
 
 
 &lt;div class="code-toolbar">
@@ -61,67 +68,7 @@ git push -u origin main&lt;/code>&lt;/pre>
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cd ~/my-recipes
 cook build web
 open _site/index.html&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>That's it. Your browser opens a fully functional recipe site — including search — running entirely off the local filesystem.&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/meal-planning/</guid><description>&lt;p>CookCLI supports &lt;code>.menu&lt;/code> files that let you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;code>.menu&lt;/code> file support is only available in CookCLI at the moment.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="example-menu-file" class="scroll-mt-24">
- &lt;a href="#example-menu-file" class="header-anchor" aria-label="Link to this section: Example Menu File">
- Example Menu File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>Here's a real three-day plan from an actual Cooklang cookbook:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-cooklang" data-language="cooklang">&lt;code class="language-cooklang">---
-servings: 2
----
-
-==Day 0==
-
-&amp;amp;gt; delivery around 4pm
-
-Dinner: \
-- @hake fillet{2}(baked) with @./Sides/Mashed Potatoes{2%servings} \
-- @./Salads/Boring{2%servings}
-
-&amp;amp;gt; do prep for burrito
-
-==Day 1==
-
-Breakfast: \
-- @./Breakfast/Mexican Style Burrito{2%servings} \
-- @filter coffee{1%cup} and @tea{1%cup}
-
-Lunch: \
-- @./Lunches/Spaghetti Bolognese{} \
-- @./Salads/Boring{2%servings}
-
-Dinner: \
-- @./Salads/Caprese{2}
-
-==Day 2==
-
-Breakfast: \
-- @./Breakfast/Mexican Style Burrito{2%servings} \
-- @filter coffee{1%cup} and @tea{1%cup}
-
-Lunch: \
-- @./Slowcooker/Slow-cooker beef stew{1/2} with @rice{1%cup}(boiled)
-
-Dinner: \
-- @./Salads/Prawn Evening Salad{2} &amp;#43; @sourdough bread{1%slice}
-
-== Snacks ==
-- @kefir{2} \
-- @dates \
-- @apples \
-- @yogurt biscuits{3}
-
-== Batch Prep ==
-- @./Freezable/Kotletter{}&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>&lt;a href="https://github.com/dubadub/cookbook/blob/main/Plans/3%20Day%20Plan%20I.menu">source&lt;/a>&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/pantry/</guid><description>&lt;p>CookCLI uses a &lt;code>pantry.conf&lt;/code> file to track what's already in your kitchen. When you generate a shopping list, items in your pantry are automatically excluded — so you only buy what you actually need.&lt;/p>
+&lt;/div>&lt;p>That's it. Your browser opens a fully functional recipe site — including search — running entirely off the local filesystem.&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/pantry/</guid><description>&lt;p>CookCLI uses a &lt;code>pantry.conf&lt;/code> file to track what's already in your kitchen. When you generate a shopping list, items in your pantry are automatically excluded — so you only buy what you actually need.&lt;/p>
 &lt;blockquote>
 &lt;p>Pantry support is only available in CookCLI at the moment.&lt;/p>
 &lt;/blockquote>
