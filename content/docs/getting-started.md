@@ -1,130 +1,77 @@
 ---
-title: 'Getting Started'
-date: 2026-06-07
+title: "Getting Started"
+date: 2026-07-23
 draft: false
 weight: 1
 summary: All you need to get started with Cooklang
 ---
 
-Cooklang is a lightweight, open-source format for writing and managing recipes in a structured, human-readable way. Your recipes are just text files, meaning you can store, edit, share and sync them across all your devices without being locked into a specific app or service.
+Ready to level up your cooking with an ecosystem of technologies designed to make it easy to build and maintain a world-class personal recipe book? You've come to the right place.
 
-Here's what a basic recipe looks like in Cooklang:
+Cooklang is a lightweight, open-source, [Markdown](https://en.wikipedia.org/wiki/Markdown/)-based text format for writing and managing recipes.
+
+The Cook app is a free mobile app for iOS and Android devices that presents your Cooklang-formatted recipes for you while you cook.
+
+Ready to get started? Install the app, _tout de suite_!
+
+_an example recipe snippet in cooklang_
 
 ```cooklang
 Crack the @eggs{3} into a #blender, then add the @plain flour{125%g},
 @milk{250%ml} and @sea salt{1%pinch}, and blitz until smooth.
 ```
 
-When processed using apps, this recipe extracts ingredients while keeping the instructions readable.
+# 1. Install the Cook App
+
+Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone).
 
 ![Android Screens](/guide/app-screens-demo.jpg)
 
-{{< quickstart-callout >}}
+When you open the app for the first time, we'll walk you through the setup process, get your preferences (like imperial vs. metric units), and find you some starter recipes to experiment with.
 
-## 1. Try It Right Now
+# 2. Get More Recipes
 
-No installation needed — try Cooklang instantly:
+If you're ready to add more recipes, we've got a few ways you can easily add more Cooklang recipes to your collection, often without writing any Cooklang!
 
-- **Convert any recipe from the web**: add `cook.md/` before a recipe URL in your browser's address bar (e.g., `https://cook.md/https://bbcgoodfood.com/recipes/easy-pancakes/`).
+## Kickstart Wizard
+
+If you'd like some more personalized recipes, check out our [Kickstart](https://cook.md/kickstart) wizard. It will ask you questions about your dietary and cullinary preferences, and then send you a pack of 50 recipes. It takes about 5 minutes.
+
+## Import and Convert Tool
+
+You can convert any recipe from the web into Cooklang by simply adding `cook.md/` before the URL. For example: `https://cook.md/https://bbcgoodfood.com/recipes/easy-pancakes/`
 
 ![Cook.md Demo](/guide/cookmd-demo.gif)
 
-- **Experiment with the syntax**: open the [Playground](https://cooklang.github.io/cooklang-rs/?mode=render) to write and preview Cooklang recipes interactively.
+## Browse Community Recipebooks
 
-![Cooklang Parser Playground](/guide/playground-demo.png)
+Cooklang hosts an index of community recipebooks at [recipes.cooklang.org](https://recipes.cooklang.org/browse).
 
-## 2. Start Cooking With the App
+# 3. Sync Your Recipes Across Devices
 
-Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open the app and choose to sync recipes with Cook Cloud, iCloud, or a local folder.
+Because all your recipes are plain text files stored on your device(s), you can easily sync those recipes between your phone, laptop, and/or desktop.
 
-If you're using the iOS app with iCloud sync, it will create a folder in iCloud Drive called `CooklangApp` where it expects to see recipes. The sync method can be changed later in the app settings.
+// If you'd like to use someone else's computer _and_ you want to support the project, **Cook Cloud** is a built-in subscription sync service that works across macOS, Windows, Linux, iOS, and Android.
 
-### Syncing Across Devices
+# 4. Modify Recipes in the Desktop Editor
 
-To keep recipes in sync between your phone and computer, install the [Cook Sync Agent](https://cook.md/download) — a lightweight background service that runs in your system tray. Point it at your recipes folder and sign in.
+The best recipes are those that have been tried, tested, revised, and tried again for a long time. When you want to change a recipe in Cooklang, you can use any application that edits text files...
 
-**Cook Cloud** is a built-in sync service that works across macOS, Windows, Linux, iOS, and Android — no third-party cloud setup required.
+Or you can use the [Desktop Editor](https://cook.md/editor) built for exactly that purpose! Just make sure you keep the [Cooklang specification](/docs/spec/) nearby.
 
-## 3. Write Your Own Recipes
-
-Cooklang recipes are plain `.cook` text files. The syntax is simple: `@` names ingredients, `#` marks cookware, `~` sets timers, and `--` adds comments. Multi-word ingredients end with `{}`, quantities go inside `{}`, and units follow `%`.
-
-For the full syntax reference, see the [Cooklang specification](/docs/spec/). To learn about practical use cases like meal planning and shopping, see [use cases](/docs/use-cases/).
-
-### Editor Setup
-
-Syntax highlighting makes writing recipes easier. Set up your preferred editor:
+If you'd rather use your existing editor, we've got a few options:
 
 - **VS Code** (Recommended): Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook&ssr=false#overview) from the marketplace.
-
-![VSCode autocomplete with CookCLI](/guide/vscode.png)
-
-- **Cook Editor** (Alpha): A standalone [desktop app](https://cook.md/editor) with Cooklang syntax highlighting, recipe preview, shopping lists, and built-in AI assistance. Available for macOS, Windows, and Linux.
+  ![VSCode autocomplete with CookCLI](/guide/vscode.png)
 - **Vim/Neovim**: Add a [Cooklang syntax file](https://github.com/luizribeiro/vim-cooklang) for highlighting.
 - **Sublime Text**: Use a [Cooklang syntax package](https://packagecontrol.io/packages/CookLang).
 - **More options**: See [syntax highlighting documentation](/docs/syntax-highlighting/).
+- **Obsidian Plugin** See [Cooklang Editor](https://github.com/cooklang/cooklang-obsidian)
 
-### Obsidian Plugin
-
-You can also manage recipes alongside your notes in Obsidian with the [Cooklang Editor](https://github.com/cooklang/cooklang-obsidian) plugin.
-
-## 4. Grow Your Collection
-
-### Organize Your Recipes
-
-Keep recipes organized by folders (e.g., `breakfast/`, `dinner/`, `desserts/`). You can use multiple nested folders if you have many recipes.
-
-### Configure `aisle.conf` for Shopping
-
-Add `config/aisle.conf` to your recipes folder to categorize ingredients by shopping aisle, making grocery trips more efficient. Learn more about this [here](/docs/use-cases/shopping/).
-
-```text
-[produce]
-potatoes
-
-[dairy]
-milk
-butter
-```
-
-### Join the Community
+# 5. Join the Community
 
 Find curated recipes, share your thoughts, or ask for help:
 
 - The [Cooklang Recipe Hub](https://recipes.cooklang.org)
 - The [Awesome Cooklang](https://github.com/cooklang/awesome-cooklang-recipes) repository
 - Community [discussions](https://github.com/cooklang/spec/discussions) and [Discord](https://discord.gg/fUVVvUzEEK)
-
-## 5. Power Tools
-
-### Command-Line Interface (CookCLI)
-
-CookCLI is a command-line tool for automating your recipe workflow. It follows the UNIX philosophy — each command does one thing well and can be combined with other tools.
-
-```bash
-cook seed                                 # load demo recipes
-cook recipe "Neapolitan Pizza.cook"       # read a recipe
-cook recipe "Pasta.cook:3"                # scale servings
-cook shopping-list Monday.cook Tuesday.cook:2
-cook search chicken                       # hunt by ingredient
-cook server                               # browse in your browser
-```
-
-**See the `cook server` web UI in action at [demo.cooklang.org](https://demo.cooklang.org)!**
-
-Install from [GitHub Releases](https://github.com/cooklang/cookcli/releases/latest), or on macOS: `brew install cookcli`. For the full CLI reference, see the [CLI documentation](/docs/getting-started-commands/).
-
-### AI-Powered Recipe Management
-
-If you use an AI coding assistant like Claude Code or Codex CLI, you can supercharge your workflow with [Cooklang Skills](https://github.com/cooklang/cooklang-skills) — AI skills that let you create, convert, validate, and manage recipes using natural language.
-
-Some skills work standalone (`create-recipe`, `convert-recipe`, `organize-collection`), while others benefit from having CookCLI installed.
-
-If you don't use those tools, the [Cook Editor](https://cook.md/editor) desktop app (introduced under [Editor Setup](#editor-setup) above) brings the same create, convert, and meal-planning workflow into a GUI with AI built in — no command line needed.
-
-## What's Next?
-
-- Check out the [best practices guide](/docs/best-practices/).
-- Open an issue in the [Cooklang GitHub repository](https://github.com/cooklang).
-- Join us on [Reddit](https://www.reddit.com/r/cooklang/), [Discord](https://discord.gg/fUVVvUzEEK), and [Twitter](https://x.com/cooklangorg).
-- Subscribe to the newsletter!
