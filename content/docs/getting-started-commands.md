@@ -57,6 +57,9 @@ cook recipe "Neapolitan Pizza.cook"
 # Create a shopping list for multiple recipes
 cook shopping-list "Neapolitan Pizza.cook" "Caesar Salad.cook"
 
+# Or for a whole week's meal plan
+cook shopping-list "Plans/This Week.menu"
+
 # Start a local server
 cook server
 
@@ -91,6 +94,27 @@ Drain, then mix with @olive oil{2%tbsp} and @parmesan{50%g}.
 ```
 
 For more details, check out [this page on the Cooklang specifications](/docs/spec/).
+
+## Menu Files
+
+`.menu` files describe a multi-day meal plan by referencing recipes from your collection. CookCLI treats them like recipes: view a plan with `cook recipe` or turn the whole week into one shopping list.
+
+```
+== Monday ==
+
+Dinner: @./dinner/Spaghetti Bolognese{2%servings}
+
+== Tuesday ==
+
+Dinner: @./dinner/Chicken Curry{2%servings} with @rice{1%cup}
+```
+
+```bash
+cook recipe "Plans/This Week.menu"          # view the plan
+cook shopping-list "Plans/This Week.menu"   # combined list for the week
+```
+
+See the [meal planning guide](/docs/use-cases/meal-planning/) for a complete example with scaling, notes, and batch prep.
 
 
 ## Configuration Locations

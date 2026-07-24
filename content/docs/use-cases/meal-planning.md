@@ -1,12 +1,12 @@
 ---
 title: 'Meal Planning'
-weight: 20
+weight: 8
 description: 'Plan weekly meals with .menu files and generate combined shopping lists'
 ---
 
-CookCLI supports `.menu` files that let you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.
+A `.menu` file lets you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.
 
-> `.menu` file support is only available in CookCLI at the moment.
+`.menu` files work in [CookCLI](/cli/) (`cook recipe`, `cook shopping-list`) and the [Cook Editor](https://cook.md/editor), which renders them as a week view with a combined shopping list. Apps that recognise [dated sections](/docs/conventions/#menu-files) can surface today's menu.
 
 ### Example Menu File
 

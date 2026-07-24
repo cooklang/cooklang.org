@@ -87,6 +87,28 @@ milk
 butter
 ```
 
+### Plan Your Week with Menu Files
+
+Once you have a handful of recipes, put them to work: a `.menu` file describes what you're cooking on which day, referencing recipes from your collection.
+
+```cooklang
+== Monday ==
+
+Dinner: @./dinner/Spaghetti Bolognese{2%servings}
+
+== Tuesday ==
+
+Dinner: @./dinner/Chicken Curry{2%servings} with @rice{1%cup}
+```
+
+One command turns the whole plan into a shopping list:
+
+```bash
+cook shopping-list "Plans/This Week.menu"
+```
+
+The [Cook Editor](https://cook.md/editor) renders `.menu` files as a week view with the combined shopping list built in. See the [meal planning guide](/docs/use-cases/meal-planning/) for a full example.
+
 ### Join the Community
 
 Find curated recipes, share your thoughts, or ask for help:
