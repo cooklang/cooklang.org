@@ -526,7 +526,7 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
 
 &lt;div class="code-toolbar">
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Add examples to current directory
-cook seed
+cook seed ./
 
 # Create examples in a specific directory
 cook seed ~/my-recipes&lt;/code>&lt;/pre>
@@ -538,6 +538,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>Creates example recipes demonstrating Cooklang features (ingredients, cookware, timers, metadata, recipe references)&lt;/li>
 &lt;li>Includes folder structure and an &lt;code>aisle.conf&lt;/code> configuration file&lt;/li>
+&lt;li>Populates the target directory directly, so run it in an empty or dedicated directory rather than an existing one you care about&lt;/li>
 &lt;/ul></description></item><item><title>Report</title><link>https://cooklang.org/cli/commands/report/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/report/</guid><description>&lt;p>Generate custom reports from recipes using templates.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>Note&lt;/strong>: The report command is currently a prototype feature.&lt;/p>
