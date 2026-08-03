@@ -48,8 +48,10 @@ They are:
 
 ## Quick Start
 ```bash
-# Add sample recipes to current directory
-cook seed
+# cook seed populates its target directory with recipe files and folders,
+# so create a dedicated directory for them first
+mkdir my-recipes && cd my-recipes
+cook seed ./
 
 # View a recipe
 cook recipe "Neapolitan Pizza.cook"

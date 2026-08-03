@@ -124,7 +124,8 @@ Find curated recipes, share your thoughts, or ask for help:
 CookCLI is a command-line tool for automating your recipe workflow. It follows the UNIX philosophy — each command does one thing well and can be combined with other tools.
 
 ```bash
-cook seed                                 # load demo recipes
+mkdir my-recipes && cd my-recipes         # cook seed fills its target directory, so use a dedicated one
+cook seed ./                              # load demo recipes
 cook recipe "Neapolitan Pizza.cook"       # read a recipe
 cook recipe "Pasta.cook:3"                # scale servings
 cook shopping-list Monday.cook Tuesday.cook:2
