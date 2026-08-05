@@ -1,6 +1,8 @@
 ---
-title: 'Cook: Cooklang mobile recipe reader'
+title: 'Cook: Free Recipe App for iPhone & Android — Plain-Text, No Lock-In'
+description: 'The free Cooklang mobile app for iPhone, iPad, and Android. Recipes are plain-text files you own — cook from them offline, build aisle-grouped shopping lists, and sync via iCloud, your own folder, or Cook Cloud.'
 date: 2021-05-20T15:14:39+10:00
+lastmod: 2026-08-05
 ---
 
 ![Android Screens](/guide/app-screens-demo.jpg)
