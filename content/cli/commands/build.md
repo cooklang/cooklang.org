@@ -30,6 +30,9 @@ cook build web [OPTIONS] [OUTPUT_DIR]
 |--------|-------------|
 | `--base-path <PATH>` | Root directory containing recipe files (default: current directory) |
 | `--base-url <URL>` | Absolute URL prefix for hosting under a subpath (e.g. `/recipes/`). When unset, links are page-relative and the site works under any prefix, including `file://`. |
+| `--lang <LANG>` | UI language for the generated site (default: system locale, falling back to `en-US`). See [Localization](#localization). |
+| `--sitemap <URL>` | Full base URL of the deployed site (e.g. `https://recipes.example.com`). When set, writes a `sitemap.xml` at the output root listing every page with absolute URLs. |
+| `--repo-url <URL>` | URL of the recipe repository. When set, the site footer gains a "View source" link pointing here. |
 
 ## Examples
 
@@ -42,7 +45,25 @@ cook build web dist --base-path ~/my-recipes
 
 # Build for hosting under /recipes/ on your domain
 cook build web --base-url /recipes/
+
+# Render the site in French
+cook build web --lang fr-FR
 ```
+
+## Localization
+
+`cook server` and `cook build web` are both localized, but they pick the language differently:
+
+- **`cook server`** negotiates the language per request from the browser's `Accept-Language` header, so each visitor sees the UI in their own language automatically.
+- **`cook build web`** produces static HTML, so there is no request to negotiate against — the whole site is rendered in a single language chosen at build time. It defaults to your system locale (falling back to `en-US`) and can be set explicitly with `--lang`:
+
+  ```bash
+  cook build web --lang fr-FR
+  ```
+
+Supported languages: `en-US`, `de-DE`, `nl-NL`, `fr-FR`, `es-ES`, `eu-ES`, `sv-SE`. Bare language codes work too (`--lang fr`).
+
+Note that only the UI chrome (navigation, headings, labels) is translated — your recipe content is rendered as written.
 
 ## What gets generated
 
