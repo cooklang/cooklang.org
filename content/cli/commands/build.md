@@ -33,6 +33,7 @@ cook build web [OPTIONS] [OUTPUT_DIR]
 | `--lang <LANG>` | UI language for the generated site (default: system locale, falling back to `en-US`). See [Localization](#localization). |
 | `--sitemap <URL>` | Full base URL of the deployed site (e.g. `https://recipes.example.com`). When set, writes a `sitemap.xml` at the output root listing every page with absolute URLs. |
 | `--repo-url <URL>` | URL of the recipe repository. When set, the site footer gains a "View source" link pointing here. |
+| `--compress` | Also write gzip-compressed copies (`.gz`) of generated text assets for hosts that serve precompressed files (e.g. GitLab Pages). Images are skipped. |
 
 ## Examples
 
@@ -48,6 +49,9 @@ cook build web --base-url /recipes/
 
 # Render the site in French
 cook build web --lang fr-FR
+
+# Write .gz siblings for precompressed hosting (e.g. GitLab Pages)
+cook build web --compress
 ```
 
 ## Localization
