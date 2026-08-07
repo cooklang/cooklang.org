@@ -624,52 +624,8 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
  &lt;/a>
 &lt;/h2>
 &lt;ol>
-&lt;li>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/li>
-&lt;li>&lt;strong>LaTeX distribution&lt;/strong> installed:
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># macOS
-brew install --cask mactex
-
-# Ubuntu/Debian
-sudo apt-get install texlive-full
-
-# Windows - download MiKTeX from https://miktex.org/&lt;/code>&lt;/pre>
-&lt;/div>&lt;/li>
-&lt;li>&lt;strong>Your recipes&lt;/strong> organized in folders (folders become chapters):
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">recipes/
-├── breakfast/
-│ ├── pancakes.cook
-│ └── french-toast.cook
-├── dinner/
-│ ├── roast-chicken.cook
-│ └── pasta-carbonara.cook
-└── desserts/
- └── chocolate-cake.cook&lt;/code>&lt;/pre>
-&lt;/div>&lt;/li>
-&lt;/ol>
-&lt;h2 id="exporting-a-single-recipe" class="scroll-mt-24">
- &lt;a href="#exporting-a-single-recipe" class="header-anchor" aria-label="Link to this section: Exporting a Single Recipe">
- Exporting a Single Recipe&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Generate LaTeX output
-cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex &amp;amp;gt; pizza.tex
-
-# Compile to PDF
-pdflatex pizza.tex
-open pizza.pdf
-
-# Or pipe directly
-cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex | pdflatex -jobname=&amp;amp;#34;pizza-recipe&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Page setup is controlled with two options that apply to &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output:&lt;/p></description></item><item><title>Publish Your Recipe Collection as a Static Site with `cook build web`</title><link>https://cooklang.org/blog/50-cook-build-web-static-site/</link><pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/50-cook-build-web-static-site/</guid><description>CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly.</description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
+&lt;li>
+&lt;p>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/p></description></item><item><title>Publish Your Recipe Collection as a Static Site with `cook build web`</title><link>https://cooklang.org/blog/50-cook-build-web-static-site/</link><pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/50-cook-build-web-static-site/</guid><description>CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly.</description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
