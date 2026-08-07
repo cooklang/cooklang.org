@@ -295,6 +295,7 @@ cook server --host&lt;/code>&lt;/pre>
 &lt;li>By default, only accepts connections from localhost&lt;/li>
 &lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
 &lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
+&lt;li>The UI language is negotiated per request from the browser's &lt;code>Accept-Language&lt;/code> header — each visitor sees the interface in their own language (supported: &lt;code>en-US&lt;/code>, &lt;code>de-DE&lt;/code>, &lt;code>nl-NL&lt;/code>, &lt;code>fr-FR&lt;/code>, &lt;code>es-ES&lt;/code>, &lt;code>eu-ES&lt;/code>, &lt;code>sv-SE&lt;/code>). For static sites, see the &lt;code>--lang&lt;/code> flag of &lt;a href="build#localization">&lt;code>cook build web&lt;/code>&lt;/a>.&lt;/li>
 &lt;li>Mobile-friendly responsive layout&lt;/li>
 &lt;/ul></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
