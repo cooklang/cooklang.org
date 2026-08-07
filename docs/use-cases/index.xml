@@ -153,8 +153,12 @@ black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
  The Database System&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>The database (&lt;code>-d&lt;/code> flag) enriches recipes with external data — nutrition, cost, shopping links. It's organized as a directory tree where each ingredient has its own folder:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI can export recipes as LaTeX, which you compile into professional PDF cookbooks. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
-&lt;p>For a ready-made solution, see the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>).&lt;/p>
+&lt;p>The database (&lt;code>-d&lt;/code> flag) enriches recipes with external data — nutrition, cost, shopping links. It's organized as a directory tree where each ingredient has its own folder:&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI exports a recipe as LaTeX or Typst, which you compile into a professional PDF. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
+&lt;p>Two things to know before you start:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cook recipe -f latex&lt;/code> exports &lt;strong>one recipe as a complete, standalone document&lt;/strong> (&lt;code>\documentclass{article}&lt;/code> through &lt;code>\end{document}&lt;/code>). It is not a fragment, so you cannot simply concatenate several exports into one file.&lt;/li>
+&lt;li>To build a &lt;strong>whole cookbook&lt;/strong> — chapters, title page, table of contents, index, images — use the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>). It calls &lt;code>cook recipe -f latex&lt;/code> per recipe and assembles the results. If you'd rather assemble the book yourself, see &lt;a href="#building-a-cookbook-by-hand">Building a cookbook by hand&lt;/a>.&lt;/li>
+&lt;/ul>
 &lt;h2 id="prerequisites" class="scroll-mt-24">
  &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
  Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -206,12 +210,7 @@ open pizza.pdf
 
 # Or pipe directly
 cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex | pdflatex -jobname=&amp;amp;#34;pizza-recipe&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="building-a-full-cookbook" class="scroll-mt-24">
- &lt;a href="#building-a-full-cookbook" class="header-anchor" aria-label="Link to this section: Building a Full Cookbook">
- Building a Full Cookbook&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>Generate LaTeX for all recipes and combine them into a single document:&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running CookCLI serves your recipes to every device on your home network. No cloud, no subscription — just a $35 board drawing less power than a LED bulb.&lt;/p>
+&lt;/div>&lt;p>Page setup is controlled with two options that apply to &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output:&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running CookCLI serves your recipes to every device on your home network. No cloud, no subscription — just a $35 board drawing less power than a LED bulb.&lt;/p>
 &lt;style>
 .server-carousel {
  position: relative;

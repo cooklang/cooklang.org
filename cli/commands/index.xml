@@ -56,6 +56,14 @@
  &lt;td>&lt;code>--pretty&lt;/code>&lt;/td>
  &lt;td>Pretty-print JSON and YAML output&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-p, --paper-size &amp;lt;SIZE&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Paper size for &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output: &lt;code>a4&lt;/code> (default), &lt;code>letter&lt;/code>, &lt;code>a5&lt;/code>, &lt;code>legal&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>-m, --margin &amp;lt;CM&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Page margin in centimetres for &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output (default: 2.5), applied to all four sides&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="examples" class="scroll-mt-24">
@@ -77,6 +85,9 @@ cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f json --pretty
 
 # Save as Markdown
 cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f markdown -o pizza.md
+
+# Export as a printable LaTeX document on US Letter paper
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex --paper-size letter -o pizza.tex
 
 # Read from stdin
 cat recipe.cook | cook recipe
