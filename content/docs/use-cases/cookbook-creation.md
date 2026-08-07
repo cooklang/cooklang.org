@@ -14,16 +14,32 @@ Two things to know before you start:
 ## Prerequisites
 
 1. **CookCLI installed** ([Installation guide](/cli/download))
-2. **LaTeX distribution** installed:
+
+2. **A typesetter.** [Typst](https://typst.app/) is a single ~40 MB binary and needs nothing else, so reach for it first unless you specifically want LaTeX:
+
    ```bash
    # macOS
-   brew install --cask mactex
+   brew install typst
 
-   # Ubuntu/Debian
-   sudo apt-get install texlive-full
-
-   # Windows - download MiKTeX from https://miktex.org/
+   # Ubuntu/Debian - see https://github.com/typst/typst/releases
    ```
+
+   For LaTeX, **install a subset, not the full distribution.** `texlive-full` is 7.9 GB on Debian; the packages CookCLI's export actually needs come to 495 MB:
+
+   ```bash
+   # Ubuntu/Debian
+   sudo apt-get install --no-install-recommends texlive-latex-extra lmodern
+
+   # macOS - BasicTeX (~100 MB) plus the packages the export uses
+   brew install --cask basictex
+   sudo tlmgr update --self
+   sudo tlmgr install enumitem titlesec microtype
+
+   # Windows - MiKTeX (https://miktex.org/) installs packages on demand
+   ```
+
+   `texlive-latex-extra` pulls in `texlive-latex-base` and `texlive-latex-recommended`, which together cover every package the export loads. Omitting `--no-install-recommends` triples the install to 1.4 GB for documentation and GUI tools you don't need. If a compile still stops at a missing `.sty`, install just that package rather than escalating to `texlive-full`.
+
 3. **Your recipes** organized in folders (folders become chapters):
    ```
    recipes/
@@ -239,7 +255,8 @@ CookCLI also exports to Markdown, YAML, JSON, and Schema.org. For web-based cook
 
 | Problem | Solution |
 |---------|----------|
-| "LaTeX command not found" | Install a TeX distribution for your OS |
+| "LaTeX command not found" | Install the packages listed under [Prerequisites](#prerequisites) — you do not need `texlive-full` |
+| `File 'foo.sty' not found` | Install the one package that provides it (`sudo apt-get install --no-install-recommends texlive-...` or `sudo tlmgr install foo`), rather than the full distribution |
 | `Environment multicols undefined` | Add `\usepackage{multicol}` to your wrapper preamble |
 | `Command \textdegree unavailable` | Add `\usepackage{textcomp}` to your wrapper preamble |
 | `Undefined control sequence \ingredient` | Define `\ingredient`, `\cookware`, and `\timer` in your wrapper preamble |
