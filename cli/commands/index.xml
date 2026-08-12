@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Mon, 18 May 2026 17:18:12 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Wed, 12 Aug 2026 18:58:51 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -58,11 +58,11 @@
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;code>-p, --paper-size &amp;lt;SIZE&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Paper size for &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output: &lt;code>a4&lt;/code> (default), &lt;code>letter&lt;/code>, &lt;code>a5&lt;/code>, &lt;code>legal&lt;/code>&lt;/td>
+ &lt;td>Paper size for &lt;code>latex&lt;/code>/&lt;code>typst&lt;/code> output: &lt;code>a4&lt;/code> (default), &lt;code>letter&lt;/code>, &lt;code>a5&lt;/code>, &lt;code>legal&lt;/code>&lt;/td>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;code>-m, --margin &amp;lt;CM&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Page margin in centimetres for &lt;code>latex&lt;/code> and &lt;code>typst&lt;/code> output (default: 2.5), applied to all four sides&lt;/td>
+ &lt;td>Page margin in centimeters for &lt;code>latex&lt;/code>/&lt;code>typst&lt;/code> output, applied to all sides (default: 2.5)&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -86,8 +86,8 @@ cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f json --pretty
 # Save as Markdown
 cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f markdown -o pizza.md
 
-# Export as a printable LaTeX document on US Letter paper
-cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex --paper-size letter -o pizza.tex
+# Export as LaTeX with US Letter paper and 3cm margins
+cook recipe &amp;amp;#34;Neapolitan Pizza&amp;amp;#34; -f latex --paper-size letter --margin 3 -o pizza.tex
 
 # Read from stdin
 cat recipe.cook | cook recipe
@@ -623,7 +623,26 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  Template Variables&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
+&lt;p>Templates receive recipe data including:&lt;/p></description></item><item><title>Server API</title><link>https://cooklang.org/cli/commands/api/</link><pubDate>Wed, 12 Aug 2026 18:58:51 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/api/</guid><description>&lt;p>HTTP endpoints for building integrations against this CookCLI server.&lt;/p>
+&lt;p>Start the server with &lt;a href="server">&lt;code>cook server&lt;/code>&lt;/a>; every endpoint below is served by it. The same reference is available from a running server at &lt;code>/api-docs&lt;/code>, where the base URL reflects the host you reached it on.&lt;/p>
+&lt;h2 id="before-you-start" class="scroll-mt-24">
+ &lt;a href="#before-you-start" class="header-anchor" aria-label="Link to this section: Before you start">
+ Before you start&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Base URL:&lt;/strong> &lt;code>http://localhost:9080/api&lt;/code>&lt;/li>
+&lt;li>&lt;strong>Authentication:&lt;/strong> None. Anyone who can reach the server can read and modify your recipes — think twice before using &lt;code>--host&lt;/code> on an untrusted network.&lt;/li>
+&lt;li>&lt;strong>CORS:&lt;/strong> All origins are allowed, for the methods GET, POST, PUT and DELETE.&lt;/li>
+&lt;li>&lt;strong>Request size limit:&lt;/strong> 1 MB.&lt;/li>
+&lt;li>&lt;strong>Content type:&lt;/strong> JSON in and out, except where noted — raw recipe text is &lt;code>text/plain&lt;/code>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="errors" class="scroll-mt-24">
+ &lt;a href="#errors" class="header-anchor" aria-label="Link to this section: Errors">
+ Errors&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Every failure returns the same shape, with the status code carrying the meaning:&lt;/p></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
 &lt;h2 id="cook-build-web" class="scroll-mt-24">
  &lt;a href="#cook-build-web" class="header-anchor" aria-label="Link to this section: cook build web">
  &lt;code>cook build web&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -637,7 +656,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  Executive Summary&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p></description></item><item><title>Lsp</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
+&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p></description></item><item><title>LSP</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>

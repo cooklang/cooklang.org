@@ -1,0 +1,474 @@
+<!doctype html><html lang=en-ie dir=ltr class="scroll-smooth bg-gray-50"><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Server API | Cooklang</title>
+<meta name=description content="HTTP API reference for the CookCLI recipe server"><meta property="og:title" content="Server API | Cooklang"><meta property="og:description" content="HTTP API reference for the CookCLI recipe server"><meta property="og:type" content="website"><meta property="og:url" content="https://cooklang.org/cli/commands/api/"><meta property="og:image" content="https://cooklang.org/example.png"><meta property="og:site_name" content="Cooklang"><meta name=twitter:card content="summary_large_image"><meta name=twitter:title content="Server API"><meta name=twitter:description content="HTTP API reference for the CookCLI recipe server"><meta name=twitter:image content="https://cooklang.org/example.png"><meta name=author content="Alexey"><link rel=canonical href=https://cooklang.org/cli/commands/api/><link rel=icon type=image/png href=/favicon.png><link rel="shortcut icon" type=image/png href=/favicon.png><link rel=preconnect href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=preconnect href=https://plau.cook.md><link rel=stylesheet href=/css/style.css><link rel=stylesheet href=/css/prism.min.f603880dbb6bf3f1ccdc7c6c27e00d6e0c05f62160c7d06513181870e56d6d57.css integrity="sha256-9gOIDbtr8/HM3HxsJ+ANbgwF9iFgx9BlExgYcOVtbVc=" crossorigin=anonymous><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet media=print onload='this.media="all"'><noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Lora:ital,wght@0,400;0,500;1,400&display=swap&family=JetBrains+Mono:wght@400;500&display=swap" rel=stylesheet></noscript><script src=/js/main.9f322db4d8f2e67fb7c90a1215bc4d6cf7b9fc25ef746d30dc317d9fc812c4dc.js integrity="sha256-nzIttNjy5n+3yQoSFbxNbPe5/CXvdG0w3DF9n8gSxNw=" crossorigin=anonymous defer></script><script src=/js/prism.min.af85882ed81501083e123f60e917984b380bc16ac22a486c579c2ca6e02389f8.js integrity="sha256-r4WILtgVAQg+Ej9g6ReYSzgLwWrCKkhsV5wspuAjifg=" crossorigin=anonymous defer></script><script src=/js/prism-cooklang.min.02a17849822faf1e497db9a61501860bd531cbe777da855206f6b548896a1066.js integrity="sha256-AqF4SYIvrx5JfbmmFQGGC9Uxy+d32oVSBva1SIlqEGY=" crossorigin=anonymous defer></script><script defer data-domain=cooklang.org src=https://plau.cook.md/js/script.outbound-links.tagged-events.js></script><script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"Cooklang","url":"https:\/\/cooklang.org\/","logo":"https:\/\/cooklang.org\/logo.svg","sameAs":["https://github.com/cooklang","https://reddit.com/r/cooklang","https://discord.gg/fUVVvUzEEK","https://x.com/cooklangorg"]}</script></head><body class="min-h-screen bg-gray-50 text-cooklang-gray-800 antialiased flex flex-col"><header class="bg-white border-b border-cooklang-gray-200 sticky top-0 z-50"><div class="container mx-auto px-4"><nav class="flex items-center justify-between py-4"><div class="flex items-center"><a href=https://cooklang.org/ class="flex items-center space-x-2 hover:opacity-80 transition-opacity"><img alt=Cooklang src=/logo.svg class="h-10 w-auto" width=120 height=120>
+<span class="text-2xl font-bold text-cooklang-gray-900">Cooklang</span></a></div><div class="hidden md:flex items-center gap-8"><nav class="flex items-center gap-6"><a href=/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Home
+</a><a href=/docs/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Docs
+</a><a href=/cli/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-orange">CLI
+</a><a href=/editor/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Editor
+</a><a href=/app/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Mobile App
+</a><a href=/blog/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">Blog
+</a><a href=/about/ class="text-base font-medium transition-colors duration-150 whitespace-nowrap
+text-cooklang-gray-700 hover:text-cooklang-orange">About</a></nav><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-medium text-sm rounded-lg transition-colors duration-150 whitespace-nowrap"><span>☕</span>
+<span>Buy me a coffee</span></a></div><button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id=mobile-menu-button aria-label="Toggle mobile menu"><svg class="w-6 h-6" fill="none" stroke="currentcolor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg></button></nav></div><div id=mobile-menu class="hidden md:hidden bg-white border-t border-gray-200"><nav class="container mx-auto px-4 py-4 space-y-2"><a href=/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Home
+</a><a href=/docs/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Docs
+</a><a href=/cli/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">CLI
+</a><a href=/editor/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Editor
+</a><a href=/app/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Mobile App
+</a><a href=/blog/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">Blog
+</a><a href=/about/ class="block px-4 py-2 text-base font-medium rounded-md transition-colors duration-150
+text-cooklang-gray-700 hover:bg-cooklang-gray-100">About
+</a><a href=https://www.buymeacoffee.com/dubadub target=_blank rel="noopener noreferrer" class="block px-4 py-2 bg-yellow-400 text-gray-900 font-medium text-sm rounded-md">☕ Buy me a coffee</a></nav></div></header><main class=flex-1><div class=bg-white><div class="container mx-auto px-4 py-8"><div class="flex gap-8"><aside class="hidden lg:block w-64 flex-shrink-0"><nav class="sticky top-20"><h3 class="font-semibold text-cooklang-gray-900 mb-4">CLI Documentation</h3><ul class=space-y-2><li><a href=/cli/download/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Download CookCLI</a></li><li><div class="font-medium text-cooklang-gray-700 mb-2 mt-4">Commands</div><ul class="ml-4 space-y-1"><li><a href=/cli/commands/recipe/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Recipe</a></li><li><a href=/cli/commands/shopping-list/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Shopping List</a></li><li><a href=/cli/commands/server/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Server</a></li><li><a href=/cli/commands/search/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Search</a></li><li><a href=/cli/commands/import/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Import</a></li><li><a href=/cli/commands/doctor/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Doctor</a></li><li><a href=/cli/commands/seed/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Seed</a></li><li><a href=/cli/commands/report/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Report</a></li><li><a href=/cli/commands/api/ class="block py-1 px-2 text-sm rounded bg-cooklang-orange text-white">Server API</a></li><li><a href=/cli/commands/build/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Build</a></li><li><a href=/cli/commands/home_assistant_integration_research/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Home_assistant_integration_research</a></li><li><a href=/cli/commands/lsp/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">LSP</a></li><li><a href=/cli/commands/pantry/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Pantry</a></li><li><a href=/cli/commands/update/ class="block py-1 px-2 text-sm rounded text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50">Update</a></li></ul></li></ul></nav></aside><article class="flex-1 overflow-x-auto"><header class=mb-8><h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">Server API</h1></header><div class="prose prose-lg max-w-none text-cooklang-gray-700"><p>HTTP endpoints for building integrations against this CookCLI server.</p><p>Start the server with <a href=server><code>cook server</code></a>; every endpoint below is served by it. The same reference is available from a running server at <code>/api-docs</code>, where the base URL reflects the host you reached it on.</p><h2 id=before-you-start class=scroll-mt-24><a href=#before-you-start class=header-anchor aria-label="Link to this section: Before you start">Before you start<span class=anchor-icon aria-hidden=true>#</span></a></h2><ul><li><strong>Base URL:</strong> <code>http://localhost:9080/api</code></li><li><strong>Authentication:</strong> None. Anyone who can reach the server can read and modify your recipes — think twice before using <code>--host</code> on an untrusted network.</li><li><strong>CORS:</strong> All origins are allowed, for the methods GET, POST, PUT and DELETE.</li><li><strong>Request size limit:</strong> 1 MB.</li><li><strong>Content type:</strong> JSON in and out, except where noted — raw recipe text is <code>text/plain</code>.</li></ul><h2 id=errors class=scroll-mt-24><a href=#errors class=header-anchor aria-label="Link to this section: Errors">Errors<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Every failure returns the same shape, with the status code carrying the meaning:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;error&amp;#34;: &amp;#34;Recipe not found: Nope.cook&amp;#34; }</code></pre></div><ul><li><code>400</code> — malformed input: an invalid path, a bad query parameter, or a recipe that failed to parse.</li><li><code>404</code> — the recipe, menu, or pantry section does not exist, or no pantry file is configured.</li><li><code>500</code> — the server could not read or write a file.</li></ul><h2 id=contents class=scroll-mt-24><a href=#contents class=header-anchor aria-label="Link to this section: Contents">Contents<span class=anchor-icon aria-hidden=true>#</span></a></h2><ul><li><a href=#recipes>Recipes</a></li><li><a href=#menus>Menus</a></li><li><a href=#shopping-list>Shopping List</a></li><li><a href=#pantry>Pantry</a></li><li><a href=#search--stats>Search & Stats</a></li><li><a href=#realtime>Realtime</a></li><li><a href=#sync>Sync</a></li></ul><h2 id=recipes class=scroll-mt-24><a href=#recipes class=header-anchor aria-label="Link to this section: Recipes">Recipes<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Browse, read, write and delete <code>.cook</code> files under the server's recipe directory. Paths are relative to that directory and may include subdirectories.</p><h3 id=get-apirecipes class=scroll-mt-24><a href=#get-apirecipes class=header-anchor aria-label="Link to this section: GET /api/recipes"><code>GET /api/recipes</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>List every recipe as a directory tree</p><p>Returns the recipe tree rooted at the server's base path. Every node — root, directory, and file alike — carries the same four keys: <code>children</code>, <code>name</code>, <code>path</code>, <code>recipe</code>. <code>recipe</code> is <code>null</code> for a directory and non-null for a file; that is the discriminator, not the key's presence. Menus (<code>.menu</code>) appear in the same tree as recipes.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;children&amp;#34;: {
+    &amp;#34;Breakfast&amp;#34;: {
+      &amp;#34;children&amp;#34;: {
+        &amp;#34;Easy Pancakes&amp;#34;: {
+          &amp;#34;children&amp;#34;: {},
+          &amp;#34;name&amp;#34;: &amp;#34;Easy Pancakes&amp;#34;,
+          &amp;#34;path&amp;#34;: &amp;#34;/absolute/path/to/seed/Breakfast/Easy Pancakes.cook&amp;#34;,
+          &amp;#34;recipe&amp;#34;: {
+            &amp;#34;metadata&amp;#34;: {
+              &amp;#34;author&amp;#34;: &amp;#34;CookCLI Team&amp;#34;,
+              &amp;#34;servings&amp;#34;: 2,
+              &amp;#34;description&amp;#34;: &amp;#34;Simple crepes that are perfect for a lazy weekend breakfast.&amp;#34;
+            },
+            &amp;#34;source&amp;#34;: {
+              &amp;#34;path&amp;#34;: &amp;#34;/absolute/path/to/seed/Breakfast/Easy Pancakes.cook&amp;#34;,
+              &amp;#34;source_type&amp;#34;: &amp;#34;Path&amp;#34;
+            }
+          }
+        }
+      },
+      &amp;#34;name&amp;#34;: &amp;#34;Breakfast&amp;#34;,
+      &amp;#34;path&amp;#34;: &amp;#34;/absolute/path/to/seed/Breakfast&amp;#34;,
+      &amp;#34;recipe&amp;#34;: null
+    }
+  },
+  &amp;#34;name&amp;#34;: &amp;#34;seed&amp;#34;,
+  &amp;#34;path&amp;#34;: &amp;#34;/absolute/path/to/seed&amp;#34;,
+  &amp;#34;recipe&amp;#34;: null
+}</code></pre></div><h3 id=get-apirecipespath class=scroll-mt-24><a href=#get-apirecipespath class=header-anchor aria-label="Link to this section: GET /api/recipes/*path"><code>GET /api/recipes/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Read one parsed recipe</p><p>Parses the recipe and returns its ingredients, cookware, timers and steps. <code>grouped_ingredients</code> aggregates repeated ingredients and indexes back into <code>ingredients</code>. <code>inline_quantities</code> is also present alongside them at the top level of <code>recipe</code>. The <code>image</code> field is a URL under <code>/api/static/</code> when the recipe has a title image, otherwise null.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Recipe path relative to the recipe directory, e.g. <code>Breakfast/Easy Pancakes.cook</code>. The <code>.cook</code> extension is optional — the server tries the bare path first, then <code>.cook</code>, then <code>.menu</code>.</td></tr><tr><td><code>scale</code></td><td>query</td><td><code>number</code></td><td>no</td><td>Scaling factor applied during parsing. Defaults to 1. A non-numeric value returns a plain-text 400 ("Failed to deserialize query string: ...") from axum's query deserializer, not the page's usual JSON error envelope.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;image&amp;#34;: &amp;#34;/api/static/Breakfast/Easy Pancakes.jpg&amp;#34;,
+  &amp;#34;scale&amp;#34;: 2.0,
+  &amp;#34;recipe&amp;#34;: {
+    &amp;#34;metadata&amp;#34;: {
+      &amp;#34;map&amp;#34;: {
+        &amp;#34;author&amp;#34;: &amp;#34;CookCLI Team&amp;#34;,
+        &amp;#34;servings&amp;#34;: 4,
+        &amp;#34;description&amp;#34;: &amp;#34;Simple crepes that are perfect for a lazy weekend breakfast.&amp;#34;
+      }
+    },
+    &amp;#34;ingredients&amp;#34;: [
+      {
+        &amp;#34;name&amp;#34;: &amp;#34;eggs&amp;#34;,
+        &amp;#34;alias&amp;#34;: null,
+        &amp;#34;note&amp;#34;: null,
+        &amp;#34;modifiers&amp;#34;: &amp;#34;&amp;#34;,
+        &amp;#34;quantity&amp;#34;: {
+          &amp;#34;scalable&amp;#34;: true,
+          &amp;#34;unit&amp;#34;: null,
+          &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 6.0 } }
+        },
+        &amp;#34;reference&amp;#34;: null,
+        &amp;#34;relation&amp;#34;: {
+          &amp;#34;reference_target&amp;#34;: null,
+          &amp;#34;relation&amp;#34;: {
+            &amp;#34;defined_in_step&amp;#34;: true,
+            &amp;#34;referenced_from&amp;#34;: [],
+            &amp;#34;type&amp;#34;: &amp;#34;definition&amp;#34;
+          }
+        }
+      }
+    ],
+    &amp;#34;grouped_ingredients&amp;#34;: [
+      {
+        &amp;#34;index&amp;#34;: 0,
+        &amp;#34;quantities&amp;#34;: [
+          {
+            &amp;#34;scalable&amp;#34;: true,
+            &amp;#34;unit&amp;#34;: null,
+            &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 6.0 } }
+          }
+        ]
+      }
+    ],
+    &amp;#34;cookware&amp;#34;: [],
+    &amp;#34;timers&amp;#34;: [],
+    &amp;#34;sections&amp;#34;: [
+      {
+        &amp;#34;content&amp;#34;: [
+          {
+            &amp;#34;type&amp;#34;: &amp;#34;step&amp;#34;,
+            &amp;#34;value&amp;#34;: {
+              &amp;#34;items&amp;#34;: [
+                { &amp;#34;type&amp;#34;: &amp;#34;text&amp;#34;, &amp;#34;value&amp;#34;: &amp;#34;Crack the &amp;#34; },
+                { &amp;#34;type&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;index&amp;#34;: 0 },
+                { &amp;#34;type&amp;#34;: &amp;#34;text&amp;#34;, &amp;#34;value&amp;#34;: &amp;#34; into a blender.&amp;#34; }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}</code></pre></div><h3 id=get-apirecipesrawpath class=scroll-mt-24><a href=#get-apirecipesrawpath class=header-anchor aria-label="Link to this section: GET /api/recipes/raw/*path"><code>GET /api/recipes/raw/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Read the unparsed Cooklang source</p><p>Returns the file's text verbatim with content type <code>text/plain</code>, including YAML frontmatter. The <code>.cook</code> and <code>.menu</code> extensions are optional in the path — the server tries the bare path first, then <code>.cook</code>, then <code>.menu</code>.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Recipe path relative to the recipe directory.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-text data-language=text><code class=language-text>---
+servings: 2
+tags: breakfast, quick
+author: CookCLI Team
+---
+
+Crack the @eggs{3} into a blender, then add the @flour{125%g},
+@milk{250%ml} and @sea salt{pinch}, and blitz until smooth.</code></pre></div><h3 id=put-apirecipespath class=scroll-mt-24><a href=#put-apirecipespath class=header-anchor aria-label="Link to this section: PUT /api/recipes/*path"><code>PUT /api/recipes/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Create or overwrite a recipe</p><p>The request body is the raw Cooklang source as <code>text/plain</code> — not JSON. Writes are atomic (temp file plus rename). If the file does not exist yet, it is created with a <code>.cook</code> extension — but the response's <code>path</code> echoes the request path verbatim and does not report that resolved filename. The parent directory must already exist: writing into a directory that is not there returns a 500 whose message talks about permissions even when the real cause is the missing directory.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Recipe path relative to the recipe directory.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-text data-language=text><code class=language-text>---
+title: New Recipe
+---
+
+Mix the @flour{200%g} and @water{120%ml}.</code></pre></div><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;path&amp;#34;: &amp;#34;Breakfast/New Recipe&amp;#34;,
+  &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;
+}</code></pre></div><h3 id=delete-apirecipespath class=scroll-mt-24><a href=#delete-apirecipespath class=header-anchor aria-label="Link to this section: DELETE /api/recipes/*path"><code>DELETE /api/recipes/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Delete a recipe file</p><p>Permanently removes the file from disk. There is no undo and no trash.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Recipe path relative to the recipe directory. The <code>.cook</code> extension is optional — the same bare → <code>.cook</code> → <code>.menu</code> resolution as the raw endpoint applies here too.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
+  &amp;#34;path&amp;#34;: &amp;#34;Breakfast/Old Recipe.cook&amp;#34;
+}</code></pre></div><h3 id=get-apistaticpath class=scroll-mt-24><a href=#get-apistaticpath class=header-anchor aria-label="Link to this section: GET /api/static/*path"><code>GET /api/static/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Fetch a recipe asset</p><p>Serves files straight from the recipe directory — this is where recipe images live. The <code>image</code> field returned by <code>GET /api/recipes/*path</code> is already a URL into this route.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Asset path relative to the recipe directory, e.g. <code>Breakfast/Easy Pancakes.jpg</code>.</td></tr></tbody></table><h2 id=menus class=scroll-mt-24><a href=#menus class=header-anchor aria-label="Link to this section: Menus">Menus<span class=anchor-icon aria-hidden=true>#</span></a></h2><p><code>.menu</code> files group recipes into meal plans. These endpoints return a menu's structure — days, meals, and the recipes and loose ingredients in each.</p><h3 id=get-apimenus class=scroll-mt-24><a href=#get-apimenus class=header-anchor aria-label="Link to this section: GET /api/menus"><code>GET /api/menus</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>List every menu</p><p>Walks the recipe tree and returns only <code>.menu</code> files. Order is not stable — the tree walk is over a hash-ordered map, and consecutive calls can return the same menus in a different order. Do not depend on it.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  { &amp;#34;name&amp;#34;: &amp;#34;2 Day Plan&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;2 Day Plan.menu&amp;#34; },
+  { &amp;#34;name&amp;#34;: &amp;#34;Weekly Plan&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;Weekly Plan.menu&amp;#34; }
+]</code></pre></div><h3 id=get-apimenuspath class=scroll-mt-24><a href=#get-apimenuspath class=header-anchor aria-label="Link to this section: GET /api/menus/*path"><code>GET /api/menus/*path</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Read one menu</p><p>Sections correspond to days; a <code>date</code> is extracted when the section name contains one in parentheses, e.g. <code>Day 1 (2026-03-04)</code> — the seed menus don't use that convention, so <code>date</code> is null below. A meal's <code>time</code> is likewise extracted from its header, e.g. <code>Breakfast (08:30):</code> yields <code>"type": "Breakfast", "time": "08:30"</code>; none of the seed menus set a time either, hence null throughout. Meal items are tagged by <code>kind</code>: <code>recipe_reference</code> points at another file; <code>ingredient</code> is a loose item written directly in the menu. Plain connecting text in the menu (e.g. "with") is dropped — only structured references and ingredients are returned. Returns 400 if the path is not a menu file, 404 if it does not exist. The response below is trimmed to the first of this menu's two <code>sections</code>; the second follows the same shape. A <code>recipe_reference</code>'s <code>scale</code> is a ready-to-use multiplier for the referenced recipe, resolved from the menu's <code>{...}</code> notation per the Cooklang spec: a bare <code>{2}</code> is a raw multiplier, <code>{3%servings}</code> targets servings against the referenced recipe's own <code>servings</code> metadata, any other unit targets its <code>yield</code>, and <code>{}</code> means 1. The example below shows <code>5.0</code> because the menu asks for <code>{10%servings}</code> and <code>Easy Pancakes</code> declares <code>servings: 2</code>. The <code>?scale</code> query multiplies these, so <code>?scale=2</code> yields <code>10.0</code>. <code>POST /api/shopping_list/add_menu</code> resolves references identically, so the two endpoints always agree.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Menu path relative to the recipe directory, e.g. <code>2 Day Plan.menu</code>.</td></tr><tr><td><code>scale</code></td><td>query</td><td><code>number</code></td><td>no</td><td>Scaling factor applied to the whole menu. Defaults to 1.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;name&amp;#34;: &amp;#34;2 Day Plan&amp;#34;,
+  &amp;#34;path&amp;#34;: &amp;#34;2 Day Plan.menu&amp;#34;,
+  &amp;#34;metadata&amp;#34;: { &amp;#34;servings&amp;#34;: &amp;#34;2&amp;#34; },
+  &amp;#34;sections&amp;#34;: [
+    {
+      &amp;#34;name&amp;#34;: &amp;#34;Day 1&amp;#34;,
+      &amp;#34;date&amp;#34;: null,
+      &amp;#34;meals&amp;#34;: [
+        {
+          &amp;#34;type&amp;#34;: &amp;#34;Breakfast&amp;#34;,
+          &amp;#34;time&amp;#34;: null,
+          &amp;#34;items&amp;#34;: [
+            {
+              &amp;#34;kind&amp;#34;: &amp;#34;recipe_reference&amp;#34;,
+              &amp;#34;name&amp;#34;: &amp;#34;./Breakfast/Easy Pancakes&amp;#34;,
+              &amp;#34;path&amp;#34;: &amp;#34;./Breakfast/Easy Pancakes.cook&amp;#34;,
+              &amp;#34;scale&amp;#34;: 5.0
+            },
+            { &amp;#34;kind&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;maple syrup&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;unit&amp;#34;: &amp;#34;tbsp&amp;#34; },
+            { &amp;#34;kind&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;coffee&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;unit&amp;#34;: &amp;#34;c&amp;#34; }
+          ]
+        },
+        {
+          &amp;#34;type&amp;#34;: &amp;#34;Lunch&amp;#34;,
+          &amp;#34;time&amp;#34;: null,
+          &amp;#34;items&amp;#34;: [
+            {
+              &amp;#34;kind&amp;#34;: &amp;#34;recipe_reference&amp;#34;,
+              &amp;#34;name&amp;#34;: &amp;#34;./lamb-chops&amp;#34;,
+              &amp;#34;path&amp;#34;: &amp;#34;./lamb-chops.cook&amp;#34;,
+              &amp;#34;scale&amp;#34;: 1.0
+            },
+            { &amp;#34;kind&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;bread&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;2&amp;#34;, &amp;#34;unit&amp;#34;: &amp;#34;slices&amp;#34; },
+            { &amp;#34;kind&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;butter&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;unit&amp;#34;: &amp;#34;tbsp&amp;#34; }
+          ]
+        },
+        {
+          &amp;#34;type&amp;#34;: &amp;#34;Dinner&amp;#34;,
+          &amp;#34;time&amp;#34;: null,
+          &amp;#34;items&amp;#34;: [
+            {
+              &amp;#34;kind&amp;#34;: &amp;#34;recipe_reference&amp;#34;,
+              &amp;#34;name&amp;#34;: &amp;#34;./Neapolitan Pizza&amp;#34;,
+              &amp;#34;path&amp;#34;: &amp;#34;./Neapolitan Pizza.cook&amp;#34;,
+              &amp;#34;scale&amp;#34;: 1.0
+            },
+            { &amp;#34;kind&amp;#34;: &amp;#34;ingredient&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;soy sauce&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;1&amp;#34;, &amp;#34;unit&amp;#34;: &amp;#34;tbsp&amp;#34; }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre></div><h2 id=shopping-list class=scroll-mt-24><a href=#shopping-list class=header-anchor aria-label="Link to this section: Shopping List">Shopping List<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Two distinct things live here. <code>POST /api/shopping_list</code> is stateless: send recipes, get an aggregated ingredient list back. Everything else operates on the server's persistent list, stored as <code>.shopping-list</code> and <code>.shopping-checked</code> in the recipe directory. Most of the endpoints that mutate the stored list respond <code>200 OK</code> with an empty body — only <code>GET /api/shopping_list/items</code>, <code>GET /api/shopping_list/checked</code>, and the stateless <code>POST /api/shopping_list</code> return JSON. (A third GET lives under this path in the router, <code>/api/shopping_list/events</code>, but it's a Server-Sent Events stream, not JSON — see the Realtime section.)</p><h3 id=post-apishopping_list class=scroll-mt-24><a href=#post-apishopping_list class=header-anchor aria-label="Link to this section: POST /api/shopping_list"><code>POST /api/shopping_list</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Aggregate ingredients across recipes</p><p>Stateless — nothing is stored. Ingredients with the same name are combined and unit-converted, then grouped into aisle categories from <code>aisle.conf</code>; a category with no matching entries is omitted from <code>categories</code> entirely, and ingredients that match no aisle category land in <code>other</code>, sorted alphabetically. Quantities are reduced by anything in <code>pantry.conf</code>; <code>pantry_items</code> lists the ingredient names that were found there (with a nonzero or <code>unlim</code> quantity) and subtracted. <code>checked</code> echoes the server's current persistent checked state, unrelated to the recipes in this request.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>recipe</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Recipe path. The array may hold several.</td></tr><tr><td><code>scale</code></td><td>body</td><td><code>number</code></td><td>no</td><td>Scaling factor for this recipe. Defaults to 1.</td></tr><tr><td><code>included_references</code></td><td>body</td><td><code>string[]</code></td><td>no</td><td>Which sub-recipe references to expand. Omit to include all of them.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  { &amp;#34;recipe&amp;#34;: &amp;#34;Neapolitan Pizza&amp;#34;, &amp;#34;scale&amp;#34;: 2 },
+  { &amp;#34;recipe&amp;#34;: &amp;#34;Salads/Caprese&amp;#34;, &amp;#34;included_references&amp;#34;: [&amp;#34;Shared/Vinaigrette&amp;#34;] }
+]</code></pre></div><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;categories&amp;#34;: [
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;fruit and veg&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;ripe tomatoes&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: true,
+              &amp;#34;unit&amp;#34;: &amp;#34;large&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 3.0 } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;milk and dairy&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;fresh mozzarella&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;g&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 200.0 } }
+            }
+          ]
+        },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;mozzarella cheese&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;g&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 200.0 } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;tinned goods and baking&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;tipo zero flour&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;g&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 1680.0 } }
+            }
+          ]
+        },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;fresh yeast&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;g&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 3.2 } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;dried herbs and spices&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;salt&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;tsp&amp;#34;,
+              &amp;#34;value&amp;#34;: {
+                &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;,
+                &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;fraction&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;whole&amp;#34;: 0, &amp;#34;num&amp;#34;: 1, &amp;#34;den&amp;#34;: 8, &amp;#34;err&amp;#34;: 0.0 } }
+              }
+            },
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;g&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 49.2 } }
+            }
+          ]
+        },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;black pepper&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;tsp&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 0.0625 } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;oils and dressings&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;Dijon mustard&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;tsp&amp;#34;,
+              &amp;#34;value&amp;#34;: {
+                &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;,
+                &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;fraction&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;whole&amp;#34;: 0, &amp;#34;num&amp;#34;: 1, &amp;#34;den&amp;#34;: 4, &amp;#34;err&amp;#34;: 0.0 } }
+              }
+            }
+          ]
+        },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;honey&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;tsp&amp;#34;,
+              &amp;#34;value&amp;#34;: {
+                &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;,
+                &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;fraction&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;whole&amp;#34;: 0, &amp;#34;num&amp;#34;: 1, &amp;#34;den&amp;#34;: 4, &amp;#34;err&amp;#34;: 0.0 } }
+              }
+            }
+          ]
+        },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;red wine vinegar&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;ml&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 10.0 } }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      &amp;#34;category&amp;#34;: &amp;#34;other&amp;#34;,
+      &amp;#34;items&amp;#34;: [
+        { &amp;#34;name&amp;#34;: &amp;#34;basil leaves&amp;#34;, &amp;#34;quantities&amp;#34;: [] },
+        {
+          &amp;#34;name&amp;#34;: &amp;#34;San Marzano tomato sauce&amp;#34;,
+          &amp;#34;quantities&amp;#34;: [
+            {
+              &amp;#34;scalable&amp;#34;: false,
+              &amp;#34;unit&amp;#34;: &amp;#34;tbsp&amp;#34;,
+              &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;number&amp;#34;, &amp;#34;value&amp;#34;: { &amp;#34;type&amp;#34;: &amp;#34;regular&amp;#34;, &amp;#34;value&amp;#34;: 10.0 } }
+            }
+          ]
+        },
+        { &amp;#34;name&amp;#34;: &amp;#34;semolina&amp;#34;, &amp;#34;quantities&amp;#34;: [] }
+      ]
+    }
+  ],
+  &amp;#34;pantry_items&amp;#34;: [&amp;#34;flour&amp;#34;, &amp;#34;water&amp;#34;, &amp;#34;salt&amp;#34;, &amp;#34;tipo zero flour&amp;#34;, &amp;#34;olive oil&amp;#34;, &amp;#34;fresh basil&amp;#34;, &amp;#34;black pepper&amp;#34;],
+  &amp;#34;checked&amp;#34;: []
+}</code></pre></div><h3 id=get-apishopping_listitems class=scroll-mt-24><a href=#get-apishopping_listitems class=header-anchor aria-label="Link to this section: GET /api/shopping_list/items"><code>GET /api/shopping_list/items</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Read the stored recipe list</p><p>Returns the recipes currently on the shopping list, not their ingredients. An entry with a <code>recipes</code> array is a menu added via <code>add_menu</code>; its nested entries carry their own resolved scale and <code>included_references</code>, independent of whatever the same recipe's standalone entry (if any) was given.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  {
+    &amp;#34;path&amp;#34;: &amp;#34;Salads/Caprese.cook&amp;#34;,
+    &amp;#34;name&amp;#34;: &amp;#34;Caprese&amp;#34;,
+    &amp;#34;scale&amp;#34;: 2.0,
+    &amp;#34;included_references&amp;#34;: []
+  },
+  {
+    &amp;#34;path&amp;#34;: &amp;#34;2 Day Plan.menu&amp;#34;,
+    &amp;#34;name&amp;#34;: &amp;#34;2 Day Plan&amp;#34;,
+    &amp;#34;scale&amp;#34;: 1.0,
+    &amp;#34;recipes&amp;#34;: [
+      {
+        &amp;#34;path&amp;#34;: &amp;#34;Breakfast/Easy Pancakes&amp;#34;,
+        &amp;#34;name&amp;#34;: &amp;#34;Easy Pancakes&amp;#34;,
+        &amp;#34;scale&amp;#34;: 5.0,
+        &amp;#34;included_references&amp;#34;: []
+      },
+      { &amp;#34;path&amp;#34;: &amp;#34;lamb-chops&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;lamb-chops&amp;#34;, &amp;#34;scale&amp;#34;: 1.0, &amp;#34;included_references&amp;#34;: [] },
+      {
+        &amp;#34;path&amp;#34;: &amp;#34;Neapolitan Pizza&amp;#34;,
+        &amp;#34;name&amp;#34;: &amp;#34;Neapolitan Pizza&amp;#34;,
+        &amp;#34;scale&amp;#34;: 1.0,
+        &amp;#34;included_references&amp;#34;: [&amp;#34;Shared/Pizza Dough&amp;#34;]
+      },
+      {
+        &amp;#34;path&amp;#34;: &amp;#34;Salads/Caprese&amp;#34;,
+        &amp;#34;name&amp;#34;: &amp;#34;Caprese&amp;#34;,
+        &amp;#34;scale&amp;#34;: 1.0,
+        &amp;#34;included_references&amp;#34;: [&amp;#34;Shared/Vinaigrette&amp;#34;]
+      },
+      { &amp;#34;path&amp;#34;: &amp;#34;Risotto&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;Risotto&amp;#34;, &amp;#34;scale&amp;#34;: 1.0, &amp;#34;included_references&amp;#34;: [] }
+    ]
+  }
+]</code></pre></div><h3 id=post-apishopping_listadd class=scroll-mt-24><a href=#post-apishopping_listadd class=header-anchor aria-label="Link to this section: POST /api/shopping_list/add"><code>POST /api/shopping_list/add</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Add one recipe to the stored list</p><p>Responds <code>200 OK</code> with an empty body. The display name is derived from the path server-side; a client-supplied name would be discarded, so it is not accepted. The path is not checked for existence or validity: adding a recipe that doesn't exist still returns 200 and the entry lands on the list — it then makes every subsequent <code>POST /api/shopping_list/compact</code> fail with 500 until it's removed, because compact re-aggregates the whole stored list and refuses to proceed if any entry fails to parse.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Recipe path relative to the recipe directory.</td></tr><tr><td><code>scale</code></td><td>body</td><td><code>number</code></td><td>yes</td><td>Scaling factor to store with the entry.</td></tr><tr><td><code>included_references</code></td><td>body</td><td><code>string[]</code></td><td>no</td><td>Which sub-recipe references to expand. Omit and no sub-recipes are expanded — unlike the stateless <code>POST /api/shopping_list</code>, where omitting this field means "expand all", omitting it here is not preserved through storage and reads back as an explicit empty array. Pass the reference paths explicitly if you want them expanded.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;path&amp;#34;: &amp;#34;Salads/Caprese.cook&amp;#34;,
+  &amp;#34;scale&amp;#34;: 2.0,
+  &amp;#34;included_references&amp;#34;: [&amp;#34;Shared/Vinaigrette&amp;#34;]
+}</code></pre></div><h3 id=post-apishopping_listadd_menu class=scroll-mt-24><a href=#post-apishopping_listadd_menu class=header-anchor aria-label="Link to this section: POST /api/shopping_list/add_menu"><code>POST /api/shopping_list/add_menu</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Add every recipe in a menu</p><p>Stored as a single entry with the menu's recipes nested inside; each nested recipe's own sub-recipe references are resolved automatically (there is no <code>included_references</code> field to set here). Each nested recipe's scale is resolved from the menu reference: a bare <code>{2}</code> is a raw multiplier, <code>{3%servings}</code> targets 3 servings against the recipe's own <code>servings</code> metadata, and any other unit targets its <code>yield</code> metadata. Responds <code>200 OK</code> with an empty body; returns 404 if <code>path</code> does not exist, but does not check that it's actually a <code>.menu</code> file — pointing this at a plain recipe is accepted and stores it as if it were <code>POST /api/shopping_list/add</code> with that recipe's own references as <code>included_references</code>, which can leave the list in a state that later makes <code>compact</code> fail.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Menu path relative to the recipe directory.</td></tr><tr><td><code>scale</code></td><td>body</td><td><code>number</code></td><td>yes</td><td>Scaling factor applied to the whole menu.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;path&amp;#34;: &amp;#34;2 Day Plan.menu&amp;#34;,
+  &amp;#34;scale&amp;#34;: 1.0
+}</code></pre></div><h3 id=post-apishopping_listremove class=scroll-mt-24><a href=#post-apishopping_listremove class=header-anchor aria-label="Link to this section: POST /api/shopping_list/remove"><code>POST /api/shopping_list/remove</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Remove one recipe from the stored list</p><p>Also compacts the checked log, dropping checks for ingredients no longer referenced by any remaining recipe — best-effort; a compaction failure does not fail the remove itself. Responds <code>200 OK</code> with an empty body.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>path</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Recipe path exactly as stored.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;path&amp;#34;: &amp;#34;Salads/Caprese.cook&amp;#34; }</code></pre></div><h3 id=post-apishopping_listclear class=scroll-mt-24><a href=#post-apishopping_listclear class=header-anchor aria-label="Link to this section: POST /api/shopping_list/clear"><code>POST /api/shopping_list/clear</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Empty the stored list</p><p>Removes every recipe and all checked state. Responds <code>200 OK</code> with an empty body.</p><h3 id=post-apishopping_listcheck class=scroll-mt-24><a href=#post-apishopping_listcheck class=header-anchor aria-label="Link to this section: POST /api/shopping_list/check"><code>POST /api/shopping_list/check</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Mark an ingredient as bought</p><p>Appends the name to the checked log verbatim — the server does not validate it against the current aggregated list, so any string is accepted. Use a name as returned by <code>POST /api/shopping_list</code> for it to correspond to a real ingredient. Note that <code>GET /api/shopping_list/checked</code> lowercases every name it reads back, while the aggregated list from <code>POST /api/shopping_list</code> keeps original case — a client that diffs the two sets directly will fail to match any ingredient whose name isn't already all-lowercase, e.g. checking <code>"Dijon mustard"</code> here shows up as <code>"dijon mustard"</code> from <code>checked</code>. Responds <code>200 OK</code> with an empty body.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Aggregated ingredient name.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;name&amp;#34;: &amp;#34;mozzarella cheese&amp;#34; }</code></pre></div><h3 id=post-apishopping_listuncheck class=scroll-mt-24><a href=#post-apishopping_listuncheck class=header-anchor aria-label="Link to this section: POST /api/shopping_list/uncheck"><code>POST /api/shopping_list/uncheck</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Clear an ingredient's bought mark</p><p>Responds <code>200 OK</code> with an empty body.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>name</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Aggregated ingredient name.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;name&amp;#34;: &amp;#34;mozzarella cheese&amp;#34; }</code></pre></div><h3 id=get-apishopping_listchecked class=scroll-mt-24><a href=#get-apishopping_listchecked class=header-anchor aria-label="Link to this section: GET /api/shopping_list/checked"><code>GET /api/shopping_list/checked</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>List checked ingredient names</p><p>Returns <code>[]</code> against a fresh list — nothing is checked until <code>check</code> is called. Every name comes back lowercased, regardless of the case it was checked with or the case <code>POST /api/shopping_list</code> uses for the same ingredient in its <code>categories</code> — compare case-insensitively, or lowercase the aggregated names yourself before diffing the two. Order is not stable: the underlying set is unordered, and consecutive calls can return the same names in a different order.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[&amp;#34;tipo zero flour&amp;#34;, &amp;#34;mozzarella cheese&amp;#34;]</code></pre></div><h3 id=post-apishopping_listcompact class=scroll-mt-24><a href=#post-apishopping_listcompact class=header-anchor aria-label="Link to this section: POST /api/shopping_list/compact"><code>POST /api/shopping_list/compact</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Drop stale checked entries</p><p>Re-aggregates the current list and removes checks for ingredients that are no longer in it. Refuses to compact (500) if any recipe fails to parse, rather than wiping checks based on a partial ingredient set. Responds <code>200 OK</code> with an empty body.</p><h2 id=pantry class=scroll-mt-24><a href=#pantry class=header-anchor aria-label="Link to this section: Pantry">Pantry<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Reads and writes <code>pantry.conf</code>, a TOML file of what you already have at home. Quantities are typically <code>VALUE%UNIT</code>, e.g. <code>250%g</code>, but the field is just a string — <code>unlim</code> and plain counts like <code>12</code> appear untouched in the seed data. Every endpoint here returns 404 when no pantry file is configured.</p><h3 id=get-apipantry class=scroll-mt-24><a href=#get-apipantry class=header-anchor aria-label="Link to this section: GET /api/pantry"><code>GET /api/pantry</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Read the whole pantry</p><p>Top-level keys are section names — you choose them; <code>fridge</code>, <code>garden</code>, <code>pantry</code> and <code>spice rack</code> are just conventions used by the seed data. A bare <code>key = "value"</code> line at the top of the TOML file, outside any <code>[section]</code> header, is not an error: it is folded into a section literally named <code>general</code>, which is why it appears below even though <code>pantry.conf</code> never writes <code>[general]</code> itself. Item fields other than <code>name</code> are all optional and present only when set. The response below is trimmed to two sections of the seed pantry's five (<code>pantry</code> and <code>spice rack</code> also exist, with the same shape) to keep this example short.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;fridge&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;butter&amp;#34;, &amp;#34;expire&amp;#34;: &amp;#34;2026-04-15&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;250%g&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;eggs&amp;#34;, &amp;#34;bought&amp;#34;: &amp;#34;2026-03-07&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;12&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;milk&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;2%l&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;parmesan cheese&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;200%g&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;sour cream&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;200%ml&amp;#34; }
+  ],
+  &amp;#34;garden&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;fresh basil&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;unlim&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;fresh oregano&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;unlim&amp;#34; },
+    { &amp;#34;name&amp;#34;: &amp;#34;thyme&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;unlim&amp;#34; }
+  ],
+  &amp;#34;general&amp;#34;: [
+    { &amp;#34;name&amp;#34;: &amp;#34;water&amp;#34;, &amp;#34;quantity&amp;#34;: &amp;#34;unlim&amp;#34; }
+  ]
+}</code></pre></div><h3 id=post-apipantryadd class=scroll-mt-24><a href=#post-apipantryadd class=header-anchor aria-label="Link to this section: POST /api/pantry/add"><code>POST /api/pantry/add</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Add an item</p><p>Creates the section if it does not exist. The response claims success and reports a distinct item was appended even when the section already has an item of that name — but every write round-trips through a TOML serializer that keys each section's items by name, so a second item sharing a name with an existing one in the same section silently replaces it on disk rather than coexisting. Verified: adding <code>dup</code> twice with different quantities to a fresh section leaves exactly one <code>dup</code> item, with the second call's quantity.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>section</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Section to add the item to.</td></tr><tr><td><code>name</code></td><td>body</td><td><code>string</code></td><td>yes</td><td>Item name.</td></tr><tr><td><code>quantity</code></td><td>body</td><td><code>string</code></td><td>no</td><td>Amount as <code>VALUE%UNIT</code>, or any other string such as <code>unlim</code>.</td></tr><tr><td><code>bought</code></td><td>body</td><td><code>string</code></td><td>no</td><td>Purchase date. Accepts <code>YYYY-MM-DD</code>, <code>DD.MM.YYYY</code>, <code>DD/MM/YYYY</code>, <code>MM/DD/YYYY</code>, <code>YYYY.MM.DD</code> or <code>DD-MM-YYYY</code>.</td></tr><tr><td><code>expire</code></td><td>body</td><td><code>string</code></td><td>no</td><td>Expiry date, same accepted formats as <code>bought</code>.</td></tr><tr><td><code>low</code></td><td>body</td><td><code>string</code></td><td>no</td><td>Threshold below which the item counts as running low. Compared against <code>quantity</code> only when both share the same unit; see <code>GET /api/pantry/depleted</code>.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;section&amp;#34;: &amp;#34;fridge&amp;#34;,
+  &amp;#34;name&amp;#34;: &amp;#34;yogurt&amp;#34;,
+  &amp;#34;quantity&amp;#34;: &amp;#34;1%l&amp;#34;,
+  &amp;#34;low&amp;#34;: &amp;#34;2%l&amp;#34;
+}</code></pre></div><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;success&amp;#34;: true,
+  &amp;#34;message&amp;#34;: &amp;#34;Added yogurt to fridge&amp;#34;
+}</code></pre></div><h3 id=put-apipantrysectionname class=scroll-mt-24><a href=#put-apipantrysectionname class=header-anchor aria-label="Link to this section: PUT /api/pantry/:section/:name"><code>PUT /api/pantry/:section/:name</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Update an item</p><p>Only the fields present in the body are changed; omitted fields keep their current values. Returns 404 if the section does not exist. A name that matches nothing inside a valid section does not 404 — that case still rewrites the file (a no-op) and responds <code>200</code> with a success message naming the item that was never found. If more than one item in the section shares the target name, only the first one is updated.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>section</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Section containing the item.</td></tr><tr><td><code>name</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Item name.</td></tr><tr><td><code>quantity</code></td><td>body</td><td><code>string</code></td><td>no</td><td>New amount.</td></tr><tr><td><code>bought</code></td><td>body</td><td><code>string</code></td><td>no</td><td>New purchase date.</td></tr><tr><td><code>expire</code></td><td>body</td><td><code>string</code></td><td>no</td><td>New expiry date.</td></tr><tr><td><code>low</code></td><td>body</td><td><code>string</code></td><td>no</td><td>New low threshold.</td></tr></tbody></table><p>Request body:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;quantity&amp;#34;: &amp;#34;500%g&amp;#34; }</code></pre></div><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;success&amp;#34;: true,
+  &amp;#34;message&amp;#34;: &amp;#34;Updated butter in fridge&amp;#34;
+}</code></pre></div><h3 id=delete-apipantrysectionname class=scroll-mt-24><a href=#delete-apipantrysectionname class=header-anchor aria-label="Link to this section: DELETE /api/pantry/:section/:name"><code>DELETE /api/pantry/:section/:name</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Remove an item</p><p>The section is deleted too if it becomes empty. Returns 404 if the section does not exist, but — like <code>PUT</code> — responds <code>200</code> with a success message even when no item in the section actually has that name; nothing is removed and the file is rewritten unchanged.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>section</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Section containing the item.</td></tr><tr><td><code>name</code></td><td>path</td><td><code>string</code></td><td>yes</td><td>Item name.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;success&amp;#34;: true,
+  &amp;#34;message&amp;#34;: &amp;#34;Removed butter from fridge&amp;#34;
+}</code></pre></div><h3 id=get-apipantryexpiring class=scroll-mt-24><a href=#get-apipantryexpiring class=header-anchor aria-label="Link to this section: GET /api/pantry/expiring"><code>GET /api/pantry/expiring</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>List items expiring soon</p><p>Sorted most urgent first. <code>days_remaining</code> goes negative for items that have already expired, and those are always included regardless of the window — the seed pantry's <code>butter</code> (<code>expire = "2026-04-15"</code>) is already expired relative to today, so it shows up even with the default 7-day window.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>days</code></td><td>query</td><td><code>number</code></td><td>no</td><td>Look-ahead window in days. Defaults to 7. Negative values return 400.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  {
+    &amp;#34;section&amp;#34;: &amp;#34;fridge&amp;#34;,
+    &amp;#34;name&amp;#34;: &amp;#34;butter&amp;#34;,
+    &amp;#34;expire&amp;#34;: &amp;#34;2026-04-15&amp;#34;,
+    &amp;#34;days_remaining&amp;#34;: -116
+  }
+]</code></pre></div><h3 id=get-apipantrydepleted class=scroll-mt-24><a href=#get-apipantrydepleted class=header-anchor aria-label="Link to this section: GET /api/pantry/depleted"><code>GET /api/pantry/depleted</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>List items running low</p><p>An item counts as low when its <code>quantity</code> has fallen to or below its <code>low</code> threshold and the two share the same unit. Returns <code>[]</code> against the unmodified seed pantry, which has no <code>low</code> field set on anything.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  { &amp;#34;section&amp;#34;: &amp;#34;fridge&amp;#34;, &amp;#34;name&amp;#34;: &amp;#34;yogurt&amp;#34;, &amp;#34;low&amp;#34;: &amp;#34;2%l&amp;#34; }
+]</code></pre></div><h2 id=search--stats class=scroll-mt-24><a href=#search--stats class=header-anchor aria-label="Link to this section: Search & Stats">Search & Stats<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Collection-wide queries.</p><h3 id=get-apisearch class=scroll-mt-24><a href=#get-apisearch class=header-anchor aria-label="Link to this section: GET /api/search"><code>GET /api/search</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Full-text recipe search</p><p>Matches against recipe names and content. Menus are searched alongside recipes. <code>q</code> is required: omitting it entirely returns a plain-text 400 from axum's query deserializer (<code>Failed to deserialize query string: missing field q</code>), not the page's usual JSON error envelope — the same shape as the <code>scale</code> parameter's failure mode on <code>GET /api/recipes/*path</code>. A present but empty <code>q=</code> is not rejected, though: it matches everything and returns the whole collection.</p><table><thead><tr><th>Name</th><th>In</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td><code>q</code></td><td>query</td><td><code>string</code></td><td>yes</td><td>Search term. Omitting the parameter returns 400; an empty value matches everything.</td></tr></tbody></table><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>[
+  { &amp;#34;name&amp;#34;: &amp;#34;Neapolitan Pizza&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;Neapolitan Pizza.cook&amp;#34; },
+  { &amp;#34;name&amp;#34;: &amp;#34;Pizza Dough&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;Shared/Pizza Dough.cook&amp;#34; },
+  { &amp;#34;name&amp;#34;: &amp;#34;2 Day Plan&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;2 Day Plan.menu&amp;#34; },
+  { &amp;#34;name&amp;#34;: &amp;#34;Weekly Plan&amp;#34;, &amp;#34;path&amp;#34;: &amp;#34;Weekly Plan.menu&amp;#34; }
+]</code></pre></div><h3 id=get-apistats class=scroll-mt-24><a href=#get-apistats class=header-anchor aria-label="Link to this section: GET /api/stats"><code>GET /api/stats</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Collection counts</p><p>Pantry counts are all zero when no pantry file is configured, or when it fails to read or parse. <code>pantry_expiring_count</code> uses a fixed 7-day window regardless of what <code>GET /api/pantry/expiring?days=</code> would be called with.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;recipe_count&amp;#34;: 12,
+  &amp;#34;menu_count&amp;#34;: 2,
+  &amp;#34;pantry_item_count&amp;#34;: 29,
+  &amp;#34;pantry_expiring_count&amp;#34;: 1,
+  &amp;#34;pantry_depleted_count&amp;#34;: 0
+}</code></pre></div><h3 id=get-apireload class=scroll-mt-24><a href=#get-apireload class=header-anchor aria-label="Link to this section: GET /api/reload"><code>GET /api/reload</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Reload recipes (no-op)</p><p>Kept for client compatibility. The server reads from disk on every request, so there is no cache to clear and this endpoint does nothing besides log and return this fixed response.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
+  &amp;#34;message&amp;#34;: &amp;#34;Recipes will be refreshed from disk on next request&amp;#34;
+}</code></pre></div><h3 id=post-apireload class=scroll-mt-24><a href=#post-apireload class=header-anchor aria-label="Link to this section: POST /api/reload"><code>POST /api/reload</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Reload recipes (no-op)</p><p>Identical to the GET form; both verbs are registered on the same route and accepted.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;status&amp;#34;: &amp;#34;success&amp;#34;,
+  &amp;#34;message&amp;#34;: &amp;#34;Recipes will be refreshed from disk on next request&amp;#34;
+}</code></pre></div><h2 id=realtime class=scroll-mt-24><a href=#realtime class=header-anchor aria-label="Link to this section: Realtime">Realtime<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Long-lived connections. Neither of these returns a normal JSON response.</p><h3 id=get-apishopping_listevents class=scroll-mt-24><a href=#get-apishopping_listevents class=header-anchor aria-label="Link to this section: GET /api/shopping_list/events"><code>GET /api/shopping_list/events</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Server-sent events for shopping list changes</p><p>Emits a <code>change</code> event whenever <code>.shopping-list</code> or <code>.shopping-checked</code> is modified on disk — including by another client or by the <code>cook</code> CLI. The event's <code>file</code> field is <code>"list"</code> or <code>"checked"</code>, naming which file changed (captured live below by editing the shopping list in a second shell while connected). It is not a snapshot of what changed, so the intended pattern is to re-fetch the list on each event rather than to apply a diff. A <code>ping</code> keep-alive comment is sent every 30 seconds. If the filesystem watcher failed to start, the stream still connects and returns 200 but never emits an event.</p><p>Response:</p><div class=code-toolbar><pre class=language-text data-language=text><code class=language-text>event: change
+data: {&amp;#34;file&amp;#34;:&amp;#34;list&amp;#34;}
+
+event: change
+data: {&amp;#34;file&amp;#34;:&amp;#34;checked&amp;#34;}</code></pre></div><h3 id=get-apiwslsp class=scroll-mt-24><a href=#get-apiwslsp class=header-anchor aria-label="Link to this section: GET /api/ws/lsp"><code>GET /api/ws/lsp</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Language server bridge (websocket)</p><p>Upgrades to a websocket (verified: a plain WebSocket handshake against this path returns <code>101 Switching Protocols</code>) that bridges to a <code>cook lsp</code> subprocess, providing diagnostics and completions to the built-in editor. Messages are Language Server Protocol messages framed with <code>Content-Length</code> headers exactly as LSP over stdio would be — see the LSP specification for the format. Not a REST endpoint and not usable with a plain HTTP client.</p><h2 id=sync class=scroll-mt-24><a href=#sync class=header-anchor aria-label="Link to this section: Sync">Sync<span class=anchor-icon aria-hidden=true>#</span></a></h2><p>Sign in to CookCloud and sync recipes across devices. These four endpoints exist only when CookCLI is built with the <code>sync</code> feature, which is on by default — the badge on each entry marks that. Because the router is read as source text (<code>include_str!</code>), they are documented unconditionally rather than silently disappearing from this page in a build that lacks the feature. Authentication uses an OAuth device-code flow: start a login, show the user the code, then poll status until it completes.</p><h3 id=get-apisyncstatus class=scroll-mt-24><a href=#get-apisyncstatus class=header-anchor aria-label="Link to this section: GET /api/sync/status"><code>GET /api/sync/status</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Current sync and login state <em>(requires a build with the <code>sync</code> feature)</em></p><p><code>pending_login</code> is non-null while a device-code login is in progress; poll this endpoint to detect completion. <code>expires_in_secs</code> counts down to when the pending login expires. Captured live against a fresh server with no session.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;logged_in&amp;#34;: false,
+  &amp;#34;email&amp;#34;: null,
+  &amp;#34;syncing&amp;#34;: false,
+  &amp;#34;pending_login&amp;#34;: null
+}</code></pre></div><h3 id=post-apisynclogin class=scroll-mt-24><a href=#post-apisynclogin class=header-anchor aria-label="Link to this section: POST /api/sync/login"><code>POST /api/sync/login</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Start a device-code login <em>(requires a build with the <code>sync</code> feature)</em></p><p>Illustrative response — derived field-by-field from <code>LoginResponse</code> in <code>src/server/handlers/sync.rs</code>, not captured from a completed cook.md exchange (that needs real network and credentials, which this reference was not authenticated against). Show <code>user_code</code> to the user and send them to <code>verification_uri</code>, or open <code>verification_uri_complete</code>, which pre-fills the code. Takes no request body. Returns 400 if already logged in, 409 if a login is already in progress, and 502 if cook.md is unreachable — the 502 path was verified live, by calling this endpoint with no network reachable: it returned <code>502</code> with <code>{"error": "cook.md unreachable: ..."}</code>.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{
+  &amp;#34;user_code&amp;#34;: &amp;#34;ABCD-EFGH&amp;#34;,
+  &amp;#34;verification_uri&amp;#34;: &amp;#34;https://cook.md/device&amp;#34;,
+  &amp;#34;verification_uri_complete&amp;#34;: &amp;#34;https://cook.md/device?code=ABCD-EFGH&amp;#34;,
+  &amp;#34;expires_in_secs&amp;#34;: 900
+}</code></pre></div><h3 id=post-apisynccancel_login class=scroll-mt-24><a href=#post-apisynccancel_login class=header-anchor aria-label="Link to this section: POST /api/sync/cancel_login"><code>POST /api/sync/cancel_login</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Abandon a pending login <em>(requires a build with the <code>sync</code> feature)</em></p><p><code>cancelled</code> is false when there was no login in progress — captured live against a fresh server with nothing pending. Takes no request body.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;cancelled&amp;#34;: false }</code></pre></div><h3 id=post-apisynclogout class=scroll-mt-24><a href=#post-apisynclogout class=header-anchor aria-label="Link to this section: POST /api/sync/logout"><code>POST /api/sync/logout</code><span class=anchor-icon aria-hidden=true>#</span></a></h3><p>Sign out and stop syncing <em>(requires a build with the <code>sync</code> feature)</em></p><p>Clears the stored session and halts the background sync task. Always responds <code>200</code> with <code>{"ok": true}</code>, even when no session exists — captured live against a fresh server with no session file. Takes no request body.</p><p>Response:</p><div class=code-toolbar><pre class=language-json data-language=json><code class=language-json>{ &amp;#34;ok&amp;#34;: true }</code></pre></div><hr><p>This file is generated from <code>src/web/api_docs.rs</code>. Edit that, then run <code>UPDATE_API_DOCS=1 cargo test --test api_docs_md_test</code> to regenerate.</p></div><nav class="mt-12 pt-8 border-t border-cooklang-gray-200"><div class="flex justify-between"><a href=https://cooklang.org/cli/commands/build/ class="text-cooklang-orange hover:text-orange-600">&larr; Build
+</a><a href=https://cooklang.org/cli/commands/report/ class="text-cooklang-orange hover:text-orange-600">Report &rarr;</a></div></nav></article></div></div></div></main><footer class="bg-cooklang-gray-900 text-white mt-auto"><div class="container mx-auto px-4 py-8"><div class="grid grid-cols-1 md:grid-cols-4 gap-8"><div><h4 class="font-semibold mb-4">Mobile Apps</h4><div class=space-y-2><a href="https://play.google.com/store/apps/details?id=md.cook.android" class=block><picture><source type=image/webp srcset=/google-play-badge.webp><img src=/google-play-badge.png alt="Download on Google Play" class="h-10 w-auto" width=394 height=128 loading=lazy>
+</picture></a><a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone" class=block><picture><source type=image/webp srcset=/app-store-badge.webp><img src=/app-store-badge.png alt="Download on App Store" class="h-10 w-auto" width=394 height=129 loading=lazy></picture></a></div></div><div><h4 class="font-semibold mb-4">Resources</h4><ul class=space-y-2><li><a href=/docs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Documentation</a></li><li><a href=/cli/ class="text-cooklang-gray-300 hover:text-white transition-colors">CLI Tool</a></li><li><a href=/editor/ class="text-cooklang-gray-300 hover:text-white transition-colors">Cook Editor</a></li><li><a href=/app/ class="text-cooklang-gray-300 hover:text-white transition-colors">Mobile App</a></li><li><a href=https://cooklang.github.io/cooklang-rs/ class="text-cooklang-gray-300 hover:text-white transition-colors">Playground</a></li><li><a href=https://github.com/cooklang/spec/discussions class="text-cooklang-gray-300 hover:text-white transition-colors">Spec Discussions</a></li><li><a href=https://github.com/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">GitHub</a></li><li><a href=/contact/ class="text-cooklang-gray-300 hover:text-white transition-colors">Contact</a></li></ul></div><div><h4 class="font-semibold mb-4">Community</h4><ul class=space-y-2><li><a href=https://reddit.com/r/cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Reddit</a></li><li><a href=https://discord.gg/fUVVvUzEEK class="text-cooklang-gray-300 hover:text-white transition-colors">Discord</a></li><li><a href=https://x.com/cooklangorg class="text-cooklang-gray-300 hover:text-white transition-colors">X (Twitter)</a></li><li><a href=https://bsky.app/profile/cooklang.bsky.social class="text-cooklang-gray-300 hover:text-white transition-colors">Bluesky</a></li><li><a href=https://mas.to/@cooklang class="text-cooklang-gray-300 hover:text-white transition-colors">Mastodon</a></li><li><a href=https://www.youtube.com/channel/UCOZg3EJ1QsE_DqO-ZcMWblw class="text-cooklang-gray-300 hover:text-white transition-colors">YouTube</a></li><li><a href=/blog/index.xml class="text-cooklang-gray-300 hover:text-white transition-colors">RSS Feed</a></li></ul></div><div><h4 class="font-semibold mb-4">About</h4><p class="text-cooklang-gray-300 text-sm">Cooklang is a markup language for recipes that makes it easy to manage your personal recipe collection.</p></div></div><div class="mt-8 pt-8 border-t border-cooklang-gray-700 text-center text-cooklang-gray-400"><p>Copyright © 2021-2026 Cooklang. All rights reserved.</p></div></div></footer><script>document.addEventListener("DOMContentLoaded",function(){document.querySelectorAll("pre code, code").forEach(function(e){var t=e.textContent||e.innerText||"",t=t.replace(/&#34;/g,'"').replace(/&#39;/g,"'").replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");e.textContent=t}),typeof Prism!="undefined"&&Prism.highlightAll()})</script></body></html>
