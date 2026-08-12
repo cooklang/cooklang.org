@@ -73,24 +73,47 @@ add_frontmatter() {
     local file="$1"
     local title="$2"
     local weight="$3"
+    local description="${4:-CookCLI $title command documentation}"
+    local dest="$5"
     local temp_file="$(mktemp)"
-    
+
+    # Reuse the destination's existing date rather than stamping now. Syncing
+    # an unchanged page should produce no diff at all — otherwise every run
+    # rewrites all fourteen dates and buries the one real content change in
+    # churn. New pages get today's date.
+    local page_date=""
+    if [ -n "$dest" ] && [ -f "$dest" ]; then
+        page_date=$(awk '/^---$/{c++; next} c==1 && /^date: /{sub(/^date: /, ""); print; exit}' "$dest")
+    fi
+    if [ -z "$page_date" ]; then
+        page_date=$(date -u +"%Y-%m-%dT%H:%M:%S+00:00")
+    fi
+
     cat > "$temp_file" << EOF
 ---
 title: '$title'
 weight: $weight
-description: 'CookCLI $title command documentation'
-date: $(date -u +"%Y-%m-%dT%H:%M:%S+00:00")
+description: '$description'
+date: $page_date
 ---
 
 EOF
     
     # Skip the H1 heading if it exists (first line starting with #)
     # Rewrite image paths: screenshots/foo.png -> /server/foo.png
+    # Rewrite sibling doc links: (server.md) -> (server). The docs cross-link
+    # by filename, which resolves on GitHub but 404s here, where every page
+    # lives at an extensionless URL. Same rewrite the README gets below.
+    # Two link expressions rather than one optional group: BSD sed (macOS) has
+    # no \? in a basic regex.
+    rewrite='s|src="screenshots/|src="/server/|g
+             s|(screenshots/|(/server/|g
+             s|\[\([^]]*\)\](\([^):/]*\)\.md)|[\1](\2)|g
+             s|\[\([^]]*\)\](\([^):/]*\)\.md#|[\1](\2#|g'
     if head -n 1 "$file" | grep -q "^# "; then
-        tail -n +2 "$file" | sed -e 's|src="screenshots/|src="/server/|g' -e 's|(screenshots/|(/server/|g' >> "$temp_file"
+        tail -n +2 "$file" | sed -e "$rewrite" >> "$temp_file"
     else
-        sed -e 's|src="screenshots/|src="/server/|g' -e 's|(screenshots/|(/server/|g' "$file" >> "$temp_file"
+        sed -e "$rewrite" "$file" >> "$temp_file"
     fi
     
     echo "$temp_file"
@@ -107,6 +130,8 @@ get_weight() {
         "doctor") echo 60 ;;
         "seed") echo 70 ;;
         "report") echo 80 ;;
+        # Reference pages sort after the per-command ones.
+        "api") echo 90 ;;
         *) echo 99 ;;
     esac
 }
@@ -126,13 +151,22 @@ for doc_file in "$COOKCLI_DOCS"/*.md; do
     # Get weight for this command
     weight=$(get_weight "$command_name")
     
-    # Generate title (capitalize and format)
-    title=$(echo "$command_name" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1')
+    # Generate title (capitalize and format), unless the page has a name that
+    # title-casing would mangle
+    description=""
+    case "$command_name" in
+        "api")
+            title="Server API"
+            description="HTTP API reference for the CookCLI recipe server"
+            ;;
+        "lsp") title="LSP" ;;
+        *) title=$(echo "$command_name" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++)sub(/./,toupper(substr($i,1,1)),$i)}1') ;;
+    esac
     
     echo "Processing $command_name..."
     
     # Add frontmatter and copy to site
-    temp_file=$(add_frontmatter "$doc_file" "$title" "$weight")
+    temp_file=$(add_frontmatter "$doc_file" "$title" "$weight" "$description" "$COMMANDS_DIR/$filename")
     cp "$temp_file" "$COMMANDS_DIR/$filename"
     rm "$temp_file"
 done
