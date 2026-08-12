@@ -28,8 +28,8 @@ cook recipe [OPTIONS] [RECIPE]
 | `-s, --scale <SCALE>` | Scaling factor for ingredient quantities (default: 1) |
 | `-o, --output <FILE>` | Output file (format inferred from extension) |
 | `--pretty` | Pretty-print JSON and YAML output |
-| `-p, --paper-size <SIZE>` | Paper size for `latex` and `typst` output: `a4` (default), `letter`, `a5`, `legal` |
-| `-m, --margin <CM>` | Page margin in centimetres for `latex` and `typst` output (default: 2.5), applied to all four sides |
+| `-p, --paper-size <SIZE>` | Paper size for `latex`/`typst` output: `a4` (default), `letter`, `a5`, `legal` |
+| `-m, --margin <CM>` | Page margin in centimeters for `latex`/`typst` output, applied to all sides (default: 2.5) |
 
 ## Examples
 
@@ -46,8 +46,8 @@ cook recipe "Neapolitan Pizza" -f json --pretty
 # Save as Markdown
 cook recipe "Neapolitan Pizza" -f markdown -o pizza.md
 
-# Export as a printable LaTeX document on US Letter paper
-cook recipe "Neapolitan Pizza" -f latex --paper-size letter -o pizza.tex
+# Export as LaTeX with US Letter paper and 3cm margins
+cook recipe "Neapolitan Pizza" -f latex --paper-size letter --margin 3 -o pizza.tex
 
 # Read from stdin
 cat recipe.cook | cook recipe

@@ -24,8 +24,33 @@ brew install cookcli
 If you have Rust installed:
 
 ```bash
-cargo install cookcli
+cargo install cookcli --locked
 ```
+
+`--locked` builds against the dependency versions we tested and released with, rather than re-resolving to the newest compatible ones.
+
+Note that this compiles CookCLI and all its dependencies from source, which needs a few GB of RAM and disk. If you are on a Raspberry Pi, an Armbian board, or anything else memory-constrained, prefer the [prebuilt binaries](https://github.com/cooklang/CookCLI/releases) — we publish `aarch64` and `armv7` Linux builds.
+
+<details>
+<summary>Building on a low-memory single-board computer</summary>
+
+`cargo install` places its build directory under `$TMPDIR`. On Armbian, `/tmp` is mounted on zram — a RAM-backed device sized to half your RAM — so a multi-gigabyte build will exhaust memory and fail, sometimes with a confusing `failed to load bitcode of module ...` error.
+
+Point the build somewhere on real storage:
+
+```bash
+CARGO_TARGET_DIR=~/.cache/cookcli-build cargo install cookcli --locked
+```
+
+If memory is still tight, disable link-time optimisation for the build:
+
+```bash
+CARGO_PROFILE_RELEASE_LTO=false \
+CARGO_TARGET_DIR=~/.cache/cookcli-build \
+  cargo install cookcli --locked
+```
+
+</details>
 
 ### Build from Source
 
@@ -39,8 +64,9 @@ cd CookCLI
 # Install frontend dependencies
 npm install
 
-# Build CSS (required for web UI)
+# Build CSS and JS (required for web UI; the build fails without them)
 npm run build-css
+npm run build-js
 
 # Build the CLI with web UI
 cargo build --release
@@ -48,16 +74,27 @@ cargo build --release
 # Binary will be at target/release/cook
 ```
 
-#### Building without Self-Update
+#### Cargo features
 
-By default, CookCLI includes a self-update feature. To build without this feature (useful for CI/CD pipelines, package managers, or environments where auto-update is not desired):
+The optional commands are behind Cargo features, all enabled by default. Turning them off cuts the dependency graph roughly in half (412 crates → 225) and the binary from ~23 MB to ~9 MB — useful for CI/CD, package managers, or small machines where you only want the core recipe tooling.
+
+| Feature | Command | Notes |
+|---|---|---|
+| `server` | `cook server` | Web UI (axum + tower). `cook build` still works without it. |
+| `import` | `cook import` | Scrape a recipe from a website. |
+| `lsp` | `cook lsp` | Language server for editor integrations. |
+| `sync` | `cook login` / `cook logout` | Recipe sync. Implies `server` — the sync loop runs inside it. |
+| `self-update` | `cook update` | In-place binary upgrade. |
 
 ```bash
-# Build without self-update feature
+# Core CLI only: recipe, shopping-list, search, doctor, pantry, report, build, seed
 cargo build --release --no-default-features
 
-# This disables the 'self-update' feature flag while keeping all other functionality
+# Core plus the web server
+cargo build --release --no-default-features --features server
 ```
+
+Everything not listed above — parsing, scaling, shopping lists, search, pantry, reports and the static site builder — is always compiled in.
 
 ### Development Setup
 

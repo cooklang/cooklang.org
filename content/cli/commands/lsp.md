@@ -1,7 +1,7 @@
 ---
-title: 'Lsp'
+title: 'LSP'
 weight: 99
-description: 'CookCLI Lsp command documentation'
+description: 'CookCLI LSP command documentation'
 date: 2026-05-18T17:18:12+00:00
 ---
 

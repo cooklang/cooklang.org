@@ -23,6 +23,12 @@ CookCLI is a free, open-source command-line tool for working with [Cooklang](htt
 | [lsp](lsp) | | Start the Language Server Protocol server |
 | [update](update) | `u` | Update CookCLI to the latest version |
 
+## Reference
+
+| Page | Description |
+|------|-------------|
+| [Server API](api) | HTTP endpoints exposed by `cook server`, for building integrations |
+
 ## Installation
 
 ### Download Binary

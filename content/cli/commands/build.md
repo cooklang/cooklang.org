@@ -32,7 +32,7 @@ cook build web [OPTIONS] [OUTPUT_DIR]
 | `--base-url <URL>` | Absolute URL prefix for hosting under a subpath (e.g. `/recipes/`). When unset, links are page-relative and the site works under any prefix, including `file://`. |
 | `--lang <LANG>` | UI language for the generated site (default: system locale, falling back to `en-US`). See [Localization](#localization). |
 | `--sitemap <URL>` | Full base URL of the deployed site (e.g. `https://recipes.example.com`). When set, writes a `sitemap.xml` at the output root listing every page with absolute URLs. |
-| `--repo-url <URL>` | URL of the recipe repository. When set, the site footer gains a "View source" link pointing here. |
+| `--repo-url <URL>` | URL of the recipe repository. When set, the footer's "Built with CookCLI" line gains a "View source" link pointing here. |
 | `--compress` | Also write gzip-compressed copies (`.gz`) of generated text assets for hosts that serve precompressed files (e.g. GitLab Pages). Images are skipped. |
 
 ## Examples
@@ -46,6 +46,9 @@ cook build web dist --base-path ~/my-recipes
 
 # Build for hosting under /recipes/ on your domain
 cook build web --base-url /recipes/
+
+# Link back to the recipe repository from the footer
+cook build web --repo-url https://github.com/user/my-recipes
 
 # Render the site in French
 cook build web --lang fr-FR
