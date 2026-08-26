@@ -129,7 +129,7 @@ Every step between "I want to make that" and "I'm cooking" is a chance to order 
 - You want total control of your data
 - You enjoy plain text and automation
 - You're comfortable with command lines
-- Price: Free forever
+- Price: **format, tools and apps free forever** (optional Cook Cloud sync: €4.99/mo)
 
 **Choose Paprika if**:
 - You want it to "just work"

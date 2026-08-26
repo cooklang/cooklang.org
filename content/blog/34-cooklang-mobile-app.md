@@ -37,7 +37,7 @@ The Android app works with any folder on your device.
 2. Copy your `.cook` files into it — use subfolders to organize by category.
 3. Open the app and select the folder.
 
-For syncing between your computer and phone, install the [Sync Agent](https://cook.md/download) on your computer. It's a lightweight background service that keeps your recipe folder in sync across devices.
+For syncing between your computer and phone, install the [Sync Agent](https://cook.md/download) on your computer. It's a lightweight background service that keeps your recipe folder in sync across devices (Cook Cloud sync is part of Cook Basic, €4.99/mo; accounts from before the paywall sync free).
 
 [Download on Google Play](https://play.google.com/store/apps/details?id=md.cook.android).
 

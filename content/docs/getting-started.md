@@ -35,15 +35,15 @@ No installation needed — try Cooklang instantly:
 
 ## 2. Start Cooking With the App
 
-Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open the app and choose to sync recipes with Cook Cloud, iCloud, or a local folder.
+Download the **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open the app and choose to sync recipes with Cook Cloud (paid), iCloud, or a local folder.
 
 If you're using the iOS app with iCloud sync, it will create a folder in iCloud Drive called `CooklangApp` where it expects to see recipes. The sync method can be changed later in the app settings.
 
 ### Syncing Across Devices
 
-To keep recipes in sync between your phone and computer, install the [Cook Sync Agent](https://cook.md/download) — a lightweight background service that runs in your system tray. Point it at your recipes folder and sign in.
+To keep recipes in sync between your phone and computer, install the [Cook Sync Agent](https://cook.md/download) — a lightweight background service that runs in your system tray. Point it at your recipes folder and sign in (sync requires Cook Basic or Pro; accounts from before the paywall sync free).
 
-**Cook Cloud** is a built-in sync service that works across macOS, Windows, Linux, iOS, and Android — no third-party cloud setup required.
+**Cook Cloud** is our hosted sync service — part of Cook Basic (€4.99/month) — that works across macOS, Windows, Linux, iOS, and Android with no third-party cloud setup.
 
 ## 3. Write Your Own Recipes
 
