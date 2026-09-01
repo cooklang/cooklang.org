@@ -121,7 +121,7 @@ Find curated recipes, share your thoughts, or ask for help:
 
 ### Command-Line Interface (CookCLI)
 
-CookCLI is a command-line tool for automating your recipe workflow. It follows the UNIX philosophy — each command does one thing well and can be combined with other tools.
+[CookCLI](/cli/) is a command-line tool for automating your recipe workflow. It follows the UNIX philosophy — each command does one thing well and can be combined with other tools.
 
 ```bash
 mkdir my-recipes && cd my-recipes         # cook seed fills its target directory, so use a dedicated one
