@@ -73,7 +73,7 @@ Cook @guanciale{100%g} in a #pan{} over medium heat until crispy, about ~{8%minu
 Remove from heat. Add the drained pasta, then stir in the egg mixture quickly. Toss vigorously — residual heat cooks the eggs without scrambling them.
 ```
 
-[CookCLI](/cli/) handles shopping lists, recipe scaling, and runs a local web server. There are native iOS and Android apps. There is an Obsidian plugin if you prefer writing in Obsidian. There is a VS Code extension with syntax highlighting. A community of developers has built tools on top of the spec — Telegram bots, nutrition calculators, Home Assistant integrations, custom scripts.
+[CookCLI](/cli/) handles shopping lists, recipe scaling, and runs a local web server — [self-hostable with Docker](/blog/21-self-hosting-recipes-with-docker/) if you want your collection browsable across your network. There are native iOS and Android apps. There is an Obsidian plugin if you prefer writing in Obsidian. There is a VS Code extension with syntax highlighting. A community of developers has built tools on top of the spec — Telegram bots, nutrition calculators, Home Assistant integrations, custom scripts.
 
 The trade-offs are honest. No GUI recipe import with a polished scraper. No multi-user dashboard with role management. No drag-and-drop meal planner. If those features are load-bearing for you, Cooklang is the wrong tool. But if you want total ownership of your data, a format that will remain readable forever, and a foundation you can build on — Cooklang is the only option in this list that gives you all of that.
 

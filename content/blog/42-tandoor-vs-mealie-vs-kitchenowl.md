@@ -134,7 +134,7 @@ Tandoor is the heaviest, particularly because PostgreSQL is mandatory and the fe
 
 If you are a developer and you want control over your recipe data, there is a different path worth knowing about: plain text files.
 
-Cooklang is a markup language for recipes. You write `.cook` files in any text editor, store them wherever you like — a Git repository, iCloud, Dropbox — and use [CookCLI](/cli/) for shopping lists, scaling, and a local web server. No database, no server, no Docker container to maintain.
+Cooklang is a markup language for recipes. You write `.cook` files in any text editor, store them wherever you like — a Git repository, iCloud, Dropbox — and use [CookCLI](/cli/) for shopping lists, scaling, and a local web server. No database, no server, no Docker container to maintain. (Though if you *want* a browsable server for your household, [self-hosting your recipes with Docker and CookCLI](/blog/21-self-hosting-recipes-with-docker/) takes minutes.)
 
 The trade-off is real: no GUI recipe import, no multi-user dashboard, no polished web interface for non-technical household members. But your recipes are text files. They open in any editor, diff cleanly in Git, survive any app going offline, and never require a migration.
 

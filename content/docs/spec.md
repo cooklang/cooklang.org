@@ -1,5 +1,5 @@
 ---
-title: 'Cooklang Specification'
+title: 'Cooklang Specification & Syntax Reference'
 date: 2026-04-10T18:01:32+00:00
 draft: false
 weight: 2

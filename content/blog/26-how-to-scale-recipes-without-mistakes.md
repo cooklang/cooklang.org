@@ -27,6 +27,13 @@ To scale a recipe, multiply each ingredient by **target servings ÷ original ser
 | Pan / cookware size | **Doesn't scale** — bigger batch needs a wider pan, not the same one |
 | Cook time & timers | **Doesn't scale** — a physical property of the process, not the quantity |
 
+### How to double a recipe
+
+1. Multiply flour, liquids, produce, and meat by 2.
+2. Start salt, spices, and acid at 1.5× — taste and adjust at the end.
+3. Use about 1.75× the baking soda, baking powder, or yeast, not 2×.
+4. Split the batch across two pans (or one much wider one) and keep the original cook time as your starting point — check early, not late.
+
 The rest of this post explains each of these, then shows how a structured recipe format makes the arithmetic automatic.
 
 ## Why Scaling Goes Wrong

@@ -122,7 +122,7 @@ Remove the pan from heat. Add the drained pasta, then quickly stir in the egg mi
 Serve immediately with extra cheese and pepper.
 ```
 
-No server required. No database. Any text editor opens it. You can sync it with iCloud, Dropbox, or Git. The [CookCLI](/cli/) generates shopping lists, runs a local recipe server, and handles imports. There are [native mobile apps](/app/) for iOS and Android.
+No server required. No database. Any text editor opens it. You can sync it with iCloud, Dropbox, or Git. The [CookCLI](/cli/) generates shopping lists, runs a local recipe server ([self-hostable with Docker](/blog/21-self-hosting-recipes-with-docker/) if you want it always-on), and handles imports. There are [native mobile apps](/app/) for iOS and Android.
 
 The trade-offs are real. No built-in web scraping with a GUI. No multi-user dashboard. No drag-and-drop meal planner. If those features matter to you, Mealie has them and Cooklang doesn't.
 
@@ -132,7 +132,7 @@ These are different philosophies, not a ranking. Mealie is excellent at what it 
 
 ---
 
-For a side-by-side comparison of Mealie, Paprika, KitchenOwl, and Cooklang across more criteria, see [this full comparison](/blog/09-cooklang-vs-paprika-vs-mealie/).
+For a side-by-side of Mealie vs Paprika vs Cooklang across more criteria, see [the full comparison](/blog/09-cooklang-vs-paprika-vs-mealie/).
 
 If you want to try Cooklang, the [getting started guide](/docs/getting-started/) takes about five minutes.
 
