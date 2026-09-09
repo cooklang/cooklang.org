@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Wed, 12 Aug 2026 18:58:51 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Commands on Cooklang</title><link>https://cooklang.org/cli/commands/</link><description>Recent content in Commands on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Wed, 09 Sep 2026 14:23:27 +0000</lastBuildDate><atom:link href="https://cooklang.org/cli/commands/index.xml" rel="self" type="application/rss+xml"/><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -178,6 +178,10 @@ cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;td>&lt;code>--ingredients-only&lt;/code>&lt;/td>
  &lt;td>Display only ingredient names without quantities&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--extra &amp;lt;ITEM&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Add an extra item no recipe calls for. Repeat for each item. A bare name (&lt;code>&amp;quot;paper towels&amp;quot;&lt;/code>) has no amount; the brace form (&lt;code>&amp;quot;eggs{12}&amp;quot;&lt;/code>, &lt;code>&amp;quot;flour{200%g}&amp;quot;&lt;/code>) gives one.&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="examples" class="scroll-mt-24">
@@ -206,6 +210,9 @@ cook shopping-list &amp;amp;#34;Cake.cook&amp;amp;#34; --ingredients-only
 # Use custom aisle config
 cook shopping-list &amp;amp;#34;Recipe.cook&amp;amp;#34; -a ~/my-store.conf
 
+# Add items no recipe calls for
+cook shopping-list &amp;amp;#34;Pizza.cook&amp;amp;#34; --extra &amp;amp;#34;paper towels&amp;amp;#34; --extra &amp;amp;#34;eggs{12}&amp;amp;#34;
+
 # From a menu file
 cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
@@ -218,6 +225,12 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Items are grouped by aisle category from &lt;code>aisle.conf&lt;/code> (use &lt;code>--plain&lt;/code> to disable)&lt;/li>
 &lt;li>Uncategorized items appear in an &amp;quot;other&amp;quot; category; run &lt;code>cook doctor aisle&lt;/code> to find them&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported with their own scaling&lt;/li>
+&lt;li>Referenced recipes (&lt;code>@./sauce{}&lt;/code>) are expanded into their ingredients; a
+reference leading back to a recipe already being expanded is skipped with a
+warning, so a cycle cannot inflate the quantities&lt;/li>
+&lt;li>&lt;code>--extra&lt;/code> items are merged with the recipe ingredients, so an extra sharing a
+name with one a recipe already needs adds to it, is grouped into its aisle
+category, and is subtracted from by the pantry&lt;/li>
 &lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
 &lt;img width="600" alt="recipes" src="https://cooklang.org/server/recipe-list.png" />
 &lt;img width="600" alt="recipe" src="https://cooklang.org/server/recipe-detail.png" />
@@ -276,6 +289,18 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;td>&lt;code>--open&lt;/code>&lt;/td>
  &lt;td>Automatically open the web interface in your default browser&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--cors-origin &amp;lt;ORIGIN&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Origin allowed to make cross-origin browser requests. Repeatable. &lt;code>*&lt;/code> for any origin (default).&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--cors-allow-credentials&lt;/code>&lt;/td>
+ &lt;td>Allow cross-origin requests to carry cookies and credentials. Requires an explicit &lt;code>--cors-origin&lt;/code>.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--no-csrf-check&lt;/code>&lt;/td>
+ &lt;td>Disable same-origin enforcement on requests that modify recipes.&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="examples" class="scroll-mt-24">
@@ -296,7 +321,13 @@ cook server ~/my-recipes
 cook server --port 8080 --open
 
 # Allow access from other devices on the network
-cook server --host&lt;/code>&lt;/pre>
+cook server --host
+
+# Let a frontend at localhost:3000 use the full API, including writes
+cook server --cors-origin http://localhost:3000
+
+# Behind a reverse proxy, name the public origin so the UI can still write
+cook server --cors-origin https://cook.example.com&lt;/code>&lt;/pre>
 &lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
  &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
  Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -305,6 +336,9 @@ cook server --host&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>By default, only accepts connections from localhost&lt;/li>
 &lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
+&lt;li>Cross-origin browser requests can read (&lt;code>GET&lt;/code>) from any origin by default, but one that would modify recipes is refused with &lt;code>403&lt;/code>. Naming origins with &lt;code>--cors-origin&lt;/code> lets those origins write too, so a page you have not listed cannot change your recipes. Requests with no &lt;code>Origin&lt;/code> header — &lt;code>curl&lt;/code>, scripts, anything that is not a browser — are unaffected. See &lt;a href="api">the API reference&lt;/a>.&lt;/li>
+&lt;li>Behind a reverse proxy that rewrites &lt;code>Host&lt;/code>, pass &lt;code>--cors-origin&lt;/code> with the public origin (for example &lt;code>--cors-origin https://cook.example.com&lt;/code>). The same-origin check reads the real &lt;code>Host&lt;/code> header and ignores &lt;code>X-Forwarded-Host&lt;/code>, which any client can set freely.&lt;/li>
+&lt;li>&lt;code>--no-csrf-check&lt;/code> turns that same-origin enforcement off entirely, for both the API and the web UI's new-recipe form. Its former spelling, &lt;code>--no-cors&lt;/code>, still works.&lt;/li>
 &lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
 &lt;li>The UI language is negotiated per request from the browser's &lt;code>Accept-Language&lt;/code> header — each visitor sees the interface in their own language (supported: &lt;code>en-US&lt;/code>, &lt;code>de-DE&lt;/code>, &lt;code>nl-NL&lt;/code>, &lt;code>fr-FR&lt;/code>, &lt;code>es-ES&lt;/code>, &lt;code>eu-ES&lt;/code>, &lt;code>sv-SE&lt;/code>). For static sites, see the &lt;code>--lang&lt;/code> flag of &lt;a href="build#localization">&lt;code>cook build web&lt;/code>&lt;/a>.&lt;/li>
 &lt;li>Mobile-friendly responsive layout&lt;/li>
@@ -333,7 +367,7 @@ cook server --host&lt;/code>&lt;/pre>
  &lt;tbody>
  &lt;tr>
  &lt;td>&lt;code>&amp;lt;TERMS&amp;gt;...&lt;/code>&lt;/td>
- &lt;td>One or more search terms. Multiple terms are treated as AND (all must match).&lt;/td>
+ &lt;td>One or more search terms. A recipe must match every one of them.&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -367,7 +401,7 @@ cook server --host&lt;/code>&lt;/pre>
  &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Find recipes mentioning chicken
 cook search chicken
 
-# Find recipes with both chicken and rice
+# Find recipes mentioning both chicken and rice
 cook search chicken rice
 
 # Search in a specific directory
@@ -378,9 +412,12 @@ cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
  &lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>Searches through recipe titles, ingredients, instructions, and metadata&lt;/li>
+&lt;li>Searches file names and the whole recipe text, including metadata&lt;/li>
 &lt;li>Case-insensitive&lt;/li>
-&lt;li>Results are ranked by relevance&lt;/li>
+&lt;li>Every term must match, in the recipe text or in the file name, so extra
+terms narrow the results&lt;/li>
+&lt;li>Results are ranked by relevance, best first: a file name matching the whole
+query outranks a recipe that merely mentions the terms&lt;/li>
 &lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
 &lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
@@ -579,7 +616,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;tbody>
  &lt;tr>
  &lt;td>&lt;code>&amp;lt;RECIPE&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Recipe file to process. Supports scaling with &lt;code>:N&lt;/code> syntax (e.g., &lt;code>recipe.cook:2&lt;/code>).&lt;/td>
+ &lt;td>Recipe to process: a path to a &lt;code>.cook&lt;/code> file or a bare recipe name, resolved against the base path. Supports scaling with &lt;code>:N&lt;/code> syntax (e.g., &lt;code>recipe.cook:2&lt;/code>).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -614,7 +651,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Base path for resolving recipe references (default: current directory)&lt;/td>
+ &lt;td>Base path the &lt;code>&amp;lt;RECIPE&amp;gt;&lt;/code> argument and any recipe references are resolved against (default: current directory)&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -633,7 +670,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>&lt;strong>Base URL:&lt;/strong> &lt;code>http://localhost:9080/api&lt;/code>&lt;/li>
 &lt;li>&lt;strong>Authentication:&lt;/strong> None. Anyone who can reach the server can read and modify your recipes — think twice before using &lt;code>--host&lt;/code> on an untrusted network.&lt;/li>
-&lt;li>&lt;strong>CORS:&lt;/strong> All origins are allowed, for the methods GET, POST, PUT and DELETE.&lt;/li>
+&lt;li>&lt;strong>CORS:&lt;/strong> &lt;code>GET&lt;/code> is allowed from any origin. A cross-origin request that would modify recipes is refused with &lt;code>403&lt;/code> unless the server was started with a matching &lt;code>--cors-origin &amp;lt;ORIGIN&amp;gt;&lt;/code>. Requests with no &lt;code>Origin&lt;/code> header — &lt;code>curl&lt;/code> and other non-browser clients — are unaffected. &lt;code>content-type&lt;/code> is always an allowed request header.&lt;/li>
 &lt;li>&lt;strong>Request size limit:&lt;/strong> 1 MB.&lt;/li>
 &lt;li>&lt;strong>Content type:&lt;/strong> JSON in and out, except where noted — raw recipe text is &lt;code>text/plain&lt;/code>.&lt;/li>
 &lt;/ul>
@@ -642,7 +679,115 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  Errors&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Every failure returns the same shape, with the status code carrying the meaning:&lt;/p></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
+&lt;p>Every failure returns the same shape, with the status code carrying the meaning:&lt;/p></description></item><item><title>Completions</title><link>https://cooklang.org/cli/commands/completions/</link><pubDate>Wed, 09 Sep 2026 14:23:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/completions/</guid><description>&lt;p>Generate a shell completion script so your shell can tab-complete &lt;code>cook&lt;/code> subcommands, aliases and flags.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook completions &amp;amp;lt;SHELL&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>The script is printed to stdout. Redirect it into the place your shell loads completions from, or source it from your shell configuration.&lt;/p>
+&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;SHELL&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>One of &lt;code>bash&lt;/code>, &lt;code>zsh&lt;/code>, &lt;code>fish&lt;/code>, &lt;code>powershell&lt;/code>, &lt;code>elvish&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="installation" class="scroll-mt-24">
+ &lt;a href="#installation" class="header-anchor" aria-label="Link to this section: Installation">
+ Installation&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="bash" class="scroll-mt-24">
+ &lt;a href="#bash" class="header-anchor" aria-label="Link to this section: Bash">
+ Bash&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Linux
+cook completions bash &amp;amp;gt; /etc/bash_completion.d/cook
+
+# macOS (Homebrew bash-completion)
+cook completions bash &amp;amp;gt; &amp;amp;#34;$(brew --prefix)/etc/bash_completion.d/cook&amp;amp;#34;
+
+# Or, without bash-completion, source it from ~/.bashrc
+echo &amp;amp;#39;source &amp;amp;lt;(cook completions bash)&amp;amp;#39; &amp;amp;gt;&amp;amp;gt; ~/.bashrc&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="zsh" class="scroll-mt-24">
+ &lt;a href="#zsh" class="header-anchor" aria-label="Link to this section: Zsh">
+ Zsh&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Into a directory on your $fpath, then restart the shell
+cook completions zsh &amp;amp;gt; &amp;amp;#34;${fpath[1]}/_cook&amp;amp;#34;
+
+# Or into a user-owned directory
+mkdir -p ~/.zfunc
+cook completions zsh &amp;amp;gt; ~/.zfunc/_cook
+# ...and in ~/.zshrc, before `compinit`:
+# fpath=(~/.zfunc $fpath)
+# autoload -Uz compinit &amp;amp;amp;&amp;amp;amp; compinit&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="fish" class="scroll-mt-24">
+ &lt;a href="#fish" class="header-anchor" aria-label="Link to this section: Fish">
+ Fish&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook completions fish &amp;amp;gt; ~/.config/fish/completions/cook.fish&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="powershell" class="scroll-mt-24">
+ &lt;a href="#powershell" class="header-anchor" aria-label="Link to this section: PowerShell">
+ PowerShell&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-powershell" data-language="powershell">&lt;code class="language-powershell"># Append to your profile
+cook completions powershell &amp;amp;gt;&amp;amp;gt; $PROFILE
+
+# Or load it on demand
+cook completions powershell | Out-String | Invoke-Expression&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="elvish" class="scroll-mt-24">
+ &lt;a href="#elvish" class="header-anchor" aria-label="Link to this section: Elvish">
+ Elvish&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook completions elvish &amp;amp;gt;&amp;amp;gt; ~/.config/elvish/rc.elv&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>The script is generated from the running binary, so it matches that binary exactly. Subcommands compiled out with &lt;code>--no-default-features&lt;/code> (such as &lt;code>server&lt;/code>, &lt;code>import&lt;/code>, &lt;code>lsp&lt;/code> or &lt;code>update&lt;/code>) are missing from the script too.&lt;/li>
+&lt;li>Regenerate the script after updating CookCLI so new subcommands and flags show up.&lt;/li>
+&lt;li>Completion is static: it knows subcommands and flags, but does not complete recipe file names or &lt;code>recipe.cook:2&lt;/code> scaling suffixes.&lt;/li>
+&lt;/ul></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
 &lt;h2 id="cook-build-web" class="scroll-mt-24">
  &lt;a href="#cook-build-web" class="header-anchor" aria-label="Link to this section: cook build web">
  &lt;code>cook build web&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>

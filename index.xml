@@ -1,17 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cooklang – Recipe Markup Language on Cooklang</title><link>https://cooklang.org/</link><description>Recent content in Cooklang – Recipe Markup Language on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Wed, 12 Aug 2026 18:58:51 +0000</lastBuildDate><atom:link href="https://cooklang.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://cooklang.org/docs/getting-started/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/getting-started/</guid><description>All you need to get started with Cooklang</description></item><item><title>CookCLI: Getting Started</title><link>https://cooklang.org/docs/getting-started-commands/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/getting-started-commands/</guid><description>Manage recipes, generate shopping lists, and automate your cooking workflow from the command line</description></item><item><title>Cooklang Specification &amp; Syntax Reference</title><link>https://cooklang.org/docs/spec/</link><pubDate>Fri, 10 Apr 2026 18:01:32 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/spec/</guid><description>This is the specification and reference for writing a recipe in Cooklang.</description></item><item><title>Conventions</title><link>https://cooklang.org/docs/conventions/</link><pubDate>Fri, 10 Apr 2026 18:01:32 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/conventions/</guid><description>Common conventions used in tools built on top of the Cooklang language.</description></item><item><title>For Developers</title><link>https://cooklang.org/docs/for-developers/</link><pubDate>Tue, 15 Feb 2022 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/for-developers/</guid><description>Links on projects helpful for developers.</description></item><item><title>Frequently Asked Questions</title><link>https://cooklang.org/app/faq/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/app/faq/</guid><description>The questions we're pretty sure you want to know the answers to.</description></item><item><title>Frequently Asked Questions</title><link>https://cooklang.org/mobile/faq/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/faq/</guid><description>The questions we're pretty sure you want to know the answers to.</description></item><item><title>Tips, Tricks, and Best Practices</title><link>https://cooklang.org/docs/best-practices/</link><pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/best-practices/</guid><description>A collection of practical ideas to help you get the most out of writing recipes and planning meals with Cooklang.</description></item><item><title>Download CookCLI</title><link>https://cooklang.org/cli/download/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/download/</guid><description>Links and instructions to download CookCLI.</description></item><item><title>Syntax Highlighting</title><link>https://cooklang.org/docs/syntax-highlighting/</link><pubDate>Thu, 20 May 2021 19:27:37 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/syntax-highlighting/</guid><description>Instructions for installing syntax highlighting addons for some of the most popular markdown text editors.</description></item><item><title>Importing Recipes</title><link>https://cooklang.org/docs/use-cases/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/importing-recipes/</guid><description>&lt;p>Building a recipe collection doesn't mean starting from scratch. Most cooks have recipes scattered across browser bookmarks, screenshots, handwritten cards, and half-remembered favorites from cooking websites. The problem is that bookmarks disappear, screenshots are impossible to search, and copied text loses all structure. &lt;a href="https://cook.md">cook.md&lt;/a> converts recipes from any of these sources into structured &lt;code>.cook&lt;/code> files you can edit, organize, and use across all your devices.&lt;/p>
-&lt;h3 id="the-quick-way-prefix-any-url" class="scroll-mt-24">
- &lt;a href="#the-quick-way-prefix-any-url" class="header-anchor" aria-label="Link to this section: The Quick Way: Prefix Any URL">
- The Quick Way: Prefix Any URL&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>The fastest way to import a recipe from the web is to prepend &lt;code>cook.md/&lt;/code> to any recipe URL in your browser's address bar:&lt;/p></description></item><item><title>Examples</title><link>https://cooklang.org/docs/examples/</link><pubDate>Thu, 20 May 2021 19:27:37 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/examples/</guid><description>Cooklang examples covering recipes, metadata, meal planning, shopping lists, and federation.</description></item><item><title>Meal Planning</title><link>https://cooklang.org/docs/use-cases/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/meal-planning/</guid><description>&lt;p>A &lt;code>.menu&lt;/code> file lets you plan meals across multiple days, reference recipes from your collection, and generate a combined shopping list for the entire plan.&lt;/p>
-&lt;p>&lt;code>.menu&lt;/code> files work in &lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> (&lt;code>cook recipe&lt;/code>, &lt;code>cook shopping-list&lt;/code>) and the &lt;a href="https://cook.md/editor">Cook Editor&lt;/a>, which renders them as a week view with a combined shopping list. Apps that recognise &lt;a href="https://cooklang.org/docs/conventions/#menu-files">dated sections&lt;/a> can surface today's menu.&lt;/p>
-&lt;h3 id="example-menu-file" class="scroll-mt-24">
- &lt;a href="#example-menu-file" class="header-anchor" aria-label="Link to this section: Example Menu File">
- Example Menu File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>Here's a real three-day plan from an actual Cooklang cookbook:&lt;/p></description></item><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cooklang – Recipe Markup Language on Cooklang</title><link>https://cooklang.org/</link><description>Recent content in Cooklang – Recipe Markup Language on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><lastBuildDate>Wed, 09 Sep 2026 14:23:27 +0000</lastBuildDate><atom:link href="https://cooklang.org/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting Started</title><link>https://cooklang.org/docs/getting-started/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/getting-started/</guid><description>All you need to get started with Cooklang</description></item><item><title>CookCLI: Getting Started</title><link>https://cooklang.org/docs/getting-started-commands/</link><pubDate>Sun, 07 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/getting-started-commands/</guid><description>Manage recipes, generate shopping lists, and automate your cooking workflow from the command line</description></item><item><title>Cooklang Specification &amp; Syntax Reference</title><link>https://cooklang.org/docs/spec/</link><pubDate>Fri, 10 Apr 2026 18:01:32 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/spec/</guid><description>This is the specification and reference for writing a recipe in Cooklang.</description></item><item><title>Conventions</title><link>https://cooklang.org/docs/conventions/</link><pubDate>Fri, 10 Apr 2026 18:01:32 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/conventions/</guid><description>Common conventions used in tools built on top of the Cooklang language.</description></item><item><title>For Developers</title><link>https://cooklang.org/docs/for-developers/</link><pubDate>Tue, 15 Feb 2022 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/for-developers/</guid><description>Links on projects helpful for developers.</description></item><item><title>Frequently Asked Questions</title><link>https://cooklang.org/app/faq/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/app/faq/</guid><description>The questions we're pretty sure you want to know the answers to.</description></item><item><title>Frequently Asked Questions</title><link>https://cooklang.org/mobile/faq/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/faq/</guid><description>The questions we're pretty sure you want to know the answers to.</description></item><item><title>Tips, Tricks, and Best Practices</title><link>https://cooklang.org/docs/best-practices/</link><pubDate>Wed, 01 Jul 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/best-practices/</guid><description>A collection of practical ideas to help you get the most out of writing recipes and planning meals with Cooklang.</description></item><item><title>Download CookCLI</title><link>https://cooklang.org/cli/download/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/download/</guid><description>Links and instructions to download CookCLI.</description></item><item><title>Syntax Highlighting</title><link>https://cooklang.org/docs/syntax-highlighting/</link><pubDate>Thu, 20 May 2021 19:27:37 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/syntax-highlighting/</guid><description>Instructions for installing syntax highlighting addons for some of the most popular markdown text editors.</description></item><item><title>Importing Recipes</title><link>https://cooklang.org/guides/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/importing-recipes/</guid><description>&lt;p>Most people's recipes are scattered across browser bookmarks, screenshots, a cookbook shelf and a family group chat. Bookmarks rot, screenshots cannot be searched, and copied text loses its structure. Importing turns each of those into a &lt;code>.cook&lt;/code> file: plain text, with the ingredients, quantities and timers marked up, that works in every Cooklang app and is yours to keep.&lt;/p>
+&lt;p>There are three ways to import, from quickest to most automated:&lt;/p></description></item><item><title>Examples</title><link>https://cooklang.org/docs/examples/</link><pubDate>Thu, 20 May 2021 19:27:37 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/examples/</guid><description>Cooklang examples covering recipes, metadata, meal planning, shopping lists, and federation.</description></item><item><title>Recipe</title><link>https://cooklang.org/cli/commands/recipe/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/recipe/</guid><description>&lt;p>Parse and display Cooklang recipe files.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -117,64 +105,34 @@ cook recipe &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Scaling can use inline &lt;code>:N&lt;/code> syntax or &lt;code>--scale N&lt;/code> flag; inline takes precedence&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported and scaling applies to all referenced recipes&lt;/li>
 &lt;li>Output format is inferred from &lt;code>-o&lt;/code> file extension when &lt;code>-f&lt;/code> is not specified&lt;/li>
-&lt;/ul></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/docs/use-cases/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/shopping/</guid><description>&lt;p>CookCLI generates shopping lists directly from your &lt;code>.cook&lt;/code> files. If multiple recipes share ingredients, quantities are combined automatically — two recipes that each need mozzarella produce a single entry with the total amount.&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook shopping-list &amp;amp;#34;Monday Dinner.cook&amp;amp;#34; &amp;amp;#34;Tuesday Dinner.cook&amp;amp;#34; &amp;amp;#34;Wednesday Dinner.cook&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="organizing-by-store-aisle" class="scroll-mt-24">
- &lt;a href="#organizing-by-store-aisle" class="header-anchor" aria-label="Link to this section: Organizing by Store Aisle">
- Organizing by Store Aisle&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>An &lt;code>aisle.conf&lt;/code> file maps ingredients to store sections so your shopping list follows your natural path through the store:&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/docs/use-cases/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes Cooklang recipes from community members' repositories and websites, making them searchable in one place. Every result points to a real recipe someone actually cooks — no ads, no SEO filler.&lt;/p>
-&lt;p>Recipe creators host their own content. The federation just makes it discoverable.&lt;/p>
-&lt;h2 id="searching-for-recipes" class="scroll-mt-24">
- &lt;a href="#searching-for-recipes" class="header-anchor" aria-label="Link to this section: Searching for Recipes">
- Searching for Recipes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+&lt;/ul></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/guides/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/shopping/</guid><description>&lt;p>A shopping list in Cooklang is computed, not typed. Point a tool at the recipes you plan to cook and it adds up every ingredient, merges duplicates, groups the result by store section, and drops whatever you already have. This guide uses CookCLI because it shows every step explicitly; the &lt;a href="https://cooklang.org/app/">mobile app&lt;/a> and &lt;a href="https://cooklang.org/editor/">Cook Editor&lt;/a> do the same thing with a tap and read the same config files.&lt;/p>
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;h3 id="basic-search" class="scroll-mt-24">
- &lt;a href="#basic-search" class="header-anchor" aria-label="Link to this section: Basic Search">
- Basic Search&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>Search by keyword across recipe titles and ingredients:&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/docs/use-cases/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> indexes recipes from community members' repositories and makes them searchable. You host your recipes wherever you want — GitHub, your own website, a blog — and the federation makes them discoverable.&lt;/p>
-&lt;p>You keep full control. Update, remove, or modify recipes anytime.&lt;/p>
-&lt;h2 id="publishing-via-github" class="scroll-mt-24">
- &lt;a href="#publishing-via-github" class="header-anchor" aria-label="Link to this section: Publishing via GitHub">
- Publishing via GitHub&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+&lt;ul>
+&lt;li>&lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> 0.35 or newer (&lt;code>cook --version&lt;/code>)&lt;/li>
+&lt;li>A folder of &lt;code>.cook&lt;/code> files. No recipes yet? Run &lt;code>cook seed ~/recipes&lt;/code> to get the sample collection this guide's output comes from.&lt;/li>
+&lt;/ul>
+&lt;p>Every command below is run from inside your recipe folder:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/guides/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/meal-planning/</guid><description>&lt;p>A meal plan in Cooklang is a &lt;code>.menu&lt;/code> file: a plain-text file that names the recipes you intend to cook, grouped by day. Because it is just another Cooklang file, every tool that understands recipes understands plans too. The payoff is one command that turns the whole week into a shopping list, with the pantry subtracted and everything scaled to the number of people you are feeding.&lt;/p>
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>The simplest approach. Put your &lt;code>.cook&lt;/code> files in a public GitHub repository:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">mkdir my-cooklang-recipes
-cd my-cooklang-recipes
-git init
-
-mkdir breakfast lunch dinner desserts
-# Add your .cook files to these folders...
-
-git add .
-git commit -m &amp;amp;#34;Initial recipe collection&amp;amp;#34;
-git remote add origin https://github.com/yourusername/my-recipes.git
-git push -u origin main&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>Then add your repository to the federation:&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/docs/use-cases/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/static-website/</guid><description>&lt;p>&lt;code>cook build web&lt;/code> turns a folder of &lt;code>.cook&lt;/code> files into a complete static website — HTML, CSS, JavaScript, and a client-side search index — that you can host anywhere or open straight from disk. No server, no database, no build pipeline.&lt;/p>
-&lt;p>The output is the same browsing experience as &lt;a href="https://cooklang.org/cli/commands/server/">&lt;code>cook server&lt;/code>&lt;/a>, with dynamic features (shopping list, pantry, editor, scaling) stripped out.&lt;/p>
-&lt;h2 id="quick-start" class="scroll-mt-24">
- &lt;a href="#quick-start" class="header-anchor" aria-label="Link to this section: Quick Start">
- Quick Start&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+&lt;ul>
+&lt;li>A handful of &lt;code>.cook&lt;/code> recipes in a folder. &lt;code>cook seed ~/recipes&lt;/code> gives you the sample collection this guide uses.&lt;/li>
+&lt;li>Any text editor. &lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> to generate the list, or the &lt;a href="https://cooklang.org/editor/">Cook Editor&lt;/a> if you prefer a visual week view.&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-write-the-plan" class="scroll-mt-24">
+ &lt;a href="#1-write-the-plan" class="header-anchor" aria-label="Link to this section: 1. Write the plan">
+ 1. Write the plan&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cd ~/my-recipes
-cook build web
-open _site/index.html&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>That's it. Your browser opens a fully functional recipe site — including search — running entirely off the local filesystem.&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
+&lt;p>Create a file called &lt;code>Weekly Plan.menu&lt;/code> in your recipe folder. Where you keep plans is up to you; a &lt;code>Plans/&lt;/code> sub-folder keeps them out of the recipe listing.&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/guides/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/pantry/</guid><description>&lt;p>A pantry file is a short list of what you have on hand: staples, spices, what is in the fridge and freezer. Once it exists, every shopping list you generate subtracts it, and CookCLI can tell you what is running low, what is about to expire, and which recipes you could cook tonight without going to the shop.&lt;/p>
+&lt;blockquote>
+&lt;p>Pantry tracking currently works in CookCLI and the &lt;code>cook server&lt;/code> web UI. The mobile app does not read &lt;code>pantry.conf&lt;/code> yet.&lt;/p></description></item><item><title>Shopping List</title><link>https://cooklang.org/cli/commands/shopping-list/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/shopping-list/</guid><description>&lt;p>Generate a combined shopping list from one or more recipes.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -248,6 +206,10 @@ open _site/index.html&lt;/code>&lt;/pre>
  &lt;td>&lt;code>--ingredients-only&lt;/code>&lt;/td>
  &lt;td>Display only ingredient names without quantities&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--extra &amp;lt;ITEM&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Add an extra item no recipe calls for. Repeat for each item. A bare name (&lt;code>&amp;quot;paper towels&amp;quot;&lt;/code>) has no amount; the brace form (&lt;code>&amp;quot;eggs{12}&amp;quot;&lt;/code>, &lt;code>&amp;quot;flour{200%g}&amp;quot;&lt;/code>) gives one.&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="examples" class="scroll-mt-24">
@@ -276,6 +238,9 @@ cook shopping-list &amp;amp;#34;Cake.cook&amp;amp;#34; --ingredients-only
 # Use custom aisle config
 cook shopping-list &amp;amp;#34;Recipe.cook&amp;amp;#34; -a ~/my-store.conf
 
+# Add items no recipe calls for
+cook shopping-list &amp;amp;#34;Pizza.cook&amp;amp;#34; --extra &amp;amp;#34;paper towels&amp;amp;#34; --extra &amp;amp;#34;eggs{12}&amp;amp;#34;
+
 # From a menu file
 cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
@@ -288,7 +253,28 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
 &lt;li>Items are grouped by aisle category from &lt;code>aisle.conf&lt;/code> (use &lt;code>--plain&lt;/code> to disable)&lt;/li>
 &lt;li>Uncategorized items appear in an &amp;quot;other&amp;quot; category; run &lt;code>cook doctor aisle&lt;/code> to find them&lt;/li>
 &lt;li>Menu files (&lt;code>.menu&lt;/code>) are supported with their own scaling&lt;/li>
-&lt;/ul></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
+&lt;li>Referenced recipes (&lt;code>@./sauce{}&lt;/code>) are expanded into their ingredients; a
+reference leading back to a recipe already being expanded is skipped with a
+warning, so a cycle cannot inflate the quantities&lt;/li>
+&lt;li>&lt;code>--extra&lt;/code> items are merged with the recipe ingredients, so an extra sharing a
+name with one a recipe already needs adds to it, is grouped into its aisle
+category, and is subtracted from by the pantry&lt;/li>
+&lt;/ul></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/guides/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> is a search index, not a host. You keep your &lt;code>.cook&lt;/code> files wherever you already keep them; the federation's crawler reads them from there and makes them searchable alongside everyone else's. Nothing is copied that you cannot take back: remove the registration, or make the repository private, and your recipes drop out on the next crawl.&lt;/p>
+&lt;p>There are two ways to register. Pick the one that matches where your recipes live.&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/guides/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/static-website/</guid><description>&lt;p>&lt;code>cook build web&lt;/code> renders your &lt;code>.cook&lt;/code> files into plain HTML, CSS and JavaScript, with a search index built in. There is no server process and no database, so the result can live on any static host, on a tablet's local storage, or in an email attachment. It is the read-only sibling of &lt;code>cook server&lt;/code>: the same look, minus the features that need a running process.&lt;/p>
+&lt;p>&lt;img src="https://cooklang.org/guides/static-site-home.jpg" alt="The home page of a site generated by cook build web">&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/guides/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/cookbook-creation/</guid><description>&lt;p>CookCLI exports a recipe as Typst or LaTeX, which you compile into a PDF. Ingredients, cookware and timers are colour-coded automatically, and the page size and margins are yours to set. This guide goes from one recipe to a bound book.&lt;/p>
+&lt;p>Two things to know before you start:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cook recipe -f latex&lt;/code> exports &lt;strong>one recipe as a complete, standalone document&lt;/strong> (&lt;code>\documentclass{article}&lt;/code> through &lt;code>\end{document}&lt;/code>). It is not a fragment, so you cannot simply concatenate several exports into one file.&lt;/li>
+&lt;li>To build a &lt;strong>whole cookbook&lt;/strong> — chapters, title page, table of contents, index, images — use the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>). It calls &lt;code>cook recipe -f latex&lt;/code> per recipe and assembles the results. If you'd rather assemble the book yourself, see &lt;a href="#building-a-cookbook-by-hand">Building a cookbook by hand&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites" class="scroll-mt-24">
+ &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
+ Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>CookCLI 0.35 or newer&lt;/strong> (&lt;a href="https://cooklang.org/cli/">installation&lt;/a>)&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/guides/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> is a search engine over recipe collections that people host themselves, on GitHub or their own sites. Nobody uploads anything to it; a crawler reads each registered collection and indexes the &lt;code>.cook&lt;/code> files it finds. At the time of writing that is about 5,000 recipes from roughly 80 collections, in ten languages. Every result is a real file from somebody's kitchen, not a page written for search engines.&lt;/p></description></item><item><title>Server</title><link>https://cooklang.org/cli/commands/server/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/server/</guid><description>&lt;p>Start a local web server to browse and view your recipe collection.&lt;/p>
 &lt;img width="600" alt="recipes" src="https://cooklang.org/server/recipe-list.png" />
 &lt;img width="600" alt="recipe" src="https://cooklang.org/server/recipe-detail.png" />
 &lt;img width="600" alt="shopping list" src="https://cooklang.org/server/shopping-list.png" />
@@ -346,6 +332,18 @@ cook shopping-list &amp;amp;#34;2 Day Plan.menu&amp;amp;#34;&lt;/code>&lt;/pre>
  &lt;td>&lt;code>--open&lt;/code>&lt;/td>
  &lt;td>Automatically open the web interface in your default browser&lt;/td>
  &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--cors-origin &amp;lt;ORIGIN&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Origin allowed to make cross-origin browser requests. Repeatable. &lt;code>*&lt;/code> for any origin (default).&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--cors-allow-credentials&lt;/code>&lt;/td>
+ &lt;td>Allow cross-origin requests to carry cookies and credentials. Requires an explicit &lt;code>--cors-origin&lt;/code>.&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--no-csrf-check&lt;/code>&lt;/td>
+ &lt;td>Disable same-origin enforcement on requests that modify recipes.&lt;/td>
+ &lt;/tr>
  &lt;/tbody>
 &lt;/table>
 &lt;h2 id="examples" class="scroll-mt-24">
@@ -366,7 +364,13 @@ cook server ~/my-recipes
 cook server --port 8080 --open
 
 # Allow access from other devices on the network
-cook server --host&lt;/code>&lt;/pre>
+cook server --host
+
+# Let a frontend at localhost:3000 use the full API, including writes
+cook server --cors-origin http://localhost:3000
+
+# Behind a reverse proxy, name the public origin so the UI can still write
+cook server --cors-origin https://cook.example.com&lt;/code>&lt;/pre>
 &lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
  &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
  Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -375,300 +379,13 @@ cook server --host&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>By default, only accepts connections from localhost&lt;/li>
 &lt;li>Use &lt;code>--host&lt;/code> on trusted networks only — recipes become accessible to anyone on the network&lt;/li>
+&lt;li>Cross-origin browser requests can read (&lt;code>GET&lt;/code>) from any origin by default, but one that would modify recipes is refused with &lt;code>403&lt;/code>. Naming origins with &lt;code>--cors-origin&lt;/code> lets those origins write too, so a page you have not listed cannot change your recipes. Requests with no &lt;code>Origin&lt;/code> header — &lt;code>curl&lt;/code>, scripts, anything that is not a browser — are unaffected. See &lt;a href="api">the API reference&lt;/a>.&lt;/li>
+&lt;li>Behind a reverse proxy that rewrites &lt;code>Host&lt;/code>, pass &lt;code>--cors-origin&lt;/code> with the public origin (for example &lt;code>--cors-origin https://cook.example.com&lt;/code>). The same-origin check reads the real &lt;code>Host&lt;/code> header and ignores &lt;code>X-Forwarded-Host&lt;/code>, which any client can set freely.&lt;/li>
+&lt;li>&lt;code>--no-csrf-check&lt;/code> turns that same-origin enforcement off entirely, for both the API and the web UI's new-recipe form. Its former spelling, &lt;code>--no-cors&lt;/code>, still works.&lt;/li>
 &lt;li>The web interface supports recipe browsing, scaling, search, and shopping list management&lt;/li>
 &lt;li>The UI language is negotiated per request from the browser's &lt;code>Accept-Language&lt;/code> header — each visitor sees the interface in their own language (supported: &lt;code>en-US&lt;/code>, &lt;code>de-DE&lt;/code>, &lt;code>nl-NL&lt;/code>, &lt;code>fr-FR&lt;/code>, &lt;code>es-ES&lt;/code>, &lt;code>eu-ES&lt;/code>, &lt;code>sv-SE&lt;/code>). For static sites, see the &lt;code>--lang&lt;/code> flag of &lt;a href="build#localization">&lt;code>cook build web&lt;/code>&lt;/a>.&lt;/li>
 &lt;li>Mobile-friendly responsive layout&lt;/li>
-&lt;/ul></description></item><item><title>Pantry Management</title><link>https://cooklang.org/docs/use-cases/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/pantry/</guid><description>&lt;p>CookCLI uses a &lt;code>pantry.conf&lt;/code> file to track what's already in your kitchen. When you generate a shopping list, items in your pantry are automatically excluded — so you only buy what you actually need.&lt;/p>
-&lt;blockquote>
-&lt;p>Pantry support is only available in CookCLI at the moment.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="the-pantry-configuration-file" class="scroll-mt-24">
- &lt;a href="#the-pantry-configuration-file" class="header-anchor" aria-label="Link to this section: The Pantry Configuration File">
- The Pantry Configuration File&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>The file uses TOML format, organized by storage location:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-toml" data-language="toml">&lt;code class="language-toml">[freezer]
-ice_cream = &amp;amp;#34;1%L&amp;amp;#34;
-frozen_peas = &amp;amp;#34;500%g&amp;amp;#34;
-frozen_fruit = &amp;amp;#34;2%kg&amp;amp;#34;
-ground_beef = { quantity = &amp;amp;#34;1%kg&amp;amp;#34;, frozen = &amp;amp;#34;2024-10-15&amp;amp;#34; }
-chicken_stock = { quantity = &amp;amp;#34;4%cups&amp;amp;#34;, frozen = &amp;amp;#34;2024-10-20&amp;amp;#34; }
-spinach = { bought = &amp;amp;#34;2024-11-05&amp;amp;#34;, expire = &amp;amp;#34;2024-12-05&amp;amp;#34;, quantity = &amp;amp;#34;1%kg&amp;amp;#34; }
-
-[fridge]
-milk = { expire = &amp;amp;#34;2024-11-15&amp;amp;#34;, quantity = &amp;amp;#34;2%L&amp;amp;#34; }
-eggs = &amp;amp;#34;12&amp;amp;#34;
-cheese = { expire = &amp;amp;#34;2024-11-20&amp;amp;#34; }
-butter = &amp;amp;#34;250%g&amp;amp;#34;
-yogurt = { quantity = &amp;amp;#34;500%g&amp;amp;#34;, expire = &amp;amp;#34;2024-11-18&amp;amp;#34; }
-leftovers_beef_stew = { quantity = &amp;amp;#34;3%portions&amp;amp;#34;, made = &amp;amp;#34;2024-11-10&amp;amp;#34; }
-
-[pantry]
-rice = &amp;amp;#34;5%kg&amp;amp;#34;
-pasta = &amp;amp;#34;1%kg&amp;amp;#34;
-flour = &amp;amp;#34;5%kg&amp;amp;#34;
-sugar = &amp;amp;#34;2%kg&amp;amp;#34;
-salt = &amp;amp;#34;1%kg&amp;amp;#34;
-olive_oil = &amp;amp;#34;1%L&amp;amp;#34;
-canned_tomatoes = &amp;amp;#34;4%cans&amp;amp;#34;
-dried_beans = &amp;amp;#34;2%kg&amp;amp;#34;
-
-[spices]
-cumin = { bought = &amp;amp;#34;2024-06-01&amp;amp;#34; }
-paprika = { bought = &amp;amp;#34;2024-03-15&amp;amp;#34; }
-cinnamon = &amp;amp;#34;1%jar&amp;amp;#34;
-black_pepper = &amp;amp;#34;100%g&amp;amp;#34;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h3 id="how-it-works" class="scroll-mt-24">
- &lt;a href="#how-it-works" class="header-anchor" aria-label="Link to this section: How It Works">
- How It Works&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>&lt;strong>Simple tracking&lt;/strong>: &lt;code>rice = &amp;quot;5%kg&amp;quot;&lt;/code> records what you have. If a recipe calls for rice, it won't appear on your shopping list.&lt;/p></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
-&lt;h2 id="usage" class="scroll-mt-24">
- &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
- Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook search [OPTIONS] &amp;amp;lt;TERMS&amp;amp;gt;...&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
- &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
- Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Argument&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>&amp;lt;TERMS&amp;gt;...&lt;/code>&lt;/td>
- &lt;td>One or more search terms. Multiple terms are treated as AND (all must match).&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="options" class="scroll-mt-24">
- &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
- Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Option&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>-b, --base-dir &amp;lt;DIR&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Directory to search for recipes (default: current directory, recursive)&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="examples" class="scroll-mt-24">
- &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
- Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Find recipes mentioning chicken
-cook search chicken
-
-# Find recipes with both chicken and rice
-cook search chicken rice
-
-# Search in a specific directory
-cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
- &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
- Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Searches through recipe titles, ingredients, instructions, and metadata&lt;/li>
-&lt;li>Case-insensitive&lt;/li>
-&lt;li>Results are ranked by relevance&lt;/li>
-&lt;/ul></description></item><item><title>Acceptable Use Policy</title><link>https://cooklang.org/mobile/use_policy/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/use_policy/</guid><description>Our privacy policy.</description></item><item><title>Mobile App Terms of Service</title><link>https://cooklang.org/mobile/terms/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/terms/</guid><description>Read the fine print.</description></item><item><title>Privacy Policy</title><link>https://cooklang.org/mobile/privacy/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/privacy/</guid><description>Our privacy policy.</description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/docs/use-cases/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/reports/</guid><description>&lt;p>The &lt;code>cook report&lt;/code> command uses &lt;a href="https://github.com/mitsuhiko/minijinja">minijinja&lt;/a> templates to transform your recipes into any output format — shopping lists with product links, cost breakdowns, nutrition labels, recipe cards, or anything else you can template.&lt;/p>
-&lt;blockquote>
-&lt;p>The report command is currently a prototype feature.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="basic-usage" class="scroll-mt-24">
- &lt;a href="#basic-usage" class="header-anchor" aria-label="Link to this section: Basic Usage">
- Basic Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook report -t recipe-card.jinja &amp;amp;#39;Pasta Carbonara.cook&amp;amp;#39;&lt;/code>&lt;/pre>
-&lt;/div>&lt;p>A simple recipe card template:&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-jinja2" data-language="jinja2">&lt;code class="language-jinja2"># {{ metadata.title }}
-**Servings:** {{ metadata.servings }} | **Time:** {{ metadata.time }}
-
-## Ingredients
-{%- for ingredient in ingredients %}
-- {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
-{%- endfor %}
-
-## Instructions
-{% for section in sections %}
-{% for content in section %}
-{{ content }}
-{%- endfor %}
-{%- endfor %}&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="the-database-system" class="scroll-mt-24">
- &lt;a href="#the-database-system" class="header-anchor" aria-label="Link to this section: The Database System">
- The Database System&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>The database (&lt;code>-d&lt;/code> flag) enriches recipes with external data — nutrition, cost, shopping links. It's organized as a directory tree where each ingredient has its own folder:&lt;/p></description></item><item><title>Tandoor vs Mealie vs KitchenOwl: Choosing a Self-Hosted Recipe Manager in 2026</title><link>https://cooklang.org/blog/42-tandoor-vs-mealie-vs-kitchenowl/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/42-tandoor-vs-mealie-vs-kitchenowl/</guid><description>An honest comparison of three popular self-hosted recipe managers — Tandoor, Mealie, and KitchenOwl. Setup complexity, UI, recipe import, meal planning, mobile experience, and data portability.</description></item><item><title>Cooklang for Obsidian: Manage Recipes in Your Vault (2026 Guide)</title><link>https://cooklang.org/blog/15-cooklang-obsidian-guide/</link><pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/15-cooklang-obsidian-guide/</guid><description>A step-by-step guide to using the Cooklang plugin for Obsidian. Turn your vault into a recipe manager with syntax highlighting, interactive timers, shopping lists, and a beautiful preview mode.</description></item><item><title>Mealie Review 2026: Honest Pros, Cons &amp; Who It's For</title><link>https://cooklang.org/blog/40-mealie-review/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/40-mealie-review/</guid><description>Mealie is one of the most popular self-hosted recipe managers. Here's an honest look at what it does well, where it falls short, and who it's actually for — from someone who builds a different kind of recipe tool.</description></item><item><title>Best Recipe Management Software in 2026: 9 Apps Tested &amp; Compared</title><link>https://cooklang.org/blog/48-best-recipe-management-software/</link><pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/48-best-recipe-management-software/</guid><description>A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs.</description></item><item><title>A Plain Text Recipe Database You Already Know How to Use</title><link>https://cooklang.org/blog/38-plain-text-recipe-database/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/38-plain-text-recipe-database/</guid><description>You don't need Postgres, schemas, or migrations to build a recipe database. Your filesystem already is one — and CookCLI gives you the query layer on top.</description></item><item><title>Cooklang Editor Setup: VS Code, Vim, Obsidian, and More</title><link>https://cooklang.org/blog/39-cooklang-editor-setup/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/39-cooklang-editor-setup/</guid><description>Cooklang files are plain text, so any editor works. But syntax highlighting and LSP support make the experience much better. Here's how to set up your editor of choice.</description></item><item><title>The Desktop App Is Gone. Here's What Replaced It.</title><link>https://cooklang.org/blog/36-desktop-app-replaced-by-sync-agent/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/36-desktop-app-replaced-by-sync-agent/</guid><description>We replaced the Cooklang desktop app with a lightweight sync agent — a tiny background service that does the same job faster, with less overhead.</description></item><item><title>Cooklang vs Mealie: Plain Text vs Self-Hosted Web App</title><link>https://cooklang.org/blog/51-cooklang-vs-mealie/</link><pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/51-cooklang-vs-mealie/</guid><description>Mealie gives you a polished self-hosted web app for your household. Cooklang gives you plain-text recipes you fully own. Honest fitness-for-purpose comparison.</description></item><item><title>Cooklang vs Tandoor: Sharp Tool vs Kitchen ERP</title><link>https://cooklang.org/blog/52-cooklang-vs-tandoor/</link><pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/52-cooklang-vs-tandoor/</guid><description>Tandoor packs every recipe-management feature into one self-hosted app. Cooklang does one thing — structured plain text — and lets you script the rest. Honest comparison.</description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
-&lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
-&lt;h2 id="usage" class="scroll-mt-24">
- &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
- Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook import [OPTIONS] &amp;amp;lt;URL&amp;amp;gt;&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
- &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
- Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Argument&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>&amp;lt;URL&amp;gt;&lt;/code>&lt;/td>
- &lt;td>URL of the recipe webpage to import. Works with sites using Recipe Schema.org markup.&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="options" class="scroll-mt-24">
- &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
- Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Option&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>-s, --skip-conversion&lt;/code>&lt;/td>
- &lt;td>Output original recipe data without converting to Cooklang&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>--metadata &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Metadata format: &lt;code>frontmatter&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>, &lt;code>none&lt;/code>&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>--metadata-only&lt;/code>&lt;/td>
- &lt;td>Output only metadata, no recipe content&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;h2 id="examples" class="scroll-mt-24">
- &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
- Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Import and convert to Cooklang
-cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta
-
-# Save to file
-cook import https://example.com/recipe &amp;amp;gt; lasagna.cook
-
-# Get raw data without conversion
-cook import https://example.com/recipe --skip-conversion
-
-# Extract metadata only as JSON
-cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
-&lt;/div></description></item><item><title>Build Custom Recipe Reports with CookCLI and Templates</title><link>https://cooklang.org/blog/45-recipe-reports-and-dashboards/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/45-recipe-reports-and-dashboards/</guid><description>CookCLI has a template system that turns .cook files into shopping lists with store links, cost breakdowns, aisle-organized lists, and CSV exports. This post walks through the cook report command, the ingredient database, and real working templates.</description></item><item><title>Building with Cooklang: A Parser Integration Guide</title><link>https://cooklang.org/blog/44-cooklang-parser-integration-guide/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/44-cooklang-parser-integration-guide/</guid><description>You want structured recipe data — ingredients with quantities, steps with inline references, timers, cookware. Here's how to parse Cooklang in your language of choice, with quick-start examples in TypeScript and Python, and a map of the full ecosystem.</description></item><item><title>Recipe Formats for Developers: Cooklang, JSON-LD, RecipeML &amp; MealMaster (Code-Level Comparison)</title><link>https://cooklang.org/blog/41-recipe-formats-for-developers/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/41-recipe-formats-for-developers/</guid><description>A code-level comparison of the four recipe file formats you'll encounter when building recipe software: Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster. The same recipe in each format, with parser availability, data structures, and honest trade-offs.</description></item><item><title>Version Control Your Recipes with Git</title><link>https://cooklang.org/blog/43-version-control-recipes-with-git/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/43-version-control-recipes-with-git/</guid><description>Every recipe app has a 'what if the company dies?' problem. If your recipes are plain text .cook files in a Git repo, that problem disappears. Here's how to set up a proper recipe repo, track changes meaningfully, collaborate with family, and publish to the Cooklang Federation.</description></item><item><title>What Goes Into Designing a Recipe Markup Language</title><link>https://cooklang.org/blog/37-designing-a-recipe-markup-language/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/37-designing-a-recipe-markup-language/</guid><description>Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time.</description></item><item><title>Cooklang Mobile App: Read, Cook, and Shop from Your Phone</title><link>https://cooklang.org/blog/34-cooklang-mobile-app/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/34-cooklang-mobile-app/</guid><description>A walkthrough of the Cooklang mobile app for iOS and Android — how to set up your recipe collection, cook from your phone, and generate shopping lists on the go.</description></item><item><title>Plain Text Recipes: A Beginner's Guide to the Cooklang Format</title><link>https://cooklang.org/blog/33-plain-text-recipes-beginners-guide/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/33-plain-text-recipes-beginners-guide/</guid><description>A step-by-step introduction to writing recipes in Cooklang — the plain text format that turns your recipes into structured data. Convert your first recipe in five minutes.</description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/docs/use-cases/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/cookbook-creation/</guid><description>&lt;p>CookCLI exports a recipe as LaTeX or Typst, which you compile into a professional PDF. Ingredients, cookware, and timers are color-coded automatically.&lt;/p>
-&lt;p>Two things to know before you start:&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>cook recipe -f latex&lt;/code> exports &lt;strong>one recipe as a complete, standalone document&lt;/strong> (&lt;code>\documentclass{article}&lt;/code> through &lt;code>\end{document}&lt;/code>). It is not a fragment, so you cannot simply concatenate several exports into one file.&lt;/li>
-&lt;li>To build a &lt;strong>whole cookbook&lt;/strong> — chapters, title page, table of contents, index, images — use the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>). It calls &lt;code>cook recipe -f latex&lt;/code> per recipe and assembles the results. If you'd rather assemble the book yourself, see &lt;a href="#building-a-cookbook-by-hand">Building a cookbook by hand&lt;/a>.&lt;/li>
-&lt;/ul>
-&lt;h2 id="prerequisites" class="scroll-mt-24">
- &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
- Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>
-&lt;p>&lt;strong>CookCLI installed&lt;/strong> (&lt;a href="https://cooklang.org/cli/download">Installation guide&lt;/a>)&lt;/p></description></item><item><title>Publish Your Recipe Collection as a Static Site with `cook build web`</title><link>https://cooklang.org/blog/50-cook-build-web-static-site/</link><pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/50-cook-build-web-static-site/</guid><description>CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly.</description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
-&lt;h2 id="usage" class="scroll-mt-24">
- &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
- Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor [OPTIONS] [COMMAND]&lt;/code>&lt;/pre>
-&lt;/div>&lt;h2 id="subcommands" class="scroll-mt-24">
- &lt;a href="#subcommands" class="header-anchor" aria-label="Link to this section: Subcommands">
- Subcommands&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h3 id="validate" class="scroll-mt-24">
- &lt;a href="#validate" class="header-anchor" aria-label="Link to this section: validate">
- &lt;code>validate&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>Validate all recipes for syntax errors and warnings.&lt;/p>
-
-
-&lt;div class="code-toolbar">
- &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor validate [OPTIONS]&lt;/code>&lt;/pre>
-&lt;/div>&lt;table>
- &lt;thead>
- &lt;tr>
- &lt;th>Option&lt;/th>
- &lt;th>Description&lt;/th>
- &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
- &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Directory to scan for recipe files (default: current directory)&lt;/td>
- &lt;/tr>
- &lt;tr>
- &lt;td>&lt;code>--strict&lt;/code>&lt;/td>
- &lt;td>Exit with error code 1 if any issues are found (useful for CI/CD)&lt;/td>
- &lt;/tr>
- &lt;/tbody>
-&lt;/table>
-&lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p></description></item><item><title>Markdown Recipe Template: Free Templates &amp; a Better Alternative</title><link>https://cooklang.org/blog/49-markdown-recipe-template/</link><pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/49-markdown-recipe-template/</guid><description>Copy-paste Markdown recipe templates that work in any text editor, Obsidian, or static site — plus an honest look at where Markdown falls short and what Cooklang adds.</description></item><item><title>Building a Recipe API with Cooklang</title><link>https://cooklang.org/blog/29-building-recipe-api-with-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/29-building-recipe-api-with-cooklang/</guid><description>Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control.</description></item><item><title>Chef Language vs Cooklang Explained</title><link>https://cooklang.org/blog/24-chef-vs-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/24-chef-vs-cooklang/</guid><description>Two languages that look like recipes — but only one of them helps you cook dinner. A light-hearted comparison of Chef, the joke programming language, and Cooklang.</description></item><item><title>Cooklang + Home Assistant: Smart Kitchen Meal Planning &amp; Recipes</title><link>https://cooklang.org/blog/32-cooklang-home-assistant-smart-kitchen/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/32-cooklang-home-assistant-smart-kitchen/</guid><description>Turn Home Assistant into a smart kitchen hub by integrating CookCLI — display today's recipe, trigger shopping lists, track expiring pantry items, and fire smart timers from your recipes.</description></item><item><title>Cooklang for Food Bloggers: Write Once, Publish Everywhere</title><link>https://cooklang.org/blog/31-cooklang-for-food-bloggers/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/31-cooklang-for-food-bloggers/</guid><description>One .cook file can generate your blog post, Google-ready Schema.org markup, a printable PDF, and a shopping list — without reformatting anything by hand.</description></item><item><title>How to Double or Halve a Recipe (Without It Going Wrong)</title><link>https://cooklang.org/blog/26-how-to-scale-recipes-without-mistakes/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/26-how-to-scale-recipes-without-mistakes/</guid><description>Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right.</description></item><item><title>Migrating Your Recipes to Cooklang (From Any App or Format)</title><link>https://cooklang.org/blog/28-migrating-recipes-to-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/28-migrating-recipes-to-cooklang/</guid><description>Stuck in a recipe app you can't escape? Here's how to migrate your recipes to plain .cook files from websites, Paprika, Mealie, photos, and Markdown — without doing it all at once.</description></item><item><title>Publishing Your Recipe Collection as a Website</title><link>https://cooklang.org/blog/25-publishing-recipe-collection-as-website/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/25-publishing-recipe-collection-as-website/</guid><description>Your .cook files are already structured data. Here's how to turn them into a real website — static, fast, free to host, and readable by Google's recipe search.</description></item><item><title>The Complete CookCLI Guide: From Install to Daily Use</title><link>https://cooklang.org/blog/23-complete-cookcli-guide/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/23-complete-cookcli-guide/</guid><description>A hands-on walkthrough of CookCLI covering installation, parsing recipes, generating shopping lists, scaling servings, and every command you'll actually use.</description></item><item><title>Try Cooklang in Your Browser: Playground Walkthrough</title><link>https://cooklang.org/blog/30-cooklang-playground-walkthrough/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/30-cooklang-playground-walkthrough/</guid><description>The fastest way to try Cooklang requires nothing but a browser tab. This walkthrough shows you exactly what to expect when you open the playground.</description></item><item><title>Build a Raspberry Pi Kitchen Display for Your Recipes</title><link>https://cooklang.org/blog/17-raspberry-pi-kitchen-display/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/17-raspberry-pi-kitchen-display/</guid><description>Turn a Raspberry Pi into a dedicated kitchen recipe display. Run CookCLI's web server on the Pi, sync your Cooklang recipes, and browse them from a touchscreen or any device on your network.</description></item><item><title>How to Save Recipes from Social Media and Keep Them Forever</title><link>https://cooklang.org/blog/20-save-recipes-from-social-media/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/20-save-recipes-from-social-media/</guid><description>Recipes you save on Instagram, TikTok, and Facebook disappear when creators delete posts or platforms change. Here's a workflow to capture social media recipes and store them permanently as plain text files you control.</description></item><item><title>Recipe Discovery Without the Ads and Life Stories</title><link>https://cooklang.org/blog/16-recipe-discovery-without-ads/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/16-recipe-discovery-without-ads/</guid><description>Modern recipe sites bury recipes under ads, pop-ups, and SEO filler. Cooklang Federation offers a different approach — a searchable index of community-tested recipes with no ads, no tracking, and no stories about someone's trip to Tuscany.</description></item><item><title>Recipe Programming Language — Write and Manage Recipes as Code</title><link>https://cooklang.org/blog/22-cooking-for-programmers/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/22-cooking-for-programmers/</guid><description>Cooklang is a programming language for recipes. Declare ingredients as typed variables, generate shopping lists automatically, scale servings with a command, and version-control your cookbook with Git. Here's how recipes and code are the same thing — and why that matters.</description></item><item><title>Self-Hosting Your Recipe Collection with Docker and CookCLI</title><link>https://cooklang.org/blog/21-self-hosting-recipes-with-docker/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/21-self-hosting-recipes-with-docker/</guid><description>Set up a self-hosted recipe server in minutes with Docker and CookCLI. Browse recipes from any device, generate shopping lists, and keep your data private — no cloud accounts required.</description></item><item><title>The Best Open Source Recipe Managers in 2026</title><link>https://cooklang.org/blog/18-open-source-recipe-managers-2026/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/18-open-source-recipe-managers-2026/</guid><description>A practical comparison of the best open source recipe managers — Cooklang, Mealie, KitchenOwl, Tandoor, and more. What each does well, where they fall short, and which one fits your workflow.</description></item><item><title>Building the Perfect Pantry with CookCLI: How the Greedy Coverage Algorithm Works</title><link>https://cooklang.org/blog/14-greedy-coverage-blog/</link><pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/14-greedy-coverage-blog/</guid><description>A practical deep dive into how CookCLI uses algorithmic coverage analysis to help users build the most efficient pantry for their recipe collection.</description></item><item><title>The Dishwasher Salmon Problem</title><link>https://cooklang.org/blog/13-the-dishwasher-salmon-problem/</link><pubDate>Sun, 26 Oct 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/13-the-dishwasher-salmon-problem/</guid><description>Recipe blogs prioritize ads over quality, creating bizarre dishes like dishwasher salmon. Cooklang Federation solves this by connecting you to tried and true community recipes.</description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/docs/use-cases/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/docs/use-cases/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running CookCLI serves your recipes to every device on your home network. No cloud, no subscription — just a $35 board drawing less power than a LED bulb.&lt;/p>
+&lt;/ul></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/guides/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running &lt;code>cook server&lt;/code> turns your recipe folder into a website for your home network. Prop a tablet on the counter, open the Pi's address, and the whole family sees the same recipes, the same meal plan and the same shopping list. It draws a few watts and needs no account anywhere.&lt;/p>
 &lt;style>
 .server-carousel {
  position: relative;
@@ -833,26 +550,214 @@ cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>
 &lt;/script>
 
 &lt;h2 id="what-you-need" class="scroll-mt-24">
- &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What You Need">
- What You Need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;ul>
-&lt;li>Raspberry Pi 3B+ or newer (2GB+ RAM)&lt;/li>
-&lt;li>MicroSD card (16GB+)&lt;/li>
-&lt;li>Power supply and network connection&lt;/li>
+&lt;li>A Raspberry Pi 3B+ or newer. 1 GB of RAM is plenty; the server is a single small binary.&lt;/li>
+&lt;li>A microSD card (8 GB or more) and a power supply.&lt;/li>
+&lt;li>WiFi or Ethernet on the same network as your other devices.&lt;/li>
+&lt;li>About 30 minutes.&lt;/li>
 &lt;/ul>
-&lt;h2 id="quick-start" class="scroll-mt-24">
- &lt;a href="#quick-start" class="header-anchor" aria-label="Link to this section: Quick Start">
- Quick Start&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+&lt;p>The commands below assume Raspberry Pi OS Lite (Bookworm) and that you are logged in over SSH. Substitute your own user name for &lt;code>pi&lt;/code> if you chose a different one in the imager.&lt;/p></description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/guides/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/reports/</guid><description>&lt;p>&lt;code>cook report&lt;/code> renders a recipe through a template. The template is plain text with &lt;a href="https://jinja.palletsprojects.com/">Jinja&lt;/a> placeholders, so the output can be Markdown, HTML, YAML, CSV, LaTeX, or anything else you can type. With a small data folder alongside, templates can also look up prices, product links and nutrition per ingredient, which is how you get a shopping list that links straight to your supermarket's basket.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>cook report&lt;/code> is a prototype. Everything below is verified against CookCLI 0.35, but variable names may still change between releases.&lt;/p></description></item><item><title>Search</title><link>https://cooklang.org/cli/commands/search/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/search/</guid><description>&lt;p>Search through your recipe collection for matching text.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;h3 id="1-prepare-the-pi" class="scroll-mt-24">
- &lt;a href="#1-prepare-the-pi" class="header-anchor" aria-label="Link to this section: 1. Prepare the Pi">
- 1. Prepare the Pi&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook search [OPTIONS] &amp;amp;lt;TERMS&amp;amp;gt;...&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;TERMS&amp;gt;...&lt;/code>&lt;/td>
+ &lt;td>One or more search terms. A recipe must match every one of them.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-dir &amp;lt;DIR&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Directory to search for recipes (default: current directory, recursive)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Find recipes mentioning chicken
+cook search chicken
+
+# Find recipes mentioning both chicken and rice
+cook search chicken rice
+
+# Search in a specific directory
+cook search -b ~/recipes pasta&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Searches file names and the whole recipe text, including metadata&lt;/li>
+&lt;li>Case-insensitive&lt;/li>
+&lt;li>Every term must match, in the recipe text or in the file name, so extra
+terms narrow the results&lt;/li>
+&lt;li>Results are ranked by relevance, best first: a file name matching the whole
+query outranks a recipe that merely mentions the terms&lt;/li>
+&lt;/ul></description></item><item><title>Acceptable Use Policy</title><link>https://cooklang.org/mobile/use_policy/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/use_policy/</guid><description>Our privacy policy.</description></item><item><title>Mobile App Terms of Service</title><link>https://cooklang.org/mobile/terms/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/terms/</guid><description>Read the fine print.</description></item><item><title>Privacy Policy</title><link>https://cooklang.org/mobile/privacy/</link><pubDate>Thu, 20 May 2021 19:30:08 +1000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/mobile/privacy/</guid><description>Our privacy policy.</description></item><item><title>Tandoor vs Mealie vs KitchenOwl: Choosing a Self-Hosted Recipe Manager in 2026</title><link>https://cooklang.org/blog/42-tandoor-vs-mealie-vs-kitchenowl/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/42-tandoor-vs-mealie-vs-kitchenowl/</guid><description>An honest comparison of three popular self-hosted recipe managers — Tandoor, Mealie, and KitchenOwl. Setup complexity, UI, recipe import, meal planning, mobile experience, and data portability.</description></item><item><title>Cooklang for Obsidian: Manage Recipes in Your Vault (2026 Guide)</title><link>https://cooklang.org/blog/15-cooklang-obsidian-guide/</link><pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/15-cooklang-obsidian-guide/</guid><description>A step-by-step guide to using the Cooklang plugin for Obsidian. Turn your vault into a recipe manager with syntax highlighting, interactive timers, shopping lists, and a beautiful preview mode.</description></item><item><title>Mealie Review 2026: Honest Pros, Cons &amp; Who It's For</title><link>https://cooklang.org/blog/40-mealie-review/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/40-mealie-review/</guid><description>Mealie is one of the most popular self-hosted recipe managers. Here's an honest look at what it does well, where it falls short, and who it's actually for — from someone who builds a different kind of recipe tool.</description></item><item><title>Best Recipe Management Software in 2026: 9 Apps Tested &amp; Compared</title><link>https://cooklang.org/blog/48-best-recipe-management-software/</link><pubDate>Thu, 18 Jun 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/48-best-recipe-management-software/</guid><description>A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs.</description></item><item><title>A Plain Text Recipe Database You Already Know How to Use</title><link>https://cooklang.org/blog/38-plain-text-recipe-database/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/38-plain-text-recipe-database/</guid><description>You don't need Postgres, schemas, or migrations to build a recipe database. Your filesystem already is one — and CookCLI gives you the query layer on top.</description></item><item><title>Cooklang Editor Setup: VS Code, Vim, Obsidian, and More</title><link>https://cooklang.org/blog/39-cooklang-editor-setup/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/39-cooklang-editor-setup/</guid><description>Cooklang files are plain text, so any editor works. But syntax highlighting and LSP support make the experience much better. Here's how to set up your editor of choice.</description></item><item><title>The Desktop App Is Gone. Here's What Replaced It.</title><link>https://cooklang.org/blog/36-desktop-app-replaced-by-sync-agent/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/36-desktop-app-replaced-by-sync-agent/</guid><description>We replaced the Cooklang desktop app with a lightweight sync agent — a tiny background service that does the same job faster, with less overhead.</description></item><item><title>Cooklang vs Mealie: Plain Text vs Self-Hosted Web App</title><link>https://cooklang.org/blog/51-cooklang-vs-mealie/</link><pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/51-cooklang-vs-mealie/</guid><description>Mealie gives you a polished self-hosted web app for your household. Cooklang gives you plain-text recipes you fully own. Honest fitness-for-purpose comparison.</description></item><item><title>Cooklang vs Tandoor: Sharp Tool vs Kitchen ERP</title><link>https://cooklang.org/blog/52-cooklang-vs-tandoor/</link><pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/52-cooklang-vs-tandoor/</guid><description>Tandoor packs every recipe-management feature into one self-hosted app. Cooklang does one thing — structured plain text — and lets you script the rest. Honest comparison.</description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
+&lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook import [OPTIONS] &amp;amp;lt;URL&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;URL&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>URL of the recipe webpage to import. Works with sites using Recipe Schema.org markup.&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="options" class="scroll-mt-24">
+ &lt;a href="#options" class="header-anchor" aria-label="Link to this section: Options">
+ Options&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-s, --skip-conversion&lt;/code>&lt;/td>
+ &lt;td>Output original recipe data without converting to Cooklang&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--metadata &amp;lt;FORMAT&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Metadata format: &lt;code>frontmatter&lt;/code> (default), &lt;code>json&lt;/code>, &lt;code>yaml&lt;/code>, &lt;code>none&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--metadata-only&lt;/code>&lt;/td>
+ &lt;td>Output only metadata, no recipe content&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="examples" class="scroll-mt-24">
+ &lt;a href="#examples" class="header-anchor" aria-label="Link to this section: Examples">
+ Examples&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Import and convert to Cooklang
+cook import https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta
+
+# Save to file
+cook import https://example.com/recipe &amp;amp;gt; lasagna.cook
+
+# Get raw data without conversion
+cook import https://example.com/recipe --skip-conversion
+
+# Extract metadata only as JSON
+cook import https://example.com/recipe --metadata-only --metadata json&lt;/code>&lt;/pre>
+&lt;/div></description></item><item><title>Build Custom Recipe Reports with CookCLI and Templates</title><link>https://cooklang.org/blog/45-recipe-reports-and-dashboards/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/45-recipe-reports-and-dashboards/</guid><description>CookCLI has a template system that turns .cook files into shopping lists with store links, cost breakdowns, aisle-organized lists, and CSV exports. This post walks through the cook report command, the ingredient database, and real working templates.</description></item><item><title>Building with Cooklang: A Parser Integration Guide</title><link>https://cooklang.org/blog/44-cooklang-parser-integration-guide/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/44-cooklang-parser-integration-guide/</guid><description>You want structured recipe data — ingredients with quantities, steps with inline references, timers, cookware. Here's how to parse Cooklang in your language of choice, with quick-start examples in TypeScript and Python, and a map of the full ecosystem.</description></item><item><title>Recipe Formats for Developers: Cooklang, JSON-LD, RecipeML &amp; MealMaster (Code-Level Comparison)</title><link>https://cooklang.org/blog/41-recipe-formats-for-developers/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/41-recipe-formats-for-developers/</guid><description>A code-level comparison of the four recipe file formats you'll encounter when building recipe software: Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster. The same recipe in each format, with parser availability, data structures, and honest trade-offs.</description></item><item><title>Version Control Your Recipes with Git</title><link>https://cooklang.org/blog/43-version-control-recipes-with-git/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/43-version-control-recipes-with-git/</guid><description>Every recipe app has a 'what if the company dies?' problem. If your recipes are plain text .cook files in a Git repo, that problem disappears. Here's how to set up a proper recipe repo, track changes meaningfully, collaborate with family, and publish to the Cooklang Federation.</description></item><item><title>What Goes Into Designing a Recipe Markup Language</title><link>https://cooklang.org/blog/37-designing-a-recipe-markup-language/</link><pubDate>Tue, 24 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/37-designing-a-recipe-markup-language/</guid><description>Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time.</description></item><item><title>Cooklang Mobile App: Read, Cook, and Shop from Your Phone</title><link>https://cooklang.org/blog/34-cooklang-mobile-app/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/34-cooklang-mobile-app/</guid><description>A walkthrough of the Cooklang mobile app for iOS and Android — how to set up your recipe collection, cook from your phone, and generate shopping lists on the go.</description></item><item><title>Plain Text Recipes: A Beginner's Guide to the Cooklang Format</title><link>https://cooklang.org/blog/33-plain-text-recipes-beginners-guide/</link><pubDate>Wed, 11 Mar 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/33-plain-text-recipes-beginners-guide/</guid><description>A step-by-step introduction to writing recipes in Cooklang — the plain text format that turns your recipes into structured data. Convert your first recipe in five minutes.</description></item><item><title>Publish Your Recipe Collection as a Static Site with `cook build web`</title><link>https://cooklang.org/blog/50-cook-build-web-static-site/</link><pubDate>Wed, 20 May 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/50-cook-build-web-static-site/</guid><description>CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly.</description></item><item><title>Doctor</title><link>https://cooklang.org/cli/commands/doctor/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/doctor/</guid><description>&lt;p>Analyze your recipe collection for issues and improvements.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor [OPTIONS] [COMMAND]&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="subcommands" class="scroll-mt-24">
+ &lt;a href="#subcommands" class="header-anchor" aria-label="Link to this section: Subcommands">
+ Subcommands&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="validate" class="scroll-mt-24">
+ &lt;a href="#validate" class="header-anchor" aria-label="Link to this section: validate">
+ &lt;code>validate&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h3>
-&lt;p>Flash &lt;a href="https://www.raspberrypi.com/software/">Raspberry Pi OS Lite&lt;/a> to your SD card. Enable SSH and configure WiFi during imaging.&lt;/p></description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
+&lt;p>Validate all recipes for syntax errors and warnings.&lt;/p>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook doctor validate [OPTIONS]&lt;/code>&lt;/pre>
+&lt;/div>&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Option&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>Directory to scan for recipe files (default: current directory)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;code>--strict&lt;/code>&lt;/td>
+ &lt;td>Exit with error code 1 if any issues are found (useful for CI/CD)&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;p>Checks for: syntax errors, warnings, missing recipe references, invalid units or quantities.&lt;/p></description></item><item><title>Markdown Recipe Template: Free Templates &amp; a Better Alternative</title><link>https://cooklang.org/blog/49-markdown-recipe-template/</link><pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/49-markdown-recipe-template/</guid><description>Copy-paste Markdown recipe templates that work in any text editor, Obsidian, or static site — plus an honest look at where Markdown falls short and what Cooklang adds.</description></item><item><title>Building a Recipe API with Cooklang</title><link>https://cooklang.org/blog/29-building-recipe-api-with-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/29-building-recipe-api-with-cooklang/</guid><description>Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control.</description></item><item><title>Chef Language vs Cooklang Explained</title><link>https://cooklang.org/blog/24-chef-vs-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/24-chef-vs-cooklang/</guid><description>Two languages that look like recipes — but only one of them helps you cook dinner. A light-hearted comparison of Chef, the joke programming language, and Cooklang.</description></item><item><title>Cooklang + Home Assistant: Smart Kitchen Meal Planning &amp; Recipes</title><link>https://cooklang.org/blog/32-cooklang-home-assistant-smart-kitchen/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/32-cooklang-home-assistant-smart-kitchen/</guid><description>Turn Home Assistant into a smart kitchen hub by integrating CookCLI — display today's recipe, trigger shopping lists, track expiring pantry items, and fire smart timers from your recipes.</description></item><item><title>Cooklang for Food Bloggers: Write Once, Publish Everywhere</title><link>https://cooklang.org/blog/31-cooklang-for-food-bloggers/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/31-cooklang-for-food-bloggers/</guid><description>One .cook file can generate your blog post, Google-ready Schema.org markup, a printable PDF, and a shopping list — without reformatting anything by hand.</description></item><item><title>How to Double or Halve a Recipe (Without It Going Wrong)</title><link>https://cooklang.org/blog/26-how-to-scale-recipes-without-mistakes/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/26-how-to-scale-recipes-without-mistakes/</guid><description>Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right.</description></item><item><title>Migrating Your Recipes to Cooklang (From Any App or Format)</title><link>https://cooklang.org/blog/28-migrating-recipes-to-cooklang/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/28-migrating-recipes-to-cooklang/</guid><description>Stuck in a recipe app you can't escape? Here's how to migrate your recipes to plain .cook files from websites, Paprika, Mealie, photos, and Markdown — without doing it all at once.</description></item><item><title>Publishing Your Recipe Collection as a Website</title><link>https://cooklang.org/blog/25-publishing-recipe-collection-as-website/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/25-publishing-recipe-collection-as-website/</guid><description>Your .cook files are already structured data. Here's how to turn them into a real website — static, fast, free to host, and readable by Google's recipe search.</description></item><item><title>The Complete CookCLI Guide: From Install to Daily Use</title><link>https://cooklang.org/blog/23-complete-cookcli-guide/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/23-complete-cookcli-guide/</guid><description>A hands-on walkthrough of CookCLI covering installation, parsing recipes, generating shopping lists, scaling servings, and every command you'll actually use.</description></item><item><title>Try Cooklang in Your Browser: Playground Walkthrough</title><link>https://cooklang.org/blog/30-cooklang-playground-walkthrough/</link><pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/30-cooklang-playground-walkthrough/</guid><description>The fastest way to try Cooklang requires nothing but a browser tab. This walkthrough shows you exactly what to expect when you open the playground.</description></item><item><title>Build a Raspberry Pi Kitchen Display for Your Recipes</title><link>https://cooklang.org/blog/17-raspberry-pi-kitchen-display/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/17-raspberry-pi-kitchen-display/</guid><description>Turn a Raspberry Pi into a dedicated kitchen recipe display. Run CookCLI's web server on the Pi, sync your Cooklang recipes, and browse them from a touchscreen or any device on your network.</description></item><item><title>How to Save Recipes from Social Media and Keep Them Forever</title><link>https://cooklang.org/blog/20-save-recipes-from-social-media/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/20-save-recipes-from-social-media/</guid><description>Recipes you save on Instagram, TikTok, and Facebook disappear when creators delete posts or platforms change. Here's a workflow to capture social media recipes and store them permanently as plain text files you control.</description></item><item><title>Recipe Discovery Without the Ads and Life Stories</title><link>https://cooklang.org/blog/16-recipe-discovery-without-ads/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/16-recipe-discovery-without-ads/</guid><description>Modern recipe sites bury recipes under ads, pop-ups, and SEO filler. Cooklang Federation offers a different approach — a searchable index of community-tested recipes with no ads, no tracking, and no stories about someone's trip to Tuscany.</description></item><item><title>Recipe Programming Language — Write and Manage Recipes as Code</title><link>https://cooklang.org/blog/22-cooking-for-programmers/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/22-cooking-for-programmers/</guid><description>Cooklang is a programming language for recipes. Declare ingredients as typed variables, generate shopping lists automatically, scale servings with a command, and version-control your cookbook with Git. Here's how recipes and code are the same thing — and why that matters.</description></item><item><title>Self-Hosting Your Recipe Collection with Docker and CookCLI</title><link>https://cooklang.org/blog/21-self-hosting-recipes-with-docker/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/21-self-hosting-recipes-with-docker/</guid><description>Set up a self-hosted recipe server in minutes with Docker and CookCLI. Browse recipes from any device, generate shopping lists, and keep your data private — no cloud accounts required.</description></item><item><title>The Best Open Source Recipe Managers in 2026</title><link>https://cooklang.org/blog/18-open-source-recipe-managers-2026/</link><pubDate>Wed, 25 Feb 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/18-open-source-recipe-managers-2026/</guid><description>A practical comparison of the best open source recipe managers — Cooklang, Mealie, KitchenOwl, Tandoor, and more. What each does well, where they fall short, and which one fits your workflow.</description></item><item><title>Building the Perfect Pantry with CookCLI: How the Greedy Coverage Algorithm Works</title><link>https://cooklang.org/blog/14-greedy-coverage-blog/</link><pubDate>Sat, 06 Dec 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/14-greedy-coverage-blog/</guid><description>A practical deep dive into how CookCLI uses algorithmic coverage analysis to help users build the most efficient pantry for their recipe collection.</description></item><item><title>The Dishwasher Salmon Problem</title><link>https://cooklang.org/blog/13-the-dishwasher-salmon-problem/</link><pubDate>Sun, 26 Oct 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/13-the-dishwasher-salmon-problem/</guid><description>Recipe blogs prioritize ads over quality, creating bizarre dishes like dishwasher salmon. Cooklang Federation solves this by connecting you to tried and true community recipes.</description></item><item><title>Seed</title><link>https://cooklang.org/cli/commands/seed/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/seed/</guid><description>&lt;p>Initialize a directory with example Cooklang recipes.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
@@ -933,7 +838,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;tbody>
  &lt;tr>
  &lt;td>&lt;code>&amp;lt;RECIPE&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Recipe file to process. Supports scaling with &lt;code>:N&lt;/code> syntax (e.g., &lt;code>recipe.cook:2&lt;/code>).&lt;/td>
+ &lt;td>Recipe to process: a path to a &lt;code>.cook&lt;/code> file or a bare recipe name, resolved against the base path. Supports scaling with &lt;code>:N&lt;/code> syntax (e.g., &lt;code>recipe.cook:2&lt;/code>).&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -968,7 +873,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  &lt;/tr>
  &lt;tr>
  &lt;td>&lt;code>-b, --base-path &amp;lt;PATH&amp;gt;&lt;/code>&lt;/td>
- &lt;td>Base path for resolving recipe references (default: current directory)&lt;/td>
+ &lt;td>Base path the &lt;code>&amp;lt;RECIPE&amp;gt;&lt;/code> argument and any recipe references are resolved against (default: current directory)&lt;/td>
  &lt;/tr>
  &lt;/tbody>
 &lt;/table>
@@ -987,7 +892,7 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
 &lt;ul>
 &lt;li>&lt;strong>Base URL:&lt;/strong> &lt;code>http://localhost:9080/api&lt;/code>&lt;/li>
 &lt;li>&lt;strong>Authentication:&lt;/strong> None. Anyone who can reach the server can read and modify your recipes — think twice before using &lt;code>--host&lt;/code> on an untrusted network.&lt;/li>
-&lt;li>&lt;strong>CORS:&lt;/strong> All origins are allowed, for the methods GET, POST, PUT and DELETE.&lt;/li>
+&lt;li>&lt;strong>CORS:&lt;/strong> &lt;code>GET&lt;/code> is allowed from any origin. A cross-origin request that would modify recipes is refused with &lt;code>403&lt;/code> unless the server was started with a matching &lt;code>--cors-origin &amp;lt;ORIGIN&amp;gt;&lt;/code>. Requests with no &lt;code>Origin&lt;/code> header — &lt;code>curl&lt;/code> and other non-browser clients — are unaffected. &lt;code>content-type&lt;/code> is always an allowed request header.&lt;/li>
 &lt;li>&lt;strong>Request size limit:&lt;/strong> 1 MB.&lt;/li>
 &lt;li>&lt;strong>Content type:&lt;/strong> JSON in and out, except where noted — raw recipe text is &lt;code>text/plain&lt;/code>.&lt;/li>
 &lt;/ul>
@@ -996,7 +901,115 @@ cook seed ~/my-recipes&lt;/code>&lt;/pre>
  Errors&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Every failure returns the same shape, with the status code carrying the meaning:&lt;/p></description></item><item><title>Automated Grocery List: Save Time and Money with Meal Planning</title><link>https://cooklang.org/blog/02-practical-savings-on-groceries-with-cooklang/</link><pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/02-practical-savings-on-groceries-with-cooklang/</guid><description>Build an automated grocery list from your meal plan using Cooklang. Practical tips for shopping list automation, reducing food waste, and cutting your grocery bill.</description></item><item><title>Mealie vs Paprika vs KitchenOwl vs Cooklang: Recipe Manager Comparison (2026)</title><link>https://cooklang.org/blog/09-cooklang-vs-paprika-vs-mealie/</link><pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/09-cooklang-vs-paprika-vs-mealie/</guid><description>Comparing four popular recipe management solutions — the open-source self-hosted Mealie, the polished commercial Paprika, the household-friendly KitchenOwl, and the plain-text Cooklang. An honest look at what each does best and which fits your cooking workflow.</description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
+&lt;p>Every failure returns the same shape, with the status code carrying the meaning:&lt;/p></description></item><item><title>Automated Grocery List: Save Time and Money with Meal Planning</title><link>https://cooklang.org/blog/02-practical-savings-on-groceries-with-cooklang/</link><pubDate>Thu, 09 Apr 2026 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/02-practical-savings-on-groceries-with-cooklang/</guid><description>Build an automated grocery list from your meal plan using Cooklang. Practical tips for shopping list automation, reducing food waste, and cutting your grocery bill.</description></item><item><title>Mealie vs Paprika vs KitchenOwl vs Cooklang: Recipe Manager Comparison (2026)</title><link>https://cooklang.org/blog/09-cooklang-vs-paprika-vs-mealie/</link><pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/blog/09-cooklang-vs-paprika-vs-mealie/</guid><description>Comparing four popular recipe management solutions — the open-source self-hosted Mealie, the polished commercial Paprika, the household-friendly KitchenOwl, and the plain-text Cooklang. An honest look at what each does best and which fits your cooking workflow.</description></item><item><title>Completions</title><link>https://cooklang.org/cli/commands/completions/</link><pubDate>Wed, 09 Sep 2026 14:23:27 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/completions/</guid><description>&lt;p>Generate a shell completion script so your shell can tab-complete &lt;code>cook&lt;/code> subcommands, aliases and flags.&lt;/p>
+&lt;h2 id="usage" class="scroll-mt-24">
+ &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
+ Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-" data-language="">&lt;code class="language-">cook completions &amp;amp;lt;SHELL&amp;amp;gt;&lt;/code>&lt;/pre>
+&lt;/div>&lt;p>The script is printed to stdout. Redirect it into the place your shell loads completions from, or source it from your shell configuration.&lt;/p>
+&lt;h2 id="arguments" class="scroll-mt-24">
+ &lt;a href="#arguments" class="header-anchor" aria-label="Link to this section: Arguments">
+ Arguments&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Argument&lt;/th>
+ &lt;th>Description&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>&lt;code>&amp;lt;SHELL&amp;gt;&lt;/code>&lt;/td>
+ &lt;td>One of &lt;code>bash&lt;/code>, &lt;code>zsh&lt;/code>, &lt;code>fish&lt;/code>, &lt;code>powershell&lt;/code>, &lt;code>elvish&lt;/code>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;h2 id="installation" class="scroll-mt-24">
+ &lt;a href="#installation" class="header-anchor" aria-label="Link to this section: Installation">
+ Installation&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h3 id="bash" class="scroll-mt-24">
+ &lt;a href="#bash" class="header-anchor" aria-label="Link to this section: Bash">
+ Bash&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Linux
+cook completions bash &amp;amp;gt; /etc/bash_completion.d/cook
+
+# macOS (Homebrew bash-completion)
+cook completions bash &amp;amp;gt; &amp;amp;#34;$(brew --prefix)/etc/bash_completion.d/cook&amp;amp;#34;
+
+# Or, without bash-completion, source it from ~/.bashrc
+echo &amp;amp;#39;source &amp;amp;lt;(cook completions bash)&amp;amp;#39; &amp;amp;gt;&amp;amp;gt; ~/.bashrc&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="zsh" class="scroll-mt-24">
+ &lt;a href="#zsh" class="header-anchor" aria-label="Link to this section: Zsh">
+ Zsh&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash"># Into a directory on your $fpath, then restart the shell
+cook completions zsh &amp;amp;gt; &amp;amp;#34;${fpath[1]}/_cook&amp;amp;#34;
+
+# Or into a user-owned directory
+mkdir -p ~/.zfunc
+cook completions zsh &amp;amp;gt; ~/.zfunc/_cook
+# ...and in ~/.zshrc, before `compinit`:
+# fpath=(~/.zfunc $fpath)
+# autoload -Uz compinit &amp;amp;amp;&amp;amp;amp; compinit&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="fish" class="scroll-mt-24">
+ &lt;a href="#fish" class="header-anchor" aria-label="Link to this section: Fish">
+ Fish&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook completions fish &amp;amp;gt; ~/.config/fish/completions/cook.fish&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="powershell" class="scroll-mt-24">
+ &lt;a href="#powershell" class="header-anchor" aria-label="Link to this section: PowerShell">
+ PowerShell&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-powershell" data-language="powershell">&lt;code class="language-powershell"># Append to your profile
+cook completions powershell &amp;amp;gt;&amp;amp;gt; $PROFILE
+
+# Or load it on demand
+cook completions powershell | Out-String | Invoke-Expression&lt;/code>&lt;/pre>
+&lt;/div>&lt;h3 id="elvish" class="scroll-mt-24">
+ &lt;a href="#elvish" class="header-anchor" aria-label="Link to this section: Elvish">
+ Elvish&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h3>
+
+
+&lt;div class="code-toolbar">
+ &lt;pre class="language-bash" data-language="bash">&lt;code class="language-bash">cook completions elvish &amp;amp;gt;&amp;amp;gt; ~/.config/elvish/rc.elv&lt;/code>&lt;/pre>
+&lt;/div>&lt;h2 id="notes" class="scroll-mt-24">
+ &lt;a href="#notes" class="header-anchor" aria-label="Link to this section: Notes">
+ Notes&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>The script is generated from the running binary, so it matches that binary exactly. Subcommands compiled out with &lt;code>--no-default-features&lt;/code> (such as &lt;code>server&lt;/code>, &lt;code>import&lt;/code>, &lt;code>lsp&lt;/code> or &lt;code>update&lt;/code>) are missing from the script too.&lt;/li>
+&lt;li>Regenerate the script after updating CookCLI so new subcommands and flags show up.&lt;/li>
+&lt;li>Completion is static: it knows subcommands and flags, but does not complete recipe file names or &lt;code>recipe.cook:2&lt;/code> scaling suffixes.&lt;/li>
+&lt;/ul></description></item><item><title>Build</title><link>https://cooklang.org/cli/commands/build/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/build/</guid><description>&lt;p>The &lt;code>cook build&lt;/code> command groups artifact-generation subcommands. Today it offers &lt;code>web&lt;/code> for static-site generation; future targets (e.g. cookbooks) will live alongside it.&lt;/p>
 &lt;h2 id="cook-build-web" class="scroll-mt-24">
  &lt;a href="#cook-build-web" class="header-anchor" aria-label="Link to this section: cook build web">
  &lt;code>cook build web&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>

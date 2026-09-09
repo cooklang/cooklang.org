@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Guides on Cooklang</title><link>https://cooklang.org/guides/</link><description>Recent content in Guides on Cooklang</description><generator>Hugo</generator><language>en-ie</language><managingEditor>hello@cooklang.org (Alexey)</managingEditor><webMaster>hello@cooklang.org (Alexey)</webMaster><atom:link href="https://cooklang.org/guides/index.xml" rel="self" type="application/rss+xml"/><item><title>Importing Recipes</title><link>https://cooklang.org/guides/importing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/importing-recipes/</guid><description>&lt;p>Most people's recipes are scattered across browser bookmarks, screenshots, a cookbook shelf and a family group chat. Bookmarks rot, screenshots cannot be searched, and copied text loses its structure. Importing turns each of those into a &lt;code>.cook&lt;/code> file: plain text, with the ingredients, quantities and timers marked up, that works in every Cooklang app and is yours to keep.&lt;/p>
+&lt;p>There are three ways to import, from quickest to most automated:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/guides/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/shopping/</guid><description>&lt;p>A shopping list in Cooklang is computed, not typed. Point a tool at the recipes you plan to cook and it adds up every ingredient, merges duplicates, groups the result by store section, and drops whatever you already have. This guide uses CookCLI because it shows every step explicitly; the &lt;a href="https://cooklang.org/app/">mobile app&lt;/a> and &lt;a href="https://cooklang.org/editor/">Cook Editor&lt;/a> do the same thing with a tap and read the same config files.&lt;/p>
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> 0.35 or newer (&lt;code>cook --version&lt;/code>)&lt;/li>
+&lt;li>A folder of &lt;code>.cook&lt;/code> files. No recipes yet? Run &lt;code>cook seed ~/recipes&lt;/code> to get the sample collection this guide's output comes from.&lt;/li>
+&lt;/ul>
+&lt;p>Every command below is run from inside your recipe folder:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/guides/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/meal-planning/</guid><description>&lt;p>A meal plan in Cooklang is a &lt;code>.menu&lt;/code> file: a plain-text file that names the recipes you intend to cook, grouped by day. Because it is just another Cooklang file, every tool that understands recipes understands plans too. The payoff is one command that turns the whole week into a shopping list, with the pantry subtracted and everything scaled to the number of people you are feeding.&lt;/p>
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>A handful of &lt;code>.cook&lt;/code> recipes in a folder. &lt;code>cook seed ~/recipes&lt;/code> gives you the sample collection this guide uses.&lt;/li>
+&lt;li>Any text editor. &lt;a href="https://cooklang.org/cli/">CookCLI&lt;/a> to generate the list, or the &lt;a href="https://cooklang.org/editor/">Cook Editor&lt;/a> if you prefer a visual week view.&lt;/li>
+&lt;/ul>
+&lt;h2 id="1-write-the-plan" class="scroll-mt-24">
+ &lt;a href="#1-write-the-plan" class="header-anchor" aria-label="Link to this section: 1. Write the plan">
+ 1. Write the plan&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Create a file called &lt;code>Weekly Plan.menu&lt;/code> in your recipe folder. Where you keep plans is up to you; a &lt;code>Plans/&lt;/code> sub-folder keeps them out of the recipe listing.&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/guides/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/pantry/</guid><description>&lt;p>A pantry file is a short list of what you have on hand: staples, spices, what is in the fridge and freezer. Once it exists, every shopping list you generate subtracts it, and CookCLI can tell you what is running low, what is about to expire, and which recipes you could cook tonight without going to the shop.&lt;/p>
+&lt;blockquote>
+&lt;p>Pantry tracking currently works in CookCLI and the &lt;code>cook server&lt;/code> web UI. The mobile app does not read &lt;code>pantry.conf&lt;/code> yet.&lt;/p></description></item><item><title>Publishing Your Recipes</title><link>https://cooklang.org/guides/publishing-recipes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/publishing-recipes/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> is a search index, not a host. You keep your &lt;code>.cook&lt;/code> files wherever you already keep them; the federation's crawler reads them from there and makes them searchable alongside everyone else's. Nothing is copied that you cannot take back: remove the registration, or make the repository private, and your recipes drop out on the next crawl.&lt;/p>
+&lt;p>There are two ways to register. Pick the one that matches where your recipes live.&lt;/p></description></item><item><title>Hosting Recipes as a Static Website</title><link>https://cooklang.org/guides/static-website/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/static-website/</guid><description>&lt;p>&lt;code>cook build web&lt;/code> renders your &lt;code>.cook&lt;/code> files into plain HTML, CSS and JavaScript, with a search index built in. There is no server process and no database, so the result can live on any static host, on a tablet's local storage, or in an email attachment. It is the read-only sibling of &lt;code>cook server&lt;/code>: the same look, minus the features that need a running process.&lt;/p>
+&lt;p>&lt;img src="https://cooklang.org/guides/static-site-home.jpg" alt="The home page of a site generated by cook build web">&lt;/p></description></item><item><title>Creating Cookbooks</title><link>https://cooklang.org/guides/cookbook-creation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/cookbook-creation/</guid><description>&lt;p>CookCLI exports a recipe as Typst or LaTeX, which you compile into a PDF. Ingredients, cookware and timers are colour-coded automatically, and the page size and margins are yours to set. This guide goes from one recipe to a bound book.&lt;/p>
+&lt;p>Two things to know before you start:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>cook recipe -f latex&lt;/code> exports &lt;strong>one recipe as a complete, standalone document&lt;/strong> (&lt;code>\documentclass{article}&lt;/code> through &lt;code>\end{document}&lt;/code>). It is not a fragment, so you cannot simply concatenate several exports into one file.&lt;/li>
+&lt;li>To build a &lt;strong>whole cookbook&lt;/strong> — chapters, title page, table of contents, index, images — use the &lt;a href="https://github.com/cooklang/cookbook-creator">cookbook-creator&lt;/a> script (&lt;a href="https://github.com/cooklang/cookbook-creator/blob/main/examples/my_cookbook.pdf">sample PDF&lt;/a>). It calls &lt;code>cook recipe -f latex&lt;/code> per recipe and assembles the results. If you'd rather assemble the book yourself, see &lt;a href="#building-a-cookbook-by-hand">Building a cookbook by hand&lt;/a>.&lt;/li>
+&lt;/ul>
+&lt;h2 id="prerequisites" class="scroll-mt-24">
+ &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
+ Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>CookCLI 0.35 or newer&lt;/strong> (&lt;a href="https://cooklang.org/cli/">installation&lt;/a>)&lt;/p></description></item><item><title>Recipe Discovery</title><link>https://cooklang.org/guides/recipe-discovery/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/recipe-discovery/</guid><description>&lt;p>The &lt;a href="https://recipes.cooklang.org">Cooklang Federation&lt;/a> is a search engine over recipe collections that people host themselves, on GitHub or their own sites. Nobody uploads anything to it; a crawler reads each registered collection and indexes the &lt;code>.cook&lt;/code> files it finds. At the time of writing that is about 5,000 recipes from roughly 80 collections, in ten languages. Every result is a real file from somebody's kitchen, not a page written for search engines.&lt;/p></description></item><item><title>Raspberry Pi Kitchen Server</title><link>https://cooklang.org/guides/raspberry-pi/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/raspberry-pi/</guid><description>&lt;p>A Raspberry Pi running &lt;code>cook server&lt;/code> turns your recipe folder into a website for your home network. Prop a tablet on the counter, open the Pi's address, and the whole family sees the same recipes, the same meal plan and the same shopping list. It draws a few watts and needs no account anywhere.&lt;/p>
+&lt;style>
+.server-carousel {
+ position: relative;
+ max-width: 1000px;
+ margin: 2rem auto;
+ overflow: hidden;
+}
+
+.server-carousel .carousel-container {
+ display: flex;
+ transition: transform 0.5s ease;
+}
+
+.server-carousel .carousel-slide {
+ min-width: 100%;
+ position: relative;
+}
+
+.server-carousel .carousel-slide img {
+ width: 100%;
+ height: auto;
+ display: block;
+ border-radius: 8px;
+ box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.server-carousel .carousel-nav {
+ position: absolute;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ display: flex;
+ gap: 10px;
+ z-index: 10;
+}
+
+.server-carousel .carousel-dot {
+ width: 12px;
+ height: 12px;
+ border-radius: 50%;
+ background: rgba(255,255,255,0.5);
+ border: 2px solid white;
+ cursor: pointer;
+ transition: background 0.3s;
+}
+
+.server-carousel .carousel-dot.active {
+ background: white;
+}
+
+.server-carousel .carousel-button {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ background: rgba(0,0,0,0.5);
+ color: white;
+ border: none;
+ padding: 1rem 1.2rem;
+ cursor: pointer;
+ font-size: 1.2rem;
+ z-index: 10;
+ transition: background 0.3s;
+}
+
+.server-carousel .carousel-button:hover {
+ background: rgba(0,0,0,0.7);
+}
+
+.server-carousel .carousel-button.prev {
+ left: 10px;
+}
+
+.server-carousel .carousel-button.next {
+ right: 10px;
+}
+
+.server-carousel .carousel-caption {
+ position: absolute;
+ bottom: 60px;
+ left: 20px;
+ color: white;
+ background: rgba(0,0,0,0.7);
+ padding: 8px 16px;
+ border-radius: 4px;
+ font-size: 14px;
+}
+&lt;/style>
+
+&lt;div class="server-carousel" data-carousel="server">
+ &lt;div class="carousel-container">
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Recipe Collection" src="https://github.com/user-attachments/assets/b18ec5b9-4959-49be-9784-86f73f0e34e2" />
+ &lt;div class="carousel-caption">Recipe Collection&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Recipe View" src="https://github.com/user-attachments/assets/e24b7b90-7bf7-4a5d-b1e0-585995a647c6" />
+ &lt;div class="carousel-caption">Recipe View&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Shopping List" src="https://github.com/user-attachments/assets/8c9036ca-a902-4f09-901c-905c6f8325a2" />
+ &lt;div class="carousel-caption">Shopping List&lt;/div>
+ &lt;/div>
+ &lt;div class="carousel-slide">
+ &lt;img width="600" height="359" alt="Pantry Management" src="https://github.com/user-attachments/assets/92d20226-eeb4-4b64-8833-ee7d9b3578a9" />
+ &lt;div class="carousel-caption">Pantry Management&lt;/div>
+ &lt;/div>
+ &lt;/div>
+
+ &lt;button class="carousel-button prev" data-action="prev">‹&lt;/button>
+ &lt;button class="carousel-button next" data-action="next">›&lt;/button>
+
+ &lt;div class="carousel-nav">
+ &lt;span class="carousel-dot active" data-slide="1">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="2">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="3">&lt;/span>
+ &lt;span class="carousel-dot" data-slide="4">&lt;/span>
+ &lt;/div>
+&lt;/div>
+
+&lt;script>
+(function() {
+ const carousel = document.querySelector('[data-carousel="server"]');
+ if (!carousel) return;
+
+ let slideIndex = 1;
+ const totalSlides = 4;
+ const container = carousel.querySelector('.carousel-container');
+ const dots = carousel.querySelectorAll('.carousel-dot');
+ const prevBtn = carousel.querySelector('[data-action="prev"]');
+ const nextBtn = carousel.querySelector('[data-action="next"]');
+
+ function showSlide(n) {
+ if (n > totalSlides) slideIndex = 1;
+ if (n &lt; 1) slideIndex = totalSlides;
+
+ container.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+ dots.forEach((dot, i) => {
+ dot.classList.toggle('active', i === slideIndex - 1);
+ });
+ }
+
+ function moveSlide(n) {
+ showSlide(slideIndex += n);
+ }
+
+ function currentSlide(n) {
+ showSlide(slideIndex = n);
+ }
+
+ 
+ prevBtn.addEventListener('click', () => moveSlide(-1));
+ nextBtn.addEventListener('click', () => moveSlide(1));
+
+ dots.forEach((dot, index) => {
+ dot.addEventListener('click', () => currentSlide(index + 1));
+ });
+
+ 
+ setInterval(() => moveSlide(1), 5000);
+})();
+&lt;/script>
+
+&lt;h2 id="what-you-need" class="scroll-mt-24">
+ &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
+ What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>A Raspberry Pi 3B+ or newer. 1 GB of RAM is plenty; the server is a single small binary.&lt;/li>
+&lt;li>A microSD card (8 GB or more) and a power supply.&lt;/li>
+&lt;li>WiFi or Ethernet on the same network as your other devices.&lt;/li>
+&lt;li>About 30 minutes.&lt;/li>
+&lt;/ul>
+&lt;p>The commands below assume Raspberry Pi OS Lite (Bookworm) and that you are logged in over SSH. Substitute your own user name for &lt;code>pi&lt;/code> if you chose a different one in the imager.&lt;/p></description></item><item><title>Reports and Data Management</title><link>https://cooklang.org/guides/reports/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/reports/</guid><description>&lt;p>&lt;code>cook report&lt;/code> renders a recipe through a template. The template is plain text with &lt;a href="https://jinja.palletsprojects.com/">Jinja&lt;/a> placeholders, so the output can be Markdown, HTML, YAML, CSV, LaTeX, or anything else you can type. With a small data folder alongside, templates can also look up prices, product links and nutrition per ingredient, which is how you get a shopping list that links straight to your supermarket's basket.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;code>cook report&lt;/code> is a prototype. Everything below is verified against CookCLI 0.35, but variable names may still change between releases.&lt;/p></description></item></channel></rss>
