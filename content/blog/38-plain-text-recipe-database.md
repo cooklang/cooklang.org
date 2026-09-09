@@ -111,7 +111,7 @@ The `cook report` command joins this ingredient database with your recipe files 
 {%- endfor %}
 ```
 
-This is a JOIN between recipes and ingredient metadata, expressed as a template. The [report command](/cli/commands/report/) supports output to Markdown, YAML, HTML, LaTeX, and CSV — whatever the downstream consumer needs. The [reports and data management docs](/docs/use-cases/reports/) have worked examples for cost analysis and nutritional summaries.
+This is a JOIN between recipes and ingredient metadata, expressed as a template. The [report command](/cli/commands/report/) supports output to Markdown, YAML, HTML, LaTeX, and CSV — whatever the downstream consumer needs. The [reports and data management docs](/guides/reports/) have worked examples for cost analysis and nutritional summaries.
 
 ## Pantry as State Store
 
@@ -141,7 +141,7 @@ This is a key-value store keyed by ingredient name. The `-p` flag on `cook shopp
 cook shopping-list -p config/pantry.conf monday.cook tuesday.cook
 ```
 
-If you have rice and cumin, they drop off the list. You buy what is missing, not what the recipe calls for in the abstract. The [pantry management docs](/docs/use-cases/pantry/) cover the full format including expiration tracking and low-stock thresholds.
+If you have rice and cumin, they drop off the list. You buy what is missing, not what the recipe calls for in the abstract. The [pantry management docs](/guides/pantry/) cover the full format including expiration tracking and low-stock thresholds.
 
 ## Aisle Configuration as Index
 
@@ -170,7 +170,7 @@ Your local collection is one node. [recipes.cooklang.org](https://recipes.cookla
 
 Creators host their own data. The federation layer indexes it. You search across the whole network with boolean operators, tag filters, difficulty ranges, and cooking time constraints. No one owns the data centrally; each repository is its own self-contained collection with its own files and its own git history.
 
-This is the distributed database model applied to recipes. The [recipe discovery docs](/docs/use-cases/recipe-discovery/) explain how to get your own collection indexed.
+This is the distributed database model applied to recipes. The [recipe discovery docs](/guides/recipe-discovery/) explain how to get your own collection indexed.
 
 ## Why This Works
 
@@ -186,7 +186,7 @@ The obvious objection is that a real database has transactions, indexes, foreign
 
 **Every Unix tool works.** `grep`, `wc`, `find`, `sort`, `awk` — they all work on `.cook` files. You can build one-liners against your recipe collection that would require a full ORM in a traditional database setup.
 
-The [shopping workflow docs](/docs/use-cases/shopping/) put the pieces together from a practical standpoint — what it looks like to actually run this system week to week, not just in theory.
+The [shopping workflow docs](/guides/shopping/) put the pieces together from a practical standpoint — what it looks like to actually run this system week to week, not just in theory.
 
 ## Getting Started
 

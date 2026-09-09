@@ -48,7 +48,7 @@ Most important pages:
 - Specification: https://cooklang.org/docs/spec/
 - CLI Documentation: https://cooklang.org/cli/
 - Mobile App: https://cooklang.org/app/
-- Use Cases: https://cooklang.org/docs/use-cases/
+- Guides: https://cooklang.org/guides/
 - Blog: https://cooklang.org/blog/
 
 ## About Cooklang

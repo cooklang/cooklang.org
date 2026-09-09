@@ -49,7 +49,7 @@ To keep recipes in sync between your phone and computer, install the [Cook Sync 
 
 Cooklang recipes are plain `.cook` text files. The syntax is simple: `@` names ingredients, `#` marks cookware, `~` sets timers, and `--` adds comments. Multi-word ingredients end with `{}`, quantities go inside `{}`, and units follow `%`.
 
-For the full syntax reference, see the [Cooklang specification](/docs/spec/). To learn about practical use cases like meal planning and shopping, see [use cases](/docs/use-cases/).
+For the full syntax reference, see the [Cooklang specification](/docs/spec/). To learn about practical use cases like meal planning and shopping, see [guides](/guides/).
 
 ### Editor Setup
 
@@ -76,7 +76,7 @@ Keep recipes organized by folders (e.g., `breakfast/`, `dinner/`, `desserts/`). 
 
 ### Configure `aisle.conf` for Shopping
 
-Add `config/aisle.conf` to your recipes folder to categorize ingredients by shopping aisle, making grocery trips more efficient. Learn more about this [here](/docs/use-cases/shopping/).
+Add `config/aisle.conf` to your recipes folder to categorize ingredients by shopping aisle, making grocery trips more efficient. Learn more about this [here](/guides/shopping/).
 
 ```text
 [produce]
@@ -107,7 +107,7 @@ One command turns the whole plan into a shopping list:
 cook shopping-list "Plans/This Week.menu"
 ```
 
-The [Cook Editor](https://cook.md/editor) renders `.menu` files as a week view with the combined shopping list built in. See the [meal planning guide](/docs/use-cases/meal-planning/) for a full example.
+The [Cook Editor](https://cook.md/editor) renders `.menu` files as a week view with the combined shopping list built in. See the [meal planning guide](/guides/meal-planning/) for a full example.
 
 ### Join the Community
 

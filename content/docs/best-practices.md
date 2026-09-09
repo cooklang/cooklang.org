@@ -22,7 +22,7 @@ Use Cooklang's [quantity scaling](/docs/spec/) features so a recipe adjusts clea
 
 ## Start with a meal plan, then iterate
 
-You don't need to build every meal plan from scratch. Take a `.menu` plan you've used before and add or remove recipes, or adjust servings to suit the coming week. See [Meal Planning](/docs/use-cases/meal-planning/) for a full walkthrough.
+You don't need to build every meal plan from scratch. Take a `.menu` plan you've used before and add or remove recipes, or adjust servings to suit the coming week. See [Meal Planning](/guides/meal-planning/) for a full walkthrough.
 
 ## Put no-prep foods on your meal plans
 

@@ -1,0 +1,68 @@
+{{ define "main" }}
+<div class="bg-white">
+  <div class="container mx-auto px-4 py-8 max-w-6xl">
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">{{ .Title }}</h1>
+      {{ if .Content }}
+      <div class="prose prose-lg max-w-none text-cooklang-gray-700">
+        {{ .Content }}
+      </div>
+      {{ end }}
+    </header>
+
+    {{ $groups := slice
+      (dict "key" "everyday" "title" "Everyday cooking" "blurb" "Get recipes in, plan the week, and walk out of the shop with everything you need.")
+      (dict "key" "share" "title" "Share and discover" "blurb" "Put your collection online, turn it into a book, and find what other people cook.")
+      (dict "key" "power" "title" "Self-hosting and power tools" "blurb" "Run your own recipe server and bend the data to your will.")
+    }}
+    {{ $pages := .RegularPages.ByWeight }}
+
+    {{ range $groups }}
+      {{ $group := . }}
+      {{ $members := where $pages "Params.group" $group.key }}
+      {{ if $members }}
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold text-cooklang-gray-900 mb-1">{{ $group.title }}</h2>
+        <p class="text-cooklang-gray-600 mb-6">{{ $group.blurb }}</p>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {{ range $members }}
+          <article class="bg-white border border-cooklang-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow flex flex-col">
+            <h3 class="text-xl font-semibold mb-2">
+              <a href="{{ .RelPermalink }}" class="text-cooklang-gray-900 hover:text-cooklang-orange transition-colors">
+                {{ .LinkTitle }}
+              </a>
+            </h3>
+            <p class="text-cooklang-gray-600 mb-4 flex-1">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | truncate 150 }}{{ end }}</p>
+            {{ with .Params.tools }}
+            <p class="text-xs uppercase tracking-wide text-cooklang-gray-500 mb-3">{{ delimit . " · " }}</p>
+            {{ end }}
+            <a href="{{ .RelPermalink }}" class="text-cooklang-orange hover:text-orange-600 font-medium">
+              Read the guide &rarr;
+            </a>
+          </article>
+          {{ end }}
+        </div>
+      </section>
+      {{ end }}
+    {{ end }}
+
+    {{ $ungrouped := where $pages "Params.group" "not in" (slice "everyday" "share" "power") }}
+    {{ if $ungrouped }}
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-cooklang-gray-900 mb-6">More guides</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {{ range $ungrouped }}
+        <article class="bg-white border border-cooklang-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <h3 class="text-xl font-semibold mb-2">
+            <a href="{{ .RelPermalink }}" class="text-cooklang-gray-900 hover:text-cooklang-orange transition-colors">{{ .LinkTitle }}</a>
+          </h3>
+          <p class="text-cooklang-gray-600 mb-4">{{ with .Description }}{{ . }}{{ else }}{{ .Summary | truncate 150 }}{{ end }}</p>
+          <a href="{{ .RelPermalink }}" class="text-cooklang-orange hover:text-orange-600 font-medium">Read the guide &rarr;</a>
+        </article>
+        {{ end }}
+      </div>
+    </section>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

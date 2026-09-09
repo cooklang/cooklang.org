@@ -116,7 +116,7 @@ cook recipe "Plans/This Week.menu"          # view the plan
 cook shopping-list "Plans/This Week.menu"   # combined list for the week
 ```
 
-See the [meal planning guide](/docs/use-cases/meal-planning/) for a complete example with scaling, notes, and batch prep.
+See the [meal planning guide](/guides/meal-planning/) for a complete example with scaling, notes, and batch prep.
 
 
 ## Configuration Locations

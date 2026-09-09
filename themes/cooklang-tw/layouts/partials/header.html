@@ -21,6 +21,7 @@
         {{ $active := or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}
         {{ $active = or $active (eq .Name $current.Title) }}
         {{ $active = or $active (and (eq .Name "Docs") (eq $current.Section "docs")) }}
+        {{ $active = or $active (and (eq .Name "Guides") (eq $current.Section "guides")) }}
         {{ $active = or $active (and (eq .Name "CLI") (eq $current.Section "cli")) }}
         {{ $active = or $active (and (eq .Name "Editor") (eq $current.Section "editor")) }}
         {{ $active = or $active (and (eq .Name "Mobile App") (eq $current.Section "app")) }}

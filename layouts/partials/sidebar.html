@@ -5,7 +5,7 @@
   <ul>
     {{/* First, show pages directly in the section (not in subdirectories) */}}
     {{ range where .Site.RegularPages "Section" .Section }}
-      {{ if and (not (strings.Contains .File.Dir "commands/")) (not (strings.Contains .File.Dir "use-cases/")) }}
+      {{ if not (strings.Contains .File.Dir "commands/") }}
         {{ if not (eq .File.LogicalName "_index.md") }}
           <li class="{{ if eq .File.UniqueID $currentNode.File.UniqueID }}active {{ end }}">
             <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -29,19 +29,5 @@
       </li>
     {{ end }}
     
-    {{/* Show the use-cases subsection if it exists (for docs) */}}
-    {{ $useCasesSection := .Site.GetPage (printf "/%s/use-cases" .Section) }}
-    {{ if $useCasesSection }}
-      <li class="has-children">
-        <a href="{{ $useCasesSection.Permalink }}">{{ $useCasesSection.Title }}</a>
-        <ul class="sub-menu">
-          {{ range sort $useCasesSection.RegularPages "Weight" }}
-            <li class="{{ if eq .File.UniqueID $currentNode.File.UniqueID }}active {{ end }}">
-              <a href="{{ .Permalink }}">{{ .Title }}</a>
-            </li>
-          {{ end }}
-        </ul>
-      </li>
-    {{ end }}
   </ul>
 </div>

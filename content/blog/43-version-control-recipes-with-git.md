@@ -234,11 +234,11 @@ jobs:
           sudo mv cook /usr/local/bin/
 ```
 
-The full publishing workflow — converting `.cook` files to JSON, building a static site with Hugo, deploying to GitHub Pages — is covered in detail in [Publishing Your Recipe Collection as a Website](/docs/use-cases/publishing-recipes/).
+The full publishing workflow — converting `.cook` files to JSON, building a static site with Hugo, deploying to GitHub Pages — is covered in detail in [Publishing Your Recipe Collection as a Website](/guides/publishing-recipes/).
 
 ### Raspberry Pi: Auto-Sync from Git
 
-If you run a [Raspberry Pi kitchen display](/docs/use-cases/raspberry-pi/), you can have it pull the latest recipes automatically:
+If you run a [Raspberry Pi kitchen display](/guides/raspberry-pi/), you can have it pull the latest recipes automatically:
 
 ```bash
 crontab -e
@@ -261,6 +261,6 @@ A recipe in a database app is locked to that app. A recipe in a `.cook` file on 
 
 Your recipes will outlive any app. That is worth setting up properly.
 
-[Get started with Cooklang and CookCLI](/docs/getting-started/) | [Browse recipes on the Federation](/docs/use-cases/recipe-discovery/)
+[Get started with Cooklang and CookCLI](/docs/getting-started/) | [Browse recipes on the Federation](/guides/recipe-discovery/)
 
 -Alex

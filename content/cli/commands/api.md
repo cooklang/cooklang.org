@@ -14,7 +14,7 @@ Start the server with [`cook server`](server); every endpoint below is served by
 
 - **Base URL:** `http://localhost:9080/api`
 - **Authentication:** None. Anyone who can reach the server can read and modify your recipes — think twice before using `--host` on an untrusted network.
-- **CORS:** All origins are allowed, for the methods GET, POST, PUT and DELETE.
+- **CORS:** `GET` is allowed from any origin. A cross-origin request that would modify recipes is refused with `403` unless the server was started with a matching `--cors-origin <ORIGIN>`. Requests with no `Origin` header — `curl` and other non-browser clients — are unaffected. `content-type` is always an allowed request header.
 - **Request size limit:** 1 MB.
 - **Content type:** JSON in and out, except where noted — raw recipe text is `text/plain`.
 
@@ -27,6 +27,7 @@ Every failure returns the same shape, with the status code carrying the meaning:
 ```
 
 - `400` — malformed input: an invalid path, a bad query parameter, or a recipe that failed to parse.
+- `403` — a cross-origin request tried to modify recipes. Start the server with `--cors-origin <ORIGIN>` to allow that origin.
 - `404` — the recipe, menu, or pantry section does not exist, or no pantry file is configured.
 - `500` — the server could not read or write a file.
 
@@ -85,7 +86,7 @@ Response:
 }
 ```
 
-### `GET /api/recipes/*path`
+### `GET /api/recipes/{*path}`
 
 Read one parsed recipe
 
@@ -166,7 +167,7 @@ Response:
 }
 ```
 
-### `GET /api/recipes/raw/*path`
+### `GET /api/recipes/raw/{*path}`
 
 Read the unparsed Cooklang source
 
@@ -189,7 +190,7 @@ Crack the @eggs{3} into a blender, then add the @flour{125%g},
 @milk{250%ml} and @sea salt{pinch}, and blitz until smooth.
 ```
 
-### `PUT /api/recipes/*path`
+### `PUT /api/recipes/{*path}`
 
 Create or overwrite a recipe
 
@@ -218,7 +219,7 @@ Response:
 }
 ```
 
-### `DELETE /api/recipes/*path`
+### `DELETE /api/recipes/{*path}`
 
 Delete a recipe file
 
@@ -237,11 +238,11 @@ Response:
 }
 ```
 
-### `GET /api/static/*path`
+### `GET /api/static/{*path}`
 
 Fetch a recipe asset
 
-Serves files straight from the recipe directory — this is where recipe images live. The `image` field returned by `GET /api/recipes/*path` is already a URL into this route.
+Serves files straight from the recipe directory — this is where recipe images live. The `image` field returned by `GET /api/recipes/{*path}` is already a URL into this route.
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|
@@ -266,7 +267,7 @@ Response:
 ]
 ```
 
-### `GET /api/menus/*path`
+### `GET /api/menus/{*path}`
 
 Read one menu
 
@@ -755,7 +756,7 @@ Response:
 }
 ```
 
-### `PUT /api/pantry/:section/:name`
+### `PUT /api/pantry/{section}/{name}`
 
 Update an item
 
@@ -785,7 +786,7 @@ Response:
 }
 ```
 
-### `DELETE /api/pantry/:section/:name`
+### `DELETE /api/pantry/{section}/{name}`
 
 Remove an item
 
@@ -850,7 +851,7 @@ Collection-wide queries.
 
 Full-text recipe search
 
-Matches against recipe names and content. Menus are searched alongside recipes. `q` is required: omitting it entirely returns a plain-text 400 from axum's query deserializer (`Failed to deserialize query string: missing field q`), not the page's usual JSON error envelope — the same shape as the `scale` parameter's failure mode on `GET /api/recipes/*path`. A present but empty `q=` is not rejected, though: it matches everything and returns the whole collection.
+Matches against recipe names and content. Menus are searched alongside recipes. `q` is required: omitting it entirely returns a plain-text 400 from axum's query deserializer (`Failed to deserialize query string: missing field q`), not the page's usual JSON error envelope — the same shape as the `scale` parameter's failure mode on `GET /api/recipes/{*path}`. A present but empty `q=` is not rejected, though: it matches everything and returns the whole collection.
 
 | Name | In | Type | Required | Description |
 |------|----|------|----------|-------------|

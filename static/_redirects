@@ -1,0 +1,2 @@
+# Guides moved from /docs/use-cases/ to /guides/ (2026-09-09)
+/docs/use-cases/*  /guides/:splat  301

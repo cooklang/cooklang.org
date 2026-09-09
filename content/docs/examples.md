@@ -124,7 +124,7 @@ Generate a combined shopping list for the entire plan:
 cook shopping-list "Plans/Week 1.menu"
 ```
 
-See [Meal Planning]({{< ref "use-cases/meal-planning" >}}) for the full workflow.
+See [Meal Planning]({{< ref "/guides/meal-planning" >}}) for the full workflow.
 
 ## Shopping Lists
 
@@ -155,13 +155,13 @@ canned tomatoes
 cook shopping-list "Stuffed Peppers.cook"
 
 # Scaled to 8 servings, excluding pantry items
-cook shopping-list -a aisle.conf -p pantry.conf "Stuffed Peppers.cook:8"
+cook shopping-list -a aisle.conf --pantry pantry.conf "Stuffed Peppers.cook:8"
 
 # Combined list for a whole week
 cook shopping-list -a aisle.conf "Plans/Week 1.menu"
 ```
 
-See [Shopping Lists]({{< ref "use-cases/shopping" >}}) and [Pantry Management]({{< ref "use-cases/pantry" >}}) for details.
+See [Shopping Lists]({{< ref "/guides/shopping" >}}) and [Pantry Management]({{< ref "/guides/pantry" >}}) for details.
 
 ## Federation: Discovering and Sharing Recipes
 
@@ -197,14 +197,14 @@ Put your `.cook` files in a public GitHub repository, then add your repo to the 
 
 3. Submit a pull request
 
-The crawler indexes your recipes automatically and checks for updates periodically. You can also publish via [RSS/Atom feeds]({{< ref "use-cases/publishing-recipes" >}}) or any static site.
+The crawler indexes your recipes automatically and checks for updates periodically. You can also publish via [RSS/Atom feeds]({{< ref "/guides/publishing-recipes" >}}) or any static site.
 
-See [Recipe Discovery]({{< ref "use-cases/recipe-discovery" >}}) and [Publishing Your Recipes]({{< ref "use-cases/publishing-recipes" >}}).
+See [Recipe Discovery]({{< ref "/guides/recipe-discovery" >}}) and [Publishing Your Recipes]({{< ref "/guides/publishing-recipes" >}}).
 
 ## More
 
-- [Creating Cookbooks]({{< ref "use-cases/cookbook-creation" >}}) — export recipes as LaTeX for PDF cookbooks
-- [Reports]({{< ref "use-cases/reports" >}}) — custom template-based exports for cost analysis, nutrition, and more
-- [Raspberry Pi Kitchen Server]({{< ref "use-cases/raspberry-pi" >}}) — serve recipes to every device on your network
-- [Importing Recipes]({{< ref "use-cases/importing-recipes" >}}) — convert recipes from websites and photos via [cook.md](https://cook.md)
+- [Creating Cookbooks]({{< ref "/guides/cookbook-creation" >}}) — export recipes as LaTeX for PDF cookbooks
+- [Reports]({{< ref "/guides/reports" >}}) — custom template-based exports for cost analysis, nutrition, and more
+- [Raspberry Pi Kitchen Server]({{< ref "/guides/raspberry-pi" >}}) — serve recipes to every device on your network
+- [Importing Recipes]({{< ref "/guides/importing-recipes" >}}) — convert recipes from websites and photos via [cook.md](https://cook.md)
 - [Awesome Cooklang Recipes](https://github.com/cooklang/awesome-cooklang-recipes) — community recipe collection

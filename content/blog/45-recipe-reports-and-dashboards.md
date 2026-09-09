@@ -245,8 +245,8 @@ The existing community templates at [github.com/cooklang/cooklang-reports](https
 Further reading:
 
 - [report command reference](/cli/commands/report/) — full flag reference and current template API
-- [reports use case](/docs/use-cases/reports/) — full documentation with more template examples
-- [shopping workflow](/docs/use-cases/shopping/) — how the pantry config and shopping workflow fits together
-- [pantry management](/docs/use-cases/pantry/) — pantry configuration reference
+- [reports use case](/guides/reports/) — full documentation with more template examples
+- [shopping workflow](/guides/shopping/) — how the pantry config and shopping workflow fits together
+- [pantry management](/guides/pantry/) — pantry configuration reference
 
 -Alex

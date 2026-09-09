@@ -1,10 +1,12 @@
 ---
-title: "Creating Cookbooks"
-weight: 50
-description: "Turn your Cooklang recipes into PDF cookbooks with LaTeX export"
+title: 'Creating Cookbooks'
+weight: 24
+description: 'Export recipes as Typst or LaTeX and compile them into a printable PDF, from a single recipe card to a full family cookbook with chapters and an index.'
+group: share
+tools: [CookCLI, Typst or LaTeX, cookbook-creator]
 ---
 
-CookCLI exports a recipe as LaTeX or Typst, which you compile into a professional PDF. Ingredients, cookware, and timers are color-coded automatically.
+CookCLI exports a recipe as Typst or LaTeX, which you compile into a PDF. Ingredients, cookware and timers are colour-coded automatically, and the page size and margins are yours to set. This guide goes from one recipe to a bound book.
 
 Two things to know before you start:
 
@@ -13,7 +15,7 @@ Two things to know before you start:
 
 ## Prerequisites
 
-1. **CookCLI installed** ([Installation guide](/cli/download))
+1. **CookCLI 0.35 or newer** ([installation](/cli/))
 
 2. **A typesetter.** [Typst](https://typst.app/) is a single ~40 MB binary and needs nothing else, so reach for it first unless you specifically want LaTeX:
 
@@ -55,17 +57,25 @@ Two things to know before you start:
 
 ## Exporting a Single Recipe
 
-```bash
-# Generate LaTeX output
-cook recipe "Neapolitan Pizza" -f latex > pizza.tex
+Start with one recipe to check the toolchain works. With Typst:
 
-# Compile to PDF
+```bash
+cook recipe "Neapolitan Pizza" -f typst -o pizza.typ
+typst compile pizza.typ
+open pizza.pdf
+```
+
+With LaTeX:
+
+```bash
+cook recipe "Neapolitan Pizza" -f latex -o pizza.tex
 pdflatex pizza.tex
 open pizza.pdf
-
-# Or pipe directly
-cook recipe "Neapolitan Pizza" -f latex | pdflatex -jobname="pizza-recipe"
 ```
+
+The output format is inferred from the `-o` extension, so `-f` is optional when you write to a file. Scale as usual with `:N` (`"Neapolitan Pizza:12"` for a party).
+
+![The Typst export of the sample pizza recipe compiled to PDF: ingredients in orange, cookware in green, numbered steps](/guides/cookbook-typst-page.png)
 
 Page setup is controlled with two options that apply to `latex` and `typst` output:
 
@@ -249,7 +259,7 @@ Typst output is standalone too, and carries the same `// BEGIN_RECIPE_CONTENT` m
 
 ## Other Output Formats
 
-CookCLI also exports to Markdown, YAML, JSON, and Schema.org. For web-based cookbooks, Markdown or HTML via the [report system](../reports/) may be simpler than LaTeX.
+CookCLI also exports to Markdown, YAML, JSON, and Schema.org. For web-based cookbooks, Markdown or HTML via the [report system](/guides/reports/) may be simpler than LaTeX.
 
 ## Troubleshooting
 
@@ -265,8 +275,9 @@ CookCLI also exports to Markdown, YAML, JSON, and Schema.org. For web-based cook
 | Index not generated | Run `makeindex` between compilations, and check you emit `\index{}` entries |
 | Images not showing | Ensure image files sit next to the recipe with a matching base name |
 
-## See Also
+## See also
 
-- [CookCLI Recipe Command](/cli/commands/recipe/) — output format reference
-- [Reports](../reports/) — custom template-based exports
-- [Publishing Your Recipes](../publishing-recipes/) — share with the community
+- [`cook recipe` reference](/cli/commands/recipe/): output formats, paper size and margin options
+- [Reports](/guides/reports/): custom template-based exports, including HTML recipe cards
+- [Hosting Recipes as a Static Website](/guides/static-website/): the online alternative
+- [Publishing Your Recipes](/guides/publishing-recipes/): share with the community
