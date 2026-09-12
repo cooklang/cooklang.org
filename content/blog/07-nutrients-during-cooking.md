@@ -1,9 +1,9 @@
 ---
-title: "Does Cooking Destroy Nutrients? What Structured Recipes Could Tell You"
+title: "Does Cooking Destroy Nutrients? Boiled vs. Steamed Broccoli — and What Structured Recipes Could Tell You"
 date: 2024-12-16
 weight: 80
 summary: "Cooking method changes nutrition as much as the ingredients do. Recipe apps know neither. Here's what structured recipe data could finally make possible."
-description: "Boiling broccoli for 10 minutes destroys ~50% of its vitamin C; steaming almost none. Why cooking method changes nutrition as much as the ingredients do — and what helps."
+description: "Does boiling broccoli remove nutrients? Yes — 10 minutes in water loses ~50% of its vitamin C; steamed broccoli keeps ~80%. Why cooking method changes nutrition as much as the ingredients do, and what helps."
 categories: ["Format and Design"]
 ---
 
@@ -12,6 +12,17 @@ Steamed broccoli has more bioavailable sulforaphane than raw. Sautéed spinach d
 Your recipe app knows none of this. It can't tell you that the recipe you're about to cook trades nutrition for convenience, or suggest a method change that would keep more of what's in the food. The bottleneck isn't the science — the cooking chemistry is well understood. It's that recipes are unstructured prose, and there's nothing for software to reason over.
 
 Here's the gap, why it persists, and what structured recipe data could finally make possible.
+
+## Does Boiling Broccoli Remove Nutrients?
+
+Yes, and mostly the water-soluble ones. Vitamin C, folate and the B vitamins leach into the cooking water, and once you drain it they're gone:
+
+- **Boiled 10 minutes, drained:** roughly 50% of the vitamin C is lost, along with up to 35% of the B vitamins.
+- **Steamed 5 minutes:** about 80% of the vitamin C is retained; sulforaphane, broccoli's signature compound, is more bioavailable than in raw florets.
+- **Roasted or stir-fried:** moderate loss, less than boiling; a little oil helps you absorb the fat-soluble vitamins (A, E, K).
+- **Raw:** the most vitamin C; sulforaphane is less available than after a light steam.
+
+Same rules hold for spinach, kale, green beans and most other vegetables. If you do boil, keep the water for a soup or sauce and the nutrients come along.
 
 ## What Recipe Apps Are Missing
 
