@@ -1,6 +1,6 @@
 ---
-title: 'Cook Editor – Desktop recipe workspace with AI'
+title: 'Cook Editor — Open-Source Desktop Recipe Editor for Cooklang'
 date: 2026-06-04T00:00:00+00:00
-description: 'Cook Editor is a free, open-source desktop app for writing, previewing, and planning meals from your Cooklang recipes — with an optional CookBot AI assistant (Cookbot Pro). macOS, Windows, and Linux.'
+description: 'Cook Editor is the free, open-source desktop recipe editor for Cooklang: write, preview, and plan meals from plain-text .cook files, with CookBot, the optional AI assistant included in Cook Pro. macOS, Windows, and Linux.'
 image: /guide/cook-editor.png
 ---

@@ -51,5 +51,5 @@ Either way, your files stay plain text and fully under your control.
 
 ## Prefer a desktop app?
 
-[Cook Editor](/editor/) is a free desktop app for writing, previewing, and planning meals from your `.cook` files on macOS, Windows, and Linux — with optional CookBot AI assistance (Cookbot Pro, €10/mo). It syncs with the mobile apps.
+[Cook Editor](/editor/) is a free desktop app for writing, previewing, and planning meals from your `.cook` files on macOS, Windows, and Linux — with optional CookBot AI assistance (part of Cook Pro, €12.99/mo). It syncs with the mobile apps.
 
