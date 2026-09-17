@@ -12,7 +12,7 @@ A recipe with ingredients, cookware, timers, and comments:
 ```cooklang
 ---
 source: https://www.jamieoliver.com/recipes/eggs-recipes/easy-pancakes/
-tags: fun, quick
+tags: [fun, quick]
 ---
 
 Crack the @eggs{3} into a blender, then add the @flour{125%g},
