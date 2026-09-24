@@ -34,6 +34,24 @@ To scale a recipe, multiply each ingredient by **target servings ÷ original ser
 3. Use about 1.75× the baking soda, baking powder, or yeast, not 2×.
 4. Split the batch across two pans (or one much wider one) and keep the original cook time as your starting point — check early, not late.
 
+### Doubled and halved measurements
+
+US measures (1 tbsp = 3 tsp, 1 cup = 16 tbsp). For salt, spices, and leavening, use the doubled amount as a ceiling, not a target — see the table above.
+
+| Original | Doubled | Halved |
+|---|---|---|
+| 1/8 tsp | 1/4 tsp | a pinch (1/16 tsp) |
+| 1/4 tsp | 1/2 tsp | 1/8 tsp |
+| 1/2 tsp | 1 tsp | 1/4 tsp |
+| 1 tsp | 2 tsp | 1/2 tsp |
+| 1 tbsp | 2 tbsp | 1 1/2 tsp |
+| 1/4 cup | 1/2 cup | 2 tbsp |
+| 1/3 cup | 2/3 cup | 2 tbsp + 2 tsp |
+| 1/2 cup | 1 cup | 1/4 cup |
+| 2/3 cup | 1 1/3 cups | 1/3 cup |
+| 3/4 cup | 1 1/2 cups | 6 tbsp |
+| 1 cup | 2 cups | 1/2 cup |
+
 The rest of this post explains each of these, then shows how a structured recipe format makes the arithmetic automatic.
 
 ## Why Scaling Goes Wrong

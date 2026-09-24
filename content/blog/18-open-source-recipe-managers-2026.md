@@ -18,7 +18,7 @@ Here's an honest look at the main options.
 **Strengths:**
 - Recipes are plain text — readable, editable, version-controllable
 - No database, no server required for basic use (a [self-hosted recipe server via Docker](/blog/21-self-hosting-recipes-with-docker/) is optional, not required)
-- Ecosystem of tools: [CookCLI](/cli/) for shopping lists and a local web server, [mobile apps](/app/) for iOS and Android, [Obsidian plugin](/blog/15-cooklang-obsidian-guide/), VS Code extension
+- Ecosystem of tools: [CookCLI](/cli/) for shopping lists and a local web server, a free [recipe app](/app/) for iOS and Android, [Obsidian plugin](/blog/15-cooklang-obsidian-guide/), VS Code extension
 - Sync through whatever you already use (Git, Dropbox, iCloud)
 - [Federation](https://recipes.cooklang.org) for discovering community recipes
 - Free and open source, no vendor lock-in
