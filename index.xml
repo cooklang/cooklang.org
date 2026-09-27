@@ -1015,15 +1015,7 @@ cook completions powershell | Out-String | Invoke-Expression&lt;/code>&lt;/pre>
  &lt;code>cook build web&lt;/code>&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Generate a self-contained static website from your recipe collection. The output mirrors &lt;code>cook server&lt;/code>'s browsing experience but ships as plain HTML, CSS, and JS — no Rust process needed at runtime, so it can be hosted on GitHub Pages, Netlify, S3, or opened directly via &lt;code>file://&lt;/code>.&lt;/p></description></item><item><title>Home_assistant_integration_research</title><link>https://cooklang.org/cli/commands/home_assistant_integration_research/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/home_assistant_integration_research/</guid><description>&lt;p>&lt;strong>Research Date:&lt;/strong> March 2026
-&lt;strong>Focus:&lt;/strong> Popular integrations, patterns, food/recipe systems, and what drives adoption&lt;/p>
-&lt;hr>
-&lt;h2 id="executive-summary" class="scroll-mt-24">
- &lt;a href="#executive-summary" class="header-anchor" aria-label="Link to this section: Executive Summary">
- Executive Summary&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>Home Assistant has reached &lt;strong>2 million active installations&lt;/strong> (2025.5 release), with nearly &lt;strong>3,000 official integrations&lt;/strong> available. The ecosystem includes both built-in integrations and community-developed custom components through HACS (Home Assistant Community Store). Success is driven by solving specific pain points, reliability, seamless updates, and dashboard visibility.&lt;/p></description></item><item><title>LSP</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
+&lt;p>Generate a self-contained static website from your recipe collection. The output mirrors &lt;code>cook server&lt;/code>'s browsing experience but ships as plain HTML, CSS, and JS — no Rust process needed at runtime, so it can be hosted on GitHub Pages, Netlify, S3, or opened directly via &lt;code>file://&lt;/code>.&lt;/p></description></item><item><title>LSP</title><link>https://cooklang.org/cli/commands/lsp/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/lsp/</guid><description>&lt;p>Start the Language Server Protocol server for Cooklang editor integration.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
