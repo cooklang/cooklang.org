@@ -1,57 +1,71 @@
 {{ define "main" }}
 <div class="bg-white">
-  <!-- Hero Section -->
+  <!-- Hero: copy + Get Started (main CTA) / Get the app on the left, a live source → parsed example as the
+       visual on the right. The parsed side matches `cook recipe` output for this
+       file. No <code> wrappers in the highlighted block (baseof flattens them). -->
   <section class="container mx-auto px-4 py-16 md:py-24">
-    <div class="text-center max-w-4xl mx-auto">
-      <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">
-        A Recipe Markup Language
-      </h1>
-      <p class="text-xl md:text-2xl text-cooklang-gray-600 mb-4">
-        Cooklang is a simple, human-readable text format for writing recipes that can be understood by both cooks and computers.
-      </p>
-      <p class="text-lg md:text-xl text-cooklang-gray-600 mb-8">
-        Write <code class="bg-gray-100 px-2 py-1 rounded">@flour{2%cups}</code> and <code class="bg-gray-100 px-2 py-1 rounded">~{25%minutes}</code> in plain text files.
-        Get automatic shopping lists, scaling, timers, and beautiful formatting — while keeping your recipes in files you own forever.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a href="/docs/getting-started/" class="btn btn-primary">
-          Get Started
-        </a>
-        <a href="https://github.com/cooklang" class="btn btn-secondary">
-          View on GitHub
-        </a>
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-6xl mx-auto">
+      <div class="text-center lg:text-left">
+        <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">
+          A Recipe Markup Language
+        </h1>
+        <p class="text-xl text-cooklang-gray-600 mb-8">
+          Cooklang is a simple text format for recipes that both cooks and computers understand. Get shopping lists, scaling and timers — from plain files you own forever.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-5">
+          <a href="/docs/getting-started/" class="btn btn-primary">Get Started</a>
+          <a href="/app/" class="btn btn-secondary">Get the app</a>
+        </div>
+        <p class="text-cooklang-gray-600 mb-8">
+          Also on desktop: <a href="/editor/" class="text-cooklang-orange font-medium hover:underline">Cook Editor</a> · <a href="/cli/" class="text-cooklang-orange font-medium hover:underline">command line</a>
+        </p>
+        <div class="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-cooklang-gray-500">
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>No account required</span>
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Works offline</span>
+          <span class="flex items-center gap-1"><svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg><a href="https://github.com/cooklang" class="hover:text-cooklang-orange hover:underline">Open source</a></span>
+        </div>
       </div>
-      <div class="flex flex-wrap justify-center gap-4 text-sm text-cooklang-gray-500">
-        <span class="flex items-center gap-1">
-          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-          </svg>
-          No account required
-        </span>
-        <span class="flex items-center gap-1">
-          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-          </svg>
-          Works offline
-        </span>
-        <span class="flex items-center gap-1">
-          <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-          </svg>
-          Open source
-        </span>
-      </div>
-    </div>
-  </section>
 
-  <!-- Example Image Section -->
-  <section class="py-8">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <picture>
-          <source type="image/webp" srcset="/example-768w.webp 768w, /example.webp 1306w" sizes="(max-width: 768px) 100vw, 768px" width="1306" height="240">
-          <img src="/example.png" alt="Cooklang recipe example with syntax highlighting" class="w-full rounded-lg shadow-lg" width="1306" height="240">
-        </picture>
+      <div>
+        <div class="rounded-xl overflow-hidden shadow-2xl ring-1 ring-cooklang-gray-200 text-left">
+          <div class="bg-cooklang-dark text-gray-100">
+            <div class="flex items-center gap-2 px-4 py-2.5 border-b border-white/10">
+              <span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span>
+              <span class="w-3 h-3 rounded-full" style="background:#febc2e"></span>
+              <span class="w-3 h-3 rounded-full" style="background:#28c840"></span>
+              <span class="ml-2 text-xs font-mono text-gray-400">Pancakes.cook</span>
+            </div>
+<pre class="font-mono text-sm leading-relaxed px-5 py-4 whitespace-pre-wrap"><span style="color:#9ca3af">---
+servings: 2
+---</span>
+Crack the <span style="color:#fb923c">@eggs{3}</span> into a <span style="color:#38bdf8">#blender</span>, add the <span style="color:#fb923c">@plain flour{125%g}</span>, <span style="color:#fb923c">@milk{250%ml}</span> and <span style="color:#fb923c">@sea salt{1%pinch}</span>, and blitz until smooth.
+
+Pour into a <span style="color:#38bdf8">#bowl</span> and leave to stand for <span style="color:#4ade80">~{15%minutes}</span>.
+
+Melt the <span style="color:#fb923c">@butter{1%knob}</span> in a <span style="color:#38bdf8">#frying pan{}</span> and cook each pancake for <span style="color:#4ade80">~{2%minutes}</span> a side.</pre>
+          </div>
+          <div class="bg-white px-5 py-4">
+            <div class="flex items-baseline justify-between mb-3">
+              <p class="text-xs font-semibold uppercase tracking-wider text-cooklang-orange">Ingredients</p>
+              <span class="text-xs text-cooklang-gray-500">2 servings</span>
+            </div>
+            <ul class="grid grid-cols-2 gap-x-6 text-sm mb-4">
+              <li class="flex justify-between py-1 border-b border-cooklang-gray-100"><span>eggs</span><span class="text-cooklang-gray-500">3</span></li>
+              <li class="flex justify-between py-1 border-b border-cooklang-gray-100"><span>milk</span><span class="text-cooklang-gray-500">250 ml</span></li>
+              <li class="flex justify-between py-1 border-b border-cooklang-gray-100"><span>plain flour</span><span class="text-cooklang-gray-500">125 g</span></li>
+              <li class="flex justify-between py-1 border-b border-cooklang-gray-100"><span>sea salt</span><span class="text-cooklang-gray-500">1 pinch</span></li>
+              <li class="flex justify-between py-1"><span>butter</span><span class="text-cooklang-gray-500">1 knob</span></li>
+            </ul>
+            <div class="flex flex-wrap items-center gap-2 text-sm">
+              <span class="rounded-full bg-sky-50 text-sky-800 px-2 py-0.5">blender</span>
+              <span class="rounded-full bg-sky-50 text-sky-800 px-2 py-0.5">bowl</span>
+              <span class="rounded-full bg-sky-50 text-sky-800 px-2 py-0.5">frying pan</span>
+              <span class="rounded-full bg-green-50 text-green-800 px-2 py-0.5">⏱ 15 min</span>
+              <span class="rounded-full bg-green-50 text-green-800 px-2 py-0.5">⏱ 2 min</span>
+            </div>
+          </div>
+        </div>
+        <p class="text-center text-sm text-cooklang-gray-500 mt-4">Every Cooklang app reads the same file. <a href="https://cooklang.github.io/cooklang-rs/?mode=render" class="text-cooklang-orange font-medium hover:underline">Try it in the Playground →</a></p>
       </div>
     </div>
   </section>
@@ -185,9 +199,9 @@
           </p>
         </article>
         <article class="bg-white p-6 rounded-lg shadow-sm">
-          <h3 class="text-xl font-semibold mb-2">Imports</h3>
+          <h3 class="text-xl font-semibold mb-2">Advanced imports</h3>
           <p class="text-cooklang-gray-600">
-            Paste a URL, snap a cookbook page, drop a TikTok link, or move your whole library from Paprika, Mela, Mealie and more. Everything arrives as a clean <code class="bg-gray-100 px-1 rounded">.cook</code> file.
+            Beyond web links: snap a cookbook page, drop a TikTok or Instagram link, or move your whole library from Paprika, Mela, Mealie and more. Everything arrives as a clean <code class="bg-gray-100 px-1 rounded">.cook</code> file.
           </p>
         </article>
         <article class="bg-white p-6 rounded-lg shadow-sm">
@@ -202,20 +216,6 @@
             Nutrition numbers on recipes and plans, and an MCP server so the AI tools you already use can read your recipes.
           </p>
         </article>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10 text-center">
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <div class="font-semibold text-cooklang-gray-900">Free</div>
-          <p class="text-sm text-cooklang-gray-600 mt-1">Cook Editor, mobile apps and CLI — recipes, meal plans and shopping lists.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg border border-gray-200">
-          <div class="font-semibold text-cooklang-gray-900">Cook Basic · €4.99/mo</div>
-          <p class="text-sm text-cooklang-gray-600 mt-1">Sync across devices, photo and social imports, batch import from other apps.</p>
-        </div>
-        <div class="bg-white p-5 rounded-lg border-2 border-cooklang-orange">
-          <div class="font-semibold text-cooklang-gray-900">Cook Pro · €12.99/mo</div>
-          <p class="text-sm text-cooklang-gray-600 mt-1">CookBot + nutrition, sync included. 7-day free trial.</p>
-        </div>
       </div>
       <p class="text-center text-cooklang-gray-600 max-w-2xl mx-auto mb-8">
         Cooklang is built by one person since 2021. The language, parsers, CLI and Cook Editor are open source and stay that way — Cook Cloud subscriptions pay for the servers, the AI compute, and the time to keep the free tools free.
