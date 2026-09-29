@@ -8,6 +8,8 @@ summary: All you need to get started with Cooklang
 
 Cooklang is a lightweight, open-source format for writing and managing recipes in a structured, human-readable way. Your recipes are just text files, meaning you can store, edit, share and sync them across all your devices without being locked into a specific app or service.
 
+{{< gs-chooser >}}
+
 Here's what a basic recipe looks like in Cooklang:
 
 ```cooklang
@@ -20,8 +22,6 @@ When processed using apps, this recipe extracts ingredients while keeping the in
 ![Android Screens](/guide/app-screens-demo.jpg)
 
 {{< quickstart-callout >}}
-
-{{< gs-chooser >}}
 
 {{% for "phone" %}}
 ## Cook from your phone
