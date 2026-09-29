@@ -100,7 +100,7 @@
           <p class="text-cooklang-gray-600 mb-4">
             Syntax highlighting and snippets for VS Code, Sublime, Vim, Emacs, and other text editors you already use.
           </p>
-          <a href="/docs/spec/#editor-support" class="text-cooklang-orange hover:underline">Setup Editors →</a>
+          <a href="/docs/syntax-highlighting/" class="text-cooklang-orange hover:underline">Setup Editors →</a>
         </article>
         <article class="bg-white p-6 rounded-lg shadow-sm">
           <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
@@ -163,20 +163,66 @@
     </div>
   </section>
 
-  <!-- Apps Ecosystem Section -->
+  <!-- Cook Cloud Section: optional paid services that fund the open-source tools.
+       Copy mirrors cook.md's home page. Never name the AI model/vendor, never say
+       imports use AI, CookBot plans (never "does the shopping"). -->
   <section class="py-16 bg-cooklang-gray-50">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center text-cooklang-gray-900 mb-4">
-        A Rich Ecosystem of Apps
-      </h2>
-      <p class="text-lg text-center text-cooklang-gray-600 mb-12 max-w-3xl mx-auto">
-        Cooklang works with a plethora of applications across all platforms, from mobile apps to web interfaces and command-line tools
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block bg-cooklang-orange/10 text-cooklang-orange text-sm font-semibold px-3 py-1 rounded-full mb-4">Cook Cloud</span>
+        <h2 class="text-3xl font-bold text-cooklang-gray-900 mb-4">
+          Optional cloud services for your recipes
+        </h2>
+        <p class="text-lg text-cooklang-gray-600">
+          Everything above works offline, with no account. When you want your recipes on every device, or help planning the week, Cook Cloud adds it — and your recipes stay plain <code class="bg-white px-2 py-1 rounded">.cook</code> files you can take anywhere.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-10">
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Sync</h3>
+          <p class="text-cooklang-gray-600">
+            Write on the desktop, cook from your phone. One folder of <code class="bg-gray-100 px-1 rounded">.cook</code> files kept in sync across Cook Editor, the mobile apps and the sync agent. Offline first.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Imports</h3>
+          <p class="text-cooklang-gray-600">
+            Paste a URL, snap a cookbook page, drop a TikTok link, or move your whole library from Paprika, Mela, Mealie and more. Everything arrives as a clean <code class="bg-gray-100 px-1 rounded">.cook</code> file.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">CookBot</h3>
+          <p class="text-cooklang-gray-600">
+            Set a target — more protein, no gluten, a smaller shop. CookBot drafts the week from your own recipes and pantry, and shows every change as a diff you approve.
+          </p>
+        </article>
+        <article class="bg-white p-6 rounded-lg shadow-sm">
+          <h3 class="text-xl font-semibold mb-2">Nutrition &amp; MCP</h3>
+          <p class="text-cooklang-gray-600">
+            Nutrition numbers on recipes and plans, and an MCP server so the AI tools you already use can read your recipes.
+          </p>
+        </article>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10 text-center">
+        <div class="bg-white p-5 rounded-lg border border-gray-200">
+          <div class="font-semibold text-cooklang-gray-900">Free</div>
+          <p class="text-sm text-cooklang-gray-600 mt-1">Cook Editor, mobile apps and CLI — recipes, meal plans and shopping lists.</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg border border-gray-200">
+          <div class="font-semibold text-cooklang-gray-900">Cook Basic · €4.99/mo</div>
+          <p class="text-sm text-cooklang-gray-600 mt-1">Sync across devices, photo and social imports, batch import from other apps.</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg border-2 border-cooklang-orange">
+          <div class="font-semibold text-cooklang-gray-900">Cook Pro · €12.99/mo</div>
+          <p class="text-sm text-cooklang-gray-600 mt-1">CookBot + nutrition, sync included. 7-day free trial.</p>
+        </div>
+      </div>
+      <p class="text-center text-cooklang-gray-600 max-w-2xl mx-auto mb-8">
+        Cooklang is built by one person since 2021. The language, parsers, CLI and Cook Editor are open source and stay that way — Cook Cloud subscriptions pay for the servers, the AI compute, and the time to keep the free tools free.
       </p>
-      <div class="max-w-5xl mx-auto">
-        <picture>
-          <source type="image/webp" srcset="/collage-640w.webp 640w, /collage-1024w.webp 1024w, /collage.webp 1280w" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 1024px, 1280px" width="1280" height="800">
-          <img src="/collage.png" alt="Various Cooklang apps including mobile, web, and desktop interfaces" class="w-full rounded-lg shadow-xl" width="1280" height="800">
-        </picture>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="https://cook.md/" class="btn btn-primary">Explore Cook Cloud</a>
+        <a href="https://cook.md/pricing" class="btn btn-secondary">Compare plans</a>
       </div>
     </div>
   </section>
@@ -201,7 +247,7 @@
           <p class="text-cooklang-gray-600 mb-4">
             Automatically scale recipes for any party size while keeping fixed quantities like salt unchanged.
           </p>
-          <a href="/docs/spec/#scaling-and-servings" class="text-cooklang-orange hover:underline">Learn about scaling →</a>
+          <a href="/blog/26-how-to-scale-recipes-without-mistakes/" class="text-cooklang-orange hover:underline">Learn about scaling →</a>
         </article>
         <article class="bg-cooklang-gray-50 p-6 rounded-lg">
           <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
@@ -286,19 +332,6 @@
             Share your recipes with the community while maintaining full control and ownership of your content.
           </p>
           <a href="/guides/publishing-recipes/" class="text-cooklang-orange hover:underline">Start publishing →</a>
-        </article>
-        <article class="bg-cooklang-gray-50 p-6 rounded-lg relative">
-          <span class="new-label absolute top-4 right-4">New</span>
-          <div class="w-12 h-12 bg-cooklang-orange/10 rounded-lg flex items-center justify-center mb-4">
-            <svg class="w-6 h-6 text-cooklang-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-2">Cook Editor</h3>
-          <p class="text-cooklang-gray-600 mb-4">
-            A free desktop app for writing, previewing, and planning meals from your .cook files — with optional AI (part of Cook Pro, €12.99/mo).
-          </p>
-          <a href="/editor/" class="text-cooklang-orange hover:underline">Get Cook Editor →</a>
         </article>
       </div>
     </div>
