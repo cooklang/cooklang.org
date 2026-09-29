@@ -1,13 +1,14 @@
 ---
 title: 'CookCLI — Command-Line Recipe Manager and Shopping List Generator'
 date: 2021-05-20T15:14:39+10:00
+layout: landing
 summary: CookCLI is a free, open-source command-line tool that generates shopping lists from recipes, runs a local recipe server, imports recipes from websites, and automates your cooking workflow.
 ---
 
 
-CookCLI is a free, open-source command-line tool for working with [Cooklang](https://cooklang.org/docs/spec/) recipe files. It parses `.cook` files, generates combined shopping lists from multiple recipes, runs a local web server to browse your collection, imports recipes from websites, and scales servings — all from the terminal.
+## All commands
 
-## Commands
+Full reference for every command. Install options are on the [download page](download/).
 
 | Command | Alias | Description |
 |---------|-------|-------------|
@@ -19,6 +20,7 @@ CookCLI is a free, open-source command-line tool for working with [Cooklang](htt
 | [report](commands/report) | `rp` | Generate custom reports using templates |
 | [doctor](commands/doctor) | | Analyze recipes for issues |
 | [pantry](commands/pantry) | `p` | Manage and analyze pantry inventory |
+| [build](commands/build) | | Build a static website from your recipes |
 | [seed](commands/seed) | | Initialize with example recipes |
 | [lsp](commands/lsp) | | Start the Language Server Protocol server |
 | [update](commands/update) | `u` | Update CookCLI to the latest version |

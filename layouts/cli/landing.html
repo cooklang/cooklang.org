@@ -1,0 +1,118 @@
+{{ define "main" }}
+{{- /* /cli/ landing (content/cli/_index.md sets layout: landing so /cli/commands/
+     keeps the default list). The command tables come from .Content. Terminal
+     output is real `cook` output on the seed recipes. No <code> wrappers in the
+     hand-coloured blocks: baseof.html flattens every code element to text. */ -}}
+<div class="bg-white">
+
+  <!-- Hero -->
+  <section class="container mx-auto px-4 py-16 md:py-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      <div>
+        <span class="inline-block bg-cooklang-orange/10 text-cooklang-orange text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-6">Free &amp; open source · macOS, Linux, Windows</span>
+        <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">CookCLI</h1>
+        <p class="text-xl text-cooklang-gray-600 mb-8">
+          Your recipe folder, from the terminal. Shopping lists, a local web server, search, reports and a static website — all from plain <span class="font-mono text-base bg-gray-100 px-2 py-1 rounded">.cook</span> files, the UNIX way.
+        </p>
+        <div class="rounded-lg bg-cooklang-dark text-gray-100 font-mono text-sm px-4 py-3 mb-4 flex items-center justify-between gap-4">
+          <span><span style="color:#9ca3af">$</span> brew install cookcli</span>
+          <button type="button" class="text-xs text-gray-400 hover:text-white" onclick="navigator.clipboard && navigator.clipboard.writeText('brew install cookcli').then(() => { this.textContent = 'Copied'; setTimeout(() => this.textContent = 'Copy', 1500); })">Copy</button>
+        </div>
+        <p class="text-sm text-cooklang-gray-500 mb-8">Or grab a binary, RPM or <span class="font-mono">cargo install</span> — see <a href="/cli/download/" class="text-cooklang-orange hover:underline">all install options</a>.</p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a href="https://github.com/cooklang/cookcli/releases/latest" class="btn btn-primary">Download</a>
+          <a href="#commands" class="btn btn-secondary">Browse commands</a>
+        </div>
+      </div>
+      <div class="rounded-xl bg-cooklang-dark shadow-2xl overflow-hidden">
+        <div class="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+          <span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#febc2e"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#28c840"></span>
+          <span class="ml-3 text-xs text-gray-400 font-mono">~/recipes</span>
+        </div>
+<pre class="font-mono text-sm leading-relaxed text-gray-100 p-5 overflow-x-auto"><span style="color:#9ca3af">$</span> cook sl "Breakfast/Easy Pancakes.cook" Risotto.cook
+<span style="color:#fb923c">[fruit and veg]</span>
+onion           1
+<span style="color:#fb923c">[milk and dairy]</span>
+milk            250 ml
+butter          knob
+egg             3
+<span style="color:#fb923c">[tinned goods and baking]</span>
+flour           125 g
+<span style="color:#fb923c">[packaged goods, pasta and sauces]</span>
+arborio rice    320 g
+<span style="color:#fb923c">[dried herbs and spices]</span>
+salt            pinch, 1 tbsp, 1 tsp
+saffron threads 1 pinch
+
+<span style="color:#9ca3af">$</span> cook search tomato
+Salads/Caprese.cook
+Shared/Guacamole.cook
+Neapolitan Pizza.cook</pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Server -->
+  <section class="py-16 md:py-24 bg-cooklang-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <p class="text-sm font-semibold uppercase tracking-wider text-cooklang-orange mb-3">cook server</p>
+        <h2 class="text-3xl md:text-4xl font-bold text-cooklang-gray-900 mb-4">Your recipes in the browser</h2>
+        <p class="text-lg text-cooklang-gray-600">One command turns your folder into a web app on your network: browse and search, scale recipes, build a shopping list, plan with menus and keep a pantry.</p>
+      </div>
+      <div class="max-w-5xl mx-auto rounded-xl overflow-hidden shadow-2xl ring-1 ring-cooklang-gray-200 bg-white">
+        <div class="flex items-center gap-2 px-4 py-2.5 bg-cooklang-gray-100 border-b border-cooklang-gray-200">
+          <span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#febc2e"></span>
+          <span class="w-3 h-3 rounded-full" style="background:#28c840"></span>
+          <span class="ml-3 flex-1 max-w-sm rounded bg-white text-xs text-cooklang-gray-500 font-mono px-3 py-1 truncate">localhost:9080/recipe/Neapolitan Pizza</span>
+        </div>
+        <img src="/server/recipe-detail.png" alt="Neapolitan Pizza in the cook server web UI, with ingredients, cookware and numbered steps" width="2560" height="1800" loading="lazy" class="block w-full h-auto">
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+        <div class="rounded-lg bg-cooklang-dark text-gray-100 font-mono text-sm px-4 py-3"><span style="color:#9ca3af">$</span> cook server ~/recipes --host</div>
+        <a href="https://demo.cooklang.org" class="btn btn-primary">Try the live demo</a>
+        <a href="/cli/commands/server/" class="text-cooklang-orange font-medium hover:underline">Server docs →</a>
+      </div>
+      <p class="text-center text-sm text-cooklang-gray-500 mt-6">Building an integration? The server exposes an <a href="/cli/commands/api/" class="text-cooklang-orange hover:underline">HTTP API</a>. Want it always on? Run it on a <a href="/guides/raspberry-pi/" class="text-cooklang-orange hover:underline">Raspberry Pi</a>.</p>
+    </div>
+  </section>
+
+  <!-- What you can do -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-cooklang-gray-900 mb-12">Small tools that compose</h2>
+      {{- $cards := slice
+        (dict "title" "Shopping lists" "cmd" "cook sl \"Weekly Plan.menu\"" "text" "Combine recipes or a whole menu into one list, grouped by aisle, minus what's in your pantry." "link" "/cli/commands/shopping-list/")
+        (dict "title" "Search" "cmd" "cook search chicken" "text" "Find recipes by any word in them: an ingredient, a step or a title." "link" "/cli/commands/search/")
+        (dict "title" "Import" "cmd" "cook import <url>" "text" "Turn a recipe from a website into a clean .cook file." "link" "/cli/commands/import/")
+        (dict "title" "Static website" "cmd" "cook build web" "text" "Publish your collection as a searchable static site for GitHub Pages or Netlify." "link" "/guides/static-website/")
+        (dict "title" "Reports" "cmd" "cook report -t cost.md.jinja" "text" "Render any recipe or menu through a template: costs, nutrition, printable cards." "link" "/cli/commands/report/")
+        (dict "title" "Pantry" "cmd" "cook pantry expiring" "text" "See what's running low or about to expire, and what you can cook with what you have." "link" "/cli/commands/pantry/")
+        (dict "title" "Doctor" "cmd" "cook doctor" "text" "Check recipes for errors, and spot ingredients missing from your aisle and pantry files." "link" "/cli/commands/doctor/")
+        (dict "title" "Editor support" "cmd" "cook lsp" "text" "A language server for completion and diagnostics in VS Code, Neovim and other editors." "link" "/cli/commands/lsp/")
+      -}}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+        {{- range $cards }}
+        <a href="{{ .link }}" class="group block rounded-xl border border-cooklang-gray-200 p-5 hover:border-cooklang-orange/50 hover:shadow-sm transition">
+          <h3 class="text-lg font-semibold text-cooklang-gray-900 group-hover:text-cooklang-orange mb-2">{{ .title }}</h3>
+          <div class="font-mono text-xs bg-cooklang-gray-50 text-cooklang-gray-700 rounded px-2 py-1 mb-3 truncate">$ {{ .cmd }}</div>
+          <p class="text-sm text-cooklang-gray-600">{{ .text }}</p>
+        </a>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Command reference (from content/cli/_index.md) -->
+  <section id="commands" class="py-16 md:py-24 bg-cooklang-gray-50 scroll-mt-20">
+    <div class="container mx-auto px-4">
+      <div class="prose prose-lg max-w-4xl mx-auto">
+        {{ .Content }}
+      </div>
+    </div>
+  </section>
+</div>
+{{ end }}
