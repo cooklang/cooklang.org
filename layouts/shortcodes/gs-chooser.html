@@ -15,8 +15,7 @@
 -}}
 <div id="gs-chooser" class="not-prose my-8 rounded-xl border-2 border-cooklang-orange/30 bg-cooklang-orange/5 p-5 sm:p-6" hidden>
   <p class="text-xs font-semibold uppercase tracking-wider text-cooklang-orange mb-2">Tailor this guide</p>
-  <p class="text-xl font-bold text-cooklang-gray-900 mb-1">What do you want to do?</p>
-  <p class="text-sm text-cooklang-gray-600 mb-4">Pick one or more and the guide below shows only what's relevant. Leave them all off to read everything.</p>
+  <p class="text-xl font-bold text-cooklang-gray-900 mb-4">What do you want to do?</p>
   <div class="flex flex-wrap gap-2" role="group" aria-label="Filter the guide by what you want to do">
     {{- range $paths }}
     <button type="button" class="gs-toggle" data-tag="{{ .id }}" aria-pressed="false">{{ .label }}</button>
