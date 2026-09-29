@@ -13,14 +13,22 @@
         Write <code class="bg-gray-100 px-2 py-1 rounded">@flour{2%cups}</code> and <code class="bg-gray-100 px-2 py-1 rounded">~{25%minutes}</code> in plain text files.
         Get automatic shopping lists, scaling, timers, and beautiful formatting — while keeping your recipes in files you own forever.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a href="/docs/getting-started/" class="btn btn-primary">
-          Get Started
+      <!-- Three doors: phone, desktop, terminal. Phone first (and first on mobile). -->
+      <div class="grid sm:grid-cols-3 gap-3 max-w-3xl mx-auto mb-4 text-left">
+        <a href="/app/" class="group flex items-center gap-3 rounded-xl bg-cooklang-orange text-white px-4 py-3 shadow-sm hover:opacity-90 transition">
+          <svg class="w-7 h-7 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+          <span><span class="block font-semibold">Get the app</span><span class="block text-sm text-white/80">iPhone &amp; Android</span></span>
         </a>
-        <a href="https://github.com/cooklang" class="btn btn-secondary">
-          View on GitHub
+        <a href="/editor/" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-cooklang-gray-300 hover:ring-cooklang-orange px-4 py-3 transition">
+          <svg class="w-7 h-7 flex-shrink-0 text-cooklang-orange" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <span><span class="block font-semibold text-cooklang-gray-900">Cook Editor</span><span class="block text-sm text-cooklang-gray-500">Mac, Windows &amp; Linux</span></span>
+        </a>
+        <a href="/cli/" class="group flex items-center gap-3 rounded-xl bg-white ring-1 ring-cooklang-gray-300 hover:ring-cooklang-orange px-4 py-3 transition">
+          <svg class="w-7 h-7 flex-shrink-0 text-cooklang-orange" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <span><span class="block font-semibold text-cooklang-gray-900">Command line</span><span class="block text-sm text-cooklang-gray-500">CookCLI &amp; spec</span></span>
         </a>
       </div>
+      <p class="text-cooklang-gray-600 mb-8">New here? <a href="/docs/getting-started/" class="text-cooklang-orange font-medium hover:underline">Read the guide →</a></p>
       <div class="flex flex-wrap justify-center gap-4 text-sm text-cooklang-gray-500">
         <span class="flex items-center gap-1">
           <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -38,21 +46,57 @@
           <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
           </svg>
-          Open source
+          <a href="https://github.com/cooklang" class="hover:text-cooklang-orange hover:underline">Open source</a>
         </span>
       </div>
     </div>
   </section>
 
-  <!-- Example Image Section -->
+  <!-- Live example: source → what apps get out of it. Parsed side is the real
+       `cook recipe` output for this file. No <code> wrappers (baseof flattens them). -->
   <section class="py-8">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <picture>
-          <source type="image/webp" srcset="/example-768w.webp 768w, /example.webp 1306w" sizes="(max-width: 768px) 100vw, 768px" width="1306" height="240">
-          <img src="/example.png" alt="Cooklang recipe example with syntax highlighting" class="w-full rounded-lg shadow-lg" width="1306" height="240">
-        </picture>
+      <div class="max-w-5xl mx-auto grid md:grid-cols-2 rounded-xl overflow-hidden shadow-xl ring-1 ring-cooklang-gray-200">
+        <div class="bg-cooklang-dark text-gray-100">
+          <div class="px-5 py-3 border-b border-white/10 text-xs font-mono text-gray-400">Pancakes.cook</div>
+<pre class="font-mono text-sm leading-relaxed p-5 whitespace-pre-wrap"><span style="color:#9ca3af">---
+servings: 2
+---</span>
+Crack the <span style="color:#fb923c">@eggs{3}</span> into a <span style="color:#38bdf8">#blender</span>, add the <span style="color:#fb923c">@plain flour{125%g}</span>, <span style="color:#fb923c">@milk{250%ml}</span> and <span style="color:#fb923c">@sea salt{1%pinch}</span>, and blitz until smooth.
+
+Pour into a <span style="color:#38bdf8">#bowl</span> and leave to stand for <span style="color:#4ade80">~{15%minutes}</span>.
+
+Melt the <span style="color:#fb923c">@butter{1%knob}</span> in a <span style="color:#38bdf8">#frying pan{}</span> and cook each pancake for <span style="color:#4ade80">~{2%minutes}</span> a side.</pre>
+        </div>
+        <div class="bg-white p-5 sm:p-6 text-left">
+          <div class="flex items-baseline justify-between mb-4">
+            <h3 class="text-xl font-bold text-cooklang-gray-900">Pancakes</h3>
+            <span class="text-xs text-cooklang-gray-500">2 servings</span>
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-cooklang-orange mb-2">Ingredients</p>
+          <ul class="mb-5 divide-y divide-cooklang-gray-100 text-sm">
+            <li class="flex justify-between py-1.5"><span>eggs</span><span class="text-cooklang-gray-500">3</span></li>
+            <li class="flex justify-between py-1.5"><span>plain flour</span><span class="text-cooklang-gray-500">125 g</span></li>
+            <li class="flex justify-between py-1.5"><span>milk</span><span class="text-cooklang-gray-500">250 ml</span></li>
+            <li class="flex justify-between py-1.5"><span>sea salt</span><span class="text-cooklang-gray-500">1 pinch</span></li>
+            <li class="flex justify-between py-1.5"><span>butter</span><span class="text-cooklang-gray-500">1 knob</span></li>
+          </ul>
+          <div class="grid grid-cols-2 gap-4 text-sm">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-sky-600 mb-2">Cookware</p>
+              <p class="text-cooklang-gray-700">blender · bowl · frying pan</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-green-700 mb-2">Timers</p>
+              <div class="flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1 rounded-full bg-green-50 text-green-800 px-2 py-0.5">⏱ 15 min</span>
+                <span class="inline-flex items-center gap-1 rounded-full bg-green-50 text-green-800 px-2 py-0.5">⏱ 2 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <p class="text-center text-cooklang-gray-600 mt-6">Every Cooklang app reads the same file. <a href="https://cooklang.github.io/cooklang-rs/?mode=render" class="text-cooklang-orange font-medium hover:underline">Try it in the Playground →</a></p>
     </div>
   </section>
 
