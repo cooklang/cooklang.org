@@ -28,10 +28,10 @@ When processed using apps, this recipe extracts ingredients while keeping the in
 
 Download the free **Cooklang App** from the [Google Play Store](https://play.google.com/store/apps/details?id=md.cook.android) or [Apple App Store](https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone). Open a recipe, scale it, start timers straight from the steps, and tick ingredients off a shopping list grouped by aisle.
 
-When you first open the app, choose where your recipes live. You can change it later in the app settings:
+When you first open the app, choose where your recipes live — on iOS and Android alike, and you can change it later in the app settings:
 
-- **iOS:** iCloud Drive (the app creates a `CooklangApp` folder there), a local folder on the phone (On My iPhone › CooklangApp), or Cook Cloud.
-- **Android:** the app's internal folder, any folder on the phone you pick, or Cook Cloud.
+- **A folder you pick** from the phone's file system. That can be a folder synced by iCloud Drive, Dropbox, Nextcloud or Syncthing.
+- **Cook Cloud**, our hosted sync.
 
 Want the same recipes on your computer too? See [Sync across devices](#sync-across-devices).
 {{% /for %}}
@@ -78,12 +78,11 @@ Syntax highlighting makes writing recipes easier. Pick the editor you like:
 {{% for "sync" %}}
 ## Sync across devices
 
-Recipes are plain files, so anything that syncs a folder can sync your recipes. There are two routes.
+Recipes are plain files, so anything that syncs a folder can sync your recipes. Both the iOS and Android apps give you the same two options.
 
-### Free: the storage you already use
+### Free: a folder you already sync
 
-- **iPhone, iPad and Mac:** keep recipes in iCloud Drive. The iOS app reads the `CooklangApp` folder, and your Mac sees the same folder in Finder.
-- **Android, or a mix of devices:** point the Android app at a folder and keep it in sync with a folder-sync tool such as [Syncthing](https://syncthing.net/). On a computer, Dropbox, Nextcloud, Git or any similar tool works too, because every Cooklang tool just reads the folder.
+In the app, pick a folder from the phone's file system as your recipe storage. Make it a folder kept in sync by a service you already use — iCloud Drive, Dropbox, Nextcloud or [Syncthing](https://syncthing.net/) — and the same folder on your computer works with the Cook Editor, CookCLI and every other Cooklang tool.
 
 ### Cook Cloud: one setup on every device
 
