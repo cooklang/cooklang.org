@@ -86,7 +86,7 @@ In the app, pick a folder from the phone's file system as your recipe storage. M
 
 ### Cook Cloud: one setup on every device
 
-Cook Cloud keeps one folder of `.cook` files in sync across macOS, Windows, Linux, iOS and Android, with no third-party cloud to set up. Install the [Cook Sync Agent](https://cook.md/download) on your computer, point it at your recipes folder, and sign in to the same account in the apps. Sync is part of Cook Basic (€4.99/month); accounts created before the paywall keep syncing free. [Compare plans](https://cook.md/pricing).
+Cook Cloud keeps one folder of `.cook` files in sync across macOS, Windows, Linux, iOS and Android, with no third-party cloud to set up. Install the [Cook Sync Agent](https://cook.md/download) on your computer, point it at your recipes folder, and sign in to the same account in the apps. Sync is part of Cook Basic (€4.99/month); accounts created before the paywall keep syncing free. The subscription pays for the servers and for the time that keeps everything else — the apps, the Cook Editor, CookCLI and the language itself — free. [Compare plans](https://cook.md/pricing).
 {{% /for %}}
 
 {{% for "write,plan" %}}
