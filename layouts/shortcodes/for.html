@@ -1,0 +1,8 @@
+{{- /* Wraps guide content for the Getting Started navigator (see gs-chooser).
+     Use with % delimiters so the inner markdown stays part of the page and
+     headings keep their normal ids: {{% for "phone,sync" %}} … {{% /for %}} */ -}}
+<div class="gs-block" data-for="{{ replace (.Get 0) "," " " }}">
+
+{{ .Inner }}
+
+</div>

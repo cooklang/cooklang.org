@@ -1,0 +1,106 @@
+{{- /* Getting Started navigator: pill toggles that filter the page's
+     {{% for %}} blocks. Hidden until JS runs, so without JS the whole
+     guide shows. Selection lives in ?for= (wins) and localStorage. */ -}}
+{{- $paths := slice
+  (dict "id" "phone" "label" "📱 Cook from my phone")
+  (dict "id" "sync" "label" "🔄 Sync phone ↔ computer")
+  (dict "id" "import" "label" "📥 Import recipes I already have")
+  (dict "id" "write" "label" "✍️ Write recipes myself")
+  (dict "id" "plan" "label" "🗓 Plan meals & shopping lists")
+  (dict "id" "selfhost" "label" "🖥 Self-host a recipe server")
+  (dict "id" "cli" "label" "⌨️ Command line & automation")
+  (dict "id" "ai" "label" "🤖 Use with AI tools")
+  (dict "id" "notes" "label" "📝 Keep recipes in Obsidian")
+  (dict "id" "dev" "label" "🧑‍💻 Build on the format")
+-}}
+<div id="gs-chooser" class="not-prose my-8 rounded-xl border-2 border-cooklang-orange/30 bg-cooklang-orange/5 p-5 sm:p-6" hidden>
+  <p class="text-xs font-semibold uppercase tracking-wider text-cooklang-orange mb-2">Tailor this guide</p>
+  <p class="text-xl font-bold text-cooklang-gray-900 mb-4">What do you want to do?</p>
+  <div class="flex flex-wrap gap-2" role="group" aria-label="Filter the guide by what you want to do">
+    {{- range $paths }}
+    <button type="button" class="gs-toggle" data-tag="{{ .id }}" aria-pressed="false">{{ .label }}</button>
+    {{- end }}
+  </div>
+  <p class="text-sm text-cooklang-gray-600 mt-4" aria-live="polite">
+    <span id="gs-status">Showing everything</span>
+    <button type="button" id="gs-reset" class="ml-2 text-cooklang-orange font-medium hover:underline" hidden>Show everything</button>
+  </p>
+</div>
+<style>
+  .gs-toggle { border: 1px solid #ced4da; border-radius: 9999px; padding: .375rem .875rem; font-size: .875rem; line-height: 1.25rem; background: #fff; color: #343a40; cursor: pointer; transition: background-color .15s, border-color .15s, color .15s; }
+  .gs-toggle:hover { border-color: #E15A29; }
+  .gs-toggle[aria-pressed="true"] { background: #E15A29; border-color: #E15A29; color: #fff; }
+  .gs-toggle:focus-visible { outline: 2px solid #E15A29; outline-offset: 2px; }
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var root = document.getElementById('gs-chooser');
+  if (!root) return;
+  var buttons = Array.prototype.slice.call(root.querySelectorAll('[data-tag]'));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.gs-block'));
+  var status = document.getElementById('gs-status');
+  var reset = document.getElementById('gs-reset');
+  var known = buttons.map(function (b) { return b.dataset.tag; });
+  var KEY = 'gs-for';
+  var timer;
+
+  // Keep only known tags, in button order, so links are stable.
+  function clean(tags) {
+    return known.filter(function (t) { return tags.indexOf(t) !== -1; });
+  }
+  function initial() {
+    var q = new URLSearchParams(location.search).get('for');
+    if (q !== null) return clean(q.split(','));
+    try { return clean((localStorage.getItem(KEY) || '').split(',')); } catch (e) { return []; }
+  }
+  function hiddenByFilter(el, sel) {
+    var block = el && el.closest('.gs-block');
+    if (!block || !sel.length) return false;
+    return !block.dataset.for.split(' ').some(function (t) { return sel.indexOf(t) !== -1; });
+  }
+
+  var sel = initial();
+
+  function apply(track) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', sel.indexOf(b.dataset.tag) !== -1); });
+    blocks.forEach(function (el) { el.hidden = hiddenByFilter(el, sel); });
+    status.textContent = sel.length ? 'Showing ' + sel.length + ' of ' + known.length + ' use cases' : 'Showing everything';
+    reset.hidden = !sel.length;
+    var url = new URL(location.href);
+    if (sel.length) url.searchParams.set('for', sel.join(',')); else url.searchParams.delete('for');
+    history.replaceState(history.state, '', url);
+    try { sel.length ? localStorage.setItem(KEY, sel.join(',')) : localStorage.removeItem(KEY); } catch (e) {}
+    if (track) {
+      clearTimeout(timer);
+      if (sel.length) timer = setTimeout(function () {
+        if (window.plausible) window.plausible('Getting Started Path', { props: { for: sel.slice().sort().join(',') } });
+      }, 3000);
+    }
+  }
+
+  // A link into a section the filter hides clears the filter so the target shows.
+  function revealHash() {
+    if (!location.hash) return;
+    var target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (target && hiddenByFilter(target, sel)) {
+      sel = [];
+      apply(false);
+      target.scrollIntoView();
+    }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () {
+      var tag = b.dataset.tag;
+      sel = sel.indexOf(tag) !== -1 ? sel.filter(function (t) { return t !== tag; }) : clean(sel.concat(tag));
+      apply(true);
+    });
+  });
+  reset.addEventListener('click', function () { sel = []; apply(true); });
+  window.addEventListener('hashchange', revealHash);
+
+  root.hidden = false;
+  apply(false);
+  revealHash();
+});
+</script>
