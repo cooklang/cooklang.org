@@ -163,7 +163,7 @@ crontab -e
 
 Edit anywhere Git works, push, and the Pi is current within 15 minutes. `cook server` picks up file changes without a restart.
 
-**Cook Cloud.** CookCLI can sync the folder itself. Sign in once on the Pi and the running server keeps `~/recipes` in step with the mobile app and Cook Editor:
+**Cook Cloud.** CookCLI can sync the folder itself; Cook Cloud sync is part of Cook Basic ([plans](https://cook.md/pricing)). Sign in once on the Pi and the running server keeps `~/recipes` in step with the mobile app and Cook Editor:
 
 ```bash
 sudo -u pi cook login        # prints a code and a cook.md URL; approve it in any browser
