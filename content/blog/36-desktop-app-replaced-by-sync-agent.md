@@ -7,6 +7,8 @@ description: "Why we replaced the Cooklang desktop app with a lightweight sync a
 categories: ["Self-Hosting and Integrations"]
 ---
 
+*Update (2026-10-01): Cook Cloud sync is part of Cook Basic, €4.99/mo ([plans](https://cook.md/pricing)); accounts from before the paywall sync free.*
+
 The Cooklang desktop app is no more. We've replaced it with something better: a lightweight sync agent that does exactly one thing — keeps your recipe folder in sync between your computer and your phone.
 
 ## Why the Change
