@@ -12,7 +12,7 @@
         <span class="inline-block bg-cooklang-orange/10 text-cooklang-orange text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full mb-6">Free &amp; open source · macOS, Linux, Windows</span>
         <h1 class="text-4xl md:text-6xl font-bold text-cooklang-gray-900 mb-6">CookCLI</h1>
         <p class="text-xl text-cooklang-gray-600 mb-8">
-          Your recipe folder, from the terminal. Shopping lists, a local web server, search, reports and a static website — all from plain <span class="font-mono text-base bg-gray-100 px-2 py-1 rounded">.cook</span> files, the UNIX way.
+          Your recipe folder, from the terminal. Shopping lists, a local web server, search, reports and a static website — all from plain <span class="font-mono text-base bg-gray-100 px-2 py-1 rounded-sm">.cook</span> files, the UNIX way.
         </p>
         <div class="rounded-lg bg-cooklang-dark text-gray-100 font-mono text-sm px-4 py-3 mb-4 flex items-center justify-between gap-4">
           <span><span style="color:#9ca3af">$</span> brew install cookcli</span>
@@ -67,7 +67,7 @@ Neapolitan Pizza.cook</pre>
           <span class="w-3 h-3 rounded-full" style="background:#ff5f57"></span>
           <span class="w-3 h-3 rounded-full" style="background:#febc2e"></span>
           <span class="w-3 h-3 rounded-full" style="background:#28c840"></span>
-          <span class="ml-3 flex-1 max-w-sm rounded bg-white text-xs text-cooklang-gray-500 font-mono px-3 py-1 truncate">localhost:9080/recipe/Neapolitan Pizza</span>
+          <span class="ml-3 flex-1 max-w-sm rounded-sm bg-white text-xs text-cooklang-gray-500 font-mono px-3 py-1 truncate">localhost:9080/recipe/Neapolitan Pizza</span>
         </div>
         <img src="/server/recipe-detail.png" alt="Neapolitan Pizza in the cook server web UI, with ingredients, cookware and numbered steps" width="2560" height="1800" loading="lazy" class="block w-full h-auto">
       </div>
@@ -96,9 +96,9 @@ Neapolitan Pizza.cook</pre>
       -}}
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
         {{- range $cards }}
-        <a href="{{ .link }}" class="group block rounded-xl border border-cooklang-gray-200 p-5 hover:border-cooklang-orange/50 hover:shadow-sm transition">
+        <a href="{{ .link }}" class="group block rounded-xl border border-cooklang-gray-200 p-5 hover:border-cooklang-orange/50 hover:shadow-xs transition">
           <h3 class="text-lg font-semibold text-cooklang-gray-900 group-hover:text-cooklang-orange mb-2">{{ .title }}</h3>
-          <div class="font-mono text-xs bg-cooklang-gray-50 text-cooklang-gray-700 rounded px-2 py-1 mb-3 truncate">$ {{ .cmd }}</div>
+          <div class="font-mono text-xs bg-cooklang-gray-50 text-cooklang-gray-700 rounded-sm px-2 py-1 mb-3 truncate">$ {{ .cmd }}</div>
           <p class="text-sm text-cooklang-gray-600">{{ .text }}</p>
         </a>
         {{- end }}
