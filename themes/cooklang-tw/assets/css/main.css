@@ -1,6 +1,107 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tailwind v4 content detection: scan the theme (auto), plus the site-level
+   layouts and content that live outside the theme directory. */
+@source "../../../../layouts";
+@source "../../../../content";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-cooklang-orange: #E15A29;
+  --color-cooklang-blue: #00AAFF;
+  --color-cooklang-dark: #212529;
+  --color-cooklang-gray-50: #f8f9fa;
+  --color-cooklang-gray-100: #e9ecef;
+  --color-cooklang-gray-200: #dee2e6;
+  --color-cooklang-gray-300: #ced4da;
+  --color-cooklang-gray-400: #adb5bd;
+  --color-cooklang-gray-500: #6c757d;
+  --color-cooklang-gray-600: #495057;
+  --color-cooklang-gray-700: #343a40;
+  --color-cooklang-gray-800: #212529;
+  --color-cooklang-gray-900: #161718;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-mono: 'JetBrains Mono', Monaco, monospace;
+}
+
+/* Tailwind v4 changed the default border color to currentcolor; keep v3's gray-200. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+/* @tailwindcss/typography overrides (previously tailwind.config.js `typography`).
+   Selectors mirror the plugin's own (:where() keeps specificity at .prose level) and
+   live in the same cascade layer so they override its defaults like before. */
+@layer utilities {
+  .prose {
+    color: var(--color-cooklang-gray-700);
+  }
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-cooklang-orange);
+  }
+  .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+    color: var(--color-cooklang-blue);
+  }
+  .prose :where(h1):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-cooklang-gray-900);
+  }
+  .prose :where(h2, h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-cooklang-gray-800);
+  }
+  .prose :where(h4):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-cooklang-gray-700);
+  }
+  .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    color: var(--color-cooklang-orange);
+    background-color: var(--color-orange-50);
+    padding: 0.25rem 0.375rem;
+    border-radius: 0.25rem;
+    font-weight: 400;
+  }
+  .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::before,
+  .prose :where(code):not(:where([class~="not-prose"], [class~="not-prose"] *))::after {
+    content: "";
+  }
+  .prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    background-color: var(--color-cooklang-gray-900);
+    color: var(--color-cooklang-gray-100);
+  }
+  /* The plugin resets inline-code styling inside code blocks; repeat it after our `code` override */
+  .prose :where(pre code):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    font-weight: inherit;
+    color: inherit;
+  }
+
+  /* Clickable heading anchors (Hugo render-heading hook). Must sit in this layer, after
+     the typography plugin, so `font-weight: inherit` beats the plugin's link weight. */
+  .header-anchor {
+    color: inherit !important;
+    text-decoration: none !important;
+    font-weight: inherit;
+  }
+  .header-anchor .anchor-icon {
+    margin-left: 0.4rem;
+    color: #E15A29;
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+  .header-anchor:hover .anchor-icon,
+  .header-anchor:focus-visible .anchor-icon {
+    opacity: 0.6;
+  }
+}
 
 @layer base {
   /* Allow both horizontal and vertical scrolling on the page */
@@ -9,23 +110,25 @@
     overflow-y: auto;
   }
   
-  /* Ensure code blocks have their own scrolling */
-  pre, .prose pre {
-    @apply overflow-x-auto;
-    max-width: 100%;
-    display: block;
-  }
-  
-  /* Ensure inline code wraps properly */
-  code:not(pre code), .prose code:not(pre code) {
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-  
   /* Fix for mobile Safari background */
   html {
     @apply bg-gray-50;
   }
+}
+
+/* Intentionally NOT in a cascade layer: prism.css is unlayered and, with Tailwind v4's
+   real cascade layers, would otherwise override these (it did not under v3). */
+/* Ensure code blocks have their own scrolling */
+pre, .prose pre {
+  @apply overflow-x-auto;
+  max-width: 100%;
+  display: block;
+}
+
+/* Ensure inline code wraps properly */
+code:not(pre code), .prose code:not(pre code) {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @layer base {
@@ -50,24 +153,5 @@
 
   .new-label {
     @apply text-xs font-semibold bg-green-500 text-white px-2 py-0.5 rounded-full ml-2 align-middle;
-  }
-
-  /* Clickable heading anchors (Hugo render-heading hook) */
-  .header-anchor {
-    color: inherit !important;
-    text-decoration: none !important;
-    font-weight: inherit;
-  }
-
-  .header-anchor .anchor-icon {
-    margin-left: 0.4rem;
-    color: #E15A29;
-    opacity: 0;
-    transition: opacity 0.15s ease-in-out;
-  }
-
-  .header-anchor:hover .anchor-icon,
-  .header-anchor:focus-visible .anchor-icon {
-    opacity: 0.6;
   }
 }

@@ -3,7 +3,7 @@
   <div class="container mx-auto px-4 py-8">
     <div class="flex gap-8">
       <!-- Sidebar -->
-      <aside class="hidden lg:block w-64 flex-shrink-0">
+      <aside class="hidden lg:block w-64 shrink-0">
         <nav class="sticky top-20">
           {{ $currentPage := . }}
           {{ $section := .Site.GetPage "section" "guides" }}
@@ -26,7 +26,7 @@
                   {{ range $members }}
                   <li>
                     <a href="{{ .RelPermalink }}"
-                       class="block py-1 px-2 text-sm rounded {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
+                       class="block py-1 px-2 text-sm rounded-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
                       {{ .Title }}
                     </a>
                   </li>
@@ -39,7 +39,7 @@
             {{ range $ungrouped }}
             <li>
               <a href="{{ .RelPermalink }}"
-                 class="block py-1 px-2 text-sm rounded {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
+                 class="block py-1 px-2 text-sm rounded-sm {{ if eq $currentPage.RelPermalink .RelPermalink }}bg-cooklang-orange text-white{{ else }}text-cooklang-gray-600 hover:text-cooklang-orange hover:bg-cooklang-gray-50{{ end }}">
                 {{ .Title }}
               </a>
             </li>
