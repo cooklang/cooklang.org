@@ -8,7 +8,7 @@ date: 2026-05-18T17:18:12+00:00
 
 Import recipes from websites and convert to Cooklang format.
 
-Requires the `OPENAI_API_KEY` environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with `--skip-conversion`. Alternatively, use the [cook.md converter](https://cooklang.org/docs/getting-started#build-your-recipe-collection).
+Requires the `OPENAI_API_KEY` environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with `--skip-conversion`. Alternatively, use the [cook.md converter](https://cook.md/cookifies/new) (Cook Basic).
 
 ## Usage
 
