@@ -1,25 +1,37 @@
-# Development
+# cooklang.org
 
-To start this website locally you will need to have Hugo installed. If you don’t already have Hugo installed please follow the official [installation guide](https://gohugo.io/getting-started/installing/).
+Source for [cooklang.org](https://cooklang.org): the Cooklang language docs, the CookCLI reference, guides and the blog. Built with [Hugo](https://gohugo.io) and Tailwind CSS.
 
-### Check Hugo version (Hugo 0.51+ Extended is required) 
+Fixes and new guides are welcome. Open a pull request against `main`.
 
-The site  uses [Hugo Pipes](https://gohugo.io/hugo-pipes/) to compile SCSS and minify assets. Please make sure you have the **Hugo Extended** version installed. If you are not using the extended version this theme will not not compile.
+## Run locally
 
-To check your version of Hugo, run:
+You need **Hugo extended** (CI uses 0.139.4) and **Node 20**.
 
-```
-hugo version
-```
+```sh
+# Build the CSS once (re-run after changing layouts or classes)
+cd themes/cooklang-tw
+npm ci
+npm run build-css      # or: npm run watch-css
+cd ../..
 
-This will output the currently installed version of Hugo. Make sure you see `/extended` after the version number, for example `Hugo Static Site Generator v0.51/extended darwin/amd64 BuildDate: unknown` You do not need to use version v0.51 specifically, you can use any version of Hugo above 0.51. It just needs to have the `/extended` part
-
-### Run Hugo
-
-For local development run Hugo’s built-in local server which will watch changes made and update the content in browser:
-
-```
 hugo server
 ```
 
-Now enter [`localhost:1313`](http://localhost:1313/)ess bar of your browser.
+Then open [localhost:1313](http://localhost:1313/).
+
+The built CSS (`themes/cooklang-tw/static/css/style.css`) is committed, so rebuild it whenever you change Tailwind classes in templates. Restart `hugo server` after editing templates.
+
+## Where things live
+
+| Path | Contents |
+|---|---|
+| `content/docs/` | Language docs and spec |
+| `content/cli/` | CookCLI reference |
+| `content/guides/` | How-to guides |
+| `content/blog/` | Blog posts |
+| `themes/cooklang-tw/` | Site theme: layouts, Tailwind config, CSS |
+
+## Deploy
+
+Every push to `main` builds the site and publishes it to the `gh-pages` branch (`.github/workflows/gh-pages.yml`). Pull requests get a build check (`pr-build.yml`).
