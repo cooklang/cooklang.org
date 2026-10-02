@@ -419,7 +419,7 @@ terms narrow the results&lt;/li>
 &lt;li>Results are ranked by relevance, best first: a file name matching the whole
 query outranks a recipe that merely mentions the terms&lt;/li>
 &lt;/ul></description></item><item><title>Import</title><link>https://cooklang.org/cli/commands/import/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/import/</guid><description>&lt;p>Import recipes from websites and convert to Cooklang format.&lt;/p>
-&lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cooklang.org/docs/getting-started#build-your-recipe-collection">cook.md converter&lt;/a>.&lt;/p>
+&lt;p>Requires the &lt;code>OPENAI_API_KEY&lt;/code> environment variable for conversion to Cooklang. Without the key, you can still download the original recipe content with &lt;code>--skip-conversion&lt;/code>. Alternatively, use the &lt;a href="https://cook.md/cookifies/new">cook.md converter&lt;/a> (Cook Basic).&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
  &lt;a href="#usage" class="header-anchor" aria-label="Link to this section: Usage">
  Usage&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
