@@ -26,6 +26,10 @@ Full reference for every command. Install options are on the [download page](dow
 | [update](commands/update) | `u` | Update CookCLI to the latest version |
 | [completions](commands/completions) | | Generate shell completion scripts |
 
+## Sync
+
+`cook login` signs CookCLI in to [Cook Cloud sync](https://cook.md/) (Cook Basic). While `cook server` runs, it keeps your recipe folder in step with the Cook mobile apps and Cook Editor. `cook logout` signs out.
+
 ## Reference
 
 | Page | Description |
