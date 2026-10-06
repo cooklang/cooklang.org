@@ -337,6 +337,30 @@ Melt the <span style="color:#fb923c">@butter{1%knob}</span> in a <span style="co
     </div>
   </section>
 
+  <!-- Testimonials: unprompted Reddit comments from data/testimonials.yaml, each
+       linked to the public original. -->
+  <section id="testimonials" class="py-16 bg-cooklang-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="inline-block bg-cooklang-orange/10 text-cooklang-orange text-sm font-semibold px-3 py-1 rounded-full mb-4">From Reddit</span>
+        <h2 class="text-3xl font-bold text-cooklang-gray-900">What people say, unprompted</h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {{ range .Site.Data.testimonials }}
+        <figure class="bg-white p-6 rounded-lg shadow-xs flex flex-col">
+          <blockquote class="text-lg text-cooklang-gray-900 leading-relaxed" cite="{{ .url }}">
+            &ldquo;{{ .quote }}&rdquo;
+          </blockquote>
+          <figcaption class="mt-auto pt-6 text-sm text-cooklang-gray-600">
+            u/{{ .author }} on r/{{ .subreddit }} &middot;
+            <a href="{{ .url }}" target="_blank" rel="nofollow noopener" class="text-cooklang-orange hover:underline">Read on Reddit →</a>
+          </figcaption>
+        </figure>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
   <!-- Newsletter Section -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">

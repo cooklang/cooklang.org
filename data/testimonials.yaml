@@ -1,0 +1,15 @@
+# Unprompted Reddit comments, quoted verbatim (trims marked with …) and linked
+# to the public original. Permission requests to the authors follow after
+# publishing (growth repo, 2026-10-06); drop a quote if its author objects.
+- quote: "You need cooklang - not notion. Changed my life. … Plus having files available locally and in simple formats is just better (future proof, at least)"
+  author: blankshee
+  subreddit: Notion
+  url: https://www.reddit.com/r/Notion/comments/1ul3ir5/import_a_pdf_cookbook_so_that_each_recipe_is/ov31ohu/
+- quote: "First of all, great work! I love the Cooklang ecosystem. Everything about it is amazing."
+  author: inigoochoa
+  subreddit: cooklang
+  url: https://www.reddit.com/r/cooklang/comments/1o15uxd/cookli_docker_image/
+- quote: "I've been using Cooklang self-hosted in my homelab, and I absolutely love it!"
+  author: jsbi
+  subreddit: cooklang
+  url: https://www.reddit.com/r/cooklang/comments/1refqg7/mobile_app_from_homelab/
