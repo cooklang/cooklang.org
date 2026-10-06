@@ -146,8 +146,7 @@ Manage recipes alongside your notes with the [Cooklang plugin for Obsidian](http
 ## Use with AI tools
 
 - **CookBot** in the [Cook Editor](/editor/) imports recipes and drafts meal plans from your own collection, with every change shown as a diff you approve. It comes with [Cook Pro](https://cook.md/pricing) (€12.99/month, 7-day free trial).
-- **Cooklang Skills:** if you use an AI coding assistant like Claude Code or Codex CLI, [Cooklang Skills](https://github.com/cooklang/cooklang-skills) let you create, convert, validate and organize recipes in natural language. Some skills work standalone; others work best with CookCLI installed.
-- **MCP:** the open-source [Cook MCP server](/guides/ai-agents/) lets Claude, Cursor, ChatGPT or any agent you already use read, check and plan with your recipe folder; Cook Cloud adds nutrition and photo import.
+- **Cooklang plugin for AI agents:** 14 skills plus the open-source Cook MCP server let Claude Code, Codex, Gemini CLI, Cursor, VS Code or any MCP client write, validate, search and plan with your recipe folder. See [Use Cooklang with Your AI Agent](/guides/ai-agents/). Cook Cloud adds nutrition and photo import.
 {{% /for %}}
 
 {{% for "cli,selfhost,plan" %}}
