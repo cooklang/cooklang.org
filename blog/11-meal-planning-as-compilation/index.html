@@ -94,7 +94,7 @@ WARNING: Week exceeds budget at ${{ &amp;#34;%.2f&amp;#34;|format(total_cost.val
 {% if protein &amp;lt; 20 %}
 WARNING: {{ meal.name }} lacks adequate protein ({{ protein }}g)
 {% endif %}
-{%- endfor %}</code></pre></div><p>The variety constraint becomes a simple validation:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2>{%- set proteins = [] %}
+{%- endfor %}</code></pre></div><p>(If you'd rather not write this one yourself, the <a href=https://plugins.cook.md/cooklang/corevitals>Core Vitals</a> plugin for <a href=/editor/>Cook Editor</a> checks a whole menu against daily nutrient targets. It uses the cook.md nutrition service, so it needs a Cook Basic plan.)</p><p>The variety constraint becomes a simple validation:</p><div class=code-toolbar><pre class=language-jinja2 data-language=jinja2><code class=language-jinja2>{%- set proteins = [] %}
 {%- for day in menu %}
 {%- set main_protein = extract_protein(day.dinner) %}
 {% if main_protein in proteins[-1:] %}
