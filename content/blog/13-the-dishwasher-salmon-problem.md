@@ -58,6 +58,6 @@ The Cooklang Federation represents the next step in this journey—moving from i
 
 Whether you're looking to discover new recipes or share your own culinary creations, the federation provides a platform that respects both creators and users. Join us in building a better way to share recipes.
 
-Start exploring at [recipes.cooklang.org](https://recipes.cooklang.org) or contribute your recipes at [github.com/cooklang/federation](https://github.com/cooklang/federation).
+Start exploring at [recipes.cooklang.org](https://recipes.cooklang.org) (or from [Cook Editor](/editor/) with the [Recipe Hub](https://plugins.cook.md/cooklang/recipe-hub) plugin) or contribute your recipes at [github.com/cooklang/federation](https://github.com/cooklang/federation).
 
 -Alex

@@ -88,7 +88,7 @@ The goal isn't to turn cooking into accounting. It's to remove the administrativ
 
 Start small. Pick one shelf, one category. Maybe just track your spices for a month. The initial inventory takes an hour. Updates take seconds. Most importantly, you need to update at the right moment - when you're putting groceries away, not when you're trying to cook dinner.
 
-The tools matter less than the practice. You can use Cooklang's pantry.conf, a spreadsheet, or a notebook. The key is making it a database - structured, searchable, updated.
+The tools matter less than the practice. You can use Cooklang's pantry.conf (the [Pantry](https://plugins.cook.md/cooklang/pantry) plugin for [Cook Editor](/editor/) gives it a proper view), a spreadsheet, or a notebook. The key is making it a database - structured, searchable, updated.
 
 The return on investment is immediate. The first prevented duplicate purchase pays for the time. The first rescued leftover justifies the system. The first perfectly stocked shopping trip validates the approach.
 
