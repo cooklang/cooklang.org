@@ -28,6 +28,19 @@ No configuration required. Open a `.cook` file and it works.
 
 If you also want diagnostics and completions, add the LSP on top (covered below).
 
+## Cook Editor
+
+If you'd rather have an editor built for recipes, [Cook Editor](/editor/) is a free, open-source desktop app (macOS, Windows, Linux) built on the same foundations as VS Code. It has Cooklang highlighting and the LSP built in, plus a live recipe preview, scaling, and menus for meal planning.
+
+It also runs plugins, which you install from its **Extensions** view or browse on [plugins.cook.md](https://plugins.cook.md):
+
+- **[Shopping List](https://plugins.cook.md/cooklang/shopping-list)** and **[Favourites](https://plugins.cook.md/cooklang/favourites)** ship with the editor.
+- **[Pantry](https://plugins.cook.md/cooklang/pantry)** shows and edits your `pantry.conf`: stock levels, what's running low, what expires soon.
+- **[Recipe Hub](https://plugins.cook.md/cooklang/recipe-hub)** searches [recipes.cooklang.org](https://recipes.cooklang.org) and saves results as `.cook` files.
+- **[Core Vitals](https://plugins.cook.md/cooklang/corevitals)**, **[Nutri-Score](https://plugins.cook.md/cooklang/nutriscore)** and **[Allergens](https://plugins.cook.md/cooklang/allergens)** check recipes and menus against nutrition data. They use the cook.md nutrition service, which needs a Cook Basic plan (custom allergen words work without one).
+
+Plugins are ordinary VS Code-style extensions with a small Cooklang API, so if one is missing you can [write it](https://cook.md/help/plugins/tutorial).
+
 ## Neovim
 
 Cooklang has a [tree-sitter grammar](https://github.com/addcninblue/tree-sitter-cooklang) that plugs into Neovim via `nvim-treesitter`. Add this to your config:
@@ -150,7 +163,7 @@ Useful for checking whether a particular syntax construct does what you expect b
 
 ## Which Editor Should You Use?
 
-The one you're already in. Cooklang tooling exists for all the major editors, so you don't need to switch. If you're a VS Code user, install the extension and move on. If you live in Neovim, set up tree-sitter and the LSP. If you're in Obsidian, the plugin handles everything.
+The one you're already in. Cooklang tooling exists for all the major editors, so you don't need to switch. If you're a VS Code user, install the extension and move on. If you live in Neovim, set up tree-sitter and the LSP. If you're in Obsidian, the plugin handles everything. If you want a recipe-first app, try [Cook Editor](/editor/).
 
 The format is plain text. The files stay on your disk. The editor is just a window into them.
 

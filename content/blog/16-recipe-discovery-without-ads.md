@@ -69,6 +69,6 @@ Recipe recommendation algorithms optimize for engagement, not for cooking. They 
 
 No recipe in the federation was written to game search rankings. No recipe was padded with filler to increase time on page. Every recipe exists because someone wanted to cook it and chose to share it.
 
-Browse the federation at [recipes.cooklang.org](https://recipes.cooklang.org) or contribute your recipes at [github.com/cooklang/federation](https://github.com/cooklang/federation).
+Browse the federation at [recipes.cooklang.org](https://recipes.cooklang.org), search it from inside [Cook Editor](/editor/) with the [Recipe Hub](https://plugins.cook.md/cooklang/recipe-hub) plugin, or contribute your recipes at [github.com/cooklang/federation](https://github.com/cooklang/federation).
 
 -Alex

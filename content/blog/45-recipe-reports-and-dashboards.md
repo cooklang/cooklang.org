@@ -249,4 +249,6 @@ Further reading:
 - [shopping workflow](/guides/shopping/) — how the pantry config and shopping workflow fits together
 - [pantry management](/guides/pantry/) — pantry configuration reference
 
+If you'd rather not run these from the command line, [Cook Editor](/editor/) renders the same templates with a live preview, and some come packaged as plugins: [Shopping List](https://plugins.cook.md/cooklang/shopping-list), [Pantry](https://plugins.cook.md/cooklang/pantry), and [Core Vitals](https://plugins.cook.md/cooklang/corevitals) for nutrient targets (the last needs a Cook Basic plan for nutrition data).
+
 -Alex

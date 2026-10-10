@@ -151,6 +151,8 @@ WARNING: {{ meal.name }} lacks adequate protein ({{ protein }}g)
 {%- endfor %}
 ```
 
+(If you'd rather not write this one yourself, the [Core Vitals](https://plugins.cook.md/cooklang/corevitals) plugin for [Cook Editor](/editor/) checks a whole menu against daily nutrient targets. It uses the cook.md nutrition service, so it needs a Cook Basic plan.)
+
 The variety constraint becomes a simple validation:
 
 ```jinja2

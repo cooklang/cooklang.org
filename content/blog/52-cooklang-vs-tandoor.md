@@ -65,7 +65,7 @@ Stir in @canned tomatoes{800%g} and @salt{=1%tsp}. Simmer for ~{20%minutes}.
 
 The `@`, `#`, and `~` annotations make ingredients, cookware, and timers machine-readable. The rest is normal English. The format takes ten minutes to learn.
 
-The "application" layer is composable. [CookCLI](/cli/) handles shopping lists, scaling, a local web UI, and shell-friendly output. [Mobile apps](/app/) read from your recipe folder. Editor plugins give you syntax highlighting. The [`.menu` format](/docs/spec/) handles meal planning at the file level.
+The "application" layer is composable. [CookCLI](/cli/) handles shopping lists, scaling, a local web UI, and shell-friendly output. [Mobile apps](/app/) read from your recipe folder. Editor plugins give you syntax highlighting, and [Cook Editor](/editor/) runs [plugins](https://plugins.cook.md) of its own. The [`.menu` format](/docs/spec/) handles meal planning at the file level.
 
 Cooklang deliberately does not have built-in nutrition tracking, meal cost calculation, or a permission system. Those things exist as separate concerns you wire together if you need them — or skip if you don't. The surface area is small on purpose.
 
@@ -79,7 +79,7 @@ Cooklang's philosophy is **do one thing well, compose the rest**. The format def
 
 Take nutrition as the concrete example. In Tandoor, you fill in nutrient values per ingredient (or import them from a database), and nutrition information appears across the app — on recipes, on meal plans, on shopping lists. It works because Tandoor's data model includes nutrition as a first-class field.
 
-In Cooklang, nutrition isn't built in. Your `.cook` files contain typed ingredients with quantities (`@spinach{200%g}`), which is the *data* a nutrition calculation needs. But the calculation itself is something you'd add: a script that reads the recipe, looks up nutrients from USDA FoodData Central or similar, and outputs the result. That gives you flexibility (use any database, any cooking-method modifiers, any output format) but costs you the integration Tandoor provides out of the box.
+In Cooklang, nutrition isn't built in. Your `.cook` files contain typed ingredients with quantities (`@spinach{200%g}`), which is the *data* a nutrition calculation needs. But the calculation itself is something you'd add: a script that reads the recipe, looks up nutrients from USDA FoodData Central or similar, and outputs the result. That gives you flexibility (use any database, any cooking-method modifiers, any output format) but costs you the integration Tandoor provides out of the box. The middle ground is a plugin: [Core Vitals](https://plugins.cook.md/cooklang/corevitals) and [Nutri-Score](https://plugins.cook.md/cooklang/nutriscore) for Cook Editor do that lookup through the hosted cook.md nutrition service (Cook Basic), and your recipes stay plain `.cook` files either way.
 
 Neither philosophy is wrong. Tandoor says "you should not have to wire anything up." Cooklang says "you should be able to wire things up your way." The right choice depends on whether you'd rather configure software or program around it.
 
