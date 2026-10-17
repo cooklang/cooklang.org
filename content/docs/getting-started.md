@@ -133,7 +133,7 @@ cook shopping-list "Plans/This Week.menu"
 
 The [Cook Editor](/editor/) renders `.menu` files as a week view with the combined shopping list built in, and the mobile apps add recipes to the shopping list with one tap. See the [meal planning guide](/guides/meal-planning/) for a full example.
 
-Want the week drafted for you? CookBot in the Cook Editor drafts a plan from your own recipes against a target like more protein or a smaller shop, and shows every change as a diff you approve. It's part of [Cook Pro](https://cook.md/pricing).
+Want the week drafted for you? CookBot in the Cook Editor drafts a plan from your own recipes against a target like more protein or a smaller shop, and lists every change in the chat, one click to undo. It's part of [Cook Pro](https://cook.md/pricing).
 {{% /for %}}
 
 {{% for "notes" %}}
@@ -145,7 +145,7 @@ Manage recipes alongside your notes with the [Cooklang plugin for Obsidian](http
 {{% for "ai" %}}
 ## Use with AI tools
 
-- **CookBot** in the [Cook Editor](/editor/) imports recipes and drafts meal plans from your own collection, with every change shown as a diff you approve. It comes with [Cook Pro](https://cook.md/pricing) (€12.99/month, 7-day free trial).
+- **CookBot** in the [Cook Editor](/editor/) imports recipes and drafts meal plans from your own collection; every change is listed in the chat, one click to undo. It comes with [Cook Pro](https://cook.md/pricing) (€12.99/month, 7-day free trial).
 - **Cooklang plugin for AI agents:** 14 skills plus the open-source Cook MCP server let Claude Code, Codex, Gemini CLI, Cursor, VS Code or any MCP client write, validate, search and plan with your recipe folder. See [Use Cooklang with Your AI Agent](/guides/ai-agents/). Cook Cloud adds nutrition and photo import.
 {{% /for %}}
 
