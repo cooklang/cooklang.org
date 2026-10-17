@@ -17,16 +17,35 @@ Fair warning: some of what follows requires a bit of custom scripting. This is f
 
 ## The Setup
 
-CookCLI's server runs at `http://kitchen.local:9080` (or whatever hostname and port you've configured). It exposes:
+CookCLI's server runs at `http://kitchen.local:9080` (or whatever hostname and port you've configured). It gives you:
 
-- A web UI for browsing recipes
-- A REST-accessible JSON format via `cook recipe --format json`
-- A shopping list generator via `cook shopping-list --format json`
-- A pantry tracker via `cook pantry expiring --format json`
+- A web UI for browsing recipes, with a shopping list and pantry page
+- A JSON API under `/api/` (the full list is at `/api-docs` on your server)
+- On the command line, JSON output from `cook recipe -f json`, `cook shopping-list -f json` and `cook pantry -f json expiring`
 
-Home Assistant can talk to all of this through REST sensors, `command_line` sensors, `shell_command` services, and iframe panels. No custom integration, no HACS dependency — just built-in HA capabilities wired to CookCLI's outputs.
+There are two ways to wire this into Home Assistant:
+
+1. **The [CookCLI integration](https://github.com/cooklang/homeassistant-cookcli)** from HACS. It talks to the server's API over HTTP, so it works when Home Assistant runs in a container or on HA OS, where you can't set up SSH. It gives you pantry sensors, a meal plan calendar, the shopping list as to-do lists, and actions for automations. Start here.
+2. **Plain HA YAML** — `command_line` sensors and `shell_command` services that SSH into the machine running CookCLI. More flexible, but it needs a Home Assistant install where you can put an SSH key, which rules out most container setups.
+
+The sections below use the integration where it covers the job, and YAML for the rest.
 
 The full stack: your `.cook` recipe files on a shared volume, CookCLI serving them, Home Assistant reading from CookCLI's outputs and driving smart devices based on that data.
+
+## Installing the Integration
+
+In HACS, open the three-dot menu → **Custom repositories**, add `https://github.com/cooklang/homeassistant-cookcli` as an **Integration**, install **CookCLI**, and restart Home Assistant. Then go to **Settings → Devices & Services → Add Integration → CookCLI** and enter your server's URL, e.g. `http://kitchen.local:9080`.
+
+You get these entities:
+
+| Entity | What it is |
+|---|---|
+| `todo.cookcli_shopping_list` | The recipes on CookCLI's shopping list |
+| `todo.cookcli_shopping_ingredients` | The ingredients to buy for them — scaled, with pantry stock subtracted |
+| `calendar.cookcli_meal_plan` | Your active `.menu` file as calendar events |
+| `sensor.cookcli_pantry_expiring` | Pantry items expiring within 7 days |
+| `sensor.cookcli_pantry_depleted` | Pantry items running low |
+| `sensor.cookcli_recipes` | Recipe count |
 
 ## Embedding the Recipe Server
 
@@ -53,10 +72,10 @@ This requires a small wrapper script on the machine running CookCLI. Create `/us
 # Read today's recipe from a menu file and output JSON
 RECIPE=$(cat /home/pi/recipes/menu/today.txt 2>/dev/null)
 if [ -z "$RECIPE" ]; then
-  echo '{"name": "No recipe planned", "servings": 0, "ingredients": []}'
+  echo '{"metadata": {"map": {"title": "No recipe planned"}}, "ingredients": [], "cookware": []}'
   exit 0
 fi
-cook recipe "/home/pi/recipes/${RECIPE}" --format json
+cook recipe "/home/pi/recipes/${RECIPE}" -f json
 ```
 
 Make it executable:
@@ -72,16 +91,16 @@ command_line:
   - sensor:
       name: "Today's Recipe"
       command: "ssh pi@kitchen.local /usr/local/bin/today-recipe.sh"
-      value_template: "{{ value_json.name }}"
+      value_template: "{{ value_json.metadata.map.title | default('Untitled') }}"
       json_attributes:
-        - servings
+        - metadata
         - ingredients
         - cookware
       scan_interval: 3600
       command_timeout: 15
 ```
 
-This polls the Pi over SSH once per hour (3600 seconds). The sensor's state becomes the recipe name. The attributes hold the full structured data: ingredient list, cookware, servings count.
+This polls the Pi over SSH once per hour (3600 seconds). The sensor's state becomes the recipe's title from its frontmatter. The attributes hold the full structured data: metadata (servings, tags, and so on), ingredient list, and cookware.
 
 To display it on your dashboard, add a Markdown card:
 
@@ -91,56 +110,55 @@ title: "Tonight's Dinner"
 content: >
   ## {{ states('sensor.today_s_recipe') }}
 
-  **Servings:** {{ state_attr('sensor.today_s_recipe', 'servings') }}
+  **Servings:** {{ state_attr('sensor.today_s_recipe', 'metadata').map.servings }}
 
   **Ingredients:**
   {% for ingredient in state_attr('sensor.today_s_recipe', 'ingredients') %}
-  - {{ ingredient.quantity }} {{ ingredient.units }} {{ ingredient.name }}
+  {%- set q = ingredient.quantity %}
+  - {% if q and q.value.type == 'number' and q.value.value.type == 'regular' %}{{ q.value.value.value }} {{ q.unit or '' }} {% endif %}{{ ingredient.name }}
   {% endfor %}
 ```
+
+Quantities in the JSON are structured rather than pre-formatted, which is why the template digs into `q.value.value.value`; it prints numbers as decimals (`1/2` shows as `0.5`) and leaves out ranges like `2-3`, showing just the ingredient name.
 
 The result is a live recipe card on your dashboard, driven by whatever you've put in `today.txt`. Change the file, wait for the next poll (or trigger a manual refresh), and the card updates.
 
 ## Shopping List Integration
 
-`cook shopping-list --format json` outputs a structured list of ingredients across multiple recipes. With a `shell_command` in Home Assistant, you can trigger this from the HA UI — or from an automation.
+CookCLI keeps one shopping list: you add recipes and menus to it from the web UI, and it works out the ingredients — combined across recipes, scaled, with what's in your pantry taken off. The integration puts that list in Home Assistant two ways.
 
-Add to `configuration.yaml`:
+**As its own to-do list.** `todo.cookcli_shopping_ingredients` shows the ingredients to buy, like `pasta (400 g)`. Ticking one off in Home Assistant ticks it off in CookCLI, and the other way round, so the HA app on your phone works as the shopping list in the store. Add it to a dashboard like any to-do list:
 
 ```yaml
-shell_command:
-  generate_shopping_list: >
-    ssh pi@kitchen.local
-    "cook shopping-list /home/pi/recipes/menu/*.cook --format json
-    > /tmp/shopping-list.json"
+type: todo-list
+entity: todo.cookcli_shopping_ingredients
 ```
 
-Then add a button to your dashboard that calls this service:
+**Copied into Home Assistant's Shopping List.** If you already keep groceries in HA's own Shopping List (or any other to-do list), the `cookcli.export_shopping_list` action copies the ingredients across. A button on the kitchen dashboard:
 
 ```yaml
 type: button
-name: "Generate Shopping List"
-icon: mdi:cart-outline
+name: "Send to shopping list"
+icon: mdi:cart-arrow-right
 tap_action:
-  action: call-service
-  service: shell_command.generate_shopping_list
+  action: perform-action
+  perform_action: cookcli.export_shopping_list
+  data:
+    entity_id: todo.shopping_list
 ```
 
-Tap the button before heading to the store and the JSON file gets written to `/tmp/shopping-list.json` on the Pi.
+It leaves out ingredients you've already ticked off in CookCLI, and ones already on the target list and not yet bought, so pressing it twice doesn't add everything twice. Set `include_quantities: false` if you'd rather have `pasta` than `pasta (400 g)`.
 
-To surface the list in Home Assistant itself, add another `command_line` sensor that reads the generated file:
+To fill the list from an automation — say, every Saturday morning from the recipes you've planned — use `cookcli.add_recipe_to_shopping_list`:
 
 ```yaml
-command_line:
-  - sensor:
-      name: "Shopping List Items"
-      command: "ssh pi@kitchen.local cat /tmp/shopping-list.json"
-      value_template: "{{ value_json | length }}"
-      json_attributes_path: "$"
-      scan_interval: 600
+action: cookcli.add_recipe_to_shopping_list
+data:
+  recipe: "Neapolitan Pizza.cook"
+  scale: 2
 ```
 
-Home Assistant also has a built-in todo list integration. With a bit of scripting, you can pipe the JSON output into HA's REST API to populate the native shopping list. This requires the [Long-Lived Access Token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) and a script on the Pi side, but it means your Cooklang-generated shopping list lands in the same place you'd normally check things off.
+No SSH, no scripts on the Pi, and it works the same when Home Assistant runs in a container.
 
 ## Smart Timers from Recipe Data
 
@@ -148,7 +166,7 @@ This is where the integration gets interesting. Cooklang recipes encode timer da
 
 The pattern: parse the recipe JSON, extract timer values, and fire a Home Assistant automation that starts a timer, shows a countdown on your kitchen display, and announces completion on a smart speaker.
 
-First, add a `command_line` sensor that extracts timers from today's recipe:
+First, add a `command_line` sensor that extracts timers from today's recipe. The recipe JSON has a top-level `timers` array; each entry has a `name` and a `quantity` (value and unit, such as `25` `minutes`):
 
 ```yaml
 command_line:
@@ -156,15 +174,11 @@ command_line:
       name: "Recipe Timers"
       command: >
         ssh pi@kitchen.local
-        "cook recipe $(cat /home/pi/recipes/menu/today.txt) --format json
-        | python3 -c \"
-        import json,sys
-        data=json.load(sys.stdin)
-        timers=[s for s in data.get('steps',[]) if s.get('type')=='timer']
-        print(json.dumps(timers))
-        \""
-      value_template: "{{ value_json | length }} timers"
-      json_attributes_path: "$"
+        "cook recipe \"/home/pi/recipes/\$(cat /home/pi/recipes/menu/today.txt)\" -f json
+        | python3 -c 'import json,sys; print(json.dumps({\"timers\": json.load(sys.stdin)[\"timers\"]}))'"
+      value_template: "{{ value_json.timers | length }} timers"
+      json_attributes:
+        - timers
       scan_interval: 3600
 ```
 
@@ -179,18 +193,17 @@ script:
         description: "Timer duration in minutes"
         example: 25
     sequence:
-      - service: timer.start
+      - action: timer.start
         target:
           entity_id: timer.kitchen_recipe_timer
         data:
           duration: "{{ duration_minutes * 60 }}"
-      - service: media_player.play_media
+      - action: tts.speak
         target:
-          entity_id: media_player.kitchen_speaker
+          entity_id: tts.home_assistant_cloud
         data:
-          media_content_type: music
-          media_content_id: "Timer started for {{ duration_minutes }} minutes"
-          announce: true
+          media_player_entity_id: media_player.kitchen_speaker
+          message: "Timer started for {{ duration_minutes }} minutes"
 ```
 
 Add the timer entity to `configuration.yaml`:
@@ -213,81 +226,90 @@ automation:
         event_data:
           entity_id: timer.kitchen_recipe_timer
     action:
-      - service: notify.kitchen_speaker
+      - action: tts.speak
+        target:
+          entity_id: tts.home_assistant_cloud
         data:
+          media_player_entity_id: media_player.kitchen_speaker
           message: "Kitchen timer is done!"
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.kitchen_light
         data:
           flash: short
 ```
 
+Swap `tts.home_assistant_cloud` for whichever text-to-speech entity you have (Piper, Google Translate, and so on).
+
 Flashing the kitchen lights when a timer finishes is genuinely useful if you walk away from the kitchen with noise-canceling headphones on. The recipe data drives the timer value; HA handles the notification.
 
 ## Pantry Alerts on the Dashboard
 
-`cook pantry expiring --format json` returns a list of items that will expire within the next seven days. Wire this to a `command_line` sensor and you get pantry alerts on your HA dashboard without any manual checking.
+The integration's `sensor.cookcli_pantry_expiring` counts the pantry items that expire within the next seven days, and lists them in its `items` attribute. Zero is good. Above zero means something needs attention.
+
+If you're on the YAML route instead, the command-line equivalent is below. Note that `--format` belongs to `cook pantry` itself, so it goes before `expiring`:
 
 ```yaml
 command_line:
   - sensor:
       name: "Expiring Pantry Items"
-      command: "ssh pi@kitchen.local cook pantry expiring --format json"
-      value_template: "{{ value_json | length }}"
-      json_attributes_path: "$"
+      command: "ssh pi@kitchen.local cook pantry -f json expiring"
+      value_template: "{{ value_json['items'] | length }}"
+      json_attributes:
+        - items
       scan_interval: 86400
       command_timeout: 10
 ```
 
-The sensor state is the count of expiring items. Zero is good. Above zero means something needs attention.
+The CLI's items carry `expire_date`, where the integration's carry `expire`; the card below uses the integration's names.
 
 Add a conditional card that only appears when the count is nonzero:
 
 ```yaml
 type: conditional
 conditions:
-  - entity: sensor.expiring_pantry_items
+  - entity: sensor.cookcli_pantry_expiring
     state_not: "0"
 card:
   type: markdown
   title: "Use These Soon"
   content: >
-    {% set items = state_attr('sensor.expiring_pantry_items', 'items') %}
+    {% set items = state_attr('sensor.cookcli_pantry_expiring', 'items') %}
     {% for item in items %}
-    - **{{ item.name }}** — expires {{ item.expires }}
+    - **{{ item.name }}** — expires {{ item.expire }}
     {% endfor %}
 ```
 
 The card disappears when the pantry is clear and reappears when something is about to expire. Clean dashboard behavior with no manual intervention.
 
-Pair this with an automation that sends a notification to your phone when the count goes above zero:
+Pair this with an automation that sends a notification to your phone each morning when something is expiring:
 
 ```yaml
 automation:
   - alias: "Pantry Expiry Alert"
     trigger:
-      - platform: numeric_state
-        entity_id: sensor.expiring_pantry_items
-        above: 0
+      - platform: time
+        at: "08:30:00"
     condition:
-      - condition: time
-        after: "08:00:00"
-        before: "10:00:00"
+      - condition: numeric_state
+        entity_id: sensor.cookcli_pantry_expiring
+        above: 0
     action:
-      - service: notify.mobile_app_your_phone
+      - action: notify.mobile_app_your_phone
         data:
           title: "Pantry reminder"
           message: >
-            {{ states('sensor.expiring_pantry_items') }} item(s) expiring soon.
+            {{ states('sensor.cookcli_pantry_expiring') }} item(s) expiring soon.
             Check the kitchen dashboard.
 ```
 
-This fires once per day during the morning window when the count crosses zero. You won't get spammed — the condition keeps it to the 8–10 AM window.
+This runs once a day at 8:30 and only notifies when there's something to use up, so you get at most one reminder a day.
 
 ## Meal Planning Display
 
-If you use Cooklang's `.menu` format for weekly meal plans, you can display the full week on an HA dashboard panel. A script on the Pi parses the menu file and outputs structured JSON:
+If you use Cooklang's `.menu` format for weekly meal plans, the integration's `calendar.cookcli_meal_plan` already shows them: set the active menu file when you add the integration, and give each section a date, like `== Monday (2026-03-09) ==`. Add a calendar card and the week's meals show up at their meal times.
+
+For a custom layout, a script on the Pi parses the menu file and outputs structured JSON:
 
 ```bash
 #!/bin/bash
@@ -323,15 +345,17 @@ A few directions worth exploring once the basics are working.
 
 **NFC tags on pantry items.** HA's mobile app supports NFC tag scanning. Stick a tag on a pantry item, tap your phone, trigger an automation that looks up the item in your pantry config and shows what recipes use it. Low-tech data input for the pantry.
 
-**Voice commands via Assist.** Home Assistant's built-in voice assistant (Assist) can call scripts and services. Set up an intent that calls `shell_command.generate_shopping_list` when you say "generate my shopping list." Requires a bit of intent configuration, but the infrastructure is already there.
+**Voice commands via Assist.** Home Assistant's built-in voice assistant (Assist) can call scripts and services. Set up a sentence trigger that calls `cookcli.export_shopping_list` when you say "send my recipes to the shopping list." Requires a bit of intent configuration, but the infrastructure is already there.
 
-**Recipe suggestions based on pantry.** Run `cook pantry recipes --format json` on a schedule. Feed the output to a sensor. Display the "can make now" list on your dashboard — a live view of what you can cook without going to the store. Combine this with an automation that pushes the list to your phone every Friday afternoon when you're figuring out the weekend.
+**Recipe suggestions based on pantry.** Run `cook pantry -f json recipes` on a schedule. Feed the output to a sensor. Display the "can make now" list on your dashboard — a live view of what you can cook without going to the store. Combine this with an automation that pushes the list to your phone every Friday afternoon when you're figuring out the weekend.
 
 ## An Honest Note
 
-The integrations in this post range from trivial (the iframe card) to genuinely involved (the pantry sensor with notifications). The SSH-based command approach works well on a local network but requires passwordless SSH configured between HA and the Pi, and error handling in the shell scripts if you want them to degrade gracefully.
+The integrations in this post range from trivial (the iframe card, the HACS integration) to genuinely involved (timers from recipe data). The SSH-based command approach works well on a local network but requires passwordless SSH configured between HA and the Pi — which you can't do on HA OS or most container installs — and error handling in the shell scripts if you want them to degrade gracefully.
 
-This is not plug-and-play. If you're comfortable with HA's YAML configuration, shell scripting, and SSH key management, none of it is difficult. If you're new to Home Assistant, start with the iframe card and the Webpage panel — that alone is useful — and add complexity incrementally.
+If you're new to Home Assistant, start with the iframe card and the HACS integration — that alone covers the shopping list, pantry, and meal plan — and add YAML incrementally for the rest.
+
+One limitation: if you've turned on sign-in for `cook server`, the integration can read but not change anything yet (adding recipes, ticking items off). API tokens for that are [planned](https://github.com/cooklang/cookcli/issues/763).
 
 The data model is what makes this work: Cooklang recipes are structured text, and `cook` can output that structure as JSON. Once the data is JSON, Home Assistant can consume it like any other sensor value. The tools do exactly what they're supposed to do, and the integration is mostly plumbing.
 
