@@ -36,12 +36,16 @@ Download the release binary for the Pi's architecture. Check which one you have 
 uname -m
 ```
 
+Release archives carry the version in their name (`cook-0.39.0-linux-aarch64-musl.tar.gz`), so look up the latest one first:
+
 ```bash
+VERSION=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/cooklang/cookcli/releases/latest | sed 's|.*/tag/v||')
+
 # aarch64 (64-bit OS, the default on Pi 3B+ and newer)
-curl -L https://github.com/cooklang/cookcli/releases/latest/download/cook-aarch64-unknown-linux-musl.tar.gz | tar xz
+curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-aarch64-musl.tar.gz" | tar xz
 
 # armv7l (32-bit OS)
-# curl -L https://github.com/cooklang/cookcli/releases/latest/download/cook-arm-unknown-linux-musleabihf.tar.gz | tar xz
+# curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-armhf-musl.tar.gz" | tar xz
 
 sudo install -m 755 cook /usr/local/bin/cook
 cook --version

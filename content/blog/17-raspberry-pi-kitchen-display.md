@@ -77,9 +77,11 @@ Pre-built ARM images are available for both Pi 4+ (aarch64) and Pi 3 (armv7), so
 Download the ARM binary from the [CookCLI releases page](https://github.com/cooklang/CookCLI/releases):
 
 ```bash
+# The archive name carries the version, so look up the latest one first
+VERSION=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/cooklang/cookcli/releases/latest | sed 's|.*/tag/v||')
+
 # For Pi 4/5 (64-bit)
-wget https://github.com/cooklang/CookCLI/releases/latest/download/cook-aarch64-unknown-linux-musl.tar.gz
-tar xzf cook-aarch64-unknown-linux-musl.tar.gz
+curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-aarch64-musl.tar.gz" | tar xz
 sudo mv cook /usr/local/bin/
 ```
 
