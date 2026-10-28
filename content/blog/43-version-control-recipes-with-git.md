@@ -197,8 +197,8 @@ jobs:
 
       - name: Install CookCLI
         run: |
-          curl -L https://github.com/cooklang/cookcli/releases/latest/download/cook-linux-amd64 -o cook
-          chmod +x cook
+          VERSION=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/cooklang/cookcli/releases/latest | sed 's|.*/tag/v||')
+          curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-x86_64-gnu.tar.gz" | tar xz
           sudo mv cook /usr/local/bin/
 
       - name: Validate all recipes
@@ -229,8 +229,8 @@ jobs:
 
       - name: Install CookCLI
         run: |
-          curl -L https://github.com/cooklang/cookcli/releases/latest/download/cook-linux-amd64 -o cook
-          chmod +x cook
+          VERSION=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/cooklang/cookcli/releases/latest | sed 's|.*/tag/v||')
+          curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-x86_64-gnu.tar.gz" | tar xz
           sudo mv cook /usr/local/bin/
 ```
 

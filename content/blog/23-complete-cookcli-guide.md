@@ -22,11 +22,12 @@ brew install cookcli
 **Linux and macOS binary** — download the latest release directly from GitHub:
 
 ```bash
-curl -L https://github.com/cooklang/CookCLI/releases/latest/download/cook-linux-amd64.tar.gz | tar xz
+VERSION=$(curl -sIL -o /dev/null -w '%{url_effective}' https://github.com/cooklang/cookcli/releases/latest | sed 's|.*/tag/v||')
+curl -L "https://github.com/cooklang/cookcli/releases/download/v$VERSION/cook-$VERSION-linux-x86_64-gnu.tar.gz" | tar xz
 sudo mv cook /usr/local/bin/
 ```
 
-Check the [releases page](https://github.com/cooklang/CookCLI/releases) for the right binary for your architecture.
+Archives are named `cook-<version>-<os>-<arch>[-<libc>]`: check the [releases page](https://github.com/cooklang/CookCLI/releases) for the right one for your system (`linux-aarch64-musl`, `macos-aarch64`, …).
 
 **Docker** — useful for trying it out without installing anything permanently:
 
