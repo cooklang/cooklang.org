@@ -184,7 +184,7 @@ The metadata lives in YAML frontmatter at the top of the file. Nothing breaks if
 
 ## Batch Migration Tips
 
-A few things that make a large migration easier:
+Moving a whole library from Paprika, Mela, Mealie or a similar app? [Batch import on cook.md](https://cook.md/imports/new?from=batch_import) converts the app's export file in one go (Cook Basic). If you are doing it yourself, a few things make a large migration easier:
 
 **Name files consistently.** Use lowercase, hyphens between words, no spaces: `garlic-pasta.cook`, `chicken-tikka-masala.cook`. File names become searchable, and consistent naming makes shell commands predictable.
 

@@ -44,7 +44,7 @@ Want the same recipes on your computer too? See [Sync across devices](#sync-acro
 ![Cook.md Demo](/guide/cookmd-demo.gif)
 
 - **Pasted text, cookbook photos, handwritten cards, YouTube and Instagram:** use the [converter on cook.md](https://cook.md/cookifies/new). Pasted text needs a free account; photos and social videos come with Cook Basic.
-- **Your whole library from Paprika, Mela, Mealie and other apps:** batch import with [Cook Basic](https://cook.md/pricing) brings everything across as `.cook` files.
+- **Your whole library from Paprika, Mela, Mealie and other apps:** [batch import with Cook Basic](https://cook.md/imports/new?from=batch_import) brings everything across as `.cook` files.
 - **From a script:** [`cook import`](/cli/commands/import/) in CookCLI.
 
 The [importing guide](/guides/importing-recipes/) walks through each method.

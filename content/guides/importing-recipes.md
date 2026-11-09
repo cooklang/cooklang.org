@@ -15,6 +15,7 @@ There are three ways to import, from quickest to most automated:
 | [Prefix the URL with `cook.md/`](#1-the-quick-way-prefix-any-url) | A recipe you found on the web right now | Nothing, not even an account |
 | [The converter page](#2-convert-text-photos-and-videos) | Pasted text, cookbook photos, handwritten cards, YouTube and Instagram | A free cook.md account for text; Cook Basic for photos and social video |
 | [`cook import`](#3-import-from-the-command-line) | Scripts and bulk imports | CookCLI and an OpenAI API key |
+| [Batch import on cook.md](https://cook.md/imports/new?from=batch_import) | A whole library from Paprika, Mela, Mealie and seven other apps | Cook Basic |
 
 ## 1. The quick way: prefix any URL
 
