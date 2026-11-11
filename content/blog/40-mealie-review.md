@@ -124,9 +124,11 @@ Serve immediately with extra cheese and pepper.
 
 No server required. No database. Any text editor opens it. You can sync it with iCloud, Dropbox, or Git. The [CookCLI](/cli/) generates shopping lists, runs a local recipe server ([self-hostable with Docker](/blog/21-self-hosting-recipes-with-docker/) if you want it always-on), and handles imports. There are [native mobile apps](/app/) for iOS and Android.
 
-The trade-offs are real. No built-in web scraping with a GUI. No multi-user dashboard. No drag-and-drop meal planner. If those features matter to you, Mealie has them and Cooklang doesn't.
+The trade-offs are real. Web import runs through a hosted converter ([Cookify](https://cook.md/cookifies/new)) or the CLI, not a scraper inside your own server. No multi-user dashboard. No drag-and-drop meal planner. If those features matter to you, Mealie has them and Cooklang doesn't.
 
 But if your priority is data ownership, long-term portability, and a system that works without running infrastructure — plain text files that you control forever — that's the trade-off Cooklang makes.
+
+If you already have a library in Mealie and want it as text files, [batch import on cook.md](https://cook.md/imports/new?from=batch_import) converts Mealie's ZIP export into `.cook` files in one go. It is a paid feature, part of Cook Basic.
 
 These are different philosophies, not a ranking. Mealie is excellent at what it does. So is Cooklang. The question is what you're actually trying to build.
 
