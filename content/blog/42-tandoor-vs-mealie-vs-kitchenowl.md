@@ -136,7 +136,9 @@ If you are a developer and you want control over your recipe data, there is a di
 
 Cooklang is a markup language for recipes. You write `.cook` files in any text editor, store them wherever you like — a Git repository, iCloud, Dropbox — and use [CookCLI](/cli/) for shopping lists, scaling, and a local web server. No database, no server, no Docker container to maintain. (Though if you *want* a browsable server for your household, [self-hosting your recipes with Docker and CookCLI](/blog/21-self-hosting-recipes-with-docker/) takes minutes.) In the kitchen, the free [Cook recipe app](/app/) for iPhone and Android reads the same files — with shopping lists and a step-by-step cooking mode.
 
-The trade-off is real: no GUI recipe import, no multi-user dashboard, no polished web interface for non-technical household members. But your recipes are text files. They open in any editor, diff cleanly in Git, survive any app going offline, and never require a migration.
+The trade-off is real: no multi-user dashboard, no polished web interface for non-technical household members. But your recipes are text files. They open in any editor, diff cleanly in Git, survive any app going offline, and never require a migration.
+
+Already have a library in Mealie or Tandoor? [Batch import on cook.md](https://cook.md/imports/new?from=batch_import) converts either app's ZIP export into `.cook` files in one go. It is a paid feature, part of Cook Basic; converting recipes one at a time from a link stays free.
 
 For a broader comparison that includes Cooklang alongside Mealie, KitchenOwl, and Paprika, see the [full recipe manager comparison](/blog/09-cooklang-vs-paprika-vs-mealie/). If Cooklang's approach sounds interesting, the [getting started guide](/docs/getting-started/) is a five-minute read.
 
