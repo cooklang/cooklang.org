@@ -90,7 +90,7 @@ Here's an honest look at the main options.
 - Heavier resource requirements
 - The licence is AGPL v3 with a clause that restricts selling it, so it is not open source in the strict sense
 
-If you'd rather not run it yourself, tandoor.dev also sells hosted plans, from €1.99 a month.
+If you'd rather not run it yourself, the project also offers a hosted version with paid plans from €1.99 a month; its README says hosting is currently only available in Germany.
 
 **Best for:** People who want nutritional tracking alongside recipe management, advanced self-hosters who want maximum features.
 
