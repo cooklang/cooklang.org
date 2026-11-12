@@ -36,6 +36,8 @@ I practice what I preach—my own recipes live in a [public GitHub repository](h
 
 What started as developer convenience turned into something joyful—meal planning is no longer a chore, it's a creative act. Cooklang emerged from necessity, yes—but now fuels creativity and clarity in the kitchen.
 
+The longer version, from a budgeting app I gave up on to the launch and what came after, is in [Ode to Plain Text](/blog/53-ode-to-plain-text/).
+
 ## Support Cooklang
 
 ☕ **Like Cooklang? Buy me a coffee.**
