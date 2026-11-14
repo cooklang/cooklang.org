@@ -3,16 +3,17 @@ title: 'Importing Recipes'
 weight: 5
 description: 'Bring recipes in from websites, pasted text, photos and social videos, and save them as .cook files you own.'
 group: everyday
-tools: [cook.md converter, CookCLI, Cook Editor]
+tools: [cook.md converter, Recipe Clipper, CookCLI, Cook Editor]
 ---
 
 Most people's recipes are scattered across browser bookmarks, screenshots, a cookbook shelf and a family group chat. Bookmarks rot, screenshots cannot be searched, and copied text loses its structure. Importing turns each of those into a `.cook` file: plain text, with the ingredients, quantities and timers marked up, that works in every Cooklang app and is yours to keep.
 
-There are three ways to import, from quickest to most automated:
+There are several ways to import, from quickest to most automated:
 
 | Method | Best for | Needs |
 |--------|----------|-------|
 | [Prefix the URL with `cook.md/`](#1-the-quick-way-prefix-any-url) | A recipe you found on the web right now | Nothing, not even an account |
+| [The Recipe Clipper browser extension](#from-the-page-itself-the-browser-extension) | Recipes you clip often, and sites that block the converter | Chrome or Firefox on a computer; no account |
 | [The converter page](#2-convert-text-photos-and-videos) | Pasted text, cookbook photos, handwritten cards, YouTube and Instagram | A free cook.md account for text; Cook Basic for photos and social video |
 | [`cook import`](#3-import-from-the-command-line) | Scripts and bulk imports | CookCLI and an OpenAI API key |
 | [Batch import on cook.md](https://cook.md/imports/new?from=batch_import) | A whole library from Paprika, Mela, Mealie and seven other apps | Cook Basic |
@@ -30,6 +31,12 @@ https://cook.md/https://www.bbcgoodfood.com/recipes/chicken-bacon-pasta
 A few seconds later you get the recipe as Cooklang, with a **Download .cook** button. Recipe-site conversions are free, unlimited and need no sign-up. The converter reads the structured recipe data that most cooking sites publish, so it works on the large majority of them; if a page has no recipe markup, paste the text instead (step 2).
 
 Save the file into your recipe folder and it shows up in the [mobile app](/app/), the [Cook Editor](/editor/) and `cook server` on the next sync.
+
+### From the page itself: the browser extension
+
+If you would rather click a button than edit the address, install the Recipe Clipper for [Chrome](https://chromewebstore.google.com/detail/cooklang-recipe-clipper/fhiaocccadoipnppejkbaibbcoonehlo?utm_source=cooklang.org&utm_medium=guide_importing) or [Firefox](https://addons.mozilla.org/addon/cooklang-recipe-clipper/?utm_source=cooklang.org&utm_medium=guide_importing). Open a recipe, click the toolbar button, and the popup shows the recipe it found on the page: title, times, servings, ingredients and steps. One more click converts it and saves a `.cook` file to your Downloads folder.
+
+The extension reads the page you already have open, so it also works on sites that block the converter and on pages you have to be signed in to read. If a page has no recipe data, you can convert the text you select instead. It works without an account at one clip a minute; signing in for free removes the wait. Nothing is sent anywhere until you click convert, and the [source is on GitHub](https://github.com/cook-md/recipe-clipper).
 
 ## 2. Convert text, photos and videos
 
