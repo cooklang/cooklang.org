@@ -1,0 +1,14 @@
+{{- /* QR code to the mobile app, for visitors reading on a computer. Hidden on
+     small screens, where the visitor already holds the phone and has the badges.
+     Scanning opens cook.md/get-app, which sends the phone to its own store and
+     counts the scan (the `from` value in the link names the page).
+     The codes are static files: static/app/qr-home.svg and qr-app.svg. If the
+     link changes, regenerate them; the link is not written anywhere else.
+     Params: file (required), title, text, class (wrapper), dark (on the orange band). */ -}}
+<div class="hidden md:flex items-center gap-4 {{ .class }}">
+  <img src="/app/{{ .file }}" alt="QR code to get the Cook app" width="96" height="96" loading="lazy" class="w-24 h-24 rounded-lg ring-1 ring-cooklang-gray-200 shrink-0">
+  <p class="text-sm text-left {{ if .dark }}text-white/90{{ else }}text-cooklang-gray-600{{ end }}">
+    <strong class="block {{ if .dark }}text-white{{ else }}text-cooklang-gray-900{{ end }}">{{ .title | default "Reading this on a computer?" }}</strong>
+    {{ .text | default "Point your phone camera here to get the app." }}
+  </p>
+</div>
