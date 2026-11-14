@@ -16,10 +16,11 @@
       <p class="text-xl text-cooklang-gray-600 mb-8 max-w-2xl mx-auto">
         Cook from plain-text Cooklang recipes you own. Step-by-step cooking, timers, and shopping lists grouped by aisle — offline, no account needed.
       </p>
-      <div class="flex flex-wrap gap-4 justify-center mb-12">
+      <div class="flex flex-wrap gap-4 justify-center mb-12 md:mb-6">
         <a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone"><img src="/app-store-badge.png" alt="Download on the App Store" width="394" height="129" class="h-12 w-auto"></a>
         <a href="https://play.google.com/store/apps/details?id=md.cook.android"><img src="/google-play-badge.png" alt="Get it on Google Play" width="394" height="128" class="h-12 w-auto"></a>
       </div>
+      {{ partial "app-qr.html" (dict "file" "qr-app.svg" "class" "justify-center mb-12") }}
       <div class="flex justify-center items-end gap-3 sm:gap-6">
         <picture class="hidden sm:block w-40 md:w-48 rounded-3xl overflow-hidden shadow-xl ring-1 ring-cooklang-gray-200 bg-white">
           <source type="image/webp" srcset="/app/01-cookbooks-list.webp">
@@ -176,6 +177,7 @@ Bake for <span style="color:#4ade80">~{25%minutes}</span>.</pre>
         <a href="https://apps.apple.com/us/app/cooklangapp/id1598799259#?platform=iphone"><img src="/app-store-badge.png" alt="Download on the App Store" width="394" height="129" loading="lazy" class="h-12 w-auto"></a>
         <a href="https://play.google.com/store/apps/details?id=md.cook.android"><img src="/google-play-badge.png" alt="Get it on Google Play" width="394" height="128" loading="lazy" class="h-12 w-auto"></a>
       </div>
+      {{ partial "app-qr.html" (dict "file" "qr-app.svg" "class" "justify-center mt-8" "dark" true) }}
     </div>
   </section>
 </div>
