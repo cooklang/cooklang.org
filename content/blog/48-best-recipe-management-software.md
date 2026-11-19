@@ -1,6 +1,7 @@
 ---
 title: "Best Recipe Management Software in 2026: 9 Apps Tested & Compared"
 date: 2026-06-18
+lastmod: 2026-11-19
 weight: 46
 summary: "A practical guide to the best recipe management software in 2026 — from polished commercial apps like Paprika to self-hosted tools like Mealie to plain-text approaches like Cooklang. Honest about trade-offs."
 description: "The best recipe management software in 2026, compared honestly: Paprika, Mealie, Tandoor, KitchenOwl, Cooklang and more — free, paid, and self-hosted. Find your fit."
@@ -33,27 +34,27 @@ Before evaluating any specific app, it helps to know what questions to ask.
 
 ### Cloud and Commercial Apps
 
-**Paprika** is the benchmark for polished commercial recipe management software. It scrapes recipes from any URL reliably, handles scaling cleanly, generates shopping lists, works completely offline, and has native apps on iOS, Android, macOS, and Windows. The one-time purchase ($4.99 mobile, $29.99 desktop) is reasonable. The catch is per-platform pricing — phone, tablet, and desktop together costs around $40. Your recipes also live in Paprika's format. Export exists but migration is not seamless.
+**Paprika** is the benchmark for polished commercial recipe management software. It saves recipes from websites reliably, generates shopping lists, has a meal planner and a pantry, works offline, and has native apps on iOS, Android, macOS, and Windows. The pricing changed with Paprika 4, out since November 2026. It used to be a separate one-time purchase per platform. Now the app is free to download and free to use with up to 50 recipes and no sync; beyond that there is a Premium subscription, and one subscription covers all your devices. If you bought an earlier version you get the standard tier free, with unlimited recipes and sync. Your recipes live in Paprika's library. It exports HTML and its own `.paprikarecipes` format, so migration is possible but not seamless.
 
 If you want something that works immediately without any configuration and you are not particularly worried about data ownership, Paprika is hard to argue with. It earns its reputation. For a direct head-to-head with the plain-text plus AI-meal-planning approach, see [Paprika vs Cook](https://cook.md/blog/paprika-vs-cook).
 
-**Whisk** is a free recipe management app that handles URL import and basic meal planning. The UI is modern and the mobile experience is decent. It is owned by Samsung, which tells you something about the business model. Not a bad choice for casual use; not a choice I'd make for a recipe collection I care about — more on that trade-off in [Samsung Food (Whisk) vs Cook: what happens to your data](https://cook.md/blog/samsung-food-vs-cook).
+**Samsung Food** (formerly Whisk) is a recipe app that handles URL import and meal planning. It is free, with a paid Food+ tier. The UI is modern and the mobile experience is decent. Samsung bought Whisk in 2019 and relaunched it under its own name in 2023, which tells you something about the business model. Not a bad choice for casual use; not a choice I'd make for a recipe collection I care about — more on that trade-off in [Samsung Food (Whisk) vs Cook: what happens to your data](https://cook.md/blog/samsung-food-vs-cook).
 
-**CopyMeThat** focuses on clipping recipes from the web. Does that one thing well. Less useful once you want meal planning or shopping list generation.
+**CopyMeThat** started as a web clipper and is still best at that. It also has a shopping list and a meal planner. It is free up to 40 recipes, then $1 a month, and it needs an internet connection.
 
-**AnyList** positions itself as a shared grocery list app that also handles recipes. If the household grocery list is the primary use case, it is worth a look. If recipes are the primary use case, you will find it limited.
+**AnyList** positions itself as a shared grocery list app that also handles recipes. If the household grocery list is the primary use case, it is worth a look. The free version covers lists and stored recipes. The meal-planning calendar, recipe scaling and the Mac and web apps need AnyList Complete, at $9.99 a year for one person or $14.99 for a household. If recipes are the primary use case, you will find it limited.
 
 ### Self-Hosted Web Apps
 
 This category has grown significantly. If you are comfortable with Docker and want to run your own recipe management system, you have real options.
 
-**Mealie** is the most popular self-hosted recipe manager, and the popularity is deserved. The UI is polished — recipe cards, a cooking mode that dims everything but the current step, a calendar-based meal planner. Web scraping works reliably on most major cooking sites. Multi-user support with household groups is solid. The API is well-documented and people use it to integrate with Home Assistant, pull data into dashboards, and automate around their recipe collection.
+**Mealie** is the most popular self-hosted recipe manager, and the popularity is deserved. The UI is polished — recipe cards, a cook mode that puts each step next to its ingredients, a calendar-based meal planner. Web scraping works reliably on most major cooking sites. Multi-user support with households is solid. The API is well-documented, Home Assistant ships an integration for it, and people use it to pull data into dashboards and automate around their recipe collection.
 
-The limitations are real. Your recipes live in a database inside a Docker volume. You cannot grep your collection. You cannot put a single recipe in Git. Offline access requires your server to be reachable. Schema migrations during updates occasionally break things. If the project went dark tomorrow, recovering your data would require running the export process before that happened.
+The limitations are real. Your recipes live in a database inside a Docker volume. You cannot grep your collection. You cannot put a single recipe in Git. Without a connection to your server you have the shopping list and not much else. Releases come about every ten days and some of them change behaviour, so updating means reading the release notes. And you make the backups: Mealie does not do it automatically.
 
 Full details in the [Mealie review](/blog/40-mealie-review/).
 
-**Tandoor Recipes** is the power-user option. Nutritional tracking, meal cost calculation, calendar export, granular permissions, support for a dozen import/export formats. If you want maximum features and are willing to spend time on setup and configuration, Tandoor delivers. The trade-off is real complexity — it requires PostgreSQL from the start, has more moving parts, and a steeper learning curve. Heavier on resources too.
+**Tandoor Recipes** is the power-user option. Nutrition and price figures calculated from the foods in a recipe, calendar export, private recipes and share links, importers for more than twenty other apps and formats. If you want maximum features and are willing to spend time on setup and configuration, Tandoor delivers. The trade-off is real complexity — its standard setup runs PostgreSQL next to the app, it has more moving parts, and a steeper learning curve. Two things to know: the licence is AGPL with a clause that forbids selling it, and the project offers a hosted version if you don't want to run it.
 
 **KitchenOwl** takes a different emphasis: household collaboration and mobile. Built with Flutter for the frontend, it has genuinely native mobile apps rather than responsive web wrappers. Real-time shopping list sync is the headline feature — multiple people see updates instantly, which actually matters in a grocery store with spotty cell coverage. It is lighter than the others and simpler on the recipe management side, but if shared grocery lists and mobile-first design are the priority, KitchenOwl fits better than Mealie or Tandoor.
 
@@ -75,7 +76,7 @@ Remove from heat. Add the drained pasta, then stir in the egg mixture quickly. T
 
 [CookCLI](/cli/) handles shopping lists, recipe scaling, and runs a local web server — [self-hostable with Docker](/blog/21-self-hosting-recipes-with-docker/) if you want your collection browsable across your network. There is a free [recipe app for iPhone and Android](/app/) that cooks from the same files. There is an Obsidian plugin if you prefer writing in Obsidian. There is a VS Code extension with syntax highlighting. A community of developers has built tools on top of the spec — Telegram bots, nutrition calculators, Home Assistant integrations, custom scripts.
 
-The trade-offs are honest. No GUI recipe import with a polished scraper. No multi-user dashboard with role management. No drag-and-drop meal planner. If those features are load-bearing for you, Cooklang is the wrong tool. But if you want total ownership of your data, a format that will remain readable forever, and a foundation you can build on — Cooklang is the only option in this list that gives you all of that.
+The trade-offs are honest. Web import runs through a hosted converter ([Cookify](https://cook.md/cookifies/new)) or the CLI, not a scraper inside an app you host. No multi-user dashboard with role management. No drag-and-drop meal planner. If those features are load-bearing for you, Cooklang is the wrong tool. But if you want total ownership of your data, a format that will remain readable forever, and a foundation you can build on — Cooklang is the only option in this list that gives you all of that.
 
 Full disclosure: I built Cooklang, so take my view on the trade-offs with appropriate skepticism.
 
@@ -91,21 +92,21 @@ The same applies to Apple Notes and Google Docs. Use them if you have a handful 
 
 ## The Portability Question
 
-Most recipe management software makes leaving hard. Paprika has export but migration is imperfect. Mealie and Tandoor export JSON, which you can recover data from, but it is a format for backup rather than for working with recipes outside the app. If the service goes down or the project is abandoned before you export, you have a problem.
+Most recipe management software makes leaving hard. Paprika has export but migration is imperfect. Mealie exports JSON and Tandoor exports its own format, which you can recover data from, but these are formats for backup rather than for working with recipes outside the app. If the service goes down or the project is abandoned before you export, you have a problem.
 
 Plain text does not have this problem. A `.cook` file is readable in any text editor in 2026, and it will be readable in any text editor in 2046. It has no dependencies. It does not require running an application to access. You can version-control it in Git, grep across it, move it to any tool that reads text files, and give it to someone who has never heard of Cooklang.
 
-This is not a hypothetical concern. Apps in this space have shut down before. Yummly changed its model. Pepperplate went down for extended periods. Copy Me That has had reliability issues. If your recipe collection represents years of work, the format it lives in is worth thinking about.
+This is not a hypothetical concern. Apps in this space have shut down before. Whirlpool laid off the whole Yummly team in April 2024, and yummly.com now redirects to a KitchenAid recipes page. Evernote closed its Food app in 2015. If your recipe collection represents years of work, the format it lives in is worth thinking about.
 
 ## Which One Should You Pick?
 
 There is no universal answer, but the decision is not complicated if you are honest about your priorities.
 
-**Ease of use over everything:** Paprika. It is polished, works offline, handles web scraping well, and requires no configuration. Pay once, use it immediately. The data portability limitations are real, but for most people they will never matter in practice.
+**Ease of use over everything:** Paprika. It is polished, works offline, handles web scraping well, and requires no configuration. Free up to 50 recipes, a subscription after that. The data portability limitations are real, but for most people they will never matter in practice.
 
 **Self-hosted with multi-user and meal planning:** Mealie. The UI is the best in this category, the API is solid, and the community is large enough that issues get fixed quickly. If you are comfortable with Docker and want a turnkey web application for your household, Mealie is the right starting point. For a deeper look at self-hosted options, see the [open source recipe managers guide](/blog/18-open-source-recipe-managers-2026/).
 
-**Maximum features and willing to configure:** Tandoor. Nutritional tracking, calendar export, granular permissions — Tandoor has depth that the others lack. Worth it if you will actually use the features.
+**Maximum features and willing to configure:** Tandoor. Calculated nutrition, calendar export, the widest set of importers — Tandoor has depth that the others lack. Worth it if you will actually use the features.
 
 **Household with shared grocery lists:** KitchenOwl. Native mobile apps and real-time sync are genuinely better than responsive web wrappers when you are in a grocery store.
 
