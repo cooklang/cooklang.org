@@ -1,13 +1,14 @@
 ---
 title: "Version Control Your Recipes with Git"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 50
 summary: "Every recipe app has a 'what if the company dies?' problem. If your recipes are plain text .cook files in a Git repo, that problem disappears. Here's how to set up a proper recipe repo, track changes meaningfully, collaborate with family, and publish to the Cooklang Federation."
 description: "Keep your recipes as plain-text .cook files in a Git repo and the 'what if the app dies?' problem disappears. Set up a recipe repo, track changes, and collaborate."
 categories: ["Recipe Workflows"]
 ---
 
-Every recipe app eventually dies. MacGourmet, Panna, Evernote Food, ChefTap — they all took user recipes with them. The "what if the company shuts down?" problem is not paranoia. It is an industry pattern.
+Recipe apps die. Panna, Evernote Food, Yummly — each one closed, and users had to get their recipes out before it did. The "what if the company shuts down?" problem is not paranoia. It is an industry pattern.
 
 If your recipes are plain text `.cook` files in a Git repository, that problem does not exist. Your files will open fine in 2035. No company required.
 
@@ -97,9 +98,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-# CookCLI output
+# Build output
 *.pdf
-site/
+_site/
 
 # Temporary files
 *.tmp
@@ -125,7 +126,7 @@ In a separate #bowl{}, whisk @buttermilk{240%ml}, @egg{1}, and @butter{2%tbsp}(m
 
 Pour the wet ingredients into the dry ingredients and stir until just combined. Do not overmix — lumps are fine.
 
-Heat a #non-stick pan{} over medium heat. Pour ~{1/4%cup} of batter per pancake. Cook until bubbles form on the surface (~{2%minutes}), then flip and cook for ~{1%minute} more.
+Heat a #non-stick pan{} over medium heat. Pour 1/4 cup of batter per pancake. Cook until bubbles form on the surface (~{2%minutes}), then flip and cook for ~{1%minute} more.
 ```
 
 YAML frontmatter goes between the `---` delimiters at the top of the file. That is the correct way to add metadata to Cooklang recipes. CookCLI reads it; so does the Federation crawler.
@@ -193,7 +194,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: Install CookCLI
         run: |
@@ -202,13 +203,10 @@ jobs:
           sudo mv cook /usr/local/bin/
 
       - name: Validate all recipes
-        run: |
-          find recipes/ -name "*.cook" | while read -r f; do
-            cook recipe "$f" --format json > /dev/null && echo "OK: $f" || echo "FAIL: $f"
-          done
+        run: cook doctor validate -b recipes --strict
 ```
 
-If a `.cook` file has a syntax error, the CI job fails and the PR is blocked. You get the same guard rails you have on a software project, applied to recipe authoring.
+If a `.cook` file has a syntax error or a warning, the CI job fails and the PR is blocked. You get the same guard rails you have on a software project, applied to recipe authoring.
 
 ### GitHub Actions: Publish a Recipe Website
 
@@ -225,7 +223,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v7
 
       - name: Install CookCLI
         run: |
@@ -234,7 +232,7 @@ jobs:
           sudo mv cook /usr/local/bin/
 ```
 
-The full publishing workflow — converting `.cook` files to JSON, building a static site with Hugo, deploying to GitHub Pages — is covered in detail in [Publishing Your Recipe Collection as a Website](/guides/publishing-recipes/).
+The full publishing workflow — building a static site with `cook build web` and deploying it to GitHub Pages — is covered in [Hosting Recipes as a Static Website](/guides/static-website/).
 
 ### Raspberry Pi: Auto-Sync from Git
 

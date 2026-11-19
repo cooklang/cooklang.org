@@ -1,6 +1,7 @@
 ---
 title: "A Plain Text Recipe Database You Already Know How to Use"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 46
 summary: "You don't need Postgres, schemas, or migrations to build a recipe database. Your filesystem already is one — and CookCLI gives you the query layer on top."
 description: "You don't need Postgres, schemas, or migrations for a recipe database — your filesystem already is one, and CookCLI gives you the query layer on top."
@@ -54,7 +55,8 @@ No table definitions. No foreign keys. No migrations when you add a new category
 
 ```bash
 cook search "lemon"
-# Returns: lemon tart, lemon chicken, preserved lemon pasta...
+# "desserts/lemon-tart.cook"
+# "dinner/lemon-chicken.cook"
 ```
 
 **Aggregation across records** is `cook shopping-list`. Give it a set of recipe files and it unions the ingredient sets, sums matching quantities, and emits a combined list. This is `SUM` and `GROUP BY` applied to structured ingredient data:
@@ -73,7 +75,7 @@ cook shopping-list "dinner-party.cook:4" "brunch.cook:2"
 
 Each recipe scales independently, then the lists merge.
 
-**Structured export** is `cook recipe -f json`. Every `.cook` file serializes to a clean JSON document with structured `ingredients`, `steps`, `metadata`, and `cookware` arrays. This is `SELECT * AS JSON` — the same record, projected to a different format. YAML, Markdown, and LaTeX output work the same way:
+**Structured export** is `cook recipe -f json`. Every `.cook` file serializes to a clean JSON document with `metadata`, `sections` (the steps), and `ingredients`, `cookware` and `timers` arrays. This is `SELECT * AS JSON` — the same record, projected to a different format. YAML, Markdown, and LaTeX output work the same way:
 
 ```bash
 cook recipe -f json pasta-carbonara.cook
@@ -85,10 +87,10 @@ The [shopping list command](/cli/commands/shopping-list/) and [search command](/
 
 ## The Ingredient Data Layer
 
-Beyond the recipe files themselves, Cooklang supports a `config/db/` directory — a document store for ingredient metadata. Each ingredient gets a folder, and YAML files inside store whatever enrichment data you care about:
+Beyond the recipe files themselves, `cook report` can read a datastore folder (for example `db/`, passed with `-d db`) — a document store for ingredient metadata. Each ingredient gets a folder, and YAML files inside store whatever enrichment data you care about:
 
 ```
-config/db/
+db/
 ├── eggs/
 │   └── shopping.yml
 ├── flour/
@@ -103,15 +105,15 @@ config/db/
 
 A `shopping.yml` might store store-specific links and prices. A `nutrition.yml` holds macro data per 100g. A `cost.yml` tracks price per unit for budget calculations. The structure is open — you decide what to track.
 
-The `cook report` command joins this ingredient database with your recipe files at query time. It runs a minijinja template across your recipes and has access to `db()` — a function that looks up ingredient metadata by name:
+The `cook report` command joins this ingredient database with your recipe files at query time. It renders a Jinja template for one recipe and has access to `db()` — a function that looks up ingredient metadata by name:
 
 ```jinja2
-{%- for ingredient in get_ingredient_list(recipes) %}
-- {{ ingredient.name }}: {{ db(ingredient.name ~ ".cost.per_unit", 0) | float * ingredient.quantity | float | round(2) }}
+{%- for ingredient in ingredients %}
+- {{ ingredient.name }}: {{ ((db(ingredient.name ~ ".cost.per_unit") | default(0, true) | float) * (ingredient.quantity.value | numeric)) | round(2) }}
 {%- endfor %}
 ```
 
-This is a JOIN between recipes and ingredient metadata, expressed as a template. The [report command](/cli/commands/report/) supports output to Markdown, YAML, HTML, LaTeX, and CSV — whatever the downstream consumer needs. The [reports and data management docs](/guides/reports/) have worked examples for cost analysis and nutritional summaries.
+This is a JOIN between recipes and ingredient metadata, expressed as a template. The [report command](/cli/commands/report/) supports output to Markdown, YAML, HTML, LaTeX, and CSV — whatever the downstream consumer needs. The [reports and data management docs](/guides/reports/) have a worked cost example and a pointer to the nutrition reports package.
 
 ## Pantry as State Store
 
@@ -119,29 +121,29 @@ A database that only stores static records is half a system. The dynamic half �
 
 ```toml
 [freezer]
-chicken_stock = { quantity = "4%cups", frozen = "2024-12-20" }
-pizza_dough = { quantity = "2%balls", frozen = "2024-12-28" }
+"chicken stock" = { quantity = "4%cups", bought = "2024-12-20" }
+"pizza dough" = { quantity = "2%balls", bought = "2024-12-28" }
 
 [fridge]
 milk = { expire = "2025-01-10", quantity = "1%L" }
 eggs = "6"
 
 [pantry]
-rice = "5%kg"
-flour = "3%kg"
+rice = "5000%g"
+flour = "3000%g"
 
 [spices]
-cumin = { quantity = "1%jar", bought = "2024-11-01" }
+cumin = { quantity = "20%tsp", bought = "2024-11-01" }
 coriander = "50%g"
 ```
 
-This is a key-value store keyed by ingredient name. The `-p` flag on `cook shopping-list` takes a pantry file and excludes items you already have — a `WHERE NOT IN` clause derived from current inventory:
+This is a key-value store keyed by ingredient name. The `--pantry` flag on `cook shopping-list` takes a pantry file (`./config/pantry.conf` is picked up on its own) and excludes items you already have — a `WHERE NOT IN` clause derived from current inventory:
 
 ```bash
-cook shopping-list -p config/pantry.conf monday.cook tuesday.cook
+cook shopping-list --pantry config/pantry.conf monday.cook tuesday.cook
 ```
 
-If you have rice and cumin, they drop off the list. You buy what is missing, not what the recipe calls for in the abstract. The [pantry management docs](/guides/pantry/) cover the full format including expiration tracking and low-stock thresholds.
+If you have rice and cumin, they drop off the list. You buy what is missing, not what the recipe calls for in the abstract. Quantities are only subtracted when the pantry uses the same unit as the recipe, and names have to match the recipe's wording. The [pantry management docs](/guides/pantry/) cover the full format including expiration tracking and low-stock thresholds.
 
 ## Aisle Configuration as Index
 
@@ -166,11 +168,11 @@ Pass it to `cook shopping-list -a` and the output is sorted by store section, wi
 
 ## Federation as Distributed Search
 
-Your local collection is one node. [recipes.cooklang.org](https://recipes.cooklang.org) is the federated index — a distributed recipe database that aggregates across community GitHub repositories.
+Your local collection is one node. [recipes.cooklang.org](https://recipes.cooklang.org) is the federated index — a distributed recipe database that aggregates community recipe collections on GitHub and personal sites.
 
-Creators host their own data. The federation layer indexes it. You search across the whole network with boolean operators, tag filters, difficulty ranges, and cooking time constraints. No one owns the data centrally; each repository is its own self-contained collection with its own files and its own git history.
+Creators host their own data. The federation layer indexes it. You search across the whole network with boolean operators, tag and difficulty filters, and cooking time ranges. No one owns the data centrally; each repository is its own self-contained collection with its own files and its own git history.
 
-This is the distributed database model applied to recipes. The [recipe discovery docs](/guides/recipe-discovery/) explain how to get your own collection indexed.
+This is the distributed database model applied to recipes. The [publishing guide](/guides/publishing-recipes/) explains how to get your own collection indexed.
 
 ## Why This Works
 
@@ -190,7 +192,7 @@ The [shopping workflow docs](/guides/shopping/) put the pieces together from a p
 
 ## Getting Started
 
-If you have recipes already, the path is: install CookCLI, create a `recipes/` folder, move your recipes in, run `cook search` to see them. The database is operational the moment the files exist.
+If you have recipes already, the path is: install CookCLI, create a `recipes/` folder, move your recipes in, run `cook search chicken` (or any word) to query them. The database is operational the moment the files exist.
 
 The [CLI download is at /cli/](/cli/). The full command reference covers everything from search to report templating. The [getting started guide](/docs/getting-started/) walks through the initial setup if you are starting from scratch.
 

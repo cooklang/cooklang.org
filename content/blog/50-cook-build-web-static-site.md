@@ -1,6 +1,7 @@
 ---
 title: "Publish Your Recipe Collection as a Static Site with `cook build web`"
 date: 2026-05-20
+lastmod: 2026-11-19
 weight: 60
 summary: "CookCLI can now turn your recipe folder into a self-contained static website — host it on GitHub Pages, Netlify, an S3 bucket, or just open the HTML file directly."
 description: "The new `cook build web` command compiles a Cooklang recipe collection into a read-only static site you can host anywhere or browse offline."
@@ -66,7 +67,7 @@ If you need to host under a subpath (like `example.com/recipes/`), pass `--base-
 
 ## Heads-up: the command name changed
 
-If you were using the very first release of this feature, the command was just `cook build`. It's now `cook build web`.
+If you built CookCLI from the main branch in the two days before v0.30.0, the command was just `cook build`. Every release has it as `cook build web`.
 
 The reason: `build` is shaping up to be a family of commands. Static site is the first target; printable cookbooks and other artifacts will live alongside it. Nesting under a subcommand now means we won't have to reshape the CLI later.
 

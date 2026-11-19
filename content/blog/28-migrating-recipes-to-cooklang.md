@@ -1,6 +1,7 @@
 ---
 title: "Migrating Your Recipes to Cooklang (From Any App or Format)"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "Stuck in a recipe app you can't escape? Here's how to migrate your recipes to plain .cook files from websites, Paprika, Mealie, photos, and Markdown — without doing it all at once."
 description: "How to migrate your recipes to Cooklang plain-text .cook files — from Paprika, Mealie, websites, photos, and Markdown, without doing it all at once."
@@ -9,7 +10,7 @@ categories: ["Guides and Tutorials"]
 
 Every recipe app promises to be the last one you'll ever need. Then the company gets acquired, the subscription doubles, or the export feature disappears behind a paywall. You spent years collecting recipes, and now they're locked inside a format only one piece of software can read.
 
-This is the recipe lock-in problem, and it happens constantly. MacGourmet was abandoned. Evernote Food was killed. ChefTap shut down in 2023. Each time, users scrambled to export what they could before the deadline hit.
+This is the recipe lock-in problem, and it happens constantly. Evernote closed its Food app in 2015. Whirlpool laid off the Yummly team in 2024 and the site is gone. Each time, users scrambled to export what they could.
 
 The good news: getting out is not as hard as you think, and you do not have to do it all at once.
 
@@ -33,13 +34,13 @@ https://cook.md/https://www.seriouseats.com/the-best-bolognese-sauce
 
 Open that in a browser and you get the recipe rendered as a Cooklang file, ready to copy and save as a `.cook` file. It is the fastest way to grab a single recipe.
 
-**The `cook import` command** does the same thing from your terminal and saves the file directly:
+**The `cook import` command** does the same thing from your terminal:
 
 ```bash
-cook import "https://www.seriouseats.com/the-best-bolognese-sauce"
+cook import "https://www.seriouseats.com/the-best-bolognese-sauce" > bolognese.cook
 ```
 
-This downloads the recipe, uses an AI model to convert it to Cooklang format, and saves the result as a `.cook` file in your current directory. It requires an `OPENAI_API_KEY` environment variable set in your shell.
+This downloads the recipe, uses an AI model to convert it to Cooklang format, and prints the result, which the `>` saves as a `.cook` file. It requires an `OPENAI_API_KEY` environment variable set in your shell.
 
 If you want the raw recipe data without the AI conversion step — useful for scripting or inspection — add the `--skip-conversion` flag:
 
@@ -50,12 +51,14 @@ cook import --skip-conversion "https://www.seriouseats.com/the-best-bolognese-sa
 For a collection of bookmarks, this turns into a simple loop:
 
 ```bash
+i=0
 while IFS= read -r url; do
-  cook import "$url"
+  i=$((i+1))
+  cook import "$url" > "recipe-$i.cook"
 done < urls.txt
 ```
 
-Drop your recipe URLs into `urls.txt`, one per line, and run it. Most of your web-saved recipes migrate in a single sitting.
+Drop your recipe URLs into `urls.txt`, one per line, and run it. Most of your web-saved recipes migrate in a single sitting. Rename the files afterwards.
 
 ## Migration Path 2: From Paprika, Mealie, or KitchenOwl
 
@@ -63,22 +66,24 @@ These apps all have export features, but they export in different formats that n
 
 ### Paprika
 
-Paprika exports as `.paprikarecipes` files, which are ZIP archives of HTML files — one per recipe. To get your recipes out, go to Settings in Paprika, choose Export All Recipes, and save the `.paprikarecipes` file somewhere.
+Paprika exports a `.paprikarecipes` file, which is a ZIP archive holding one gzip-compressed JSON file per recipe (it can also export HTML, for reading). Use Paprika's export and save the `.paprikarecipes` file somewhere.
 
-From there, a short Python script can extract and convert each recipe. The HTML files contain standard recipe fields that map directly to Cooklang metadata:
+From there, a short Python script can extract and convert each recipe. Each JSON file has plain fields (`name`, `ingredients`, `directions`, `servings`, `source_url`) that map directly to Cooklang metadata:
 
 ```python
-import zipfile, json, os, re
+import zipfile, gzip, json
 
 with zipfile.ZipFile("recipes.paprikarecipes") as z:
     for name in z.namelist():
-        if name.endswith(".html"):
-            recipe = z.read(name).decode("utf-8")
-            # parse title, ingredients, directions from HTML
-            # write to .cook file
+        if name.endswith(".paprikarecipe"):
+            recipe = json.loads(gzip.decompress(z.read(name)))
+            title = recipe["name"]
+            ingredients = recipe["ingredients"].splitlines()
+            steps = recipe["directions"].split("\n\n")
+            # write title, ingredients and steps to a .cook file
 ```
 
-The actual parsing depends on your comfort with HTML and Python. Paprika's HTML structure is consistent enough that a basic script handles most recipes. For each recipe, you end up with a `.cook` file you can keep or clean up manually.
+The ingredients and directions arrive as plain text, one ingredient per line, so a basic script handles most recipes. For each recipe, you end up with a `.cook` file you can keep or clean up manually.
 
 ### Mealie
 
@@ -91,18 +96,18 @@ import json, pathlib
 
 data = json.load(open("recipe.json"))
 title = data["name"]
-ingredients = data["recipeIngredient"]
-steps = data["recipeInstructions"]
+ingredients = [i["display"] for i in data["recipeIngredient"]]
+steps = [s["text"] for s in data["recipeInstructions"]]
 
-cook = f">> title: {title}\n\n"
+cook = f"---\ntitle: {title}\n---\n\n"
 # write ingredients and steps as Cooklang
 ```
 
-The ingredient lines from Mealie are already human-readable strings like "2 cups flour, sifted". You can write them directly into your `.cook` file as-is, then add the `@` and `{}` markup when you cook from the recipe and want the structured version.
+Each Mealie ingredient is an object; its `display` field holds the human-readable line, like "2 cups flour, sifted". You can write them directly into your `.cook` file as-is, then add the `@` and `{}` markup when you cook from the recipe and want the structured version.
 
 ### KitchenOwl
 
-KitchenOwl supports JSON export from its settings. The structure is similar to Mealie — clean JSON with ingredients and steps as separate lists. The same approach applies: export, run a conversion script, clean up the output.
+KitchenOwl supports JSON export from its settings. Each recipe comes out as JSON with an `items` list for the ingredients and the method as free text in `description`. The same approach applies: export, run a conversion script, clean up the output.
 
 For all three apps, the goal of the script is not a perfect conversion. It is to get the recipe text into a file so you can cook from it. The Cooklang markup — `@ingredient{quantity%unit}`, `#cookware`, `~{time%unit}` — can be added gradually as you use each recipe.
 
@@ -110,11 +115,11 @@ For all three apps, the goal of the script is not a perfect conversion. It is to
 
 This is the path that surprises people. [cook.md](https://cook.md/) supports image upload with OCR.
 
-Take a photo of a recipe card, a magazine clipping, or a handwritten recipe. Go to [cook.md/cookifies/new](https://cook.md/cookifies/new), upload the image, and the tool reads the text and converts it to Cooklang format. It handles handwriting reasonably well, and printed recipes very well.
+Take a photo of a recipe card, a magazine clipping, or a handwritten recipe. Go to [cook.md/cookifies/new](https://cook.md/cookifies/new), upload the image, and the tool reads the text and converts it to Cooklang format. It handles handwriting reasonably well, and printed recipes very well. Photo imports come with a plan: one free try, then 50 a month on Cook Basic or 200 on Cook Pro.
 
-For a box of index cards, this takes a weekend but the result is a digital collection you actually own. Photograph each card, upload, review the output, save the file. A hundred cards becomes a hundred `.cook` files.
+For a box of index cards, this takes a weekend (and a Cook Basic or Pro plan), but the result is a digital collection you actually own. Photograph each card, upload, review the output, save the file. A hundred cards becomes a hundred `.cook` files.
 
-The manual converter at cook.md also accepts pasted plain text, which is useful for recipes copied from PDFs, emails, or anywhere else you can get text out.
+The manual converter at cook.md also accepts pasted plain text, free with an account, which is useful for recipes copied from PDFs, emails, or anywhere else you can get text out.
 
 ## Migration Path 4: From Plain Text or Markdown
 
@@ -145,8 +150,10 @@ Here is the same pasta recipe in Markdown versus Cooklang:
 **Cooklang:**
 
 ```cooklang
->> title: Garlic Pasta
->> servings: 4
+---
+title: Garlic Pasta
+servings: 4
+---
 
 Cook @spaghetti{400%g} in salted water according to package directions. Reserve @pasta water{120%ml} before draining.
 
@@ -164,8 +171,10 @@ For converting your Markdown collection, you can do it manually, recipe by recip
 You do not need full metadata on every recipe from day one. Start with the minimum that makes the recipe useful:
 
 ```cooklang
->> title: Garlic Pasta
->> servings: 4
+---
+title: Garlic Pasta
+servings: 4
+---
 
 Cook @spaghetti{400%g}...
 ```
@@ -173,11 +182,13 @@ Cook @spaghetti{400%g}...
 That is enough to work with. Add more fields as you use the recipe and find yourself wanting them:
 
 ```cooklang
->> title: Garlic Pasta
->> servings: 4
->> time: 20 minutes
->> source: https://example.com/garlic-pasta
->> tags: quick, pasta, weeknight
+---
+title: Garlic Pasta
+servings: 4
+time: 20 minutes
+source: https://example.com/garlic-pasta
+tags: [quick, pasta, weeknight]
+---
 ```
 
 The metadata lives in YAML frontmatter at the top of the file. Nothing breaks if fields are missing. Add what is useful for you, skip what is not.
@@ -190,7 +201,7 @@ Moving a whole library from Paprika, Mela, Mealie or a similar app? [Batch impor
 
 **Use subdirectories.** Flat folders get unwieldy fast. A basic structure like `pasta/`, `chicken/`, `soups/`, `desserts/` keeps things navigable. You can reorganize later without breaking anything — the files are just files.
 
-**Keep the source URL.** Any recipe you imported from a website, add a `>> source:` line with the URL. When you want to check the original for a step you edited, it is right there.
+**Keep the source URL.** Any recipe you imported from a website, add a `source:` line with the URL to the front matter. When you want to check the original for a step you edited, it is right there.
 
 **Do not clean up everything at once.** A recipe file with no Cooklang markup still works for reading. You can cook from it. Add the `@` and `{}` notation to a recipe the next time you actually make it — not all at once during migration.
 
@@ -198,7 +209,7 @@ Moving a whole library from Paprika, Mela, Mealie or a similar app? [Batch impor
 
 Do not try to migrate your entire collection before you start cooking from Cooklang files. It is a trap.
 
-Most people cook 20 recipes regularly. The other 80% of their collection is aspirational — recipes they saved and never made. Migrating all of them before getting started means weeks of work before you see any benefit.
+Most people cook from a small part of their collection. The rest is aspirational — recipes they saved and never made. Migrating all of them before getting started means weeks of work before you see any benefit.
 
 Instead, start with the 20 recipes you actually cook. Get those into `.cook` files. Use [CookCLI](/cli/) to generate shopping lists and serve them from your local network. Once that is working and useful, you will have a feel for what metadata and structure you want. Then you can migrate the rest in the format that actually suits how you cook.
 

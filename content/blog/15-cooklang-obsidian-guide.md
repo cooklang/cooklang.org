@@ -1,6 +1,7 @@
 ---
 title: "Cooklang for Obsidian: Manage Recipes in Your Vault (2026 Guide)"
 date: 2026-06-18
+lastmod: 2026-11-19
 weight: 45
 summary: "A step-by-step guide to using the Cooklang plugin for Obsidian. Turn your vault into a recipe manager with syntax highlighting, interactive timers, shopping lists, and a beautiful preview mode."
 description: "Use the Cooklang Obsidian plugin to manage recipes in your vault — syntax highlighting, interactive cooking timers, shopping lists, and recipe preview."
@@ -32,7 +33,7 @@ That's it. Obsidian now recognizes `.cook` files.
 
 ## Create Your First Recipe
 
-Right-click any folder in your vault and select **Create Recipe**. This creates a new `.cook` file. Write a recipe using Cooklang syntax:
+Right-click any folder in your vault and select **New recipe**. This creates a new `.cook` file. Write a recipe using Cooklang syntax:
 
 ```
 ---
@@ -51,17 +52,17 @@ Season with @salt{} and @pepper{} to taste.
 Serve over @pasta{200%g}, cooked according to package directions.
 ```
 
-The editor highlights ingredients in blue, cookware in green, and timers in pink as you type.
+The editor highlights ingredients in your theme's accent colour, cookware in green, and timers in pink as you type.
 
 ## Preview Mode
 
 Press `Cmd+E` (or `Ctrl+E` on Windows/Linux) to switch to preview mode. Your recipe transforms into a formatted view with:
 
 - **Metadata** displayed at the top (servings, time, tags)
-- **Ingredients list** with quantities, organized in two columns
+- **Ingredient checklist** with quantities, shown beside the steps on wide panes
 - **Cookware list** showing what tools you need
 - **Numbered method steps** with inline ingredient and cookware references
-- **Total time** calculated from all timers in the recipe
+- **Time, servings and tags** shown as pills at the top, taken from the recipe's metadata
 
 Toggle back to source mode with the same shortcut.
 
@@ -91,7 +92,7 @@ A simple folder structure works well:
 └── 📁 Reference/
 ```
 
-Because `.cook` files are plain text, they work with everything Obsidian already does — backlinks, tags, search, graph view. Tag your recipes with YAML frontmatter at the top of the file:
+Plain `.cook` files open in Obsidian's editor and show up in search, but Obsidian only indexes Markdown notes. If you want recipes in tags, properties, backlinks and graph view, store them as Markdown recipes (see below). Tag your recipes with YAML frontmatter at the top of the file:
 
 ```
 ---
@@ -121,7 +122,7 @@ You can also right-click any `.md` file and select **Open as Recipe** to view it
 
 Open **Settings → Cooklang Editor** to configure what the preview shows:
 
-- Toggle ingredients list, cookware list, timer summary, and total time
+- Toggle ingredients list, cookware list and timer summary
 - Show or hide inline quantities in method steps
 - Enable/disable timer sounds
 - Customize section labels (useful for non-English recipes)
@@ -132,7 +133,7 @@ The Obsidian plugin handles editing and viewing. For shopping lists and recipe s
 
 ```bash
 cook shopping-list Recipes/Dinner/*.cook
-cook server Recipes/
+cook server Recipes/ --host
 ```
 
 The first command generates a combined shopping list. The second starts a local web server for browsing your recipes from any device on your network — useful for a tablet in the kitchen.

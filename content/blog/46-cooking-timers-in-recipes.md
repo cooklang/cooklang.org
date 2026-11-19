@@ -1,6 +1,7 @@
 ---
 title: "Cooking Timers That Live Inside Your Recipes"
 date: 2026-04-09
+lastmod: 2026-11-19
 weight: 80
 summary: "Most cooking timers are separate from the recipe. Cooklang embeds timers directly in your instructions — tap a step and the timer starts. Run multiple timers at once, get lock-screen notifications, and set timers up to 999 hours for fermentation and slow processes."
 description: "Embed cooking timers directly in your recipe text. Tap a step to start the timer, run multiple timers at once, and set long timers up to 999 hours for fermentation. Works on iOS and Android."
@@ -39,7 +40,7 @@ Real cooking is concurrent. You're not doing one thing at a time. A Sunday roast
 - Yorkshire puddings in the oven for `~yorkshires{20%minutes}`
 - Gravy reducing for `~gravy{10%minutes}`
 
-The [Cook app](/app/) runs all of these simultaneously. Each timer has its own circular progress indicator and name. You can pause, restart, or add a minute to any timer independently. When each one completes, you get a notification with a sound — even if your phone is locked or the app is in the background.
+The [Cook app](/app/) runs all of these simultaneously. Each timer has its own circular progress indicator and name. You can pause or restart any timer independently. When each one completes, you get a notification with a sound — even if your phone is locked or the app is in the background.
 
 ![A named timer running with circular progress](/blog/cooking-timers/timer-running.webp)
 
@@ -49,9 +50,9 @@ No more asking "which timer was that?"
 
 ## Long Timers: Fermentation, Brining, and Slow Processes
 
-Most timer apps max out at a few hours. They're built for stovetop cooking where ten minutes is a long time. But cooking doesn't stop at the stovetop.
+Timer apps are built for stovetop cooking, where ten minutes is a long time. But cooking doesn't stop at the stovetop.
 
-Cooklang timers go up to 999 hours. That's over 41 days. This opens up a whole class of recipes that other tools can't handle:
+A timer written in a recipe can be as long as you like, and the timer picker in the iOS app goes up to 999 hours. That's over 41 days. This opens up a whole class of recipes that other tools can't handle:
 
 ```cooklang
 Mix @flour{500%g}, @water{350%ml}, and @salt{10%g}. Add @sourdough starter{100%g}
@@ -88,7 +89,7 @@ When you open a recipe in the Cook app ([iOS](/app/) or Android), timer steps ar
 2. **Watch the progress** — circular countdown with the timer name and remaining time
 3. **Run multiple timers** — each runs independently with its own controls
 4. **Get notified** — sound alert and notification on your lock screen when time is up
-5. **Adjust on the fly** — pause, restart, or add a minute with a tap
+5. **Adjust on the fly** — pause or restart with a tap
 
 Timers keep running in the background. Lock your phone, switch to another app, put it in your pocket — the timer stays active and will alert you when it's done.
 
@@ -99,7 +100,7 @@ Timers keep running in the background. Lock your phone, switch to another app, p
 The timer syntax works everywhere in the Cooklang ecosystem, not just the mobile app:
 
 - **[Obsidian plugin](/blog/15-cooklang-obsidian-guide/)** — interactive countdown timers right in your note, with notification sounds
-- **[CookCLI](/cli/)** — the web server displays timers in recipe steps
+- **[CookCLI](/cli/)** — the web server shows timers in recipe steps, and in cooking mode you can start them and get a chime when they finish
 - **Custom integrations** — any parser that reads Cooklang can extract timer data and build UI around it
 
 Because timers are part of the recipe text, they're preserved when you share, export, or sync your recipes. They're not app-specific data locked in a database — they're right there in the plain text.
@@ -113,7 +114,7 @@ The full timer syntax is simple:
 ~name{time%unit}       -- named timer
 ```
 
-Units can be anything that makes sense — `minutes`, `hours`, `seconds`, `min`, `hrs`. Some examples:
+The parser accepts any unit, but the apps only start timers for seconds, minutes and hours — write `seconds`, `minutes` or `hours` (or `s`, `min`, `h`). Express longer waits in hours. Some examples:
 
 | Syntax | What it means |
 |--------|--------------|
@@ -121,7 +122,7 @@ Units can be anything that makes sense — `minutes`, `hours`, `seconds`, `min`,
 | `~eggs{7%minutes}` | 7-minute timer named "eggs" |
 | `~dough{2%hours}` | 2-hour timer named "dough" |
 | `~cold retard{12%hours}` | 12-hour overnight retard |
-| `~first ferment{7%days}` | 7-day first fermentation |
+| `~first ferment{168%hours}` | 7-day first fermentation |
 
 ## Why This Matters
 

@@ -1,6 +1,7 @@
 ---
 title: "Build a Raspberry Pi Kitchen Display for Your Recipes"
 date: 2026-02-25
+lastmod: 2026-11-19
 weight: 60
 summary: "Turn a Raspberry Pi into a dedicated kitchen recipe display. Run CookCLI's web server on the Pi, sync your Cooklang recipes, and browse them from a touchscreen or any device on your network."
 description: "Step-by-step guide to setting up a Raspberry Pi as a kitchen recipe display. Install a recipe server, browse on a touchscreen, and keep your hands free while cooking."
@@ -10,7 +11,7 @@ howto:
   - name: "Install Raspberry Pi OS"
     text: "Flash Raspberry Pi OS Lite to the microSD card and boot the Pi."
   - name: "Install CookCLI"
-    text: "Download and install CookCLI on the Pi using the provided install script."
+    text: "Install CookCLI on the Pi with Docker or by downloading the release binary."
   - name: "Add your recipes"
     text: "Copy your Cooklang recipe files to the Pi via Git, rsync, or USB."
   - name: "Start the recipe server"
@@ -41,6 +42,7 @@ Flash Raspberry Pi OS Lite (64-bit) to your microSD card using [Raspberry Pi Ima
 - Enable SSH
 - Configure your Wi-Fi
 - Set a hostname (e.g., `kitchen`)
+- Set the username to `pi` (the commands below assume it)
 
 Boot the Pi and SSH in:
 
@@ -66,11 +68,12 @@ docker run -d \
   --name cookcli \
   --restart unless-stopped \
   -p 9080:9080 \
+  -e COOK_CORS_ORIGIN=http://kitchen.local:9080 \
   -v /home/pi/recipes:/recipes \
-  ghcr.io/cooklang/cookcli:0.23.0
+  ghcr.io/cooklang/cookcli:latest
 ```
 
-Pre-built ARM images are available for both Pi 4+ (aarch64) and Pi 3 (armv7), so Docker pulls the right architecture automatically.
+The image is published for amd64 and arm64, so a Pi running the 64-bit OS pulls the right one automatically. On a 32-bit OS, use the binary install below. The `COOK_CORS_ORIGIN` line is there because the server only answers at `localhost` or an IP address unless you name the address it will be opened at.
 
 ### Option B: Binary Install
 
@@ -121,10 +124,10 @@ scp -r ~/my-recipes/ pi@kitchen.local:/home/pi/recipes/
 If you installed the binary (not Docker):
 
 ```bash
-cook server /home/pi/recipes --host --port 9080
+cook server /home/pi/recipes --host --port 9080 --cors-origin http://kitchen.local:9080
 ```
 
-The `--host` flag makes the server accessible from other devices on your network, not just localhost.
+The `--host` flag makes the server accessible from other devices on your network, not just localhost. `--cors-origin` names the address browsers will open it at; plain IP addresses and `localhost` work without it.
 
 ### Run on Boot with systemd
 
@@ -140,7 +143,7 @@ After=network.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/recipes
-ExecStart=/usr/local/bin/cook server --host --port 9080
+ExecStart=/usr/local/bin/cook server --host --port 9080 --cors-origin http://kitchen.local:9080
 Restart=always
 
 [Install]
@@ -176,7 +179,7 @@ The interface is responsive, so it works on a touchscreen, phone, or desktop bro
 If you're using a touchscreen display, set up the Pi to boot directly into the recipe browser in fullscreen:
 
 ```bash
-sudo apt install chromium-browser unclutter
+sudo apt install chromium unclutter
 
 # Auto-start Chromium in kiosk mode
 mkdir -p /home/pi/.config/autostart
@@ -184,15 +187,11 @@ cat > /home/pi/.config/autostart/kiosk.desktop << 'EOF'
 [Desktop Entry]
 Type=Application
 Name=Recipe Kiosk
-Exec=chromium-browser --kiosk --noerrdialogs --disable-infobars http://localhost:9080
+Exec=chromium --kiosk --noerrdialogs --disable-infobars http://localhost:9080
 EOF
 ```
 
-Install a minimal desktop environment if you're on Raspberry Pi OS Lite:
-
-```bash
-sudo apt install --no-install-recommends xserver-xorg x11-xserver-utils xinit openbox
-```
+The autostart entry needs a desktop session. If you want the kiosk, flash Raspberry Pi OS with desktop (not Lite) and enable auto-login to the desktop in `sudo raspi-config` → System Options → Boot / Auto Login.
 
 The `unclutter` package hides the mouse cursor after a few seconds of inactivity — useful for a touchscreen-only setup.
 
@@ -213,7 +212,7 @@ recipes/
     └── This Week/
 ```
 
-Add an `aisle.conf` file to your recipe directory to organize shopping lists by store section:
+Add a `config/aisle.conf` file inside your recipe directory to organize shopping lists by store section:
 
 ```
 [Produce]

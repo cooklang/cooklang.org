@@ -1,6 +1,7 @@
 ---
 title: "The Complete CookCLI Guide: From Install to Daily Use"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "A hands-on walkthrough of CookCLI covering installation, parsing recipes, generating shopping lists, scaling servings, and every command you'll actually use."
 description: "The complete CookCLI guide: install CookCLI, parse recipes, generate shopping lists, and scale servings from the command line. Every command you'll actually use."
@@ -32,7 +33,7 @@ Archives are named `cook-<version>-<os>-<arch>[-<libc>]`: check the [releases pa
 **Docker** — useful for trying it out without installing anything permanently:
 
 ```bash
-docker run -v $(pwd):/recipes ghcr.io/cooklang/cookcli:0.23.0 cook --help
+docker run --rm -v $(pwd):/recipes ghcr.io/cooklang/cookcli:latest cook --help
 ```
 
 Verify the install worked:
@@ -54,12 +55,12 @@ ls
 You'll see a handful of recipes. Open one in your editor to see the format, then parse it with `cook recipe`:
 
 ```bash
-cook recipe "Mashed Potatoes.cook"
+cook recipe "Neapolitan Pizza.cook"
 ```
 
 The output shows the recipe broken into structured sections — metadata, ingredients with quantities, cookware, and the method steps. This is the parsed representation CookCLI works from.
 
-Let's write a recipe from scratch. Save this as `risotto.cook`:
+Let's write a recipe from scratch. In a new, empty folder, save this as `risotto.cook`:
 
 ```cooklang
 ---
@@ -70,9 +71,9 @@ tags: italian, comfort, vegetarian
 
 = Prepare the base
 
-Warm @chicken stock{1%litre} in a #small saucepan over low heat. Keep it at a gentle simmer throughout.
+Warm @chicken stock{1%litre} in a #small saucepan{} over low heat. Keep it at a gentle simmer throughout.
 
-Melt @butter{30%g} in a #large heavy-bottomed pan over medium heat. Add @shallots{2}(finely diced) and @garlic{2%cloves}(minced). Sweat for ~{5%minutes} until soft and translucent.
+Melt @butter{30%g} in a #large heavy-bottomed pan{} over medium heat. Add @shallots{2}(finely diced) and @garlic{2%cloves}(minced). Sweat for ~{5%minutes} until soft and translucent.
 
 = Cook the rice
 
@@ -98,23 +99,35 @@ cook recipe risotto.cook
 ```
 
 ```
-Risotto
+ risotto
+#italian #comfort #vegetarian
+
+time: 45m
+servings: 4
 
 Ingredients:
-  chicken stock       1 litre
-  butter              30 g
-  shallots            2
-  garlic              2 cloves
   arborio rice        320 g
-  dry white wine      150 ml
-  cold butter         20 g
-  parmesan            60 g
-  salt
   black pepper
+  butter              30 g
+  chicken stock       1 litre
+  cold butter         20 g
+  dry white wine      150 ml
+  garlic              2 cloves (minced)
+  parmesan            60 g     (freshly grated)
+  salt
+  shallots            2        (finely diced)
 
 Cookware:
   small saucepan
   large heavy-bottomed pan
+
+Steps:
+                                  ─── § 1 ───
+Prepare the base:
+ 1. Warm chicken stock in a small saucepan over low heat. Keep it at a gentle
+    simmer throughout.
+     [chicken stock: 1 litre]
+...
 ```
 
 The parser pulls every ingredient out of prose and into a clean list. That's the foundation everything else builds on.
@@ -129,12 +142,12 @@ Say you're planning Monday through Wednesday: risotto, a pasta sauce, and a roas
 cook shopping-list risotto.cook pasta-sauce.cook roast-chicken.cook
 ```
 
-CookCLI merges ingredients across all three recipes, combining identical items. If risotto and pasta sauce both call for garlic, you get one line: "garlic: 4 cloves" — not two separate entries.
+CookCLI merges ingredients across all three recipes, combining identical items. If risotto and pasta sauce both call for garlic, you get one line (`garlic  4 cloves`) — not two separate entries.
 
-**Scaling per recipe** — if you're cooking the pasta for six people but only two for the risotto, use `:N` syntax per recipe:
+**Scaling per recipe** — if you're making a double batch of the pasta sauce but half the risotto, add a `:N` multiplier per recipe:
 
 ```bash
-cook shopping-list risotto.cook:2 pasta-sauce.cook:6 roast-chicken.cook:4
+cook shopping-list risotto.cook:0.5 pasta-sauce.cook:2 roast-chicken.cook
 ```
 
 Each recipe scales independently. The quantities on the shopping list reflect the scaled amounts.
@@ -164,15 +177,22 @@ pasta
 cook shopping-list -a aisle.conf risotto.cook pasta-sauce.cook
 ```
 
-The output groups ingredients under produce, dairy, meat, and so on instead of listing them alphabetically. Practical when you're actually walking the store.
+The output groups ingredients under `[produce]`, `[dairy]` and so on; anything not in the file lands under `[other]`. If you save the file as `config/aisle.conf` in your recipe folder, CookCLI finds it without `-a`. Practical when you're actually walking the store.
 
-**Excluding pantry staples** — if you always have olive oil, salt, and stock on hand, create a `pantry.conf` listing those items and pass it with `-p`:
+**Excluding pantry staples** — if you always have olive oil, salt, and stock on hand, list them in `config/pantry.conf` (TOML):
 
-```bash
-cook shopping-list -p pantry.conf risotto.cook pasta-sauce.cook
+```toml
+[pantry]
+"olive oil" = "unlim"
+salt = "unlim"
+"chicken stock" = "unlim"
 ```
 
-Pantry items are excluded from the list automatically.
+```bash
+cook shopping-list risotto.cook pasta-sauce.cook
+```
+
+CookCLI finds `config/pantry.conf` automatically and leaves those items off the list. To use a file kept elsewhere, pass `--pantry path/to/pantry.conf`.
 
 ## The Recipe Server
 
@@ -182,11 +202,11 @@ Pantry items are excluded from the list automatically.
 cook server my-recipes/
 ```
 
-By default it runs on port 9080. Open `http://localhost:9080` in a browser. You'll see your recipe collection as a browseable library — search by name, filter by tag, click through to formatted recipe views.
+By default it runs on port 9080. Open `http://localhost:9080` in a browser. You'll see your recipe collection as a browseable library — search by name, ingredient or tag, click through to formatted recipe views.
 
-**Access from your phone or tablet** — this is the practical use case. Start the server on your computer, find your local IP address, and open `http://192.168.x.x:9080` on whatever device is propped up in the kitchen. The interface is mobile-friendly.
+**Access from your phone or tablet** — this is the practical use case. Start the server with `--host`, find your computer's local IP address, and open `http://192.168.x.x:9080` on whatever device is propped up in the kitchen. The interface is mobile-friendly.
 
-To bind to all interfaces explicitly:
+By default the server only accepts connections from the same machine. To allow other devices:
 
 ```bash
 cook server my-recipes/ --host 0.0.0.0 --port 9080
@@ -196,19 +216,19 @@ Change the port with `--port` if something else is already running on 9080. The 
 
 ## Scaling Recipes
 
-Any `cook recipe` call accepts a `:N` suffix to scale to N servings:
+Any `cook recipe` call accepts a `:N` suffix that multiplies the recipe by N:
+
+```bash
+cook recipe risotto.cook:0.5
+```
+
+This halves the 4-serving recipe to 2 servings. All ingredient quantities adjust proportionally. 320 g arborio rice becomes 160 g. 1 litre of stock becomes 0.5 litre.
 
 ```bash
 cook recipe risotto.cook:2
 ```
 
-This scales a 4-serving recipe down to 2. All ingredient quantities adjust proportionally. 320g arborio rice becomes 160g. 1 litre of stock becomes 500ml.
-
-```bash
-cook recipe risotto.cook:8
-```
-
-Scale it up to 8 servings and the quantities double.
+Double it to 8 servings and the quantities double.
 
 **Fixed ingredients** — sometimes a quantity shouldn't scale. Salt, spices, or seasoning additions that you'd adjust by taste rather than math. Mark them fixed with `=`:
 
@@ -221,10 +241,10 @@ Fixed ingredients stay at their stated quantity regardless of the `:N` multiplie
 Scaling works identically in shopping lists:
 
 ```bash
-cook shopping-list risotto.cook:8 roast-chicken.cook:6
+cook shopping-list risotto.cook:2 roast-chicken.cook:1.5
 ```
 
-Eight servings of risotto plus six servings of chicken, combined and totalled.
+A double batch of risotto plus one and a half of the chicken, combined and totalled.
 
 ## Search and Discovery
 
@@ -253,7 +273,7 @@ If you've tagged recipes consistently in frontmatter, these queries surface the 
 
 ## Pantry Management
 
-The `cook pantry` subcommands handle tracking what you have on hand. This pairs well with shopping lists — you know what you have, CookCLI knows what you need.
+The `cook pantry` subcommands handle tracking what you have on hand. They read `config/pantry.conf` in your recipe folder. This pairs well with shopping lists — you know what you have, CookCLI knows what you need.
 
 Check what's running low:
 
@@ -275,7 +295,7 @@ cook pantry recipes
 
 This cross-references your pantry against your recipe collection and returns what you can cook right now without a trip to the store.
 
-Plan meals based on what's available:
+See which ingredients are worth keeping in stock to cover the most recipes:
 
 ```bash
 cook pantry plan
@@ -308,25 +328,25 @@ cook import https://example.com/some-recipe > imported-recipe.cook
 
 ## Validating Recipes
 
-`cook doctor validate` checks your `.cook` files for syntax errors and common issues:
+`cook doctor validate` checks every `.cook` file in the current directory (and subfolders) for syntax errors and warnings:
 
 ```bash
-cook doctor validate risotto.cook
+cook doctor validate
 ```
 
-Run it on a whole directory:
+Point it at another directory with `-b`:
 
 ```bash
-cook doctor validate my-recipes/
+cook doctor validate -b my-recipes/
 ```
 
-The `--strict` flag is useful in CI — it returns a non-zero exit code on any warning, not just errors:
+Without flags the command always exits 0. The `--strict` flag makes it exit non-zero when any error or warning is found, which is what you want in CI:
 
 ```bash
-cook doctor validate --strict my-recipes/
+cook doctor validate --strict -b my-recipes/
 ```
 
-Add this to a pre-commit hook or CI pipeline if you want to catch broken recipes before they land in your main collection. Malformed ingredient syntax, unclosed sections, missing metadata — doctor surfaces these before they cause problems downstream.
+Add this to a pre-commit hook or CI pipeline if you want to catch broken recipes before they land in your main collection. Malformed ingredient syntax, invalid quantities, references to recipes that don't exist — doctor surfaces these before they cause problems downstream.
 
 ## Editor Integration
 
@@ -336,18 +356,18 @@ If you use a code editor with LSP support, `cook lsp` starts the Cooklang Langua
 cook lsp
 ```
 
-Configure your editor to use it for `.cook` files and you get syntax highlighting, error underlining, and autocomplete as you write recipes. The setup varies by editor — [the docs at /docs/](/docs/) have editor-specific instructions for VS Code, Neovim, and others.
+Configure your editor to use it for `.cook` files and you get syntax highlighting, error underlining, and autocomplete as you write recipes. The setup varies by editor — [the LSP command page](/cli/commands/lsp/) has editor-specific instructions for VS Code, Neovim, and others.
 
 ## Quick Reference
 
 | Command | What it does |
 |---|---|
 | `cook recipe file.cook` | Parse and display a recipe |
-| `cook recipe file.cook:4` | Display scaled to 4 servings |
+| `cook recipe file.cook:2` | Display the recipe doubled |
 | `cook shopping-list *.cook` | Combined shopping list |
-| `cook shopping-list a.cook:2 b.cook:6` | Shopping list with per-recipe scaling |
+| `cook shopping-list a.cook:2 b.cook:0.5` | Shopping list with per-recipe multipliers |
 | `cook shopping-list -a aisle.conf *.cook` | Shopping list grouped by aisle |
-| `cook shopping-list -p pantry.conf *.cook` | Shopping list excluding pantry items |
+| `cook shopping-list --pantry pantry.conf *.cook` | Shopping list excluding pantry items |
 | `cook server my-recipes/` | Start recipe browser on port 9080 |
 | `cook server my-recipes/ --port 8080` | Use a different port |
 | `cook search garlic` | Find recipes by ingredient or name |
@@ -356,9 +376,9 @@ Configure your editor to use it for `.cook` files and you get syntax highlightin
 | `cook pantry depleted` | Show low-stock pantry items |
 | `cook pantry expiring` | Show expiring pantry items |
 | `cook pantry recipes` | Show what you can cook now |
-| `cook pantry plan` | Plan meals from pantry |
-| `cook doctor validate file.cook` | Check recipe for errors |
-| `cook doctor validate --strict *.cook` | Strict validation (CI-friendly) |
+| `cook pantry plan` | Rank ingredients to stock by recipes covered |
+| `cook doctor validate` | Check all recipes in the current folder |
+| `cook doctor validate --strict` | Exit non-zero on any issue (CI-friendly) |
 | `cook seed my-recipes` | Create example recipes to explore |
 | `cook lsp` | Start the Language Server |
 
