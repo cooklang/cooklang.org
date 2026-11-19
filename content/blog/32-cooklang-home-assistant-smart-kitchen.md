@@ -1,6 +1,7 @@
 ---
 title: "Cooklang + Home Assistant: Smart Kitchen Meal Planning & Recipes"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "Turn Home Assistant into a smart kitchen hub by integrating CookCLI — display today's recipe, trigger shopping lists, track expiring pantry items, and fire smart timers from your recipes."
 description: "Integrate recipe management and meal planning into Home Assistant. Display recipes, generate shopping lists, and run cooking timers from your HA dashboard."
@@ -22,6 +23,8 @@ CookCLI's server runs at `http://kitchen.local:9080` (or whatever hostname and p
 - A web UI for browsing recipes, with a shopping list and pantry page
 - A JSON API under `/api/` (the full list is at `/api-docs` on your server)
 - On the command line, JSON output from `cook recipe -f json`, `cook shopping-list -f json` and `cook pantry -f json expiring`
+
+One thing to set up first: the server only answers at `localhost` or an IP address unless told otherwise. To reach it as `kitchen.local`, start it with `cook server /home/pi/recipes --host --cors-origin http://kitchen.local:9080`, or use the Pi's IP address in the URLs below.
 
 There are two ways to wire this into Home Assistant:
 
@@ -59,11 +62,11 @@ aspect_ratio: 75%
 
 Drop this into any dashboard view and your entire recipe collection — browsable, searchable, scalable — is available without leaving Home Assistant. On a wall-mounted tablet running the HA dashboard, this effectively becomes the kitchen display from the Raspberry Pi post, embedded in your smart home UI rather than running standalone.
 
-This works immediately with no configuration beyond knowing your CookCLI server's address. It's not "integrated" in the data sense, but it gets your recipes visible in the HA dashboard in under a minute.
+This needs nothing beyond the server's address (and the `--cors-origin` flag above if you use a host name). It's not "integrated" in the data sense, but it gets your recipes visible in the HA dashboard in under a minute.
 
-## Recipe Dashboard Card with REST Sensor
+## Recipe Dashboard Card with a Command Line Sensor
 
-For a real data integration, use HA's REST sensor to pull structured recipe data from CookCLI. The idea: pick a recipe for the day, run `cook recipe --format json` on it, and surface the result as a sensor state in Home Assistant.
+For a real data integration, use HA's `command_line` sensor to pull structured recipe data from CookCLI. The idea: pick a recipe for the day, run `cook recipe --format json` on it, and surface the result as a sensor state in Home Assistant.
 
 This requires a small wrapper script on the machine running CookCLI. Create `/usr/local/bin/today-recipe.sh`:
 
@@ -107,7 +110,7 @@ To display it on your dashboard, add a Markdown card:
 ```yaml
 type: markdown
 title: "Tonight's Dinner"
-content: >
+content: |
   ## {{ states('sensor.today_s_recipe') }}
 
   **Servings:** {{ state_attr('sensor.today_s_recipe', 'metadata').map.servings }}
@@ -253,7 +256,7 @@ If you're on the YAML route instead, the command-line equivalent is below. Note 
 command_line:
   - sensor:
       name: "Expiring Pantry Items"
-      command: "ssh pi@kitchen.local cook pantry -f json expiring"
+      command: "ssh pi@kitchen.local cook pantry -b /home/pi/recipes -f json expiring"
       value_template: "{{ value_json['items'] | length }}"
       json_attributes:
         - items
@@ -273,7 +276,7 @@ conditions:
 card:
   type: markdown
   title: "Use These Soon"
-  content: >
+  content: |
     {% set items = state_attr('sensor.cookcli_pantry_expiring', 'items') %}
     {% for item in items %}
     - **{{ item.name }}** — expires {{ item.expire }}
@@ -347,7 +350,7 @@ A few directions worth exploring once the basics are working.
 
 **Voice commands via Assist.** Home Assistant's built-in voice assistant (Assist) can call scripts and services. Set up a sentence trigger that calls `cookcli.export_shopping_list` when you say "send my recipes to the shopping list." Requires a bit of intent configuration, but the infrastructure is already there.
 
-**Recipe suggestions based on pantry.** Run `cook pantry -f json recipes` on a schedule. Feed the output to a sensor. Display the "can make now" list on your dashboard — a live view of what you can cook without going to the store. Combine this with an automation that pushes the list to your phone every Friday afternoon when you're figuring out the weekend.
+**Recipe suggestions based on pantry.** Run `cook pantry -b /home/pi/recipes -f json recipes` on a schedule. Feed the output to a sensor. Display the "can make now" list on your dashboard — a live view of what you can cook without going to the store. Combine this with an automation that pushes the list to your phone every Friday afternoon when you're figuring out the weekend.
 
 ## An Honest Note
 

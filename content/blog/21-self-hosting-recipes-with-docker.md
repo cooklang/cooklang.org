@@ -1,6 +1,7 @@
 ---
 title: "Self-Hosting Your Recipe Collection with Docker and CookCLI"
 date: 2026-02-25
+lastmod: 2026-11-19
 weight: 60
 summary: "Set up a self-hosted recipe server in minutes with Docker and CookCLI. Browse recipes from any device, generate shopping lists, and keep your data private — no cloud accounts required."
 description: "Self-host your recipe collection with Docker and CookCLI. Browse, search, and generate shopping lists from any device on your network — no cloud required."
@@ -32,7 +33,7 @@ docker run -d \
   --restart unless-stopped \
   -p 9080:9080 \
   -v /path/to/your/recipes:/recipes \
-  ghcr.io/cooklang/cookcli:0.23.0
+  ghcr.io/cooklang/cookcli:latest
 ```
 
 Replace `/path/to/your/recipes` with the directory containing your `.cook` files. Open `http://localhost:9080` in a browser and you're done.
@@ -44,7 +45,7 @@ For a more maintainable setup, create a `docker-compose.yml`:
 ```yaml
 services:
   cookcli:
-    image: ghcr.io/cooklang/cookcli:0.23.0
+    image: ghcr.io/cooklang/cookcli:latest
     ports:
       - "9080:9080"
     volumes:
@@ -71,7 +72,7 @@ The web interface at `http://localhost:9080` provides:
 - **Pantry tracking** — mark what you already have, and shopping lists exclude those items
 - **Mobile-friendly** — responsive layout works on phones and tablets
 
-The server is read-only — it serves your recipe files but doesn't modify them. Editing happens in your text editor, Obsidian, or VS Code.
+The web UI can also create and edit recipes, and it writes pantry and shopping-list changes to the mounted folder. By default anyone who can reach the server can make those changes. To require sign-in, add a user with `cook server user add <name>`; the CookCLI README has a section on doing that in a container.
 
 ## Accessing from Other Devices
 
@@ -87,7 +88,7 @@ ipconfig getifaddr en0
 hostname -I | awk '{print $1}'
 ```
 
-Then open `http://192.168.1.100:9080` (your IP will differ) from your phone or tablet.
+Then open `http://192.168.1.100:9080` (your IP will differ) from your phone or tablet. Opening the server by host name instead (for example `http://nas.local:9080`) needs that address in a `COOK_CORS_ORIGIN` environment variable; IP addresses work without it.
 
 ## Organizing Recipes for the Server
 
@@ -95,7 +96,8 @@ The server displays your folder structure as navigation. A clean directory layou
 
 ```
 recipes/
-├── aisle.conf
+├── config/
+│   └── aisle.conf
 ├── Breakfast/
 │   ├── pancakes.cook
 │   └── overnight-oats.cook
@@ -112,7 +114,7 @@ recipes/
 
 ### Aisle Configuration
 
-Add an `aisle.conf` file to your recipe directory to organize shopping lists by store section:
+Add a `config/aisle.conf` file inside your recipe directory to organize shopping lists by store section:
 
 ```
 [Produce]
@@ -179,7 +181,7 @@ For real-time sync without Git, [Syncthing](https://syncthing.net/) runs well al
 ```yaml
 services:
   cookcli:
-    image: ghcr.io/cooklang/cookcli:0.23.0
+    image: ghcr.io/cooklang/cookcli:latest
     ports:
       - "9080:9080"
     volumes:
@@ -217,21 +219,28 @@ server {
 }
 ```
 
-Add Let's Encrypt with `certbot` for TLS and you have a private recipe server accessible from anywhere.
+The server refuses host names it has not been told about, so add the public address to the compose service:
+
+```yaml
+    environment:
+      COOK_CORS_ORIGIN: https://recipes.example.com
+```
+
+Add Let's Encrypt with `certbot` for TLS, and add a sign-in user so visitors can't edit your recipes. Then you have a recipe server you can reach from anywhere.
 
 ## Resource Usage
 
 CookCLI is a single Rust binary. It uses minimal resources:
 
-- **Memory:** ~20–30 MB for a collection of several hundred recipes
+- **Memory:** around 5–12 MB with the small sample collection
 - **CPU:** Negligible — it's serving text files
-- **Disk:** The Docker image is ~30 MB. Your recipes are plain text, so even thousands of recipes use very little space.
+- **Disk:** The Docker image is about 45 MB to download (about 110 MB unpacked). Your recipes are plain text, so even thousands of recipes use very little space.
 
-It runs well on a Raspberry Pi, an old laptop, a NAS, or any VPS.
+It runs well on a Raspberry Pi (64-bit OS for the Docker image), an old laptop, a NAS, or any VPS.
 
 ## Comparison with Other Self-Hosted Options
 
-If you're evaluating self-hosted recipe managers, CookCLI's server is the simplest option — no database, no configuration, just point it at a directory. For more features (meal planning calendars, multi-user access, web scraping), see our [comparison of open source recipe managers](/blog/18-open-source-recipe-managers-2026/).
+If you're evaluating self-hosted recipe managers, CookCLI's server is the simplest option — no database, no configuration, just point it at a directory. For a database-backed app with a richer web UI (drag-and-drop meal calendars, household accounts, in-browser recipe scraping), see our [comparison of open source recipe managers](/blog/18-open-source-recipe-managers-2026/).
 
 The trade-off is clear: CookCLI gives you simplicity and data portability (plain text files). Database-backed tools like Mealie and Tandoor give you richer features at the cost of more infrastructure.
 

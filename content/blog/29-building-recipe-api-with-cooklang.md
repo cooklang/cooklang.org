@@ -1,6 +1,7 @@
 ---
 title: "Building a Recipe API with Cooklang"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "Skip the third-party recipe APIs. With CookCLI, your plain-text .cook files become a structured JSON backend you own and control."
 description: "Build a recipe API with CookCLI: turn your plain-text .cook files into a structured JSON backend you own — no third-party recipe API required."
@@ -16,54 +17,76 @@ This post walks through using CookCLI as a recipe API backend, building a minima
 Every `.cook` file parses to structured JSON with a single command. Given a recipe file like `risotto.cook`:
 
 ```bash
-cook recipe risotto.cook --format json
+cook recipe risotto.cook --format json --pretty
 ```
 
-The output is a complete structured representation of the recipe:
+The output is a complete structured representation of the recipe. Here it is cut down to one step and one entry in each list:
 
 ```json
 {
-  "name": "Risotto",
   "metadata": {
-    "servings": "4",
-    "time": "45 minutes",
-    "tags": "italian, comfort, vegetarian"
+    "map": {
+      "title": "Risotto",
+      "servings": 4,
+      "time": "45 minutes",
+      "tags": ["italian", "comfort", "vegetarian"]
+    }
   },
+  "sections": [
+    {
+      "name": null,
+      "content": [
+        {
+          "type": "step",
+          "value": {
+            "items": [
+              { "type": "text", "value": "Warm " },
+              { "type": "ingredient", "index": 0 },
+              { "type": "text", "value": " in a " },
+              { "type": "cookware", "index": 0 },
+              { "type": "text", "value": " over low heat. Keep it at a gentle simmer throughout." }
+            ],
+            "number": 1
+          }
+        }
+      ]
+    }
+  ],
   "ingredients": [
-    { "name": "chicken stock", "quantity": "1", "units": "litre" },
-    { "name": "butter", "quantity": "30", "units": "g" },
-    { "name": "shallots", "quantity": "2", "units": "" },
-    { "name": "arborio rice", "quantity": "320", "units": "g" },
-    { "name": "dry white wine", "quantity": "150", "units": "ml" },
-    { "name": "parmesan", "quantity": "60", "units": "g" }
+    {
+      "name": "chicken stock",
+      "quantity": {
+        "value": { "type": "number", "value": { "type": "regular", "value": 1.0 } },
+        "unit": "litre",
+        "scalable": true
+      }
+    }
   ],
   "cookware": [
-    { "name": "small saucepan" },
-    { "name": "large heavy-bottomed pan" }
+    { "name": "small saucepan" }
   ],
-  "steps": [
+  "timers": [
     {
-      "items": [
-        { "type": "text", "value": "Warm " },
-        { "type": "ingredient", "name": "chicken stock", "quantity": "1", "units": "litre" },
-        { "type": "text", "value": " in a " },
-        { "type": "cookware", "name": "small saucepan" },
-        { "type": "text", "value": " over low heat." }
-      ]
+      "name": null,
+      "quantity": {
+        "value": { "type": "number", "value": { "type": "regular", "value": 5.0 } },
+        "unit": "minutes",
+        "scalable": false
+      }
     }
   ]
 }
 ```
 
-The steps array preserves the inline structure of the original prose — ingredients and cookware appear in context, not just as a flat list. This means you can render step text with ingredient quantities highlighted, the same way Cooklang apps do.
+Steps live under `sections[].content[]` and keep the inline structure of the original prose: each step is a list of text, ingredient, cookware and timer items, and the last three point by `index` into the top-level lists. This means you can render step text with ingredient quantities highlighted, the same way Cooklang apps do.
 
-Scaling works too. Pass a serving count with the `:N` syntax:
+Scaling works too. Pass a scale factor with the `:N` syntax (`:2` doubles the recipe):
 
 ```bash
 cook recipe risotto.cook:2 --format json
 ```
 
-All ingredient quantities in the JSON output adjust to the scaled serving count. The API layer is just the command.
+All ingredient quantities in the JSON output, and the `servings` value, are multiplied by that factor. The API layer is just the command.
 
 ## The Built-in Server
 
@@ -98,13 +121,9 @@ OUTPUT_DIR="./api"
 
 mkdir -p "$OUTPUT_DIR"
 
-# Build an index of all recipes
-echo "[]" > "$OUTPUT_DIR/index.json"
-INDEX="[]"
+INDEX=""
 
-for file in "$RECIPES_DIR"/**/*.cook "$RECIPES_DIR"/*.cook; do
-    [ -f "$file" ] || continue
-
+while IFS= read -r file; do
     # Derive a slug from the filename
     basename=$(basename "$file" .cook)
     slug=$(echo "$basename" | tr '[:upper:]' '[:lower:]' | tr ' ' '-')
@@ -112,8 +131,12 @@ for file in "$RECIPES_DIR"/**/*.cook "$RECIPES_DIR"/*.cook; do
     # Parse the recipe to JSON
     cook recipe "$file" --format json > "$OUTPUT_DIR/${slug}.json"
 
+    INDEX="$INDEX\"$slug\","
     echo "Built: $slug"
-done
+done < <(find "$RECIPES_DIR" -name "*.cook" | sort)
+
+# Build an index of all recipes
+echo "[${INDEX%,}]" > "$OUTPUT_DIR/index.json"
 
 echo "Done. JSON files written to $OUTPUT_DIR/"
 ```
@@ -124,7 +147,7 @@ For CI, add the script to your pipeline. Every push to your recipe repo rebuilds
 
 ## A Minimal Recipe Frontend
 
-With the JSON API in place, rendering a recipe in a browser takes about thirty lines of JavaScript:
+With the JSON API in place, rendering a recipe in a browser takes about fifty lines of JavaScript:
 
 ```html
 <!DOCTYPE html>
@@ -151,26 +174,43 @@ With the JSON API in place, rendering a recipe in a browser takes about thirty l
       .then(recipe => {
         const el = document.getElementById("recipe");
 
-        const meta = Object.entries(recipe.metadata || {})
+        const meta = Object.entries(recipe.metadata.map || {})
           .map(([k, v]) => `${k}: ${v}`)
           .join(" · ");
 
+        // A quantity is { value, unit }; the value is a number, a fraction or text.
+        const num = n => n.type === "fraction"
+          ? n.value.whole + n.value.num / n.value.den
+          : n.value;
+        const amount = q => {
+          if (!q) return "";
+          const v = q.value;
+          const text = v.type === "number" ? num(v.value) : v.value;
+          return `${text} ${q.unit || ""}`.trim();
+        };
+
         const ingredients = recipe.ingredients
-          .map(i => `<li>${i.quantity} ${i.units} ${i.name}`.trim() + `</li>`)
+          .map(i => `<li>${amount(i.quantity)} ${i.name}</li>`)
           .join("");
 
-        const steps = recipe.steps.map((step, idx) => {
-          const text = step.items.map(item => {
-            if (item.type === "ingredient") {
-              return `<span class="ingredient">${item.name}</span>`;
-            }
-            return item.value || item.name || "";
+        const steps = recipe.sections
+          .flatMap(section => section.content)
+          .filter(block => block.type === "step")
+          .map(block => {
+            const text = block.value.items.map(item => {
+              if (item.type === "text") return item.value;
+              if (item.type === "ingredient") {
+                return `<span class="ingredient">${recipe.ingredients[item.index].name}</span>`;
+              }
+              if (item.type === "cookware") return recipe.cookware[item.index].name;
+              if (item.type === "timer") return amount(recipe.timers[item.index].quantity);
+              return "";
+            }).join("");
+            return `<li>${text}</li>`;
           }).join("");
-          return `<li>${text}</li>`;
-        }).join("");
 
         el.innerHTML = `
-          <h1>${recipe.name}</h1>
+          <h1>${recipe.metadata.map.title || slug}</h1>
           <p class="meta">${meta}</p>
           <h2>Ingredients</h2>
           <ul>${ingredients}</ul>
@@ -192,23 +232,40 @@ This works from any static host. No backend required once you've built the JSON 
 The same JSON flag works for shopping lists:
 
 ```bash
-cook shopping-list --format json risotto.cook pasta-sauce.cook roast-chicken.cook
+cook shopping-list --format json --pretty risotto.cook pasta-sauce.cook roast-chicken.cook
 ```
 
-The output is a combined, deduplicated ingredient list across all three recipes:
+The output is a combined, deduplicated ingredient list across all three recipes (two items shown):
 
 ```json
-{
-  "shopping_list": [
-    { "name": "garlic", "quantity": "4", "units": "cloves" },
-    { "name": "olive oil", "quantity": "60", "units": "ml" },
-    { "name": "arborio rice", "quantity": "320", "units": "g" },
-    { "name": "chicken", "quantity": "1.5", "units": "kg" }
-  ]
-}
+[
+  {
+    "category": "other",
+    "items": [
+      {
+        "name": "olive oil",
+        "quantity": [
+          {
+            "unit": "ml",
+            "value": { "type": "number", "value": { "type": "regular", "value": 60.0 } }
+          }
+        ]
+      },
+      {
+        "name": "garlic",
+        "quantity": [
+          {
+            "unit": "cloves",
+            "value": { "type": "number", "value": { "type": "regular", "value": 4.0 } }
+          }
+        ]
+      }
+    ]
+  }
+]
 ```
 
-Matching ingredients from different recipes are combined and quantities summed. This output pipes directly into any frontend that needs a shopping list, or into a grocery integration if you're building one.
+Items are grouped by aisle category; without an `aisle.conf` they all land in `other`. Matching ingredients from different recipes are combined and quantities summed. This output pipes directly into any frontend that needs a shopping list, or into a grocery integration if you're building one.
 
 With `:N` scaling per recipe:
 
@@ -225,19 +282,21 @@ If you're publishing recipes on a public site, structured data matters. Search e
 CookCLI generates this directly:
 
 ```bash
-cook recipe risotto.cook --format schema
+cook recipe risotto.cook --format schema --pretty
 ```
 
-Output:
+Output (first two steps):
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Recipe",
+  "keywords": "italian, comfort, vegetarian",
   "name": "Risotto",
   "recipeIngredient": [
     "1 litre chicken stock",
     "30 g butter",
+    "2 shallots",
     "320 g arborio rice",
     "150 ml dry white wine",
     "60 g parmesan"
@@ -245,10 +304,21 @@ Output:
   "recipeInstructions": [
     {
       "@type": "HowToStep",
+      "position": 1,
       "text": "Warm chicken stock in a small saucepan over low heat. Keep it at a gentle simmer throughout."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "text": "Melt butter in a large heavy-bottomed pan and soften shallots, about 5 minutes.",
+      "timeRequired": "PT5M"
     }
   ],
   "recipeYield": "4 servings",
+  "tool": [
+    "small saucepan",
+    "large heavy-bottomed pan"
+  ],
   "totalTime": "PT45M"
 }
 ```
@@ -269,7 +339,7 @@ Then include it in your HTML template alongside the regular recipe data.
 - `--format yaml` — same structure as JSON but YAML, useful if you're feeding into Ansible playbooks or other YAML-native tooling
 - `--format markdown` — renders the recipe as formatted Markdown, good for documentation sites or static site generators
 - `--format cooklang` — round-trips the recipe back to Cooklang syntax, useful for normalization
-- `--format latex` — generates LaTeX output for printable recipe books (pairs with the cookbook PDF scripts covered [in the server docs](/docs/))
+- `--format latex` — generates LaTeX output for printable recipe books (see [Creating Cookbooks](/guides/cookbook-creation/))
 
 For an API use case, JSON and schema are the most useful. YAML is handy if you're generating recipe data for a Hugo or Jekyll site where YAML front matter is expected.
 
@@ -280,19 +350,22 @@ For tighter integration, the `cooklang-rs` Rust library lets you embed the parse
 ```toml
 # Cargo.toml
 [dependencies]
-cooklang = "0.14"
+cooklang = "0.19"
 ```
 
 ```rust
-use cooklang::{CooklangParser, Extensions};
+use cooklang::CooklangParser;
 
 fn main() {
-    let parser = CooklangParser::new(Extensions::all());
+    let parser = CooklangParser::extended();
     let source = std::fs::read_to_string("risotto.cook").unwrap();
     let (recipe, _warnings) = parser.parse(&source).into_result().unwrap();
 
     for ingredient in &recipe.ingredients {
-        println!("{}: {} {}", ingredient.name, ingredient.quantity, ingredient.unit.as_deref().unwrap_or(""));
+        match &ingredient.quantity {
+            Some(quantity) => println!("{}: {}", ingredient.name, quantity),
+            None => println!("{}", ingredient.name),
+        }
     }
 }
 ```

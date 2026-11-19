@@ -1,6 +1,7 @@
 ---
 title: "Markdown Recipe Template: Free Templates & a Better Alternative"
 date: 2026-04-09
+lastmod: 2026-11-19
 weight: 60
 summary: "Copy-paste Markdown recipe templates that work in any text editor, Obsidian, or static site — plus an honest look at where Markdown falls short and what Cooklang adds."
 description: "Free markdown recipe template with YAML frontmatter. Copy-paste and use today — then see why Cooklang does more with the same plain text approach."
@@ -123,12 +124,12 @@ Here's the same tomato pasta in Cooklang:
 ```cooklang
 ---
 servings: 4
-prep_time: 15 minutes
-cook_time: 30 minutes
+prep time: 15 minutes
+cook time: 30 minutes
 tags: [italian, quick, vegetarian]
 ---
 
-Bring a #large pot of salted @water{} to a boil.
+Bring a #large pot{} of salted @water{} to a boil.
 
 Heat @olive oil{2%tbsp} in a #saucepan over medium heat. Add @garlic{3%cloves}, minced, and cook until fragrant, about ~{1%minute}.
 
@@ -155,7 +156,7 @@ Both Markdown and Cooklang work in Obsidian. Markdown renders automatically. Coo
 
 With the plugin, `.cook` files get:
 
-- Syntax highlighting (ingredients in blue, cookware in green, timers in pink)
+- Syntax highlighting (ingredients in your accent colour, cookware in green, timers in pink)
 - A recipe preview mode that looks like a proper recipe card
 - Interactive timers that run directly in the editor
 - An ingredient checklist while you cook

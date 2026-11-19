@@ -1,6 +1,7 @@
 ---
 title: "Build Custom Recipe Reports with CookCLI and Templates"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 50
 summary: "CookCLI has a template system that turns .cook files into shopping lists with store links, cost breakdowns, aisle-organized lists, and CSV exports. This post walks through the cook report command, the ingredient database, and real working templates."
 description: "Build custom recipe reports with CookCLI's template system — shopping lists with store links, cost breakdowns, aisle-organised lists, and CSV exports."
@@ -39,7 +40,7 @@ And a template at `recipe-card.jinja`:
 
 ## Ingredients
 {%- for ingredient in ingredients %}
-- {{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}
+- {{ ingredient.quantity }} {{ ingredient.name }}
 {%- endfor %}
 
 ## Instructions
@@ -59,11 +60,12 @@ cook report -t recipe-card.jinja 'Pasta Carbonara.cook'
 The template variables available in every template are:
 
 - `metadata` — frontmatter fields (`title`, `servings`, `time`, plus anything you define)
-- `ingredients` — list of objects with `name`, `quantity`, and `unit`
+- `ingredients` — list of objects with `name`, `quantity` (prints as `400 g`; `quantity.value` and `quantity.unit` give the parts), and `note`
+- `cookware` — list of objects with `name`, `quantity`, and `note`
 - `sections` — recipe sections containing the step content
 - `scale` — the scaling factor (1.0 by default)
 
-That is the full data model. Everything else in the template system is about querying and transforming these.
+That is the data model. Everything else in the template system is about querying and transforming these.
 
 ## The Ingredient Database
 
@@ -97,13 +99,13 @@ supervalu:
     quantity: 12 Piece
 ```
 
-Inside a template, access database values with `db(path, default)`. The path uses dot notation with underscore-converted ingredient names:
+Inside a template, access database values with `db(path)`. The path uses dot notation with underscore-converted ingredient names:
 
 ```jinja2
 {{ db(underscore(ingredient.name) ~ '.shopping.supervalu.opt_1.name') }}
 ```
 
-The `underscore()` function converts `"canned tomatoes"` to `"canned_tomatoes"` to match filesystem paths. The `db()` function takes an optional default as a second argument, which is useful when not every ingredient has database entries yet.
+The `underscore()` function converts `"canned tomatoes"` to `"canned_tomatoes"` to match filesystem paths. `db()` takes only the path. For an ingredient with no database entry it prints a warning and returns an empty value, so add a fallback with the `default` filter: `db(path) | default('', true)`.
 
 ## Practical Reports
 
@@ -115,15 +117,15 @@ A shopping list that links to specific products and skips things you already hav
 # Shopping List: {{ metadata.title }}
 
 {%- for ingredient in excluding_pantry(ingredients) %}
-- [ ] {{ ingredient.name | titleize }}: {{ ingredient.quantity }} {{ ingredient.unit }}
-  {%- set link = db(underscore(ingredient.name) ~ '.shopping.supervalu.opt_1.url', '') %}
+- [ ] {{ ingredient.name | titleize }}: {{ ingredient.quantity }}
+  {%- set link = db(underscore(ingredient.name) ~ '.shopping.supervalu.opt_1.url') | default('', true) %}
   {%- if link %}
   - [Buy at SuperValu]({{ link }})
   {%- endif %}
 {%- endfor %}
 ```
 
-`excluding_pantry(ingredients)` filters out anything marked as a pantry item in your pantry config. Run with a pantry config file:
+`excluding_pantry(ingredients)` filters out anything marked as a pantry item in your pantry config. Run with a pantry config file (`config/pantry.conf` in the recipe folder is picked up automatically; `-p` points at any other file):
 
 ```bash
 cook report -t shopping-list.jinja 'Pasta Carbonara.cook' -d ./config/db -p ./config/pantry.conf
@@ -141,7 +143,7 @@ Track what each recipe actually costs to make:
 ## Ingredient Costs
 {%- set total_cost = namespace(value=0) %}
 {%- for ingredient in ingredients %}
-{%- set item_cost = db(underscore(ingredient.name) ~ ".cost.per_unit", 0) * ingredient.quantity %}
+{%- set item_cost = (db(underscore(ingredient.name) ~ ".cost.per_unit") | default(0, true) | float) * (ingredient.quantity.value | numeric) %}
 * {{ ingredient.name }}: ${{ "%.2f"|format(item_cost) }}
 {%- set total_cost.value = total_cost.value + item_cost %}
 {%- endfor %}
@@ -150,7 +152,7 @@ Track what each recipe actually costs to make:
 **Cost per Serving:** ${{ "%.2f"|format(total_cost.value / metadata.servings) }}
 ```
 
-This reads from `cost.yml` files in your database. A `cost.yml` might be:
+This reads from `cost.yml` files in your database. `numeric` stops the render on amounts that are not numbers, such as "pinch", so keep recipes and the database in the same units or guard the line with a unit check (the [Reports guide](/guides/reports/) shows one). A `cost.yml` might be:
 
 ```yaml
 per_unit: 0.08
@@ -165,7 +167,7 @@ cook report -t cost-analysis.jinja 'Pasta Carbonara.cook' -d ./config/db
 
 ### Aisle-Organized Shopping List
 
-If you always shop the same store in the same order, an aisle-organized list saves significant time. The `aisled()` function groups ingredients by the aisle assignment in your database:
+If you always shop the same store in the same order, an aisle-organized list saves significant time. The `aisled()` function groups ingredients by the sections of your aisle config (`config/aisle.conf`, picked up automatically from the recipe folder, or passed with `-a`):
 
 ```jinja2
 {%- for aisle, items in aisled(excluding_pantry(ingredients)) | items %}
@@ -178,15 +180,17 @@ If you always shop the same store in the same order, an aisle-organized list sav
 {%- endfor %}
 ```
 
-The `| items` filter converts the grouped dictionary to a list of `(aisle, items)` pairs. The result is a list organized by your actual path through the store — produce, then dairy, then dry goods — rather than alphabetical or recipe order.
+The `| items` filter converts the grouped dictionary to a list of `(aisle, items)` pairs. The result is a list grouped by store section, with the sections in alphabetical order.
 
-Process a whole week of recipes at once:
+`cook report` renders one recipe per run, so for several recipes loop in the shell:
 
 ```bash
-cook report -t shopping-list-aisled.jinja 'Weekly Meals/*.cook' -d ./config/db -p ./config/pantry.conf
+for f in "Weekly Meals"/*.cook; do
+  cook report -t shopping-list-aisled.jinja "$f" -d ./config/db -p ./config/pantry.conf
+done
 ```
 
-`get_ingredient_list(ingredients)` normalizes and deduplicates the combined ingredient list across multiple recipes, so you get one entry for "spaghetti 800g" rather than two separate entries from two pasta recipes.
+`get_ingredient_list(ingredients)` merges repeated mentions of the same ingredient within a recipe, so you get one entry per ingredient with all its amounts. For one combined list across recipes, use `cook shopping-list`.
 
 ## Scaling
 
@@ -217,7 +221,7 @@ cook report -t ingredients.yaml.jinja 'Carbonara.cook' > ingredients.yaml
 ```jinja2
 name,quantity,unit,cost
 {%- for ingredient in ingredients %}
-{{ ingredient.name }},{{ ingredient.quantity }},{{ ingredient.unit }},{{ db(underscore(ingredient.name) ~ ".cost.per_unit", 0) * ingredient.quantity }}
+{{ ingredient.name }},{{ ingredient.quantity.value }},{{ ingredient.quantity.unit }},{{ (db(underscore(ingredient.name) ~ ".cost.per_unit") | default(0, true) | float) * (ingredient.quantity.value | numeric) }}
 {%- endfor %}
 ```
 
@@ -228,7 +232,7 @@ name,quantity,unit,cost
   <h1>{{ metadata.title }}</h1>
   <ul>
   {%- for ingredient in ingredients %}
-    <li>{{ ingredient.quantity }} {{ ingredient.unit }} {{ ingredient.name }}</li>
+    <li>{{ ingredient.quantity }} {{ ingredient.name }}</li>
   {%- endfor %}
   </ul>
 </article>
