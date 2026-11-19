@@ -1,5 +1,5 @@
 {{ define "main" }}
-<div class="bg-white">
+<div class="bg-white" data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}>
 
   <!-- Hero -->
   <section class="container mx-auto px-4 py-16 md:py-24">

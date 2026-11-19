@@ -13,7 +13,7 @@
     </div>
 
     <!-- Desktop Menu -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden lg:flex items-center gap-8">
       <!-- Navigation Links -->
       <nav class="flex items-center gap-6">
         {{ $current := . }}
@@ -38,6 +38,14 @@
         {{end}}
       </nav>
       
+      <!-- Search (partials/search.html); "/" or Cmd/Ctrl+K also opens it -->
+      <button type="button" data-search-open
+              class="inline-flex items-center gap-2 px-3 py-2 text-sm text-cooklang-gray-600 border border-cooklang-gray-200 rounded-lg hover:text-cooklang-orange hover:border-cooklang-orange transition-colors duration-150"
+              aria-label="Search" title="Search (press /)">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+        <kbd class="hidden xl:inline px-1.5 font-sans text-xs text-cooklang-gray-500 border border-cooklang-gray-200 rounded-sm">/</kbd>
+      </button>
+
       <!-- CTA Button — Cook Cloud: the paid services that fund Cooklang (2026-09-03) -->
       <a href="https://cook.md/"
          class="inline-flex items-center gap-2 px-4 py-2 bg-cooklang-orange hover:opacity-90 text-white font-medium text-sm rounded-lg transition-opacity duration-150 whitespace-nowrap">
@@ -45,17 +53,22 @@
       </a>
     </div>
 
+    <div class="flex items-center gap-1 lg:hidden">
+    <button type="button" data-search-open class="p-2 text-cooklang-gray-700 hover:bg-gray-100 rounded-md transition-colors" aria-label="Search">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"/></svg>
+    </button>
     <!-- Mobile Menu Button -->
-    <button class="md:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id="mobile-menu-button" aria-label="Toggle mobile menu">
+    <button class="lg:hidden p-2 hover:bg-gray-100 rounded-md transition-colors" id="mobile-menu-button" aria-label="Toggle mobile menu">
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
     </button>
+    </div>
   </nav>
 </div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+<div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-200">
   <nav class="container mx-auto px-4 py-4 space-y-2">
     {{ $current := . }}
     {{ range .Site.Menus.main }}

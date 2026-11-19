@@ -1,6 +1,6 @@
 {{- $anchor := .Anchor -}}
 <h{{ .Level }} id="{{ $anchor }}" class="scroll-mt-24">
   <a href="#{{ $anchor }}" class="header-anchor" aria-label="Link to this section: {{ .PlainText }}">
-    {{ .Text | safeHTML }}<span class="anchor-icon" aria-hidden="true">#</span>
+    {{ .Text | safeHTML }}<span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#</span>
   </a>
 </h{{ .Level }}>

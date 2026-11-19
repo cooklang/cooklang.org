@@ -1,0 +1,5 @@
+{{- /* Display name for the Pagefind "Section" filter, or "" for pages outside a
+     named section (about, contact, mobile legal pages). Used as:
+     {{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }} */ -}}
+{{- $names := dict "docs" "Docs" "cli" "CLI" "guides" "Guides" "blog" "Blog" "app" "Mobile App" "mobile" "Mobile App" "editor" "Editor" -}}
+{{- return (index $names .Section | default "") -}}

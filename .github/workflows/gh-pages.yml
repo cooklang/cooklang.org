@@ -58,6 +58,11 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      # Site search (issue #46): index the built HTML into public/pagefind/
+      - name: Build search index
+        working-directory: themes/cooklang-tw
+        run: npx pagefind --site ../../public --force-language en
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:

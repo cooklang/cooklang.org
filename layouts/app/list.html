@@ -3,7 +3,7 @@
      own) in cooklang.org's light style, plus sync and feedback.
      Screenshots in static/app/ come from cook.md's help assets. */ -}}
 {{- $check := `<svg class="w-5 h-5 text-cooklang-orange mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>` -}}
-<div class="bg-white">
+<div class="bg-white" data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}>
 
   <!-- Hero -->
   <section class="relative overflow-hidden">
