@@ -1,6 +1,7 @@
 ---
 title: "Cooklang vs Tandoor: Sharp Tool vs Kitchen ERP"
 date: 2026-05-26
+lastmod: 2026-11-19
 weight: 50
 summary: "Tandoor packs every recipe-management feature into one self-hosted app. Cooklang does one thing — structured plain text — and lets you script the rest. Honest comparison."
 description: "Tandoor packs every recipe-management feature into one app. Cooklang does one thing — structured plain text — and lets you script the rest. Which fits?"
@@ -11,39 +12,40 @@ Tandoor is the most feature-rich self-hosted recipe manager in active developmen
 
 One disclosure: we make Cooklang. We've also covered Tandoor in [Tandoor vs Mealie vs KitchenOwl](/blog/42-tandoor-vs-mealie-vs-kitchenowl/) and in the [recipe-management roundup](/blog/48-best-recipe-management-software/). This post is the direct head-to-head — fair to Tandoor, but with the verdict spelled out per section.
 
-Tandoor wants to be your kitchen ERP: nutrition tracking, meal cost calculation, granular permissions, calendar export, a dozen import formats, a permission system that wouldn't look out of place in enterprise software. Cooklang wants to be a file format and stay out of your way. Both are coherent designs. They suit different cooks.
+Tandoor wants to be your kitchen ERP: nutrition and prices calculated per recipe, meal plans with calendar export, AI-assisted import, user accounts with roles, and importers for more than twenty other apps and formats. Cooklang wants to be a file format and stay out of your way. Both are coherent designs. They suit different cooks.
 
 ## The 30-Second Answer
 
 | You want | Pick |
 |---|---|
-| Built-in nutrition tracking and macros | **Tandoor** |
-| Meal cost calculation per portion | **Tandoor** |
-| Granular multi-user permissions | **Tandoor** |
+| Nutrition figures calculated inside the app | **Tandoor** |
+| A price on every recipe | **Tandoor** |
+| User accounts, roles and private recipes | **Tandoor** |
 | Recipes that live as plain text files | **Cooklang** |
-| To stop running PostgreSQL for your cookbook | **Cooklang** |
+| To stop running a database for your cookbook | **Cooklang** |
 | Calendar export and detailed meal planning | **Tandoor** |
 | Lowest possible maintenance burden | **Cooklang** |
 | To script your workflow with shell tools | **Cooklang** |
-| Import from a dozen recipe formats | **Tandoor** |
+| Importers for 20+ other recipe apps | **Tandoor** |
 
 If you'd describe your ideal recipe tool as "everything I might ever need, in one place," Tandoor. If you'd describe it as "a sharp small thing I can compose with," Cooklang.
 
 ## What Tandoor Is, On Its Own Terms
 
-[Tandoor](https://docs.tandoor.dev/) is a self-hosted recipe manager designed for people who want depth. The stack is Python (Django) on the backend with PostgreSQL required from the start — SQLite isn't supported in production. Deployment is Docker compose, but the canonical setup involves PostgreSQL, the Django app, optionally a reverse proxy, and frequently a separate worker container.
+[Tandoor](https://docs.tandoor.dev/) is a self-hosted recipe manager designed for people who want depth. The stack is Python (Django) on the backend and Vue on the frontend, rewritten for the 2.x line in 2025. SQLite works, but the docs say production should always use PostgreSQL, and that is what the official setup ships. Deployment is Docker compose: PostgreSQL, the Django app, and optionally a reverse proxy.
+
+Two things are worth knowing before the feature list. The licence is AGPL v3 with a Commons Clause that forbids selling the software, hosting and support included, so it is not open source in the strict sense. And if you don't want to run it, the project sells a hosted version: a free tier with 10 recipes, paid plans from €1.99 a month.
 
 The feature list is unusually long:
 
-- **Nutritional tracking.** Per-ingredient nutrient values that aggregate to recipe and meal totals.
-- **Meal cost calculation.** Per-ingredient pricing that produces a cost per portion.
-- **Multi-format import.** Schema.org scraping plus support for Mealie JSON, Paprika, Chowdown, RecipeKeeper, and several others.
-- **Multi-format export.** Many of the same.
-- **Calendar export.** ICS feeds you can subscribe to from any calendar app.
-- **Granular permissions.** Per-recipe and per-collection sharing with read/write/admin roles, designed for households or even small commercial setups.
-- **Meal planning** with shopping list generation.
-- **Full REST API** with API key authentication.
-- **Sophisticated tagging, categorization, supermarket categories, and ingredient substitution rules.**
+- **Calculated properties.** Give foods their values (nutrients, a price, allergens, anything you define) and Tandoor adds them up per recipe. Nutrient values can be loaded from the USDA FoodData Central database.
+- **Import from almost anywhere.** Schema.org scraping from websites, AI import from text, photos and PDFs, and importers for more than twenty apps and formats: Mealie, Paprika, Chowdown, Recipe Keeper, Nextcloud Cookbook and others. It reads single Cooklang files too.
+- **Narrow export.** The docs list Tandoor's own format, Saffron and RecipeSage as working exports, and say importing is prioritised over exporting.
+- **Calendar export.** An iCal feed of the meal plan.
+- **Accounts and sharing.** Four roles (guest, user, admin, superuser), private recipes, and share links for single recipes. The docs call this a basic permission system and advise against giving accounts to people you don't trust.
+- **Meal planning** with shopping list generation, and a search for what you can make from the food you have marked as on hand.
+- **A REST API** with token authentication.
+- **Keywords, supermarket categories and food substitutes.**
 
 This is real depth. If you genuinely use these features, Tandoor pays for itself in capability. If you don't, you're maintaining infrastructure for software you don't fully use.
 
@@ -73,35 +75,35 @@ Cooklang deliberately does not have built-in nutrition tracking, meal cost calcu
 
 This is the real axis of the comparison, and it deserves its own section.
 
-Tandoor's philosophy is **bundle everything**. Recipes, meal plans, nutrition, costs, permissions, and import/export all live in one application, sharing one data model, presented through one consistent UI. The benefit is integration — your nutrition data automatically aggregates into your meal plan, which automatically generates a costed shopping list, which automatically respects your sharing permissions. Nothing has to be wired up because everything is already wired together.
+Tandoor's philosophy is **bundle everything**. Recipes, meal plans, nutrition, costs, permissions, and import/export all live in one application, sharing one data model, presented through one consistent UI. The benefit is integration — the values you give a food show up as totals on every recipe that uses it, the meal plan feeds the shopping list, and the same accounts apply everywhere. Nothing has to be wired up because everything is already wired together.
 
 Cooklang's philosophy is **do one thing well, compose the rest**. The format defines structured recipes. Everything else — nutrition calculation, cost tracking, meal planning, sharing — is a separate tool you add if you need it. The benefit is that each piece is independently understandable and replaceable.
 
-Take nutrition as the concrete example. In Tandoor, you fill in nutrient values per ingredient (or import them from a database), and nutrition information appears across the app — on recipes, on meal plans, on shopping lists. It works because Tandoor's data model includes nutrition as a first-class field.
+Take nutrition as the concrete example. In Tandoor, you fill in nutrient values per food (or load them from the USDA database), and each recipe shows the totals. It works because properties are part of Tandoor's data model.
 
-In Cooklang, nutrition isn't built in. Your `.cook` files contain typed ingredients with quantities (`@spinach{200%g}`), which is the *data* a nutrition calculation needs. But the calculation itself is something you'd add: a script that reads the recipe, looks up nutrients from USDA FoodData Central or similar, and outputs the result. That gives you flexibility (use any database, any cooking-method modifiers, any output format) but costs you the integration Tandoor provides out of the box. The middle ground is a plugin: [Core Vitals](https://plugins.cook.md/cooklang/corevitals) and [Nutri-Score](https://plugins.cook.md/cooklang/nutriscore) for Cook Editor do that lookup through the hosted cook.md nutrition service (Cook Basic), and your recipes stay plain `.cook` files either way.
+In Cooklang, nutrition isn't built in. Your `.cook` files contain typed ingredients with quantities (`@spinach{200%g}`), which is the *data* a nutrition calculation needs. But the calculation itself is something you add: the [nutrition reports](https://github.com/cook-md/cooklang-reports-nutrition) package for CookCLI, or your own script that reads the recipe and looks up nutrients from USDA FoodData Central or similar. That gives you flexibility (use any database, any output format) but costs you the integration Tandoor provides out of the box. The middle ground is a plugin: [Core Vitals](https://plugins.cook.md/cooklang/corevitals) and [Nutri-Score](https://plugins.cook.md/cooklang/nutriscore) for Cook Editor do that lookup through the hosted cook.md nutrition service (Cook Basic), and your recipes stay plain `.cook` files either way.
 
 Neither philosophy is wrong. Tandoor says "you should not have to wire anything up." Cooklang says "you should be able to wire things up your way." The right choice depends on whether you'd rather configure software or program around it.
 
 ## Side-by-Side: Where Each Wins
 
-**Nutrition tracking.** Tandoor has it built in. Cooklang has the structured data but you build the analysis yourself. *Tandoor wins.*
+**Nutrition.** Tandoor has it built in, once your foods have values. Cooklang has the structured data and add-ons that do the sums. *Tandoor wins.*
 
-**Meal cost calculation.** Same shape: Tandoor built-in, Cooklang scriptable but not bundled. *Tandoor wins.*
+**Recipe cost.** Same shape: in Tandoor, price is one more property that is added up per recipe. In Cooklang it is a report template over a file of prices. *Tandoor wins.*
 
-**Multi-user permissions.** Tandoor's permission model is genuinely sophisticated. Cooklang relies on whatever filesystem permissions or git access controls you already use. *Tandoor wins.*
+**Multi-user.** Tandoor has accounts, four roles, private recipes and share links. Cooklang relies on whatever filesystem permissions or git access controls you already use. *Tandoor wins.*
 
-**Import variety.** Tandoor reads Schema.org, Mealie, Paprika, Chowdown, RecipeKeeper, and others. Cooklang has community converters but the ecosystem is smaller. *Tandoor wins.*
+**Import variety.** Tandoor reads Schema.org, Mealie, Paprika, Chowdown, Recipe Keeper, and about twenty others. Cooklang has a hosted converter for web pages and a paid batch import for ten apps. *Tandoor wins on the way in. On the way out it is the other way round: Tandoor's export is narrow, and Cooklang has nothing to export because the files are already yours.*
 
 **Calendar and meal planning.** Tandoor has a full UI with ICS export. Cooklang has `.menu` files and CLI tooling. *Tandoor wins on UX; Cooklang wins if you'd rather script.*
 
-**Mobile.** Tandoor's web UI works on phones; some community mobile apps exist. Cooklang has [native iOS and Android apps](/app/). *Tie, different shapes.*
+**Mobile.** Tandoor's web UI installs as a web app that keeps recently opened recipes for offline use; there is no official native app, though unofficial ones exist. Cooklang has [native iOS and Android apps](/app/). *Tie, different shapes.*
 
-**Automation and scripting.** Tandoor has a REST API and webhooks. Cooklang has structured text you can pipe through any tool. *Cooklang wins for shell-level automation; Tandoor wins for HTTP-based integrations.*
+**Automation and scripting.** Tandoor has a REST API. Cooklang has structured text you can pipe through any tool. *Cooklang wins for shell-level automation; Tandoor wins for HTTP-based integrations.*
 
 **Plain-text portability.** Cooklang recipes are text files you already understand. Tandoor recipes are PostgreSQL rows you query through Django. *Cooklang wins decisively.*
 
-**Maintenance burden.** This is the killer category. Tandoor wants Docker compose, PostgreSQL, periodic backups, schema migrations on upgrades, log monitoring, and the general overhead of a self-hosted web app. Cooklang wants a folder. *Cooklang wins by an order of magnitude.*
+**Maintenance burden.** This is the killer category. Tandoor wants Docker compose, PostgreSQL, periodic backups, and upgrades you cannot skip for long: release 2.7.0 in October 2026 fixed eight security advisories. Cooklang wants a folder. *Cooklang wins by a wide margin, unless you pay for Tandoor's hosted version and let them do it.*
 
 Add it up and Tandoor wins on features; Cooklang wins on simplicity and durability. The question is which axis matters more to you.
 
@@ -110,9 +112,9 @@ Add it up and Tandoor wins on features; Cooklang wins on simplicity and durabili
 Tandoor fits if:
 
 - **You track macros seriously.** If you log nutrition daily, having it tied directly to recipes and meal plans is a real workflow gain. Cooklang gives you the data; Tandoor gives you the dashboards.
-- **You run a small catering or meal-prep operation.** Per-portion cost calculation, granular permissions, and multi-user support are designed for this. Cooklang isn't.
-- **You have a real household with different access needs.** Roommates who can edit some recipes but not others, kids who can view but not delete — Tandoor's permission system maps to this cleanly.
-- **You want extensive import support.** If most of your collection comes from other tools (Mealie, Paprika, Chowdown), Tandoor's import variety reduces the migration tax.
+- **You want a price on every recipe.** Enter what foods cost once and each recipe shows its total. In Cooklang you would build that from a report template.
+- **You have a real household with different access needs.** People who should only read get the guest role, and a recipe you are still working on can stay private until you share it.
+- **You want extensive import support.** If most of your collection comes from other tools (Mealie, Paprika, Chowdown), Tandoor's importers reduce the migration tax.
 - **You're comfortable maintaining PostgreSQL.** Tandoor is more demanding than Mealie. If you already run Postgres for other services and have backup tooling in place, this is fine. If you don't, it's a real cost.
 
 If three or more of those apply, Tandoor is the answer. The feature depth pays off when you actually use it.
@@ -131,11 +133,11 @@ Cooklang asks you to want less software. It rewards that with files that just ke
 
 ## Hybrid Use
 
-Tandoor's import variety actually makes a hybrid setup more practical here than with Mealie.
+Tandoor's importers actually make a hybrid setup more practical here than with Mealie, because one of them reads Cooklang.
 
-The pattern: keep your recipes as Cooklang files in git (durable, version-controlled, future-proof). When you want Tandoor's nutrition or planning features for a specific subset, convert that subset to Tandoor's format and import it. You're not trying to keep both in sync continuously — Cooklang is your source of truth, Tandoor is the analytical frontend for the cases where you need it.
+The pattern: keep your recipes as Cooklang files in git (durable, version-controlled, future-proof). When you want Tandoor's nutrition or planning features for a specific subset, import those `.cook` files into Tandoor. You're not trying to keep both in sync continuously — Cooklang is your source of truth, Tandoor is the analytical frontend for the cases where you need it.
 
-A converter from Cooklang to Tandoor's JSON import format is a hundred lines of code. If you have a strong preference for plain-text storage but occasionally need Tandoor's depth, this is a reasonable shape.
+The importer takes one `.cook` file at a time and no pictures, so this suits a handful of recipes, not a whole library. If you have a strong preference for plain-text storage but occasionally need Tandoor's depth, this is a reasonable shape.
 
 ## The Real Choice
 

@@ -1,6 +1,7 @@
 ---
 title: "Recipe Formats for Developers: Cooklang, JSON-LD, RecipeML & MealMaster (Code-Level Comparison)"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 50
 summary: "A code-level comparison of the four recipe file formats you'll encounter when building recipe software: Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster. The same recipe in each format, with parser availability, data structures, and honest trade-offs."
 description: "Code-level comparison of Cooklang, JSON-LD/Schema.org, RecipeML, and MealMaster — parser availability, AST structure, and what your code actually gets back."
@@ -73,7 +74,7 @@ Cook @spaghetti{200%g} in salted boiling water. Drain and toss with the sauce.
 ### MealMaster
 
 ```
-MMMMM----- Meal-Master X - Formatted by HHH2MMF v1.00
+MMMMM----- Recipe via Meal-Master (tm) v8.05
 
       Title: Simple Tomato Pasta
  Categories: pasta, italian
@@ -144,7 +145,7 @@ MMMMM
 
 **Parser availability.** This is where Cooklang stands apart. There are 15+ independent implementations: `cooklang-rs` (Rust, the reference parser), `cooklang-ts` (TypeScript), plus community implementations in Python, Go, Swift, Haskell, Dart, Clojure, Lua, Perl, Ruby, .NET, C, and a Tree-sitter grammar for editor integration. An EBNF grammar and canonical test suite give all of them a shared contract. If your target language isn't on the list, the EBNF is the spec you implement against.
 
-**Output formats.** [CookCLI](/cli/) converts `.cook` files to JSON, YAML, Markdown, HTML, LaTeX, and Schema.org without any code on your part:
+**Output formats.** [CookCLI](/cli/) converts `.cook` files to JSON, YAML, Markdown, LaTeX, Typst, and Schema.org without any code on your part:
 
 ```bash
 cook recipe pasta.cook --format json
@@ -152,19 +153,38 @@ cook recipe pasta.cook --format schema
 cook recipe pasta.cook --format markdown
 ```
 
-The JSON output preserves the inline structure — each step is a list of typed tokens (text, ingredient, cookware, timer) rather than a flat string, so you can render ingredient references highlighted in context:
+The JSON output preserves the inline structure — each step is a list of typed tokens (text, ingredient, cookware, timer) rather than a flat string, so you can render ingredient references highlighted in context. Ingredients, cookware and timers live in their own top-level arrays, and the tokens point at them by index. Trimmed to the first step and the first ingredient:
 
 ```json
 {
-  "steps": [
+  "sections": [
     {
-      "items": [
-        { "type": "text", "value": "Heat " },
-        { "type": "ingredient", "name": "olive oil", "quantity": "2", "units": "tbsp" },
-        { "type": "text", "value": " in a " },
-        { "type": "cookware", "name": "large pan" },
-        { "type": "text", "value": " over medium heat." }
+      "name": null,
+      "content": [
+        {
+          "type": "step",
+          "value": {
+            "items": [
+              { "type": "text", "value": "Heat " },
+              { "type": "ingredient", "index": 0 },
+              { "type": "text", "value": " in a " },
+              { "type": "cookware", "index": 0 },
+              { "type": "text", "value": " over medium heat." }
+            ],
+            "number": 1
+          }
+        }
       ]
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "olive oil",
+      "quantity": {
+        "value": { "type": "number", "value": { "type": "regular", "value": 2.0 } },
+        "unit": "tbsp",
+        "scalable": true
+      }
     }
   ]
 }
@@ -172,7 +192,7 @@ The JSON output preserves the inline structure — each step is a list of typed 
 
 This token-level representation is what flat-string formats can never give you.
 
-**Ecosystem.** Active development. CookCLI, mobile apps (iOS and Android), LSP for editor integration, a federation protocol for sharing recipe collections, and a playground at [playground.cooklang.org](https://playground.cooklang.org) for testing syntax in-browser.
+**Ecosystem.** Active development. CookCLI, mobile apps (iOS and Android), LSP for editor integration, a federation protocol for sharing recipe collections, and a [playground](https://cooklang.github.io/cooklang-rs/) for testing syntax in-browser.
 
 **Best for.** Apps where you need both human authoring and machine-structured data. Recipe storage, scaling, shopping list generation, editor tooling.
 
@@ -231,9 +251,9 @@ Quantities occupy columns 1-7, unit columns 9-10, ingredient name from column 12
 
 Quantity, unit, name, and prep are unambiguously separated. No string parsing required. XML validation catches malformed documents. On paper, this is good format design.
 
-**Parser availability.** Any XML parser works for the basic structure. The problem is the ecosystem is dead. RecipeML 0.5 was the last release, published in 2002. There is no active development, no community, no tooling beyond what was built in the early 2000s. The domain `formatdata.com` where the spec was hosted no longer resolves. You can find the spec mirrored in various places, but no one is maintaining implementations.
+**Parser availability.** Any XML parser works for the basic structure, and the format is defined by a DTD you can validate against. The problem is the ecosystem is dead. The spec is still online at [formatdata.com](http://www.formatdata.com/recipeml/), still at version 0.5, the release in which the format took the name RecipeML. I know of no active development, no community, and no tooling beyond what was built in the early 2000s.
 
-**The verbosity problem.** The XML sample above uses 47 lines to represent 5 ingredients and 4 steps. The same recipe in Cooklang is 8 lines. That verbosity was tolerable in 2002 when XML was considered the future of everything. It is not tolerable now.
+**The verbosity problem.** The XML sample above uses 38 lines to represent 5 ingredients and 4 steps. The same recipe in Cooklang is 13 lines, front matter and blank lines included. That verbosity was tolerable in 2002 when XML was considered the future of everything. It is not tolerable now.
 
 **Best for.** Maintaining legacy systems that already use it. If you're starting fresh, the ingredient structure RecipeML provides (separate qty/unit/name/prep fields) is exactly what Cooklang's parser gives you from inline annotations — without the XML tax.
 
@@ -246,9 +266,9 @@ Quantity, unit, name, and prep are unambiguously separated. No string parsing re
 | Human-readable | Yes | No | Somewhat | No |
 | Structured ingredients | Yes (inline) | No (strings) | Yes (columns) | Yes (XML nodes) |
 | Parser ecosystem | 15+ languages | Every JSON parser | Few, unmaintained | Dead |
-| Active development | Yes | Google-backed | No | No |
+| Active development | Yes | Yes (Schema.org) | No | No |
 | Inline markup | Yes | N/A | No | No |
-| Formal grammar / spec | Yes (EBNF + test suite) | Yes (Schema.org) | No | Yes (XSD, archived) |
+| Formal grammar / spec | Yes (EBNF + test suite) | Yes (Schema.org) | No | Yes (DTD) |
 | Best for | Authoring + tooling | SEO output | Legacy import | Legacy maintenance |
 
 ## When to Use What
@@ -273,8 +293,8 @@ If you're evaluating formats for a new project, the most useful comparison is wh
 | Ingredient quantity | Yes | String parsing required | Yes (with correct columns) | Yes |
 | Ingredient unit | Yes | String parsing required | Yes (two-char abbreviation) | Yes |
 | Prep note | Yes (parenthetical) | Embedded in string | After semicolon | Yes (`<prep>`) |
-| Cookware references | Yes | No | No | No |
-| Timer values | Yes | No | No | No |
+| Cookware references | Yes | A list of names (`tool`), not tied to steps | No | No |
+| Timer values | Yes | Optional per step (`timeRequired`) | No | No |
 | Step-level ingredient refs | Yes | No | No | No |
 | Metadata (title, yield) | Yes (YAML frontmatter) | Yes | Yes (fixed fields) | Yes |
 
@@ -282,6 +302,6 @@ The step-level ingredient reference column is the meaningful differentiator. Onl
 
 ---
 
-The [Cooklang spec](/docs/spec/) is the starting point if you want to understand the grammar before writing a parser or integrating the library. The [for-developers page](/docs/for-developers/) has the full list of parser implementations by language. If you want to see the parser output interactively, the [playground](https://playground.cooklang.org) shows the JSON AST in real time as you edit.
+The [Cooklang spec](/docs/spec/) is the starting point if you want to understand the grammar before writing a parser or integrating the library. The [for-developers page](/docs/for-developers/) has the full list of parser implementations by language. If you want to see the parser output interactively, the [playground](https://cooklang.github.io/cooklang-rs/) shows the JSON AST in real time as you edit.
 
 -Alex
