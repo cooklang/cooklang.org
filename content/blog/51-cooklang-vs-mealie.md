@@ -1,6 +1,7 @@
 ---
 title: "Cooklang vs Mealie: Plain Text vs Self-Hosted Web App"
 date: 2026-05-26
+lastmod: 2026-11-19
 weight: 50
 summary: "Mealie gives you a polished self-hosted web app for your household. Cooklang gives you plain-text recipes you fully own. Honest fitness-for-purpose comparison."
 description: "Mealie gives you a polished web app for your household. Cooklang gives you plain-text recipes you fully own. Here's which fits which kind of cook."
@@ -37,11 +38,11 @@ Once it's running, you get a mobile-friendly web UI from any browser on your net
 - Recipe import from URLs — point it at a food blog, it scrapes the structured data and pulls in title, ingredients, instructions, and photo
 - Meal planning with a calendar view, drag and drop
 - Shopping lists generated from meal plans
-- Multi-user support with household groups
+- Multi-user support: groups, with households inside them
 - A full REST API
 - Recipe categorization, tags, ratings, cooking notes
 
-The UI is polished. The cooking mode is readable on a phone propped against a kitchen backsplash. The meal planner actually feels like a meal planner. Mealie does not feel like a project someone put on GitHub and forgot — it feels like a real consumer product. The community is large (11,000+ stars), issues get fixed, and the live demo at [demo.mealie.io](https://demo.mealie.io) is enough to evaluate it before committing.
+The UI is polished. The cooking mode is readable on a phone propped against a kitchen backsplash. The meal planner actually feels like a meal planner. Mealie does not feel like a project someone put on GitHub and forgot — it feels like a real consumer product. The community is large (almost 14,000 stars), issues get fixed, and the live demo at [demo.mealie.io](https://demo.mealie.io) is enough to evaluate it before committing.
 
 The price is your time and your hosting. The features are real.
 
@@ -69,19 +70,19 @@ There is no server to maintain unless you choose to run one. There is no databas
 
 ## Side-by-Side: Where Each Wins
 
-**Setup and hosting.** Mealie wants Docker, a place to run it, and the maintenance overhead of a self-hosted web app — updates, backups, occasional schema migrations. Cooklang wants a folder. *Cooklang wins on simplicity; Mealie wins if you want a real frontend and are happy hosting it.*
+**Setup and hosting.** Mealie wants Docker, a place to run it, and the maintenance overhead of a self-hosted web app — a release roughly every ten days with notes worth reading, and backups you make yourself. Cooklang wants a folder. *Cooklang wins on simplicity; Mealie wins if you want a real frontend and are happy hosting it.*
 
-**Recipe entry from the web.** Mealie's URL scraper is excellent — paste a blog link, get a clean recipe. Cooklang has no equivalent. You'd write or import recipes manually, or use a third-party converter. *Mealie wins decisively.*
+**Recipe entry from the web.** Mealie's URL scraper is excellent — paste a blog link, get a clean recipe, already in your collection. Cooklang converts a recipe page too: put `cook.md/` in front of the address, or use the Recipe Clipper browser extension, and you get a `.cook` file to save into your folder. That is free for recipe sites, but it is a hosted converter, not something running on your own machine (the [importing guide](/guides/importing-recipes/) has the details). *Mealie wins on being built in.*
 
-**Mobile access.** Mealie's web UI works on phones; you bookmark the URL. Cooklang has native [iOS and Android apps](/app/) that sync from your recipe folder. *Tie, with a different shape — Mealie is web-everywhere, Cooklang is native-on-mobile.*
+**Mobile access.** Mealie's web UI works on phones and can be installed as a web app. Cooklang has native [iOS and Android apps](/app/) that sync from your recipe folder. *Tie, with a different shape — Mealie is web-everywhere, Cooklang is native-on-mobile.*
 
 **Sharing with a household.** Mealie has user accounts, household groups, and permissions. Cooklang has files in a shared folder. If your household includes non-technical people, the gap is large. *Mealie wins.*
 
 **Data ownership and portability.** Mealie's recipes live in a database inside a Docker volume. Export works, but it's a process. Cooklang recipes are plain text files you already own — `grep`, version-control, copy to another machine, edit in any tool. *Cooklang wins decisively.*
 
-**Search.** Mealie has UI-level search across your recipe collection. Cooklang gives you ripgrep across a folder of text files, which is faster and more flexible but requires comfort with a terminal. *Tie, different shapes.*
+**Search.** Mealie has UI-level search across your recipe collection. Cooklang gives you `cook search`, the search in the apps, and ripgrep across a folder of text files, which is more flexible but requires comfort with a terminal. *Tie, different shapes.*
 
-**Offline access.** Mealie requires the server to be reachable. Cooklang files are on whatever device you have them on. *Cooklang wins.*
+**Offline access.** Mealie's shopping list keeps working offline and syncs later; for recipes, plan on needing the server. Cooklang files are on whatever device you have them on. *Cooklang wins.*
 
 **Automation and scripting.** Mealie has a REST API. Cooklang has structured text you can pipe through any tool. Both are scriptable; Cooklang's surface area is smaller and the data is closer to hand. *Tie, with Cooklang easier for shell-level automation and Mealie better for HTTP-based integrations.*
 
@@ -109,7 +110,7 @@ Cooklang fits your life if:
 - **You're tired of maintaining one more thing.** Servers need updates, backups, troubleshooting. Cooklang has none of that. It's files.
 - **You're a developer.** Recipes-as-code lets you treat your cookbook like a project — pull requests for new recipes, branches for experiments, diffs when you tweak a baseline.
 
-The shape of Cooklang asks more of you upfront (you write recipes manually, you don't get a pretty calendar). It gives more back over time (your files keep working forever, no matter what we do).
+The shape of Cooklang asks more of you upfront (you work with files, you don't get a pretty calendar). It gives more back over time (your files keep working forever, no matter what we do).
 
 ## Can You Use Both?
 
@@ -125,12 +126,12 @@ Pick one. If you can't, run Cooklang as your archive and only use Mealie selecti
 
 If you're moving from Mealie to Cooklang, the path is:
 
-1. Use Mealie's export to dump your recipes as JSON.
-2. Run a converter — there's [community tooling](https://github.com/cooklang) for common formats, or write a small script (the JSON-to-Cooklang transform is straightforward).
+1. Use Mealie's export to download your recipes as a ZIP.
+2. Run a converter. [Batch import on cook.md](https://cook.md/imports/new?from=batch_import) takes that ZIP and gives you `.cook` files in one go (a paid feature, part of Cook Basic). Or write a small script, or look at the [community tooling](https://github.com/cooklang); the JSON-to-Cooklang transform is straightforward.
 3. Drop the resulting `.cook` files in a folder and put it in git.
 4. Decide what you want for mobile access: the [Cooklang apps](/app/), or a [self-hosted CookCLI server](/cli/commands/server/).
 
-Going the other direction (Cooklang to Mealie) is similar — Mealie's import supports several formats, so a Cooklang → JSON converter gets you there.
+Going the other direction (Cooklang to Mealie) also takes a conversion step, into one of the formats Mealie's migration tool accepts.
 
 The migration isn't free, but it isn't rare either. Most people who move have a clear reason: data ownership concerns, server fatigue, or wanting recipes in git. Those reasons are the same ones that should drive the choice in the first place.
 
