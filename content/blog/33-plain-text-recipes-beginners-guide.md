@@ -1,6 +1,7 @@
 ---
 title: "Plain Text Recipes: A Beginner's Guide to the Cooklang Format"
 date: 2026-03-11
+lastmod: 2026-11-19
 weight: 50
 summary: "A step-by-step introduction to writing recipes in Cooklang — the plain text format that turns your recipes into structured data. Convert your first recipe in five minutes."
 description: "A beginner's guide to plain-text recipes in the Cooklang format — turn recipes into structured data and write your first .cook file in five minutes."
@@ -66,7 +67,7 @@ If an ingredient has no quantity — say, "salt to taste" — just write `@salt{
 ~{1%hour}
 ```
 
-That's the entire syntax. Three symbols.
+That's the core syntax: three symbols.
 
 ## Convert Your First Recipe
 
@@ -89,7 +90,7 @@ Heat @olive oil{2%tbsp} in a large #pot. Add @onion{1}, diced, and @garlic{3%clo
 
 Add @crushed tomatoes{800%g} (two cans), @vegetable broth{1%cup}, @sugar{1%tsp}, @salt{} and @pepper{} to taste.
 
-Simmer ~{20%minutes}. Blend with an #immersion blender until smooth.
+Simmer ~{20%minutes}. Blend with an #immersion blender{} until smooth.
 ```
 
 It took about two minutes. The recipe still reads naturally, but now software can extract a shopping list, scale it to 8 servings, or run a 20-minute timer for you.
@@ -101,19 +102,19 @@ Once a recipe is a `.cook` file, tools can work with it:
 **Generate a shopping list** from one recipe or a whole week of dinners:
 
 ```bash
-cook shopping-list "Tomato Soup" "Pasta Aglio e Olio" "Roast Chicken"
+cook shopping-list mains/tomato-soup.cook mains/pasta-aglio-e-olio.cook mains/roast-chicken.cook
 ```
 
-**Scale servings** — double, halve, or set any number:
+**Scale a recipe** — double it, halve it, or use any factor:
 
 ```bash
-cook recipe "Tomato Soup" --servings 8
+cook recipe mains/tomato-soup.cook:2
 ```
 
-**Serve your recipes** on your local network for kitchen use:
+**Serve your recipes** on your local network for kitchen use (without `--host`, only this computer can open it):
 
 ```bash
-cook server --open
+cook server --host --open
 ```
 
 **Search your collection:**
@@ -160,8 +161,8 @@ Add recipe metadata — servings, prep time, tags, source — in YAML frontmatte
 ```cooklang
 ---
 servings: 4
-prep_time: 10 minutes
-cook_time: 30 minutes
+prep time: 10 minutes
+cook time: 30 minutes
 source: https://example.com/recipe
 tags: [italian, vegetarian, quick]
 ---
@@ -195,7 +196,7 @@ Since recipes are files, sync them however you sync files:
 - **Google Drive or Dropbox** — any sync service works
 - **Git** — version control your cookbook, see what changed, collaborate with others
 
-Edit with any text editor. There are syntax highlighting plugins for [VS Code](https://marketplace.visualstudio.com/items?itemName=nicholasglazer.cooklang-support), [Obsidian](/blog/15-cooklang-obsidian-guide/), and [others](/docs/syntax-highlighting/).
+Edit with any text editor. There are syntax highlighting plugins for [VS Code](https://marketplace.visualstudio.com/items?itemName=dubadub.cook), [Obsidian](/blog/15-cooklang-obsidian-guide/), and [others](/docs/syntax-highlighting/).
 
 ## Next Steps
 
@@ -205,6 +206,6 @@ Edit with any text editor. There are syntax highlighting plugins for [VS Code](h
 - [Language specification](/docs/spec/) — the full syntax reference
 - [Why plain text recipes beat databases](/blog/12-why-plain-text-recipes/) — the case for the approach
 
-Start with one recipe. The one you make most often. Convert it, save it as a `.cook` file, and see if you like working this way. Most people convert their whole collection within a week.
+Start with one recipe. The one you make most often. Convert it, save it as a `.cook` file, and see if you like working this way.
 
 -Alexey

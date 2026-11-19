@@ -64,12 +64,12 @@ cook seed ~/recipes
 Then start the server, allowing connections from other devices:
 
 ```bash
-cook server ~/recipes --host
+cook server ~/recipes --host --cors-origin http://kitchen.local:9080
 ```
 
 Open `http://kitchen.local:9080` on your phone or laptop. You should see the recipe list. Press `Ctrl+C` to stop it; the next step makes it permanent.
 
-`--host` is what makes the server listen on the network rather than only on the Pi itself. Anyone on your network can then read and edit the recipes, so keep it on your home WiFi, not a shared or public one.
+`--host` is what makes the server listen on the network rather than only on the Pi itself. `--cors-origin` names the address you will open it at: the server only answers at `localhost` and IP addresses unless a host name is passed this way, and refuses `kitchen.local` with a 403 otherwise. Anyone on your network can then read and edit the recipes, so keep it on your home WiFi, not a shared or public one.
 
 ## 4. Run it as a service
 
@@ -86,7 +86,7 @@ Wants=network-online.target
 Type=simple
 User=pi
 WorkingDirectory=/home/pi/recipes
-ExecStart=/usr/local/bin/cook server /home/pi/recipes --host --port 9080
+ExecStart=/usr/local/bin/cook server /home/pi/recipes --host --port 9080 --cors-origin http://kitchen.local:9080
 Restart=always
 RestartSec=5
 
@@ -123,7 +123,7 @@ sudo nmcli connection up "preconfigured"
 
 **Add it to home screens.** On the tablet in the kitchen, open the server in the browser and choose *Add to Home Screen* (Safari's share menu on iOS; Chrome's menu on Android). It opens full-screen like an app.
 
-**Optional: drop the port number.** If you would rather type `http://kitchen.local` than `http://kitchen.local:9080`, put nginx in front:
+**Optional: drop the port number.** If you would rather type `http://kitchen.local` than `http://kitchen.local:9080`, put nginx in front, and add `--cors-origin http://kitchen.local` to `ExecStart` as a second origin so the server answers at that address too:
 
 ```bash
 sudo apt install -y nginx
@@ -211,6 +211,7 @@ A Pi 4 serves recipe pages in well under a second on a local network and copes w
 | Symptom | Fix |
 |---------|-----|
 | Works on the Pi (`curl localhost:9080`) but not from other devices | `--host` is missing from the command, or the firewall blocks the port (`sudo ufw status`). |
+| `http://kitchen.local:9080` returns 403 but the IP address works | The host name is not in `--cors-origin`. Add `--cors-origin http://kitchen.local:9080` (one flag per address you use). |
 | `kitchen.local` does not resolve | Use the IP address, or check the hostname with `hostname`. Some Android devices lack mDNS; use the IP there. |
 | `Exec format error` when running `cook` | Wrong architecture download. Re-check `uname -m`. |
 | Server stops when you close SSH | You ran it by hand. Use the systemd service from step 4. |

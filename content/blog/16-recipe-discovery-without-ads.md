@@ -1,6 +1,7 @@
 ---
 title: "Recipe Discovery Without the Ads and Life Stories"
 date: 2026-02-25
+lastmod: 2026-11-19
 weight: 60
 summary: "Modern recipe sites bury recipes under ads, pop-ups, and SEO filler. Cooklang Federation offers a different approach — a searchable index of community-tested recipes with no ads, no tracking, and no stories about someone's trip to Tuscany."
 description: "Recipe sites bury recipes under ads and SEO filler. The Cooklang Federation is a searchable index of community-tested recipes — no ads, no tracking, no life stories."
@@ -29,11 +30,11 @@ It looks like asking a friend, "What do you make for a weeknight dinner?" and ge
 
 [Cooklang Federation](https://recipes.cooklang.org) is a searchable index of recipes from the Cooklang community. It works differently from recipe sites:
 
-- **No ads.** The federation is open source and community-run.
+- **No ads.** The federation is open source and run by the Cooklang project; the recipes come from the community.
 - **No filler.** Recipes are stored in [Cooklang format](/docs/spec/) — structured plain text with ingredients, quantities, and steps. Nothing else.
 - **Real recipes from real people.** Every recipe in the federation comes from someone's personal collection — their GitHub repository or blog feed. These are recipes people actually cook.
 
-The federation currently indexes **62 active feeds** with recipes from community members worldwide — personal cookbooks, specialized collections (vegetarian, molecular gastronomy, international cuisines), and everything in between.
+The federation indexes more than 6,600 recipes from over 100 active feeds (as of November 2026), from community members worldwide — personal cookbooks, specialized collections (vegan, cocktails, Chinese home cooking), and everything in between.
 
 ### How Search Works
 
@@ -44,7 +45,7 @@ Search by keyword, ingredient, tag, or combine them:
 - `tags:italian` — tagged Italian recipes
 - `pasta AND tags:italian AND total_time:[0 TO 30]` — Italian pasta dishes under 30 minutes
 
-You can filter by difficulty, servings, and cooking time. Results link directly to the recipe source — the actual `.cook` file — so you see exactly what the author wrote, no wrapper content.
+You can filter by difficulty, servings, and cooking time. Each result opens a plain page with the recipe as the author wrote it, a link to the original `.cook` file in their repository, and a download button — no wrapper content.
 
 ### How It Works Under the Hood
 
@@ -58,16 +59,16 @@ All configuration is version-controlled. Adding or removing feeds requires a pul
 
 If you keep your recipes in Cooklang format, you can add them to the federation:
 
-1. **GitHub repository**: Add your repo to [`feeds.yaml`](https://github.com/cooklang/federation) with a pull request. The crawler will index all `.cook` files automatically.
+1. **GitHub repository**: Add your repo to [`feeds.yaml`](https://github.com/cooklang/federation/blob/main/config/feeds.yaml) with a pull request. The crawler will index all `.cook` files automatically.
 2. **Blog or website**: Generate an Atom feed from your recipes and submit the feed URL.
 
-The pull request goes through CI validation — checking for duplicates, verifying accessibility, and confirming the feed format — before a maintainer merges it.
+The pull request goes through CI validation — checking the YAML, duplicate URLs, and URL format — before a maintainer merges it.
 
 ## The Alternative to Algorithm-Driven Discovery
 
 Recipe recommendation algorithms optimize for engagement, not for cooking. They surface recipes that get clicks, not recipes that produce good food. The federation takes the opposite approach: it surfaces recipes from people who cook, indexed without ranking manipulation.
 
-No recipe in the federation was written to game search rankings. No recipe was padded with filler to increase time on page. Every recipe exists because someone wanted to cook it and chose to share it.
+Recipes in the federation live in people's own collections, not on pages built around ad impressions. Nothing is padded with filler to increase time on page. Every recipe is there because someone chose to keep it and share it.
 
 Browse the federation at [recipes.cooklang.org](https://recipes.cooklang.org), search it from inside [Cook Editor](/editor/) with the [Recipe Hub](https://plugins.cook.md/cooklang/recipe-hub) plugin, or contribute your recipes at [github.com/cooklang/federation](https://github.com/cooklang/federation).
 

@@ -1,6 +1,7 @@
 ---
 title: "What Goes Into Designing a Recipe Markup Language"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 50
 summary: "Recipes are one of the most structured forms of human writing, yet almost every digital format either loses that structure or buries it in machine syntax. Here's how we designed a markup language that keeps recipes readable and machine-parseable at the same time."
 description: "How we designed the Cooklang recipe markup language to keep recipes both human-readable and machine-parseable — the trade-offs behind the format."
@@ -61,7 +62,7 @@ Inline markup means annotations live inside the instruction text, not outside it
 
 ```cooklang
 -- Inline markup, structure inside prose
-Sauté @garlic{3%cloves} and @onion{1} in the #frying pan for ~{5%minutes}.
+Sauté @garlic{3%cloves} and @onion{1} in the #frying pan{} for ~{5%minutes}.
 ```
 
 The XML version is complete. Every element is tagged, nothing is ambiguous. But it's unreadable by a cook standing at the stove. The Cooklang version reads like a sentence — because it is one. The annotations are lightweight enough that your eye skips over them after a few recipes.
@@ -156,7 +157,7 @@ Add @ground beef{500%g} and @ground pork{250%g}. Brown completely.
 Add @tomato paste{2%tbsp} and @white wine{200%ml}. Simmer for ~{2%hours}.
 ```
 
-The `=` prefix (with a space) marks a section heading. Sections are not separate recipes — they share the ingredient list and the cookware — they're organizational units. A parser surfaces them as named steps the user can navigate between.
+The `=` prefix marks a section heading (`= Soffritto` and `== Soffritto ==` both work). Sections are not separate recipes — they share the ingredient list and the cookware — they're organizational units. A parser surfaces them as named steps the user can navigate between.
 
 Recipe references go further: a `.cook` file can reference another `.cook` file as an ingredient.
 
@@ -164,17 +165,13 @@ Recipe references go further: a `.cook` file can reference another `.cook` file 
 Serve the duck with @./Sauces/Salsa Verde{} spooned over the top.
 ```
 
-The parser follows that path, finds `Salsa Verde.cook`, and includes its ingredients in the aggregate shopping list. You don't have to copy-paste the salsa verde ingredients into the main recipe — the reference does it. This is [recipe composition](/blog/22-cooking-for-programmers/), and it changes how you organize a cookbook.
+The parser follows that path, finds `Salsa Verde.cook`, and includes its ingredients in the aggregate shopping list. You don't have to copy-paste the salsa verde ingredients into the main recipe — the reference does it. This is [recipe composition](/docs/spec/#referencing-other-recipes), and it changes how you organize a cookbook.
 
 ## Metadata and the YAML Frontmatter Decision
 
-Early in the design we considered various approaches to recipe metadata: title, servings, timing, tags, source URL. The candidates were:
+The first spec (2021) used a custom line syntax for metadata, `>> key: value`. It could not express lists or nested values, and a key containing `:` could not be parsed. In 2024 we replaced it with YAML front matter (spec proposal 0003); the `>>` form is now deprecated.
 
-1. Key-value pairs with a custom syntax at the top of the file
-2. YAML frontmatter (the Hugo/Jekyll convention)
-3. No built-in metadata, leave it to convention
-
-We went with YAML frontmatter. The reasoning: developers already know it, parsers for it already exist in every language, and it keeps the metadata visually separate from the instructions. A recipe file with frontmatter looks like this:
+Why YAML: developers already know it, parsers for it already exist in every language, and it keeps the metadata visually separate from the instructions. A recipe file with frontmatter looks like this:
 
 ```cooklang
 ---
@@ -198,7 +195,7 @@ The `---` delimiters are unambiguous. A parser can extract the YAML block, parse
 
 A markup language without a formal grammar is a format — something that works until implementations disagree. We wanted implementations to agree, so we published an [EBNF grammar](https://github.com/cooklang/spec/blob/main/EBNF.md) and a [canonical test suite](https://github.com/cooklang/spec/tree/main/tests).
 
-The test suite is the real anchor. It defines behavior for edge cases: what happens with nested braces, empty ingredient names, unusual Unicode, timer syntax variations. An implementation that passes the test suite is compatible; one that doesn't, isn't.
+The test suite is the real anchor. It defines behavior for edge cases: multi-word names without braces, fractions, Unicode punctuation and whitespace, timer syntax variations, optional markers. An implementation that passes the test suite is compatible; one that doesn't, isn't.
 
 This matters because the ecosystem now has [15+ independent implementations](/docs/for-developers/): Rust, TypeScript, JavaScript, Swift, Python, Go, Haskell, Dart, Clojure, Lua, Perl, Ruby, .NET, C, and a Tree-sitter grammar for editor integration. The official Rust parser (`cooklang-rs`) handles unit conversion, scaling, and aisle configuration. The TypeScript and JavaScript parsers run in browsers and Node. Each community implemented the language they needed, and the spec gave them a contract to implement against.
 
@@ -210,7 +207,7 @@ No design survives contact with real users without revealing its gaps.
 
 The multi-word name rule (braces required) trips up new users constantly. The single-word shorthand (`@salt` without braces) is convenient but creates an inconsistency — most ingredients need braces, but single-word ones don't. We considered requiring braces always. The tradeoff was verbosity versus consistency; we chose convenience and accepted the inconsistency.
 
-Timers have an awkward syntax when they have no associated description — `~{15%minutes}` looks strange compared to how naturally ingredients read. There have been proposals for labeled timers (`~{preheat%15%minutes}`) but that hasn't been standardized.
+Timers have an awkward syntax when they have no associated description — `~{15%minutes}` looks strange compared to how naturally ingredients read. Named timers (`~preheat{15%minutes}`) have been in the spec since 2021, but most recipes leave timers unnamed.
 
 Nutritional data is entirely out of scope. The format captures what you use and in what quantities, but it doesn't encode nutritional values — that's left to external databases and tool implementations. Some parsers look up values from USDA data; others leave it to the user. The right call for the language, but it means nutrition features are never quite standard across tools.
 

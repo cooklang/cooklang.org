@@ -1,6 +1,7 @@
 ---
 title: "Cooklang Mobile App: Read, Cook, and Shop from Your Phone"
 date: 2026-03-11
+lastmod: 2026-11-19
 weight: 50
 summary: "A walkthrough of the Cooklang mobile app for iOS and Android — how to set up your recipe collection, cook from your phone, and generate shopping lists on the go."
 description: "A walkthrough of the Cooklang mobile app for iOS and Android — set up your recipe collection, cook from your phone, and build shopping lists on the go."
@@ -17,7 +18,7 @@ Here's how it works.
 
 ### iOS
 
-The iOS app syncs through iCloud Drive.
+The iOS app can read a folder in iCloud Drive (free) or sync through Cook Cloud (Cook Basic). This walkthrough uses iCloud Drive.
 
 1. Create a folder in iCloud Drive — call it `Recipes` or whatever you like.
 2. Put your `.cook` files in that folder. Subfolders work too.
@@ -98,10 +99,10 @@ Recipe apps store your recipes in their database. The Cooklang app reads your fi
 
 - **Switch phones?** Your recipes are files on a cloud drive. Nothing to migrate.
 - **App discontinued?** Your `.cook` files still work in any text editor, in [CookCLI](/cli/), in other Cooklang tools.
-- **Want to edit?** Open the file in any text editor on any device. No app-specific editor with its own quirks.
+- **Want to edit?** Open the file in any text editor on any device. You don't need the app to edit anything.
 - **Want to share?** Send the file. The recipient can read it as plain text even without the app.
 
-The app is a viewer and a shopping tool. Your recipes don't live inside it — they live in your file system, where they belong.
+The app is where you cook, shop and plan, and it can edit and import recipes too. Your recipes don't live inside it — they live in your file system, where they belong.
 
 ## Getting Started
 

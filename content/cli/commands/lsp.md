@@ -29,7 +29,7 @@ The server communicates over stdin/stdout. You typically don't run this directly
 
 ### Visual Studio Code
 
-Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang). It uses `cook lsp` automatically.
+Install the [Cooklang extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook). It uses `cook lsp` automatically.
 
 Manual configuration in `settings.json`:
 ```json
