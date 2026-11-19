@@ -3,7 +3,7 @@
      keeps the default list). The command tables come from .Content. Terminal
      output is real `cook` output on the seed recipes. No <code> wrappers in the
      hand-coloured blocks: baseof.html flattens every code element to text. */ -}}
-<div class="bg-white">
+<div class="bg-white" data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}>
 
   <!-- Hero -->
   <section class="container mx-auto px-4 py-16 md:py-20">

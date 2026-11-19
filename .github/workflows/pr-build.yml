@@ -40,5 +40,13 @@ jobs:
       - name: Build site
         run: hugo --minify
 
+      # Site search (issue #46): index the built HTML into public/pagefind/
+      - name: Build search index
+        working-directory: themes/cooklang-tw
+        run: npx pagefind --site ../../public --force-language en
+
       - name: Check CSS was generated
         run: test -s public/css/style.css
+
+      - name: Check search index was generated
+        run: test -s public/pagefind/pagefind-ui.js && test -d public/pagefind/index

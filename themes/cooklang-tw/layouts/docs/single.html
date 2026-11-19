@@ -39,7 +39,7 @@
       </aside>
 
       <!-- Main Content -->
-      <article class="flex-1 overflow-x-auto">
+      <article class="flex-1 overflow-x-auto" data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}>
         <header class="mb-8">
           <h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">{{ .Title }}</h1>
         </header>
@@ -49,7 +49,7 @@
         </div>
 
         {{ if or .NextInSection .PrevInSection }}
-        <nav class="mt-12 pt-8 border-t border-cooklang-gray-200">
+        <nav class="mt-12 pt-8 border-t border-cooklang-gray-200" data-pagefind-ignore>
           <div class="flex justify-between">
             {{ with .NextInSection }}
             <a href="{{ .Permalink }}" class="text-cooklang-orange hover:text-orange-600">

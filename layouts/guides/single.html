@@ -49,8 +49,8 @@
       </aside>
 
       <!-- Main Content -->
-      <article class="flex-1 overflow-x-auto min-w-0">
-        <nav class="text-sm text-cooklang-gray-600 mb-4" aria-label="Breadcrumb">
+      <article class="flex-1 overflow-x-auto min-w-0" data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}>
+        <nav class="text-sm text-cooklang-gray-600 mb-4" aria-label="Breadcrumb" data-pagefind-ignore>
           <ol class="flex flex-wrap items-center gap-x-2">
             <li><a href="/guides/" class="hover:text-cooklang-orange">Guides</a></li>
             <li class="text-cooklang-gray-400" aria-hidden="true">›</li>
@@ -72,7 +72,7 @@
         </div>
 
         {{ if or .NextInSection .PrevInSection }}
-        <nav class="mt-12 pt-8 border-t border-cooklang-gray-200">
+        <nav class="mt-12 pt-8 border-t border-cooklang-gray-200" data-pagefind-ignore>
           <div class="flex justify-between">
             {{ with .NextInSection }}
             <a href="{{ .RelPermalink }}" class="text-cooklang-orange hover:text-orange-600">

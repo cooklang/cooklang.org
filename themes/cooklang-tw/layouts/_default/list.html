@@ -1,7 +1,8 @@
 {{ define "main" }}
 <div class="bg-white">
   <div class="container mx-auto px-4 py-8 max-w-6xl">
-    <header class="mb-8">
+    {{- /* Index the intro (e.g. /docs/ Language Overview), not the card grid. */}}
+    <header class="mb-8"{{ if .Content }} data-pagefind-body{{ with partial "search-section.html" . }} data-pagefind-filter="section:{{ . }}"{{ end }}{{ end }}>
       <h1 class="text-4xl font-bold text-cooklang-gray-900 mb-4">{{ .Title }}</h1>
       {{ if .Content }}
       <div class="prose prose-lg max-w-none text-cooklang-gray-700 mb-8">
