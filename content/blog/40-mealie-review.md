@@ -1,19 +1,20 @@
 ---
 title: "Mealie Review 2026: Honest Pros, Cons & Who It's For"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 45
 summary: "Mealie is one of the most popular self-hosted recipe managers. Here's an honest look at what it does well, where it falls short, and who it's actually for — from someone who builds a different kind of recipe tool."
 description: "An honest Mealie review for 2026 — real pros and cons of the self-hosted recipe manager, where it frustrates, and who should pick it (or Cooklang instead)."
 categories: ["Comparisons"]
 ---
 
-Mealie keeps coming up whenever developers ask about self-hosted recipe management. It's got 11,000+ GitHub stars, an active community, and a genuinely polished web interface. If you're evaluating recipe management options and Mealie is on your list, here's what you actually need to know.
+Mealie keeps coming up whenever developers ask about self-hosted recipe management. It has almost 14,000 GitHub stars, an active community, and a genuinely polished web interface. If you're evaluating recipe management options and Mealie is on your list, here's what you actually need to know.
 
 One disclosure up front: we make Cooklang, which is a different approach to recipe management. We'll get to the comparison at the end. But the bulk of this review is about Mealie on its own terms — what it does well, where it gets frustrating, and who it's built for. Take our perspective on alternatives with that context in mind.
 
 ## What Mealie Is
 
-Mealie is a free, open source, self-hosted web application for managing recipes. The stack is Python (FastAPI backend) and Vue.js frontend. Deployment is Docker-based — the standard install is a `docker-compose.yml` that spins up the app alongside a database. You get a polished, mobile-friendly web UI that works from any browser on your network.
+Mealie is a free, open source (AGPL-3.0), self-hosted web application for managing recipes. This review is about the 3.x line; the latest release as I write is 3.31. The stack is Python (FastAPI backend) and a Vue.js frontend. Deployment is Docker-based: the standard install is one container from a `docker-compose.yml`, with SQLite inside it by default. You get a polished, mobile-friendly web UI that works from any browser on your network.
 
 The project lives at [github.com/mealie-recipes/mealie](https://github.com/mealie-recipes/mealie). There's a live demo at [demo.mealie.io](https://demo.mealie.io) if you want to click around before committing to a self-hosted install.
 
@@ -22,9 +23,9 @@ Core features:
 - Recipe import from URLs (web scraping)
 - Meal planning with a calendar view
 - Shopping lists generated from meal plans
-- Multi-user support with household groups
+- Multi-user support: groups, with households inside them
 - A full REST API
-- Supports SQLite or PostgreSQL as the backend database
+- SQLite by default, PostgreSQL if you want it, and a documented way to move between the two
 
 It is free software. The cost is your time and your hosting infrastructure.
 
@@ -34,7 +35,7 @@ It is free software. The cost is your time and your hosting infrastructure.
 
 The most-praised feature, and it earns the praise. Point Mealie at a recipe URL and it pulls out the title, ingredients, instructions, and often the photo. This works reliably on most major food sites because those sites use Schema.org structured data, which Mealie parses directly.
 
-This isn't magic — any tool that reads `application/ld+json` gets most of the work for free. But Mealie handles the cases that structured data misses, and the import workflow is smooth enough that you'll actually use it.
+This isn't magic — any tool that reads `application/ld+json` gets most of the work for free, and Mealie uses the same open source `recipe-scrapers` library many others do. For pages without that data it can fall back to an AI provider, if you configure one. The import workflow is smooth enough that you'll actually use it.
 
 ### The UI
 
@@ -44,13 +45,13 @@ For non-technical household members, this matters a lot. You can hand someone a 
 
 ### Multi-User Households
 
-Mealie has a genuine household model. Multiple users, permission levels, shared meal plans, shared shopping lists. This is the use case it's built for: a family where multiple people contribute recipes, plan meals together, and need a shared shopping list that updates in real time.
+Mealie has a genuine household model. Users belong to a household, households belong to a group, and each user gets individual permissions (administrator, invite, manage the household, and so on). Meal plans and shopping lists are shared within a household. This is the use case it's built for: a family where multiple people contribute recipes, plan meals together, and need a shared shopping list. Changes other people make show up within a few seconds while the list is open.
 
 If you live alone or are the only cook, most of this goes unused. But if "multiple people in my house need to use this" is a hard requirement, Mealie has a real solution.
 
 ### The API
 
-Mealie exposes a documented REST API over everything — recipes, meal plans, shopping lists, tags, categories. If you want to automate around your recipe data, the API is there. Some people use it to pull meal plan data into Home Assistant, push recipes from other tools, or build custom shopping list integrations.
+Mealie exposes a documented REST API over everything — recipes, meal plans, shopping lists, tags, categories. If you want to automate around your recipe data, the API is there. Every instance serves its own interactive API docs at `/docs`. Home Assistant ships a Mealie integration in its core, with meal plans as calendars and shopping lists as to-do lists.
 
 ## Where Mealie Can Be Frustrating
 
@@ -58,7 +59,9 @@ Mealie exposes a documented REST API over everything — recipes, meal plans, sh
 
 This is not a criticism of Docker. But "requires Docker" is not trivial for everyone. If you're a developer who runs containers routinely, the `docker-compose up -d` install takes ten minutes. If you're a home cook who knows their way around a terminal but hasn't worked with containers, it's a steeper ramp.
 
-Mealie doesn't have a native desktop app. There's no "download and run" installer for macOS or Windows. The only path is a server — whether that's a VPS, a Raspberry Pi on your home network, or a NAS that supports Docker. That's a real prerequisite.
+Mealie doesn't have a native desktop app. There's no "download and run" installer for macOS or Windows. Its FAQ says a non-Docker install is possible but recommends against it. So the path is a server — whether that's a VPS, a Raspberry Pi on your home network (64-bit; there are no 32-bit ARM images), or a NAS that supports Docker. That's a real prerequisite.
+
+If you like Mealie but don't want to run it, its documentation points to Recipinned, a separate paid hosted product from Mealie's creator.
 
 ### Your Data Lives in a Database
 
@@ -66,17 +69,17 @@ Recipes in Mealie are stored in SQLite or PostgreSQL. That's fine for the app. I
 
 You can't just open a recipe in a text editor. You can't grep your recipe collection. You can't put it in Git. The data is there, but it's in a database, and the database is inside a Docker volume, and getting a single recipe out in a readable form requires going through the web interface or the API.
 
-Mealie does have export functionality — you can export your data in various formats. But the exports are for backup, not for working with recipes as files. The recipe format is opaque by design.
+Mealie does have export functionality. A single recipe exports as JSON, as a ZIP with its images, or as a PDF. You can export many recipes at once as a ZIP, and an admin can take a full backup of the site. But these are for backup and for moving between Mealie instances. JSON is a format for programs, not something you open and cook from.
 
-### Updates Sometimes Break Things
+### Updates Need Your Attention
 
-Mealie moves fast, which is mostly a good thing. Frequent updates mean bugs get fixed and features get added. The downside is that database schema migrations are a real part of the update process. Most of the time they work automatically. Occasionally they don't, and you're in a situation where your app won't start and you're debugging Docker logs to figure out what migrated incorrectly.
+Mealie moves fast, which is mostly a good thing. A release comes out roughly every ten days. The downside is that some of them change behaviour. Two examples from 2026: since 3.26 the server only makes outgoing requests to public internet addresses, so webhooks and recipe actions aimed at something on your own network (a Home Assistant box, say) stop working until you add it to an allow-list. And since 3.22, single sign-on logins fail unless your identity provider sends a verified email. Several releases this year were security fixes. Mealie's docs tell you to read the release notes before upgrading, and they mean it.
 
-If you're running a self-hosted service that your household depends on, you need a backup strategy and some tolerance for occasional maintenance windows. That's not unique to Mealie — it's true of any self-hosted web app — but it's worth being clear about.
+Backups are also your job: Mealie no longer makes them automatically. If you're running a self-hosted service that your household depends on, you need a backup routine and some tolerance for maintenance. That's not unique to Mealie — it's true of any self-hosted web app — but it's worth being clear about.
 
-### No Offline Mode
+### Offline Is Limited
 
-Mealie is a web application. If your server is down, unreachable, or you're somewhere without a network connection, you have no access to your recipes. There's no offline mode, no local cache, no client-side storage.
+Mealie is a web application. It can be installed on a phone as a progressive web app, and the shopping list keeps working without a connection and syncs when you are back online. Recipes are a different matter: I found nothing in the docs or the app's configuration that keeps them on the device, so if your server is down or unreachable, plan on not having them.
 
 For most home use cases — cooking in your kitchen where your home server is running — this is fine. But it's a real limitation if you want to cook from a recipe while camping, traveling, or anywhere your Mealie instance isn't reachable.
 
@@ -98,7 +101,7 @@ Specifically, it fits if:
 - You're comfortable maintaining a Docker-based service
 - You want a shared meal plan and shopping list
 
-It's not a great fit if you want something you can run without a server, need offline access, want to version-control your recipes, or prefer to keep your data in a format you can access without the app.
+It's not a great fit if you want something you can run without a server, need your recipes offline, want to version-control your recipes, or prefer to keep your data in a format you can access without the app.
 
 ## A Different Approach
 

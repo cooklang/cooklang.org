@@ -1,6 +1,7 @@
 ---
 title: "How to Double or Halve a Recipe (Without It Going Wrong)"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "Scaling recipes sounds like simple math until your cookies come out flat or your soup is inedibly salty. Here's why scaling fails and how to do it right."
 description: "Doubling a recipe isn't just ×2 — salt, leavening, and pan size break the math. Quick rules for scaling any recipe up or down, plus a conversion table."
@@ -21,7 +22,7 @@ To scale a recipe, multiply each ingredient by **target servings ÷ original ser
 |---|---|
 | Flour, liquids, most produce, meat | **Linear** — multiply directly |
 | Salt, spices, acid | **Sub-linear** — start low, adjust to taste at the end |
-| Baking soda / powder, yeast | **~75% of linear** — too much makes baked goods metallic or collapse |
+| Baking soda / powder, yeast | **A little under linear** — about 1.75× when doubling; too much makes baked goods metallic or collapse |
 | Eggs | **Round to whole** — you can't use half an egg cleanly |
 | Cream / dairy sauces | **Reduce longer**, don't just add more |
 | Pan / cookware size | **Doesn't scale** — bigger batch needs a wider pan, not the same one |
@@ -56,13 +57,13 @@ The rest of this post explains each of these, then shows how a structured recipe
 
 ## Why Scaling Goes Wrong
 
-The most common failure is seasoning. Salt, spice, and acid don't scale linearly. A dish that calls for 1 tsp of salt for 2 servings doesn't need 4 tsp at 8 servings. It needs maybe 2.5 or 3. Flavor compounds accumulate and interact differently at volume. Professional cooks scale seasoning by taste, not by ratio — and they adjust at the end, not the beginning.
+The most common failure is seasoning. Salt, spice, and acid don't scale linearly. A dish that calls for 1 tsp of salt for 2 servings doesn't need 4 tsp at 8 servings. It needs maybe 2.5 or 3. A bigger batch often reduces less, and how salty a spoonful tastes is not something a ratio predicts well. Professional cooks scale seasoning by taste, not by ratio — and they adjust at the end, not the beginning.
 
-Baking is worse. Leavening agents — baking soda, baking powder, yeast — operate through chemical reactions with specific ratios of reactant to substrate. Scale them linearly and you get too much CO2, which can make baked goods taste metallic or collapse. Some bakers use the rule that leavening scales at roughly 75% of the linear rate. That's not intuitive if you're just multiplying.
+Baking is worse. Leavening agents — baking soda, baking powder, yeast — operate through chemical reactions with specific ratios of reactant to substrate. Scale them linearly and you get too much CO2, which can make baked goods taste metallic or collapse. A common baker's rule is to hold leavening back a little: about 1.75× when you double, and less again for bigger batches. That's not intuitive if you're just multiplying.
 
 Then there's cookware. Doubling a recipe doesn't double your pan size. A recipe designed for a 10-inch skillet won't work in the same skillet with double the ingredients — the heat distribution changes, the steam can't escape properly, and you end up braising when you meant to sear. Surface-area-to-volume ratios matter.
 
-Dairy is a quieter trap. Cream and milk in sauces don't always scale linearly because the proteins behave differently at volume. Doubling a cream sauce often produces something thinner than expected — at scale, dairy needs more reduction time, not just more dairy. If a recipe calls for 1 cup of milk and you 4x it, you'll likely want to simmer longer rather than just use 4 cups. The same applies to cheese in baked dishes: too much at scale can release water and split the sauce.
+Dairy sauces are a quieter trap. A cream sauce thickens by evaporation, and evaporation depends on the surface of the pan, not on how much is in it. Double the cream in the same pan and it has twice as much water to lose through the same surface, so after the original simmering time it is thinner than you expect. The fix is more reduction time or a wider pan, not a different amount of cream.
 
 Units cause their own problems. You're scaling a recipe that uses "1/3 cup" and you need 5x. That's 1 and 2/3 cups. Is that 1 cup and 10 tablespoons and 2 teaspoons? Most people don't have that memorized, and mental conversion errors add up across a recipe with 12 ingredients.
 
@@ -212,26 +213,25 @@ cook shopping-list "Pasta.cook:4" "GreenSalad.cook:3" "GarlicBread.cook:2"
 The numbers after the colon are the scale multipliers — the pasta recipe (2 servings) scales to 8, the salad (2 servings) scales to 6, the bread (2 servings) scales to 4. CookCLI scales each recipe, extracts ingredients, combines matching items, and outputs a unified list:
 
 ```
-PRODUCE
-    cherry tomatoes    1200 g
-    garlic             10 cloves
-    romaine lettuce    3 heads
-    lemon              2
-
-DAIRY
-    parmesan           160 g
-    butter             120 g
-
-PANTRY
-    pasta              800 g
-    olive oil          10 tbsp
-    dijon mustard      1 tbsp
-
-BAKING
-    baguette           2
+[produce]
+cherry tomatoes 1200 g
+garlic          12 cloves
+romaine lettuce 3 head
+lemon           1 1/2
+[dairy]
+parmesan        160 g
+butter          120 g
+[pantry]
+pasta           800 g
+olive oil       11 tbsp
+dijon mustard   3 tsp
+salt            1 pinch, 1 tsp
+black pepper    1/4 tsp
+[bakery]
+baguette        2
 ```
 
-That's three scaled recipes merged into one shopping list. The `garlic` from the pasta and the garlic bread are summed together automatically. Fixed ingredients remain at their declared quantities regardless of scale.
+That's three scaled recipes merged into one shopping list, grouped by the sections in `config/aisle.conf`. The `garlic` from the pasta and the garlic bread are summed together automatically. Fixed ingredients remain at their declared quantities regardless of scale: the salt line is one pinch from the salad and one teaspoon from the pasta, not three and four.
 
 The [web server UI](/cli/commands/server/) also supports scaling interactively — you can adjust serving counts in the browser and see ingredient quantities update in real time, which is useful when you're mid-cook and want to check a scaled quantity without running a command.
 
