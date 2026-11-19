@@ -2,7 +2,7 @@
 &lt;p>There are several ways to import, from quickest to most automated:&lt;/p></description></item><item><title>Shopping Lists</title><link>https://cooklang.org/guides/shopping/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/shopping/</guid><description>&lt;p>A shopping list in Cooklang is computed, not typed. Point a tool at the recipes you plan to cook and it adds up every ingredient, merges duplicates, groups the result by store section, and drops whatever you already have. This guide uses CookCLI because it shows every step explicitly; the &lt;a href="https://cooklang.org/app/">mobile app&lt;/a> and &lt;a href="https://cooklang.org/editor/">Cook Editor&lt;/a> do the same thing with a tap and read the same config files.&lt;/p>
 &lt;h2 id="what-you-need" class="scroll-mt-24">
  &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
- What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ What you need&lt;span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;ul>
@@ -12,7 +12,7 @@
 &lt;p>Every command below is run from inside your recipe folder:&lt;/p></description></item><item><title>Meal Planning</title><link>https://cooklang.org/guides/meal-planning/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/meal-planning/</guid><description>&lt;p>A meal plan in Cooklang is a &lt;code>.menu&lt;/code> file: a plain-text file that names the recipes you intend to cook, grouped by day. Because it is just another Cooklang file, every tool that understands recipes understands plans too. The payoff is one command that turns the whole week into a shopping list, with the pantry subtracted and everything scaled to the number of people you are feeding.&lt;/p>
 &lt;h2 id="what-you-need" class="scroll-mt-24">
  &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
- What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ What you need&lt;span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;ul>
@@ -21,7 +21,7 @@
 &lt;/ul>
 &lt;h2 id="1-write-the-plan" class="scroll-mt-24">
  &lt;a href="#1-write-the-plan" class="header-anchor" aria-label="Link to this section: 1. Write the plan">
- 1. Write the plan&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ 1. Write the plan&lt;span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;p>Create a file called &lt;code>Weekly Plan.menu&lt;/code> in your recipe folder. Where you keep plans is up to you; a &lt;code>Plans/&lt;/code> sub-folder keeps them out of the recipe listing.&lt;/p></description></item><item><title>Pantry Management</title><link>https://cooklang.org/guides/pantry/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/guides/pantry/</guid><description>&lt;p>A pantry file is a short list of what you have on hand: staples, spices, what is in the fridge and freezer. Once it exists, every shopping list you generate subtracts it, and CookCLI can tell you what is running low, what is about to expire, and which recipes you could cook tonight without going to the shop.&lt;/p>
@@ -36,7 +36,7 @@
 &lt;/ul>
 &lt;h2 id="prerequisites" class="scroll-mt-24">
  &lt;a href="#prerequisites" class="header-anchor" aria-label="Link to this section: Prerequisites">
- Prerequisites&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ Prerequisites&lt;span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;ol>
@@ -207,7 +207,7 @@
 
 &lt;h2 id="what-you-need" class="scroll-mt-24">
  &lt;a href="#what-you-need" class="header-anchor" aria-label="Link to this section: What you need">
- What you need&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
+ What you need&lt;span class="anchor-icon" aria-hidden="true" data-pagefind-ignore>#&lt;/span>
  &lt;/a>
 &lt;/h2>
 &lt;ul>
