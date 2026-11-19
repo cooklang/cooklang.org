@@ -1,28 +1,23 @@
 ---
 title: "Meal Planning as Compilation"
 date: 2025-09-05
+lastmod: 2026-11-19
 description: "Why planning meals is like compiling code, and why most people are still using interpreters"
 weight: 70
 categories: ["Recipe Workflows"]
 ---
 
-I used to think meal planning was for people with too much time. Then I realized I was spending more time not planning meals than it would take to plan them.
+I used to think meal planning was for people with too much time. Then I noticed that not planning takes longer.
 
-Let me be clear: what I'm about to describe isn't fully built yet. It's how I want meal planning to work, how it should work. Some pieces exist in Cooklang today, others are still being developed. Think of this as a design document for the future of meal planning, not a manual for current software. (Since writing this, some of it is real: here's [planning a week of dinners with AI from your own collection](https://cook.md/blog/plan-a-week-of-dinners-with-ai).)
+Without a plan, every dinner is decided at the moment you are hungry. You look in the fridge, pick something, find out one ingredient is missing, and either adapt or give up. In programming terms this is an interpreter: each meal is parsed and executed at run time, and every error shows up at run time too, when you are tired and the shop is closed.
 
-Every evening around 5 PM, the same ritual: stare into the fridge, evaluate ingredients like a puzzle, realize I'm missing something crucial, order takeout. I was treating cooking like an interpreted language - parsing each meal at runtime. What I needed was compilation.
+The other way is to compile. You write the week down once, a program checks it and turns it into a shopping list, and during the week you only execute.
 
-## The Interpreter Problem
+When I first wrote this post, a lot of it described how I wanted this to work. This version sticks to what the tools do today, and says where they stop. (One thing that has become real since: [planning a week of dinners with AI from your own collection](https://cook.md/blog/plan-a-week-of-dinners-with-ai).)
 
-Most people cook in interpreted mode. You decide what to eat when you're hungry. You check what you have. You discover you're missing ingredients. You adapt or abandon. This works, technically, the same way you can write production systems in bash scripts. But why would you?
+## The source file
 
-The cognitive load is enormous. Every meal requires real-time decision making under the worst possible conditions - when you're tired and hungry. It's like debugging code while the server is down. You make bad decisions because you have to make them fast.
-
-Here's what changed everything: I started treating meal planning like program compilation. Once a week, I write the source code. The compiler (my planning system) turns it into executable instructions. During the week, I just execute.
-
-## The Menu File
-
-A Cooklang menu file is source code for a week of eating. Here's an actual one I use:
+In Cooklang a meal plan is a `.menu` file. It is plain text, like a recipe, and it points at your recipes:
 
 ```cooklang
 ---
@@ -32,182 +27,157 @@ servings: 2
 ==Monday==
 
 Breakfast: \
-- @oatmeal{2%bowls} with @blueberries{100%g} and @honey \
-- @coffee{2%cups}
+- @oats{1%cup} with @milk{1/2%cup} and @honey{1%tbsp}
 
 Lunch: \
-- @./Soups/Minestrone{4%servings} --make double batch
+- @./Risotto{4%servings} -- double batch, half is Tuesday's lunch
 
 Dinner: \
-- @./Mains/Sheet-Pan Chicken{2} with @./Sides/Roasted Vegetables{} \
-- @./Salads/Simple Green{2%servings}
+- @./Thai Green Curry{}
 
 ==Tuesday==
 
 Breakfast: \
-- @yogurt{2%cups} with @granola{100%g} and @banana{2} \
-- @coffee{2%cups}
+- @./Breakfast/Easy Pancakes{}
 
 Lunch: \
-- @./Soups/Minestrone{}(leftover from Monday)
+- leftover risotto from Monday
 
 Dinner: \
-- @./Pastas/Aglio e Olio{2} \
-- @./Salads/Caesar{2}
-
-> date night, make something nice
+- @./Neapolitan Pizza{} with @./Salads/Caprese{}
 
 ==Wednesday==
 
 Breakfast: \
-- @scrambled eggs{4} with @toast{4%slices} \
-- @coffee{2%cups}
+- @oats{1%cup} with @milk{1/2%cup} and @honey{1%tbsp}
 
 Lunch: \
-- @./Sandwiches/Grilled Cheese{2} with @tomato soup{1%can}
+- @./Breakfast/Mexican Style Burrito{}
 
 Dinner: \
-- @./Mains/Thai Green Curry{3} --freeze 1 portion \
-- @jasmine rice{2%cups}(cooked)
+- @./lamb-chops{}
 
-== Snacks ==
+==Snacks==
+
 - @apples{6} \
 - @almonds{200%g} \
-- @hummus{1%container} with @carrots{500%g} \
-- @greek yogurt{4%cups} \
 - @dark chocolate{1%bar}
 ```
 
-This isn't a wish list. It's a program. Each `@` reference either pulls in a full recipe or declares a simple ingredient. The system knows that `@./Soups/Minestrone{4%servings}` means look up that recipe, scale it to 4 servings, add all its ingredients to the shopping list.
+Each `==Day==` line starts a section. `@./Risotto{4%servings}` is a reference to the file `Risotto.cook`, scaled to four servings. `@oats{1%cup}` is an ordinary ingredient, for things that don't need a recipe. The `\` at the end of a line joins it to the next one, so a meal and its bullet points stay together.
 
-## The Compilation Step
+The text after `--` is a comment. It is a note to me, and the tools ignore it, the same as a compiler ignores comments. "Leftover risotto from Monday" is plain text for the same reason: there is nothing to buy for it.
 
-Sunday afternoon, I compile the week. The system reads the menu file and generates:
+The recipes in this plan come from the sample collection that `cook seed` creates, so you can save the file into that folder as `Plans/Three Days.menu` and try it.
 
-1. A shopping list with exact quantities
-2. A prep schedule (what needs making when)
-3. Reminders (defrost chicken Tuesday morning)
-4. Portion calculations (that double batch of minestrone covers two lunches)
+## The compile step
 
-The magic is that compilation catches errors before they matter. Missing recipe file? Find out Sunday, not Wednesday at 6 PM. Ingredient conflict? (Need all the onions for curry but also for soup?) Resolve it now, when you have options.
+One command turns the plan into a shopping list:
 
-## The Snack Buffer Problem
-
-Here's what everyone forgets: snacks. You plan three perfect meals, execute flawlessly, then destroy your budget and health with convenience store runs because you didn't plan for reality - humans snack.
-
-The `== Snacks ==` section isn't an afterthought. It's a buffer, like allocating extra memory for unexpected operations. Without it, your perfectly planned system fails when real life happens. Kid needs a snack for school. You're hungry at 3 PM. Partner wants something while watching Netflix.
-
-Planning snacks does three things. First, it makes them visible in your shopping list. Those six apples and container of hummus get purchased with everything else, not grabbed desperately from a gas station at three times the price. Second, it provides known-good options when hunger strikes between meals. The decision is pre-made: apple with almonds, not vending machine cookies. Third, it prevents the cascade failure where unplanned snacking ruins dinner appetite, which shifts the whole schedule.
-
-The quantities matter. Six apples for two people for three days - that's one per person per day. The 200g of almonds portions out to reasonable daily amounts. The dark chocolate bar isn't denial of pleasure; it's planned pleasure. You're going to eat chocolate anyway. Plan for it or pretend you won't and pay more at checkout.
-
-## The Batch Processing Insight
-
-The notation `--make double batch` next to Monday's minestrone isn't a comment - it's an optimization directive. Like loop unrolling in compiler optimization, cooking in batches amortizes fixed costs.
-
-Chopping onions for one soup takes 5 minutes. Chopping for two takes 6. The oven preheats once whether you're roasting vegetables for two or six. The dishwasher runs regardless. Batch processing in the kitchen follows the same economics as batch processing in computing.
-
-The `--freeze 1 portion` notation on Wednesday's curry is forward planning. Future me will thank current me when Thursday is insane and there's curry in the freezer.
-
-## Dependencies and Scheduling
-
-Meal planning reveals dependency chains you never noticed. That bread for Wednesday's grilled cheese needs to be fresh. The chicken for Monday needs defrosting Sunday night. The minestrone tastes better on day two, so make it Sunday for Monday.
-
-This is a directed acyclic graph problem. Each meal has dependencies (ingredients, prep time, equipment). The compiler resolves these into a valid execution order. Sunday: make minestrone, prep vegetables. Monday morning: start slow cooker. Monday evening: just assemble.
-
-## The Constraint Solver
-
-Real meal planning works with constraints:
-- Budget: $150/week
-- Time: 30 minutes on weeknights, 2 hours on Sunday
-- Nutrition: protein at each meal, vegetables twice daily
-- Variety: no repeating main proteins consecutive days
-- Reality: kids won't eat mushrooms, partner hates cilantro
-
-These aren't preferences; they're system requirements. And here's where Cooklang's report system becomes powerful - it can enforce these constraints programmatically.
-
-Using templates and the database system, you can validate your menu against reality. The budget constraint becomes a calculation in your template:
-
-```jinja2
-{%- set total_cost = namespace(value=0) %}
-{%- for ingredient in ingredients %}
-{%- set item_cost = db(underscore(ingredient.name) ~ ".cost.per_unit", 0) * ingredient.quantity %}
-{%- set total_cost.value = total_cost.value + item_cost %}
-{%- endfor %}
-
-{% if total_cost.value > 150 %}
-WARNING: Week exceeds budget at ${{ "%.2f"|format(total_cost.value) }}
-{% endif %}
+```
+$ cook shopping-list "Plans/Three Days.menu"
+[fruit and veg]
+apples                   6
+lemon                    
+lime                     3 1/2
+avocado                  2
+onion                    1
+red onion                1
+...
+[meat and seafood]
+lamb chops               8 large
+firm tofu                200 g
+...
+[packaged goods, pasta and sauces]
+arborio rice             320 g
+oats                     2 cup
+green curry paste        3 tbsp
+vegetable stock          100 ml
+...
 ```
 
-Nutrition constraints check themselves:
+Every referenced recipe is opened and scaled, and the ingredients are added up across the three days. Then they are grouped by the aisles in `config/aisle.conf`, and whatever `config/pantry.conf` says is already at home is taken off. (The pantry file has [its own post](/blog/10-the-pantry-problem/).) Oats appear once with the total for both breakfasts.
 
-```jinja2
-{%- for meal in daily_meals %}
-{%- set protein = calculate_macros(meal, 'protein') %}
-{% if protein < 20 %}
-WARNING: {{ meal.name }} lacks adequate protein ({{ protein }}g)
-{% endif %}
-{%- endfor %}
+Guests for the whole three days? Scale the plan:
+
+```bash
+cook shopping-list "Plans/Three Days.menu:2"
 ```
 
-(If you'd rather not write this one yourself, the [Core Vitals](https://plugins.cook.md/cooklang/corevitals) plugin for [Cook Editor](/editor/) checks a whole menu against daily nutrient targets. It uses the cook.md nutrition service, so it needs a Cook Basic plan.)
+## Compile errors
 
-The variety constraint becomes a simple validation:
+The main reason to compile is that errors show up early. Say Wednesday's dinner points at a recipe I have not written yet:
 
-```jinja2
-{%- set proteins = [] %}
-{%- for day in menu %}
-{%- set main_protein = extract_protein(day.dinner) %}
-{% if main_protein in proteins[-1:] %}
-ERROR: Repeating {{ main_protein }} on consecutive days
-{% endif %}
-{%- set proteins = proteins + [main_protein] %}
-{%- endfor %}
+```cooklang
+Dinner: \
+- @./Mains/Sheet Pan Chicken{}
 ```
 
-The "reality" constraints live in your database as ingredient metadata - mark mushrooms as "kid_friendly: false" and the system can warn when Tuesday's dinner won't work for the whole family.
+The list refuses to build:
 
-This isn't theoretical. The report system with its Jinja2 templates and database integration makes these validations real. Run `cook report -t validate-menu.jinja 'weekly.menu' -d ./db` and get immediate feedback on whether your plan survives contact with reality.
+```
+$ cook shopping-list "Plans/Three Days.menu"
+Error: Recipe not found: Mains/Sheet Pan Chicken
+```
 
-The menu file respects constraints or compilation fails. Better to fail at planning time than dinnertime.
+`cook doctor validate` checks every plan and recipe in the folder in one go:
 
-## The Leftovers Protocol
+```
+=== Recipe References ===
 
-That `--leftover from Monday` annotation isn't laziness - it's resource management. In programming, we cache expensive computations. In cooking, we cache expensive preparations.
+📄 Plans/Three Days.menu
+  ❌ Missing reference: ./Mains/Sheet Pan Chicken
+```
 
-But leftovers need protocol. Three days for cooked grains. Five for soups and stews. Seven for pickled anything. Beyond that, you're not saving money; you're growing bacteria.
+I would rather learn this on Sunday at my desk than on Wednesday at six.
 
-The menu system tracks this. Tuesday's leftover minestrone is fine. Friday's would be flagged as unsafe. The compiler won't let you food poison yourself.
+There are warnings too, as with any compiler. On the plan above, CookCLI prints lines like this:
 
-## Error Handling
+```
+WARN Unit mismatch for 'milk': recipe needs 'ml', pantry has 'l'
+```
 
-What happens when Tuesday's plan fails? You're exhausted, skip the aglio e olio, order pizza. The system doesn't break. Wednesday's ingredients are still there. Thursday's prep still makes sense. 
+And the list has a salt line that reads `pinch, pinch, 24.6 g, 1 tbsp, 1 1/8 tsp`, because the recipes measure salt in different ways. The list still builds. It tells you which recipes and pantry entries to tidy up when you have a spare ten minutes.
 
-This is graceful degradation. One failed execution doesn't crash the whole week. You can resume from any point because each day's plan is independent enough to stand alone but connected enough to share resources.
+## Snacks are part of the program
 
-## The Psychological Compiler
+A plan with only breakfast, lunch and dinner misses what people eat in between. Those things still have to be bought, and if they are not in the plan they are bought one at a time, in a hurry.
 
-The deepest benefit isn't efficiency - it's removing decision fatigue. Steve Jobs wore the same outfit to save cognitive resources for important decisions. Meal planning is the same principle applied to food.
+So snacks get their own section. It is not tied to a day. It exists so that six apples and a bar of chocolate end up on the same shopping list as everything else. Nearly all of my own plans have one.
 
-When you know Tuesday is aglio e olio, that's not a constraint - it's freedom. Freedom from standing in front of the fridge at 6:30 PM trying to be creative. Freedom from the guilt of another takeout order. Freedom from the stress of improvisation.
+## Batches and leftovers
 
-## Implementation
+Monday's risotto is `{4%servings}` in a plan for two people. That is a double batch on purpose: half is Tuesday's lunch. The plan buys for four servings once, and Tuesday's line costs nothing.
 
-Start with three days, not seven. A long compilation unit is harder to debug. Get three days working, then expand. Use real recipes you actually cook, not aspirational ones. The fanciest meal plan you don't execute is worth less than the simple one you do.
+The braces take other forms as well. `{2}` means twice the recipe as written, and `{1/2}` means half of it.
 
-Write it down. The format matters less than the practice. Cooklang menu files, spreadsheets, paper - pick one and commit. The act of planning is more important than the tool.
+This is the cheapest optimisation in the kitchen. Chopping for four takes barely longer than chopping for two, and the pot gets washed once.
 
-Review and refactor weekly. What worked? What didn't? That Thai curry you planned for 30 minutes took an hour - update the time estimate. The kids loved the sheet pan chicken - add it to regular rotation.
+## What the compiler does not do
 
-## The Payoff
+Here I have to be honest about the metaphor. The earlier version of this post talked about a prep schedule, defrost reminders, leftovers that get flagged when they are too old, and budget and variety rules that fail the build. CookCLI does none of that today.
 
-Six months into this system, I spend 30 minutes planning and save 5 hours of deciding. Groceries cost 30% less because I buy what I need, not what I might need. Food waste approaches zero because everything has a purpose.
+- **Timing.** A `.menu` file knows the day and the meal. It does not know that the chicken has to come out of the freezer the night before. Write that as a comment or as a line of plain text.
+- **Leftover safety.** Nothing counts the days since the soup was made.
+- **Budget.** `cook report` can price a single recipe from a datastore of ingredient costs, and the [Reports guide](/guides/reports/) shows how. Run over a `.menu` file, the template sees the recipe references but not the ingredients inside them, so a budget for the whole week needs more than a template.
+- **Nutrition.** This one exists, but not in the CLI: the [Core Vitals](https://plugins.cook.md/cooklang/corevitals) plugin for [Cook Editor](/editor/) checks a whole menu against daily nutrient targets. It uses the cook.md nutrition service, so it needs a Cook Basic plan.
 
-But the real payoff is peace. At 5 PM on Thursday, I'm not solving problems. I'm executing a plan. The cognitive load of "what's for dinner?" has been paid once, on Sunday, not seven times at the worst possible moment.
+What is real is the part that mattered most to me: one file for the week, one command for the list, and broken references caught before I am standing in the kitchen.
 
-Your meals are going to happen regardless. You can compile them once or interpret them repeatedly. The computer science is clear on which is more efficient.
+## When a day fails
 
-Plan your meals. Not because you're organized. Because you're lazy in the good way - the way that makes you optimize repetitive tasks so you can focus on what matters.
+Some Tuesday you will be too tired and order pizza. The plan survives that. Wednesday's ingredients are still in the fridge, and Tuesday's dinner moves to Thursday or goes in the freezer. Each day stands mostly on its own, so one skipped day does not break the rest.
 
-That's not meal prep. That's engineering.
+## How to start
+
+Plan three days, not seven. My own plans are three days long, and there are more than forty of them by now. [A few are in my public cookbook](https://github.com/dubadub/cookbook/tree/main/Plans). Three days is short enough that the plan survives contact with real life, and fresh food bought for it is still fresh on the last day.
+
+Use recipes you already cook. A simple plan you follow is worth more than an ambitious one you drop on the second day.
+
+Keep the old files. A folder of past plans is the fastest way to write the next one: copy a plan, change two dinners, compile.
+
+The [Meal Planning guide](/guides/meal-planning/) has the full format, and the plan can also be opened in `cook server` or in Cook Editor, which show it day by day.
+
+The dinners are going to happen either way. You can decide them once, with the fridge full and your head clear, or seven times at the worst moment of the day. I prefer to compile.
+
+-Alexey

@@ -1,6 +1,7 @@
 ---
 title: 'Generating a Recipe Graph with ChatGPT'
 date: 2023-05-26T19:27:37+10:00
+lastmod: 2026-11-19
 weight: 80
 summary: "Using GPT-4 to trace ingredients through cooking steps and generate a recipe graph — a visual representation of how raw ingredients transform into a finished dish."
 description: "Using GPT-4 to trace ingredients through cooking steps and build a recipe graph — how AI and structured data are reshaping recipe formats."
@@ -31,7 +32,7 @@ I started by looking at [GraphGPT](https://graphgpt.vercel.app), which uses dire
 
 1. Identify all ingredients and cooking actions
 2. Trace each ingredient through the recipe steps
-3. Name intermediate results (e.g., "sauce base," "seasoned chicken")
+3. Name intermediate results (e.g., "rested pancakes batter", "pan with melted butter")
 4. Output the relationships in a structured format
 
 The first attempt extracted entities but missed relationships. After a few iterations of prompt refinement, the results improved significantly:
@@ -42,7 +43,7 @@ Further fine-tuning produced output in Ruby syntax that could directly generate 
 
 {{< gist dubadub 9da2fbe493a72e3090fefd9e5123dc45>}}
 
-What's notable is how GPT-4 creates meaningful names for intermediate states. When onions and garlic are sautéed together, it labels the result "aromatic base" rather than "onion-garlic mixture." It understands cooking semantics.
+What I like is how the model names the intermediate states. For a prawn pasta recipe it came back with "finely chopped garlic", "cooked spaghetti" and "drained spaghetti", and each of those can be used as the input of a later step. The same output shows the weak spot. The frying pan becomes "pan with heated olive oil, garlic, chilli, and prawns", a name that grows with every step.
 
 ![](/blog/part-recipe-graph.png)
 

@@ -7,7 +7,7 @@ description: "Automate your grocery shopping with plain-text recipes. How Cookla
 categories: ["Recipe Workflows"]
 ---
 
-I used to buy groceries by wandering through the store, picking things up as I went. It worked when I could physically walk the aisles. When I switched to online ordering, I couldn't do that anymore. I had to know exactly what I needed before I started.
+I used to buy groceries by wandering through the store, picking things up as I went. It worked when I could physically walk the aisles. When the pandemic moved me to online ordering, I couldn't do that anymore. I had to know exactly what I needed before I started.
 
 So I began writing meal plans on sticky notes, listing ingredients by hand, then combining them into an order. After a few weeks of this, the developer in me couldn't take it anymore. The process was repetitive and mechanical — exactly the kind of thing a computer should handle.
 
@@ -68,10 +68,10 @@ I organize recipes into directories that represent meal plans. Generating a shop
 cook shopping-list ./this-week/*.cook
 ```
 
-I cross off what I already have, then order the rest. The process takes about five minutes instead of the thirty-plus it used to take with sticky notes. More importantly, I buy exactly what I need — no forgotten ingredients, no impulse purchases.
+I cross off what I already have, then order the rest. The tedious part, copying ingredients out of recipes and adding them up, is now one command. And the list only has what the recipes call for, so less ends up in the basket by accident.
 
 I keep all my recipes in a [Git repository](https://github.com/dubadub/cookbook). They've been evolving for years — adjusting quantities, adding notes, trying variations. Git tracks every change.
 
-**Update (2025):** I've since built a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my grocery store's website, making the ordering process almost fully automatic. The ecosystem has also grown — there are now [mobile apps](/app/), an [Obsidian plugin](/blog/15-cooklang-obsidian-guide/), a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=nicholasglazer.cooklang-vscode-support), and a [community recipe index](https://recipes.cooklang.org). Check the [getting started guide](/docs/getting-started/) to try it yourself.
+**Update (2025):** I've since built a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my grocery store's website, making the ordering process almost fully automatic. The ecosystem has also grown — there are now [mobile apps](/app/), an [Obsidian plugin](/blog/15-cooklang-obsidian-guide/), a [VS Code extension](https://marketplace.visualstudio.com/items?itemName=dubadub.cook), and a [community recipe index](https://recipes.cooklang.org). Check the [getting started guide](/docs/getting-started/) to try it yourself.
 
 -Alexey

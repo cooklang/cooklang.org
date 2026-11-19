@@ -1,6 +1,7 @@
 ---
 title: "Recipe Algorithms: How Recipes Work Like Computer Programs"
 date: 2024-11-29
+lastmod: 2026-11-19
 weight: 80
 summary: "Every recipe is an algorithm — a sequence of operations transforming inputs into output. Here's the formal model behind cooking instructions, why it matters for recipe validation and automation, and how Cooklang uses it."
 description: "Every recipe is an algorithm. The formal stack-machine model behind cooking instructions, and how Cooklang uses it for recipe validation and automation."
@@ -9,7 +10,7 @@ categories: ["Format and Design"]
 
 I keep finding computer science in the kitchen.
 
-Last month I was making a vinaigrette and noticed something: I added vinegar to a bowl, then oil, then whisked. Each step consumed what was on top and produced something new. Vinegar goes in. Oil goes in. Whisk operates on both and produces emulsion. That's a stack.
+Take a vinaigrette. You add vinegar to a bowl, then oil, then whisk. Each step consumes what is on top and produces something new. Vinegar goes in. Oil goes in. Whisk operates on both and produces an emulsion. That's a stack.
 
 ```
 push(vinegar)         → [vinegar]
@@ -47,7 +48,7 @@ This isn't just a cute analogy. It solves real problems.
 
 **Validation.** A well-formed recipe should leave exactly one item on the stack: the finished dish. If you have leftover ingredients that were never used in any operation, that's a bug. An egg was declared but never cracked. Parsley was listed but never added. A stack-based validator could catch these errors automatically.
 
-In Cooklang terms, this means checking that every `@ingredient` is consumed by a step. If it isn't, the recipe has an unused ingredient — either a mistake or a missing instruction.
+Cooklang rules out part of this by design. An ingredient exists only where a step mentions it, so it cannot be listed and then never appear. What the markup does not record is what the step did with it. `@egg{1}` says an egg entered the recipe at that point. Whether it was cracked, whisked or left on the counter is still prose. A validator would need the actions marked up as well.
 
 **Type checking.** Not every operation works on every ingredient. You can whisk liquids together. You can't whisk two solids. You can fold egg whites into batter. You can't fold flour into water (that's mixing, different operation, different result).
 
