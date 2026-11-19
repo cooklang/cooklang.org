@@ -32,7 +32,7 @@ If a recipe knows it contains spinach and the cooking method is boiling, it coul
 
 None of this exists today, because the building blocks aren't there. A recipe written as prose — "a few cloves of garlic, sautéed" — cannot be queried, paired, or substituted. You need typed ingredients, quantities as data, and cookware/method tags. That's the foundation [Cooklang](/docs/spec/) provides: structured annotations (`@spinach{200%g}`, `~{5%minutes}`) inside natural recipe text. Every ingredient has a known quantity. Every cooking action has metadata.
 
-We haven't built nutritional analysis into [CookCLI](/cli/) yet. But the structured data is already there in every Cooklang recipe — it's a tooling problem, not a format problem.
+Part of this exists now. The [nutrition reports](https://github.com/cook-md/cooklang-reports-nutrition) package for [CookCLI](/cli/) adds up nutrients per recipe and per serving, and the [Core Vitals](https://plugins.cook.md/cooklang/corevitals) plugin for Cook Editor checks a menu against daily targets. Both add up the ingredients as the recipe lists them. What the cooking method then does to those numbers is the gap this post is about. The structured data is already there in every Cooklang recipe — it's a tooling problem, not a format problem.
 
 ## Why Cooking Method Matters
 

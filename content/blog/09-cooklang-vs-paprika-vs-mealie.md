@@ -1,171 +1,170 @@
 ---
 title: "Mealie vs Paprika vs KitchenOwl vs Cooklang: Recipe Manager Comparison (2026)"
 date: 2025-01-04
+lastmod: 2026-11-19
 weight: 90
 summary: "Comparing four popular recipe management solutions — the open-source self-hosted Mealie, the polished commercial Paprika, the household-friendly KitchenOwl, and the plain-text Cooklang. An honest look at what each does best and which fits your cooking workflow."
 description: "Mealie vs Paprika vs KitchenOwl vs Cooklang, compared honestly (2026). What each recipe manager does best — self-hosted, commercial, or plain-text."
 categories: ["Comparisons"]
 ---
 
-You're standing in the grocery store, trying to remember if you need garlic for tonight's dinner. Your recipe is somewhere — maybe bookmarked on your laptop, maybe screenshotted on your phone.
+You are in the shop, trying to remember whether tonight's dinner needs garlic. The recipe is somewhere: a bookmark on the laptop, maybe a screenshot on the phone.
 
-Recipe management tools exist to solve this. But they take fundamentally different approaches. Here's an honest look at four of them — what each does well, where each falls short, and which one fits how you actually cook.
+Recipe managers exist to fix this, and they go about it in very different ways. This post compares four of them: Cooklang, Paprika, Mealie and KitchenOwl. I make Cooklang, so read what I say about it with that in mind. For the other three I have stuck to what their own sites and repositories say, checked in November 2026.
 
-## Four Philosophies, Four Solutions
+## The four at a glance
 
-### Cooklang: The Unix Philosophy Meets Your Kitchen
+| | Cooklang | Paprika | Mealie | KitchenOwl |
+|---|---|---|---|---|
+| **What it is** | A plain-text format with tools around it | A commercial app | A self-hosted web app | A self-hosted household app |
+| **Where recipes live** | `.cook` files in a folder | The app's own library | A database on your server | A database on your server |
+| **Open source** | Yes | No | Yes | Yes |
+| **Needs a server** | No | No | Yes | Yes |
+| **Import from websites** | Hosted converter or CLI | Built in | Built in | Built in |
+| **Several users** | Share the folder | Family sharing (Premium) | Yes, with permissions | Yes, real-time |
+| **Cost** | Free; hosted sync is paid | Free up to 50 recipes, then a subscription | Free, plus hosting | Free, plus hosting |
 
-Remember when cooking was simple? Cooklang brings that simplicity to the digital age. It's not an app - it's a language.
+### Cooklang: recipes as plain text files
 
-```cook
+Cooklang is not an app. It is a markup language for recipes:
+
+```cooklang
 Add @salt{1%tsp} to the @flour{2%cups} and mix.
 Bake for ~{45%minutes} at 350F.
 ```
 
-That's it. That's a Cooklang recipe. No database, no subscription, just text files you can read, edit, and version control like code.
+That is a Cooklang recipe. There is no database. A recipe is a text file you can read, edit and keep in version control like code.
 
-**The Ecosystem Advantage**: Here's what makes Cooklang revolutionary - it's not just one app, it's a foundation for an entire ecosystem:
-- **[CookCLI](/cli/)**: Command-line interface for power users
-- **[Chef CLI](https://github.com/Zheoni/cooklang-chef/)**: Enhanced CLI with recipe scaling, interactive cooking mode, and rich terminal UI
-- **iOS/Android apps**: Native mobile experiences
-- **VS Code extension**: Edit recipes with syntax highlighting
-- **Community tools**: Recipe converters, meal planners, nutrition calculators
-- **Custom integrations**: Build your own tools using the open spec
+Because the format is open, the tools are separate from the recipes and you can mix them:
 
-Because Cooklang is just text, developers worldwide have built tools around it. A Telegram bot for their family. [A Diabetic's Journal](https://github.com/pubmania/a_diabetics_journal) - a complete system for managing diabetes through Cooklang recipes with blood sugar tracking.
+- **[CookCLI](/cli/)**: shopping lists, scaling, search and a local web server from the command line
+- **[Chef CLI](https://github.com/Zheoni/cooklang-chef/)**: a second CLI for Cooklang recipes, built by a community member
+- **iOS and Android apps**: read, cook and shop from the phone
+- **Cook Editor and a VS Code extension**: write recipes with syntax highlighting
+- **Your own scripts**: the spec and the parsers are open
 
-**The Unexpected Power**: I automated my entire grocery shopping by writing a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my store's website.
+People build things on it that I would never have thought of. [A Diabetic's Journal](https://github.com/pubmania/a_diabetics_journal) is one person's journal of living with diabetes, with the recipes kept in Cooklang. I automated most of my own grocery order with a [Rust script](https://github.com/dubadub/cookbook/tree/main/shop-automation) that maps recipe ingredients to products on my supermarket's website.
 
-**Real Numbers**:
-- Cost: Free and open source
-- Ecosystem: 20+ tools and growing
-- Storage: 1MB can hold ~1,000 recipes
-- Sync: Use any service (Git, Dropbox, iCloud)
-- Learning curve: 5 minutes to master the syntax
-- Community: Active Discord with 1,000+ members sharing tools and recipes
+**What it costs you:**
 
-### Paprika: The Digital Recipe Box That Actually Works
+- You work with files. The apps and the editor soften that, but there is no form to fill in.
+- Importing from a website goes through a converter, not a scraper built into the app.
+- There are no user accounts or permissions. Whoever can open the folder can edit it.
 
-Paprika feels like what would happen if Apple designed a recipe manager — polished, intuitive, but with a catch.
+**The numbers:**
 
-Paprika charges per device. Want it on your phone ($4.99), tablet ($4.99), and computer ($29.99)? That's $40 for the same app. But here's what that $40 gets you:
+- Cost: free and open source
+- Storage: my own collection of about 200 recipes takes about 250 KB
+- Sync: any service that syncs files (Git, Dropbox, iCloud), or the hosted Cook Cloud
 
-**The Magic Moment**: Point Paprika at any recipe website, and it strips away the life story, the ads, the popup newsletters - leaving just the recipe. It's like having a personal assistant who reads food blogs for you.
+### Paprika: the polished commercial app
 
-**Concrete Benefits**:
-- Saves 10 minutes per recipe import
-- Scales recipes automatically (hosting 12 instead of 4? One click)
-- Grocery lists sort by store aisle
-- Works offline completely
+Paprika is the commercial benchmark. It has native apps for iPhone, iPad, Mac, Android and Windows, and it is polished in a way open-source tools rarely are.
 
-One user reported saving 2 hours weekly on meal planning after switching to Paprika. At $40, that's paid for itself in two weeks.
+It is best known for saving recipes from websites: Paprika keeps the recipe and leaves the rest of the page behind. It also has a cook mode, grocery lists organised by aisle, a pantry, and a meal planner with day, week and month views.
+
+Earlier versions were bought separately for each platform. Paprika 4, out since November 2026, is free to download and free to use with up to 50 recipes. Beyond that there is a Premium subscription, and one subscription covers all your devices. People who own Paprika 3 get the standard version free, with unlimited recipes and sync.
+
+**What it costs you:** it is closed source, and your recipes live in Paprika's own library and its cloud sync. You can export them, but day to day they are inside one vendor's app.
 
 If you're weighing Paprika specifically against an own-your-data approach with AI meal planning, there's a focused head-to-head in [Paprika vs Cook](https://cook.md/blog/paprika-vs-cook).
 
-### Mealie: The Self-Hosted Revolution
+### Mealie: the self-hosted web app
 
-Mealie asks a different question: Why should a tech company own your family recipes? (We take a closer look in our full [Mealie review](/blog/40-mealie-review/).)
+Mealie asks a different question: why should a company hold your family recipes at all? (We take a closer look in our full [Mealie review](/blog/40-mealie-review/).)
 
-Running on your own server (or a $5/month VPS), Mealie gives you Instagram-worthy recipe management without Instagram owning your data.
+It is a web application you run yourself, usually as a Docker container on a home server or a small VPS. Everyone in the household opens it in a browser.
 
-**The Surprising Story**: A family in Italy uses Mealie to preserve their 100-year-old recipe collection. Three generations contribute, comment, and adapt recipes. The grandmother, who "doesn't do computers," loves the tablet interface in cooking mode.
+**What you get:**
 
-**Powerful Features**:
-- Machine learning parses ingredients (recognizes "2 cups flour" vs "flour for dusting")
-- Multi-user with permissions (kids can view but not edit)
-- API access for automation
-- Meal planning with automatic shopping lists
-- Comments and variations tracked per recipe
+- Import from most recipe sites by pasting a URL
+- A meal planner with a calendar, and shopping lists built from it
+- Several users, with permissions
+- An API for automation
+- A large and active community: almost 14,000 stars on GitHub
 
-### KitchenOwl: The Household-Friendly Alternative
+**What it costs you:** you need a server, and you are the one who updates it and backs it up. The recipes sit in a database. Mealie can export them, but the export is a backup, not something you would edit by hand.
 
-If Mealie is the self-hosted power user's choice, [KitchenOwl](https://kitchenowl.org/) is the one you set up for your whole family.
+### KitchenOwl: the household app
 
-Built with Flutter (frontend) and Flask (backend), KitchenOwl focuses on the collaborative side of kitchen management. It's not just recipes — it handles grocery lists, meal planning, and even household expense tracking in one package.
+If Mealie is the self-hoster's recipe manager, [KitchenOwl](https://kitchenowl.org/) is the one you set up for the whole household. It is built with Flutter (frontend) and Flask (backend), and recipes are only one part of it. It also does grocery lists, meal planning and household expenses.
 
-**Where It Shines**: Real-time sync across users. Everyone in the household sees the same shopping list, updated live. Add an item from your phone while your partner checks things off at the store. It also works partially offline, which matters when your grocery store has spotty cell coverage.
+**Where it shines:** the shared shopping list. Everyone sees the same list, updated live. One person adds an item at home while the other ticks things off in the shop. The mobile apps keep working partly offline, which matters when the supermarket has no signal.
 
-**Concrete Benefits**:
-- Grocery lists with categories and icons — organized by aisle
-- Add recipe ingredients directly to shopping lists with one tap
-- Meal planning calendar built in
-- Expense tracking for household budgets
-- Multi-user with real-time sync
-- Apps for Android, iOS, and web
+**What you get:**
 
-**The Trade-off**: KitchenOwl tries to do more than recipe management — it's a household tool. If you only want recipes, it might feel bloated. It also doesn't have Cooklang's plain-text portability or Paprika's web scraping polish. But if you're looking for something the whole family can use without training, it's hard to beat.
+- Grocery lists with categories and icons
+- Recipe ingredients added to the shopping list in one tap
+- A meal planning calendar
+- Expense tracking for the household
+- Apps on Google Play, F-Droid and the App Store, and a web version
 
-**Real Numbers**:
-- Cost: Free and open source
-- Platforms: Android, iOS (TestFlight), web
-- Self-hosted via Docker
-- Active development on [GitHub](https://github.com/TomBursch/kitchenowl)
+**What it costs you:** like Mealie, it needs a server (it runs in Docker). It does a lot, so if you only want recipes it can feel like too much. Its community is smaller than Mealie's. Development is active on [GitHub](https://github.com/TomBursch/kitchenowl).
 
-## The Emotional Truth About Recipe Management
+## Where each one removes friction
 
-Here's what nobody talks about: Recipe management isn't about features - it's about friction.
+Recipe management is less about features than about friction. Every step between "I want to make that" and "I'm cooking" is a chance to give up and order something.
 
-Every step between "I want to make that" and "I'm cooking" is a chance to order takeout instead.
+Each of the four removes friction in a different place:
 
-- **Cooklang** removes friction through simplicity
-- **Paprika** removes friction through polish
-- **Mealie** removes friction through flexibility
-- **KitchenOwl** removes friction through collaboration
+- **Cooklang** by being simple: a recipe is a file
+- **Paprika** by polish: saving a recipe from the web is one button
+- **Mealie** by putting everything in one web app your household shares
+- **KitchenOwl** by making the shopping list a shared, live thing
 
-## The Credibility Test: Who Actually Uses These?
+## Who uses them
 
-**Cooklang**: Adopted by software developers, data scientists, and anyone who thinks in systems. GitHub shows 5,000+ public recipe repositories.
+**Cooklang** attracts developers and people who already keep notes in plain text. It suits anyone who would rather have a folder than an account.
 
-**Paprika**: 4.8 stars from 50,000+ App Store reviews. Featured by The New York Times Cooking section.
+**Paprika** is the long-established commercial choice, with native apps for Apple, Android and Windows devices.
 
-**Mealie**: 11,000+ GitHub stars, deployed in 10,000+ self-hosted instances, actively developed with updates every two weeks.
+**Mealie** has the largest community of the self-hosted recipe managers: almost 14,000 stars on GitHub, against about 8,700 for Tandoor.
 
-**KitchenOwl**: Growing community on GitHub, popular in the self-hosted/homelab space, frequently recommended alongside Mealie in forums.
+**KitchenOwl** is smaller, at about 3,900 stars, and aimed at households that want one shared shopping list.
 
-## The 30-Second Decision Framework
+## Which one to choose
 
 **Choose Cooklang if**:
 - You value simplicity over features
 - You want total control of your data
 - You enjoy plain text and automation
-- You're comfortable with command lines
+- You're comfortable with files, and ideally a command line
 - Price: **format, tools and apps free forever** (optional Cook Cloud sync: €4.99/mo)
 
 **Choose Paprika if**:
 - You want it to "just work"
 - You cook from online recipes often
-- You value polished user experience
-- You don't mind platform lock-in
-- Price: One-time purchase per platform
+- You value a polished app
+- You don't mind your recipes living inside one vendor's app
+- Price: free up to 50 recipes, then a subscription
 
 **Choose Mealie if**:
-- You want the best of both worlds
+- You want a full web app and still want to hold the data yourself
 - You're comfortable with basic server setup
-- Multiple people need access
-- You want modern features + data ownership
-- Price: Free (plus hosting costs)
+- Several people need access
+- Price: free (plus hosting costs)
 
 **Choose KitchenOwl if**:
 - Your whole household needs to share lists and plans
-- You want grocery lists, meal planning, and recipes in one app
+- You want grocery lists, meal planning and recipes in one app
 - Real-time sync between family members matters
-- You want mobile apps that work offline
-- Price: Free (plus hosting costs)
+- You want mobile apps that keep working, in part, with no signal
+- Price: free (plus hosting costs)
 
-## The Real Question
+## The real question
 
-The best recipe manager isn't the one with the most features. It's the one that removes barriers between you and cooking. That depends on how you cook, how comfortable you are with technology, and whether you care about data ownership.
+The best recipe manager is not the one with the most features. It is the one you still use after a month. That depends on how you cook, how comfortable you are with technology, and how much you care about where your recipes are stored.
 
-All four options are free to try (Paprika has a recipe limit on the free version). The cost of experimenting is low. Pick the one that matches your priorities and convert a few recipes. You'll know within a week if it fits.
+All four cost nothing to try, so pick the one that matches your priorities and put five recipes into it. You will know within a week whether it fits.
 
-## Start Your Journey Today
+## Try them
 
-**Try Cooklang**: Download from [cooklang.org](/cli/) and convert one recipe. Time: 5 minutes.
+**Try Cooklang**: get [CookCLI](/cli/) and convert one recipe.
 
-**Try Paprika**: Download the free trial (50 recipe limit). Import your five favorite online recipes. See the magic.
+**Try Paprika**: download Paprika 4 and save a few of your favourite online recipes. The free version has no time limit and holds up to 50.
 
-**Try Mealie**: Use the demo at [demo.mealie.io](https://demo.mealie.io) or spin up a Docker container in 2 commands.
+**Try Mealie**: use the demo at [demo.mealie.io](https://demo.mealie.io) before you set up a server.
 
-The revolution in your kitchen doesn't start with buying new tools. It starts with choosing tools that match how you actually cook.
+**Try KitchenOwl**: the [project site](https://kitchenowl.org/) has the Docker setup and links to the apps.
 
 What's your recipe management story? Share it in our [Discord community](https://discord.gg/fUVVvUzEEK).

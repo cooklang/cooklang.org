@@ -9,7 +9,7 @@ categories: ["Format and Design"]
 
 Recipes fail for a stupid reason: ambiguity. "A generous amount of oil." "Cook until done." "Season to taste." These instructions work when you already know how to make the dish. For everyone else, they're guesswork.
 
-We've standardized nearly every other form of instruction. Musical notation lets someone in Tokyo perform a piece written in Vienna two centuries ago. Programming languages compile the same way on every machine. Building codes ensure that a wall is a wall, everywhere. But recipes — something humans share and reproduce daily — still have no standard format.
+We've standardized nearly every other form of instruction. Musical notation lets someone in Tokyo perform a piece written in Vienna two centuries ago. A program written to a language standard means the same thing on every machine. A plug fits the socket because somebody agreed on the shape. But recipes — something humans share and reproduce daily — still have no standard format.
 
 The cost isn't just failed dinners. Without structure, recipes can't be processed by software. A computer can't generate a shopping list from "a few cloves of garlic." It can't scale "some butter" by 1.5x. It can't calculate nutrition from "a handful of spinach." Every vague measurement is a dead end for automation.
 

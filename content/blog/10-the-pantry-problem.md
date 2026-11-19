@@ -1,95 +1,154 @@
 ---
 title: "The Pantry Problem"
 date: 2025-09-04
+lastmod: 2026-11-19
 weight: 75
 description: "Why your kitchen is a distributed database problem, and how treating it like one changes everything"
 categories: ["Recipe Workflows"]
 ---
 
-I realized something was wrong with how we manage food when I opened my third jar of cumin. Not because I love cumin that much, but because I'd forgotten about the other two.
+I realised something was wrong with how I manage food when I opened my third jar of cumin. I don't love cumin that much. I had forgotten about the other two.
 
-This is embarrassing for someone who writes software. I've built systems that track millions of data points, but I couldn't track twelve spice jars. The problem wasn't intelligence or organization. It was that I was using the wrong tools for the job.
+A pantry is an inventory spread over a cupboard, a fridge and a freezer, and the only index is in your head. Human memory is bad at this. You remember that you made a chickpea curry last month. You don't remember whether you replaced the chickpeas afterwards. So you buy another can to be safe, and later find two behind the rice.
 
-Most people treat their pantry like a closet - stuff goes in, hopefully comes out before it expires. But a pantry is actually a database. It has inventory levels, expiration dates, consumption patterns. Once you see it this way, the solution becomes obvious: treat it like one.
+Trying harder to remember doesn't fix it. Writing it down does, as long as the list is in a form a program can read. In Cooklang that is one text file.
 
-## The Inventory Problem
+## The file
 
-Here's what most pantry management looks like: You're making dinner. You need chickpeas. You check the pantry. No chickpeas. You add them to a list. You go shopping. You buy chickpeas. You come home and find two cans behind the rice.
-
-This happens because human memory is terrible at inventory. We evolved to remember stories and patterns, not quantity states. You remember making that great chickpea curry last month. You don't remember whether you replaced the chickpeas afterward.
-
-The solution isn't trying harder to remember. It's acknowledging that computers are better at this than we are. Here's what my `pantry.conf` looks like:
+The pantry lives in `config/pantry.conf` inside your recipe folder. Here is an example:
 
 ```toml
 [pantry]
-rice = "5%kg"
-chickpeas = "3%cans"
-olive_oil = "1.5%L"
-flour = { quantity = "3%kg", opened = "2024-12-20" }
-"coconut milk" = "4%cans"
+rice = "2%kg"
+"tin tomatoes" = { quantity = "2%tins", low = "1%tins" }
+"olive oil" = { quantity = "100%ml", low = "200%ml" }
+flour = { quantity = "1000%g", low = "200%g" }
+"coconut milk" = "400%ml"
 
-[spices]
-cumin = { quantity = "1%jar", bought = "2024-11-01" }
-coriander = "50%g"
-turmeric = { quantity = "1%jar", bought = "2024-10-15" }
-```
+["spice rack"]
+"ground cumin" = { quantity = "3%jars", bought = "2026-09-12" }
+salt = "1%kg"
 
-This isn't about being obsessive. It's about offloading mental overhead. When I check what I can cook, the system knows I have chickpeas. When I generate a shopping list, it knows I don't need cumin.
-
-## The Freshness Game
-
-The second revelation came from tracking expiration dates. Not the printed ones - those are mostly fiction - but the real ones. When did I actually open that jar of tahini? How long has that leftover soup been there?
-
-```toml
 [fridge]
-milk = { expire = "2025-01-10", quantity = "1%L" }
-"leftovers curry" = { made = "2025-01-04", quantity = "3%portions" }
-tahini = { opened = "2024-12-15", quantity = "200%g" }
-spinach = { bought = "2025-01-05", expire = "2025-01-08" }
-```
+milk = { quantity = "1%l", expire = "2026-11-22" }
+eggs = { quantity = "12", bought = "2026-11-15" }
 
-The unexpected benefit: meal planning becomes automatic. The system suggests recipes based on what needs using first. That spinach becomes saag paneer on day three, not forgotten slime on day eight.
-
-## The Shopping List Revolution
-
-Here's where it gets interesting. Once your pantry is a database, shopping lists generate themselves. Not just "what's missing" but "what will be missing when I cook these three meals."
-
-I plan to make pasta arrabiata, chickpea curry, and banana bread this week. The system knows:
-- Arrabiata needs tomatoes, garlic, chili, pasta
-- I have pasta and chili
-- Curry needs chickpeas, coconut milk, rice, spices
-- I have everything except fresh ginger
-- Banana bread needs flour, bananas, eggs, butter
-- I have flour, need everything else
-
-The shopping list writes itself. But more importantly, it's comprehensive. No forgotten ingredients, no duplicate purchases.
-
-## The Freezer State Machine
-
-The freezer is where time stops, but not really. Frozen food is in a state of suspended animation, not immortality. Track it wrong and you get freezer archaeology - mysterious foil packages that might be fish or might be cake.
-
-```toml
 [freezer]
-chicken_stock = { quantity = "4%cups", frozen = "2024-12-20" }
-ground_beef = { quantity = "1%kg", frozen = "2024-12-15" }
-pizza_dough = { quantity = "2%balls", frozen = "2024-12-28" }
-pesto = { quantity = "200%g", frozen = "2024-11-30" }
+"chicken stock" = { quantity = "1%l", bought = "2026-10-04" }
+pesto = { quantity = "200%g", bought = "2026-09-20" }
 ```
 
-The dates matter. First in, first out stops being a suggestion and becomes policy. That pesto from November gets used before making new. The system suggests recipes that use what's been frozen longest.
+Sections are the places where food is kept, and you name them as you like. Each line is one item. A bare string is the amount. The longer form takes four attributes: `quantity`, `low` (the level at which you want to be warned), `bought` and `expire`. CookCLI warns about any other attribute, so stick to these four.
 
-## The Paradox of Structure
+## Shopping lists that know what you have
 
-People resist this level of tracking because it seems constraining. But structure creates freedom. When you know exactly what you have, you stop worrying about what you might have. When shopping is automated, you stop thinking about shopping. When freshness is tracked, you stop playing refrigerator roulette.
+This is the part that pays for the typing. Once the file exists, `cook shopping-list` takes it into account. Here are a Thai green curry and pancakes without a pantry:
 
-The goal isn't to turn cooking into accounting. It's to remove the administrative burden so cooking can be creative. You don't track your pantry because you love spreadsheets. You track it so you never have to think about tracking.
+```
+$ cook shopping-list --plain --ignore-pantry "Thai Green Curry" "Breakfast/Easy Pancakes"
+coconut oil       1 tbsp
+green curry paste 3 tbsp
+coconut milk      400 ml
+vegetable stock   100 ml
+...
+egg               3
+flour             125 g
+milk              250 ml
+salt              pinch, 1 tbsp
+butter            knob
+```
 
-## Implementation
+And with the example pantry:
 
-Start small. Pick one shelf, one category. Maybe just track your spices for a month. The initial inventory takes an hour. Updates take seconds. Most importantly, you need to update at the right moment - when you're putting groceries away, not when you're trying to cook dinner.
+```
+$ cook shopping-list --plain "Thai Green Curry" "Breakfast/Easy Pancakes"
+ WARN Unit mismatch for 'milk': recipe needs 'ml', pantry has 'l'
+ WARN Unit mismatch for 'salt': recipe needs 'tbsp', pantry has 'kg'
+ WARN Unit mismatch for 'salt': recipe needs '', pantry has 'kg'
+coconut oil       1 tbsp
+green curry paste 3 tbsp
+vegetable stock   100 ml
+...
+egg               3
+milk              250 ml
+salt              pinch, 1 tbsp
+butter            knob
+```
 
-The tools matter less than the practice. You can use Cooklang's pantry.conf (the [Pantry](https://plugins.cook.md/cooklang/pantry) plugin for [Cook Editor](/editor/) gives it a proper view), a spreadsheet, or a notebook. The key is making it a database - structured, searchable, updated.
+Coconut milk and flour are gone from the list, because the pantry has enough of both. The rest of the output shows where it is strict:
 
-The return on investment is immediate. The first prevented duplicate purchase pays for the time. The first rescued leftover justifies the system. The first perfectly stocked shopping trip validates the approach.
+- **Names have to match.** The recipe says `egg` and the pantry says `eggs`, so eggs stay on the list. Use the same words your recipes use.
+- **Units have to match.** The recipe wants milk in `ml` and the pantry has it in `l`. CookCLI does not convert between them. It prints a warning and leaves milk on the list to be safe. Salt stays for the same reason: a kilo in the pantry cannot be compared with a tablespoon or a pinch. That is also why flour is written as `1000%g` in the example and not `1%kg`.
+- **It is quantity-aware.** 125 g of flour against 1000 g disappears. 1500 g against 1000 g leaves 500 g to buy.
 
-That's not obsessive. That's engineering.
+## What needs using first
+
+Printed dates are one thing. The date that matters is the one after which you will throw the food out, and you can write that in `expire`:
+
+```
+$ cook pantry expiring --days 7
+Items Expiring Within 7 Days:
+================================
+
+Expiring Soon:
+  • milk - 2026-11-22 (expires in 3 days) [fridge]
+```
+
+The opposite question is what you can cook tonight without going to the shop:
+
+```
+$ cook pantry recipes --partial --threshold 50
+Recipes You Can Make with Pantry Items:
+========================================
+
+⚠ Partial Matches (50%+ ingredients available):
+  • Easy Pancakes (60% available)
+    Missing: butter, sea salt
+```
+
+CookCLI does not yet put the two together. It will not tell you "the spinach expires on Friday, here are three recipes that use it". You read the first list and decide yourself.
+
+## Running low
+
+Give an item a `low` level and it is flagged before it runs out:
+
+```
+$ cook pantry depleted
+Depleted or Low Stock Items:
+============================
+
+PANTRY:
+  • olive oil (100%ml) [low when < 200%ml]
+```
+
+It is worth running before you write the shopping list.
+
+## The freezer
+
+The freezer is where food goes to be forgotten. A foil parcel with no label might be fish and might be cake.
+
+There is no special attribute for the day something was frozen, and `bought` does the job. The pesto in the example went in on 2026-09-20, and `cook pantry list` shows that date next to it, so the oldest things are easy to spot and get used first.
+
+## What it does not do
+
+Nothing updates the file when you cook. If you use two tins of tomatoes, the pantry still says two until you change it:
+
+```bash
+cook pantry update pantry "tin tomatoes" --quantity "0"
+```
+
+So the file is only as good as your habit of keeping it. The moment that works is while you put the shopping away, when everything is already in your hands.
+
+Two more limits. The mobile app does not read `pantry.conf` yet, so this works in CookCLI and in the `cook server` web page. And as the milk shows, units are compared as written.
+
+## Start small
+
+My own `pantry.conf` is short. It lists staples: rice, oats, pasta, tins, oil, flour. Almost nothing from the fridge is in it.
+
+That is the level I would start at. Put in the things you always have and don't want to see on every shopping list. Add dates only for food you have actually thrown away before. Then look after a month at whether you kept it up to date.
+
+The tool matters less than the habit. You can use Cooklang's pantry.conf (the [Pantry](https://plugins.cook.md/cooklang/pantry) plugin for [Cook Editor](/editor/) gives it a proper view), a spreadsheet, or a notebook. The [Pantry Management guide](/guides/pantry/) has every command.
+
+None of this stops you picking up a third jar of cumin in the shop. But if the jars are in the file, the shopping list knows about them, and cumin stays off it.
+
+-Alexey

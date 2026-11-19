@@ -1,6 +1,7 @@
 ---
 title: 'Automated Grocery List: Save Time and Money with Meal Planning'
 date: 2026-04-09
+lastmod: 2026-11-19
 weight: 90
 summary: Build an automated grocery list from your meal plan using Cooklang. Practical tips for shopping list automation, reducing food waste, and cutting your grocery bill.
 description: "Build an automated grocery list from your meal plan with Cooklang. Cut food waste and your grocery bill using plain-text shopping-list automation."
@@ -41,11 +42,13 @@ Generate the combined shopping list:
 cook shopping-list ./this-week/*.cook
 ```
 
-[CookCLI](/cli/) extracts every ingredient, combines duplicates, and groups them by store aisle. Five recipes become one list in under a second.
+[CookCLI](/cli/) extracts every ingredient, combines duplicates, and groups them by store aisle. Five recipes become one list.
+
+A folder per week is how I started. These days the plan can also be a single [`.menu` file](/guides/meal-planning/) that points at the recipes, and the same command takes it.
 
 ## Why This Saves Money
 
-**You buy exactly what you need.** No "that looks good, I'll figure out what to do with it." Every item on the list exists because a recipe calls for it. Over a month, this cuts 15–20% of impulse purchases.
+**You buy exactly what you need.** No "that looks good, I'll figure out what to do with it." Every item on the list exists because a recipe calls for it.
 
 **You stop buying duplicates.** Before I tracked my pantry, I owned three jars of cumin. With Cooklang's [pantry tracking](/blog/10-the-pantry-problem/), the shopping list excludes what you already have. In [Cook Editor](/editor/), the [Pantry](https://plugins.cook.md/cooklang/pantry) plugin shows what's running low and the [Shopping List](https://plugins.cook.md/cooklang/shopping-list) plugin does the subtraction for you.
 
@@ -59,15 +62,15 @@ A few things I've learned from doing this for years:
 
 **Plan snacks, not just meals.** If you only plan breakfast, lunch, and dinner, you'll end up at a vending machine at 3 PM. Add a snack section to your plan — apples, nuts, yogurt — and those items appear on the shopping list too.
 
-**Use leftovers as ingredients.** Make a double batch of soup on Monday, eat it for lunch on Tuesday. Make extra rice with dinner, use it for fried rice the next day. This isn't lazy cooking — it's batch processing. You do the prep work once and amortize it across multiple meals.
+**Use leftovers as ingredients.** Make a double batch of soup on Monday, eat it for lunch on Tuesday. Make extra rice with dinner, use it for fried rice the next day. You do the prep work once and spread it over several meals. A slow cooker is the easiest way into this: vegetables, meat and a tin of chopped tomatoes go in, and a big batch of stew or curry comes out.
 
-**Keep it realistic.** Don't plan seven elaborate dinners. Plan two or three recipes you're excited about, fill the rest with simple meals you can make on autopilot, and leave one night open for leftovers or eating out. A plan you actually follow beats a perfect plan you abandon by Wednesday.
+**Keep it realistic.** Don't plan seven elaborate dinners. What works for me is planning about four meals and deciding the rest on the day, based on which meat and vegetables are on offer. A plan you actually follow beats a perfect plan you abandon by Wednesday.
 
 **Use exact quantities.** Vague recipes ("some oil," "a few cloves of garlic") make shopping lists useless. When recipes specify `@olive oil{2%tbsp}` and `@garlic{3%cloves}`, the system can combine quantities across recipes and tell you exactly how much to buy.
 
 ## Organize by Aisle
 
-Add an `aisle.conf` file to your recipe directory and shopping lists get sorted by store section:
+Add a `config/aisle.conf` file to your recipe folder and shopping lists get sorted by store section:
 
 ```
 [Produce]
@@ -86,15 +89,15 @@ rice
 pasta
 ```
 
-This turns shopping from "walk every aisle looking for things" into "walk through in order, check items off." A planned shopping trip takes 20–30 minutes instead of an hour.
+This turns shopping from "walk every aisle looking for things" into "walk through in order, check items off."
 
 ## The Payoff
 
-After doing this consistently, I spend about 30% less on groceries and throw away almost nothing. The time investment is 15 minutes on Sunday — plan the meals, run `cook shopping-list`, check the pantry, go shopping.
+I have never measured what this saves me in a year, so I won't give you a percentage. What I can say is where the money stops going: fewer things bought without a plan for them, fewer duplicates, fewer top-up trips. The routine is short: plan the meals, run `cook shopping-list`, check the cupboards, go shopping.
 
-If you're currently paying for meal kits, the savings are even larger — I ran the numbers in [the real cost of meal kits vs plain-text planning](https://cook.md/blog/meal-kits-vs-cook-cost), and laid out a [HelloFresh alternative that plans your whole week for less](https://cook.md/blog/hellofresh-alternative).
+Meal kits are the one case where the comparison can be done with published prices, and I ran the numbers in [the real cost of meal kits vs plain-text planning](https://cook.md/blog/meal-kits-vs-cook-cost), and laid out a [HelloFresh alternative that plans your whole week for less](https://cook.md/blog/hellofresh-alternative).
 
-The tools are free and open source. Start with [CookCLI](/cli/) and one week of recipes. The savings compound from there.
+The tools are free and open source. Start with [CookCLI](/cli/) and one week of recipes.
 
 [Get started with Cooklang →](/docs/getting-started/)
 
