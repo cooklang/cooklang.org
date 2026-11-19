@@ -1,6 +1,7 @@
 ---
 title: "How to Save Recipes from Social Media and Keep Them Forever"
 date: 2026-02-25
+lastmod: 2026-11-19
 weight: 60
 summary: "Recipes you save on Instagram, TikTok, and Facebook disappear when creators delete posts or platforms change. Here's a workflow to capture social media recipes and store them permanently as plain text files you control."
 description: "Save recipes from Instagram, TikTok, and Facebook before they vanish — a workflow to capture them as permanent plain-text files you control."
@@ -39,21 +40,24 @@ When you find a recipe on social media, extract the actual recipe text. You have
 **Using CookCLI import:** If the recipe is also on a website (many creators link to their blog), use [CookCLI](/cli/) to import it:
 
 ```bash
-cook import "https://example.com/the-recipe"
+export OPENAI_API_KEY=sk-...
+cook import "https://example.com/the-recipe" > the-recipe.cook
 ```
 
-This downloads the recipe and converts it to Cooklang format automatically.
+This fetches the recipe, converts it to Cooklang with your own OpenAI key, and prints it; the `>` saves it to a file.
 
-**Using AI import (screenshots and captions):** For recipes that only exist in a Reel or a screenshot, [Cook's Cookify](https://cook.md/blog/import-recipes-from-instagram) turns an Instagram caption or screenshot into a clean, structured recipe file — no retyping.
+**Using AI import (screenshots and captions):** For recipes that only exist in a Reel or a screenshot, [Cook's Cookify](https://cook.md/blog/import-recipes-from-instagram) turns an Instagram caption (free with an account), a screenshot or the Reel's link into a clean, structured recipe file — no retyping. Screenshots and links get one free try, then come with Cook Basic.
 
 ### Step 2: Write It in Cooklang
 
 Convert the recipe into a [Cooklang](/docs/spec/) file — a plain text format where ingredients, cookware, and timers are annotated inline:
 
 ```cooklang
->> source: https://www.instagram.com/p/example123/
->> author: @chefhandle
->> tags: quick, weeknight, chicken
+---
+source: https://www.instagram.com/p/example123/
+author: "@chefhandle"
+tags: [quick, weeknight, chicken]
+---
 
 Season @chicken thighs{4} with @salt{1%tsp} and @paprika{1%tsp}.
 
@@ -89,9 +93,9 @@ Sync the folder with whatever you already use — iCloud, Dropbox, Google Drive,
 
 Once recipes are in Cooklang format, you can:
 
-- **Search by ingredient:** `cook search --ingredients "chicken"` finds every recipe that uses chicken.
+- **Search by ingredient:** `cook search chicken` finds every recipe that mentions chicken.
 - **Generate shopping lists:** `cook shopping-list recipe1.cook recipe2.cook` combines ingredients from multiple recipes.
-- **Browse from your phone:** `cook server ~/Recipes --host` starts a web server accessible from any device on your network.
+- **Browse from your phone:** `cook server ~/Recipes --host` starts a web server that any device on your network can open by your computer's IP address (to use a name like `mymac.local`, also pass `--cors-origin http://mymac.local:9080`).
 - **Scale recipes:** The server UI lets you adjust serving sizes and ingredient quantities update automatically.
 - **Edit in Obsidian:** The [Cooklang Obsidian plugin](/blog/15-cooklang-obsidian-guide/) adds syntax highlighting, preview mode, and interactive timers.
 

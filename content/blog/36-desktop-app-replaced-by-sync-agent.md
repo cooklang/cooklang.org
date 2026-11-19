@@ -1,6 +1,7 @@
 ---
 title: "The Desktop App Is Gone. Here's What Replaced It."
 date: 2026-03-11
+lastmod: 2026-11-19
 weight: 48
 summary: "We replaced the Cooklang desktop app with a lightweight sync agent — a tiny background service that does the same job faster, with less overhead."
 description: "Why we replaced the Cooklang desktop app with a lightweight sync agent — a tiny background service that does the same job faster, with less overhead."
@@ -25,7 +26,7 @@ Here's what you get:
 
 - **System tray icon** — shows sync status at a glance, no window to manage
 - **Automatic syncing** — watches your recipes folder and syncs changes within seconds
-- **Secure login** — OAuth-based authentication, tokens stored in your OS keyring (macOS Keychain, Windows Credential Manager, Linux Secret Service)
+- **Secure login** — OAuth-based authentication, tokens stored in your OS keyring on macOS (Keychain) and Windows (Credential Manager), and in a private config file on Linux
 - **Auto-updates** — updates itself silently in the background
 - **Cross-platform** — macOS, Windows, Linux (AppImage)
 - **Open source** — the code is on [GitHub](https://github.com/cook-md/sync-agent)
@@ -53,7 +54,7 @@ cook-sync config         # configure recipes directory, auto-start, etc.
 
 Everything about your workflow stays the same. Your recipes are still plain text files in a folder. The mobile app still reads them. Cook Cloud still handles the sync. The only difference is that the thing running on your computer is now smaller, faster, and stays out of your way.
 
-If you're using iCloud sync on iOS, nothing changes for you at all — the sync agent is for Android users and anyone who prefers Cook Cloud over iCloud.
+If you're using iCloud sync on iOS, nothing changes for you at all — the sync agent is only for people who sync with Cook Cloud rather than a folder kept in step by iCloud Drive, Dropbox, Syncthing or similar.
 
 ## The Takeaway
 

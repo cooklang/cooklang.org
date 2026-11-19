@@ -1,6 +1,7 @@
 ---
 title: "Cooklang for Food Bloggers: Write Once, Publish Everywhere"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "One .cook file can generate your blog post, Google-ready Schema.org markup, a printable PDF, and a shopping list — without reformatting anything by hand."
 description: "One .cook file can generate your blog post, Schema.org markup, a printable PDF, and a shopping list — no reformatting. Cooklang for food bloggers."
@@ -29,8 +30,9 @@ Here's a basic sourdough recipe:
 ---
 title: Country Sourdough
 servings: 1 loaf
-total time: 24 hours
-source: My kitchen notes
+time: 24 hours
+image: https://example.com/images/country-sourdough.jpg
+source: https://example.com/country-sourdough
 ---
 
 In a large bowl, combine @bread flour{450%g} and @whole wheat flour{50%g}. Add @water{375%g} at 80°F and mix until no dry flour remains. Rest for ~{30%minutes}.
@@ -62,46 +64,68 @@ For Google, you need JSON-LD Schema.org markup. The `schema` format generates it
 cook recipe "country-sourdough.cook" --format schema
 ```
 
-This outputs valid structured data that Google can read. Paste it into a `<script type="application/ld+json">` tag in your page and Google's crawlers can index every ingredient, the cook time, and the yield.
+This outputs valid structured data that Google can read. Paste it into a `<script type="application/ld+json">` tag in your page and Google's crawlers can index every ingredient, the total time, and the yield.
 
 ## Google Rich Results and Why They Matter
 
 When you search for a recipe on Google, you sometimes see a result with a photo, star rating, cook time, and ingredient count displayed directly in the search results before you click anything. That's a rich snippet, and it's powered by Schema.org Recipe structured data embedded in the page.
 
-Rich snippets increase click-through rates meaningfully. Recipe sites that add structured data consistently report higher organic traffic because their results stand out visually from plain text links.
+Rich results stand out visually from plain text links, which is why recipe sites add structured data.
 
-Here's what the Schema.org output from CookCLI looks like:
+Here's what `cook recipe "country-sourdough.cook" --format schema --pretty` prints for that recipe:
 
 ```json
 {
   "@context": "https://schema.org",
   "@type": "Recipe",
+  "image": "https://example.com/images/country-sourdough.jpg",
   "name": "Country Sourdough",
-  "recipeYield": "1 loaf",
-  "totalTime": "PT24H",
   "recipeIngredient": [
-    "450g bread flour",
-    "50g whole wheat flour",
-    "375g water",
-    "100g active starter",
-    "10g sea salt"
+    "450 g bread flour",
+    "50 g whole wheat flour",
+    "375 g water",
+    "100 g active starter",
+    "10 g sea salt"
   ],
   "recipeInstructions": [
     {
       "@type": "HowToStep",
-      "text": "In a large bowl, combine bread flour and whole wheat flour. Add water at 80°F and mix until no dry flour remains. Rest for 30 minutes."
+      "position": 1,
+      "text": "In a large bowl, combine bread flour and whole wheat flour. Add water at 80°F and mix until no dry flour remains. Rest for 30 minutes.",
+      "timeRequired": "PT30M"
     },
     {
       "@type": "HowToStep",
-      "text": "Add active starter and sea salt. Mix until fully incorporated, then perform a series of stretch-and-folds every 30 minutes for the first 2 hours of bulk fermentation."
+      "position": 2,
+      "text": "Add active starter and sea salt. Mix until fully incorporated, then perform a series of stretch-and-folds every 30 minutes for the first 2 hours of bulk fermentation.",
+      "timeRequired": "PT2H30M"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "text": "After bulk fermentation (roughly 4 hours total), shape the dough and place in a floured banneton. Cover and refrigerate overnight.",
+      "timeRequired": "PT4H"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "text": "The next day, preheat your dutch oven to 500°F for 1 hour. Score the dough, bake covered for 20 minutes, then remove the lid and bake for another 25 minutes until deeply browned.",
+      "timeRequired": "PT1H45M"
     }
-  ]
+  ],
+  "recipeYield": "1 loaf",
+  "tool": [
+    "banneton",
+    "dutch oven"
+  ],
+  "totalTime": "P1D",
+  "url": "https://example.com/country-sourdough"
 }
 ```
 
-This is exactly what Google expects. You didn't write it by hand — CookCLI derived it from the same `.cook` file you use for everything else. The ingredient list is already formatted as strings, the times are in ISO 8601 duration format (`PT24H` means 24 hours), and the instructions map to the `HowToStep` type Google wants to see.
+This is exactly what Google expects. You didn't write it by hand — CookCLI derived it from the same `.cook` file you use for everything else. The ingredient list is already formatted as strings, the times are in ISO 8601 duration format (`P1D` means one day, `PT30M` 30 minutes), and the instructions map to the `HowToStep` type Google wants to see.
 
-Add this to your recipe pages inside a `<script type="application/ld+json">` block and you're eligible for rich results. You can verify it works with [Google's Rich Results Test](https://search.google.com/test/rich-results).
+Add this to your recipe pages inside a `<script type="application/ld+json">` block and, because the recipe sets `name` and `image` (the two properties Google requires), it is eligible for rich results. You can verify it works with [Google's Rich Results Test](https://search.google.com/test/rich-results).
 
 ## Print-Ready Output
 

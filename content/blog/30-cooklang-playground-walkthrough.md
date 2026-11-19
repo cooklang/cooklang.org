@@ -1,6 +1,7 @@
 ---
 title: "Try Cooklang in Your Browser: Playground Walkthrough"
 date: 2026-02-28
+lastmod: 2026-11-19
 weight: 60
 summary: "The fastest way to try Cooklang requires nothing but a browser tab. This walkthrough shows you exactly what to expect when you open the playground."
 description: "The fastest way to try Cooklang needs nothing but a browser tab. A walkthrough of the online playground — what to type and what to expect."
@@ -15,7 +16,7 @@ This post walks you through what you will see, starting from a two-line recipe a
 
 The playground is a browser-based editor powered by WebAssembly. Your recipe text goes on the left. The parsed output appears on the right, updating as you type.
 
-The right panel shows everything Cooklang extracts from your text: a clean ingredients list with quantities and units, cookware needed, timers, and step-by-step instructions. Nothing is sent to a server. Everything runs locally in your browser.
+The right panel shows everything Cooklang extracts from your text: a clean ingredients list with quantities and units, cookware needed, and step-by-step instructions with timers highlighted inline. Nothing is sent to a server. Everything runs locally in your browser.
 
 ## Your First Recipe
 
@@ -31,7 +32,7 @@ Watch the right panel. You will see:
 
 - **Ingredients:** eggs (3), butter (1 tbsp)
 - **Cookware:** bowl, pan
-- **Timers:** 3 minutes
+- **Timers:** 3 minutes, highlighted inside the step with a ⏱
 - **Steps:** the full instructions, readable as plain text
 
 That is the core idea. You write recipes the way you already think about them. Cooklang reads the `@`, `#`, and `~` markers and pulls out the structured data automatically.
@@ -39,7 +40,7 @@ That is the core idea. You write recipes the way you already think about them. C
 ### What the Markers Mean
 
 - `@ingredient{quantity%unit}` marks an ingredient. The `{3}` sets the quantity. The `%` separates quantity from unit.
-- `#cookware{}` marks a piece of cookware. The `{}` is optional but makes the marker explicit.
+- `#cookware{}` marks a piece of cookware. The `{}` is optional for one-word names and required for multi-word ones like `#large pan{}`.
 - `~{25%minutes}` marks a timer with a duration.
 
 You do not need to memorize these upfront. The playground gives you instant feedback, so you can experiment freely and see what each marker does.
@@ -92,7 +93,7 @@ Drain and toss with the sauce.
 A few things to notice here:
 
 - `= Sauce` and `= Pasta` split the recipe into named sections. The parsed output groups steps under each section.
-- `@garlic{3%cloves}(minced)` adds an inline preparation note in parentheses. The word "minced" appears in the step text and the ingredients list.
+- `@garlic{3%cloves}(minced)` adds an inline preparation note in parentheses. The word "minced" appears next to garlic in the ingredients list; the step text shows just the ingredient.
 - `> Taste the sauce...` adds a note that appears in the instructions but is visually distinct.
 
 This is where Cooklang starts to feel genuinely useful. A recipe with sections is easier to follow in the kitchen than a wall of text, and the structure makes it easier to build apps and meal planners on top of your recipes.
@@ -122,6 +123,6 @@ The playground stays useful even after you move to local files. It is a fast way
 
 Open [the Cooklang playground](https://cooklang.github.io/cooklang-rs/) and type your first recipe. Start with two or three ingredients and one step. See what the parsed output looks like. Then add a timer, a section, a note.
 
-The whole point of the playground is that there is nothing to lose. You can experiment as much as you want, and nothing gets saved unless you copy it yourself.
+The whole point of the playground is that there is nothing to lose. You can experiment as much as you want, and nothing leaves your browser — use the Share button if you want a link to what you wrote.
 
 -Alex

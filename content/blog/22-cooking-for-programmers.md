@@ -98,9 +98,9 @@ If your recipes are text files, you can use Git:
 
 ```bash
 git log --oneline recipes/pasta-sauce.cook
-a3f2d1 reduce salt, add basil at the end
-8b4c92 try san marzano tomatoes instead of regular
-1e5f7a initial recipe from mom
+a3f2d1c reduce salt, add basil at the end
+8b4c92e try san marzano tomatoes instead of regular
+1e5f7a0 initial recipe from mom
 ```
 
 Every change is tracked. You can diff versions, revert experiments that didn't work, and branch to try variations. This is recipe development with proper tooling.

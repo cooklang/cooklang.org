@@ -1,6 +1,7 @@
 ---
 title: "Cooklang Editor Setup: VS Code, Vim, Obsidian, and More"
 date: 2026-03-24
+lastmod: 2026-11-19
 weight: 47
 summary: "Cooklang files are plain text, so any editor works. But syntax highlighting and LSP support make the experience much better. Here's how to set up your editor of choice."
 description: "Set up a Cooklang editor with syntax highlighting and LSP support — VS Code, Vim, Obsidian, and more. Any editor works, but these make it much nicer."
@@ -13,7 +14,7 @@ Here's how to set up the major editors.
 
 ## VS Code
 
-The easiest path. Search for "Cooklang" in the VS Code extensions panel, or install it directly from the [VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang).
+The easiest path. Search for "Cooklang" in the VS Code extensions panel, or install it directly from the [VS Code marketplace](https://marketplace.visualstudio.com/items?itemName=dubadub.cook).
 
 Once installed, open any `.cook` file and you get immediate syntax highlighting:
 
@@ -43,32 +44,18 @@ Plugins are ordinary VS Code-style extensions with a small Cooklang API, so if o
 
 ## Neovim
 
-Cooklang has a [tree-sitter grammar](https://github.com/addcninblue/tree-sitter-cooklang) that plugs into Neovim via `nvim-treesitter`. Add this to your config:
+Cooklang has a [tree-sitter grammar](https://github.com/addcninblue/tree-sitter-cooklang) that plugs into Neovim via `nvim-treesitter`. On nvim-treesitter's `main` branch, add this to your config:
 
 ```lua
-require("nvim-treesitter.configs").setup({
-  ensure_installed = { "cooklang" },
-  highlight = {
-    enable = true,
-  },
+require("nvim-treesitter").install({ "cooklang" })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "cook" },
+  callback = function() vim.treesitter.start() end,
 })
 ```
 
-Then register the parser source so nvim-treesitter knows where to find it:
-
-```lua
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.cooklang = {
-  install_info = {
-    url = "https://github.com/addcninblue/tree-sitter-cooklang",
-    files = { "src/parser.c" },
-    branch = "main",
-  },
-  filetype = "cooklang",
-}
-```
-
-Run `:TSInstall cooklang` and you're done. You get syntax highlighting, folding, and indentation support.
+You get syntax highlighting.
 
 For a more complete setup, pair this with the LSP (see below). That gives you diagnostics on top of the tree-sitter highlighting.
 
@@ -77,10 +64,10 @@ For a more complete setup, pair this with the LSP (see below). That gives you di
 If you're on plain Vim or an older Neovim without tree-sitter, you can add a basic filetype detection rule to your `.vimrc`:
 
 ```vim
-au BufRead,BufNewFile *.cook set filetype=cooklang
+au BufRead,BufNewFile *.cook set filetype=cook
 ```
 
-This won't give you full syntax highlighting without a Vim syntax file, but it sets the stage if you want to write one or find a community-maintained version. The LSP approach below works here too if your Vim has LSP client support.
+Recent Vim and Neovim versions already set this on their own. For highlighting, install [vim-cooklang](https://github.com/luizribeiro/vim-cooklang), which ships a `cook` syntax file. The LSP approach below works here too if your Vim has LSP client support.
 
 ## Obsidian
 
@@ -93,9 +80,9 @@ The plugin gives you:
 - Syntax highlighting in edit mode
 - A formatted preview mode with ingredients list, cookware list, and numbered steps
 - Interactive timers — click a timer in preview and a countdown starts inside Obsidian
-- Ingredient checklists for use while shopping
+- An ingredient checklist and servings scaler while you cook
 
-Your `.cook` files behave like any other note in your vault. They show up in search, appear in the graph view, support tags, and accept backlinks from other notes. A recipe index note can link to individual recipes; meal plan notes can reference whatever you're cooking that week.
+Recipes saved as Markdown (`Dinner.cook.md`, or a `.md` note with `recipe: true`) behave like any other note in your vault: they show up in search, appear in the graph view, support tags, and accept backlinks. Plain `.cook` files open in the plugin but Obsidian does not index them. A recipe index note can link to individual recipes; meal plan notes can reference whatever you're cooking that week.
 
 There's a full walkthrough in [How to Manage Recipes in Obsidian with Cooklang](/blog/15-cooklang-obsidian-guide/).
 
@@ -108,15 +95,15 @@ The tree-sitter grammar works with Emacs through the built-in `treesit` support 
              '(cooklang . ("https://github.com/addcninblue/tree-sitter-cooklang")))
 ```
 
-Then run `M-x treesit-install-language-grammar RET cooklang` to compile and install it. Define a derived major mode for `.cook` files to activate the grammar automatically.
+Then run `M-x treesit-install-language-grammar RET cooklang` to compile and install it. Then install [cook-mode](https://github.com/cooklang/cook-mode) and add `(require 'cook-ts-mode)`; its `cook-ts-mode` takes over `.cook` files.
 
 For LSP support, `eglot` (built into Emacs 29+) or `lsp-mode` both work with the `cook lsp` server described below.
 
 ## Helix and Zed
 
-Both editors support tree-sitter natively and can use the Cooklang grammar. Helix has a growing community of language grammar contributions — check the Helix documentation for the current state of external grammar support. Zed handles tree-sitter grammars through its extension system.
+Both editors support tree-sitter natively and can use the Cooklang grammar. Helix does not ship Cooklang support; you would add the grammar and your own highlight queries in `languages.toml`. Zed has a Cooklang extension: open `zed: extensions` and search "Cooklang". Zed handles tree-sitter grammars through its extension system.
 
-In both cases, the underlying grammar is the same one used by Neovim and Emacs, so highlighting behavior is consistent across editors.
+Highlighting can still differ between editors, because each one ships its own highlight queries for the grammar.
 
 ## LSP: Any Editor That Supports It
 
@@ -128,29 +115,29 @@ cook lsp
 
 This gives you:
 
-- Error diagnostics as you type (malformed ingredient syntax, unclosed sections, etc.)
+- Error diagnostics as you type (malformed ingredient, cookware and timer syntax, etc.)
 - Hover information
 - Completions
 
 Configure your editor to use `cook lsp` as the language server for `.cook` files. The exact setup depends on your editor's LSP client, but the server itself is the same regardless of editor.
 
-**VS Code** — if you have the Cooklang extension installed, LSP support is already bundled.
+**VS Code** — the Cooklang extension starts `cook lsp` for you; it just needs CookCLI on your PATH.
 
-**Neovim with nvim-lspconfig:**
+**Neovim 0.11+:**
 
 ```lua
-local lspconfig = require("lspconfig")
-lspconfig.cooklang_ls.setup({
+vim.lsp.config("cooklang", {
   cmd = { "cook", "lsp" },
-  filetypes = { "cooklang" },
+  filetypes = { "cook" },
 })
+vim.lsp.enable("cooklang")
 ```
 
 **Emacs with eglot:**
 
 ```elisp
 (add-to-list 'eglot-server-programs
-             '(cooklang-mode . ("cook" "lsp")))
+             '((cook-mode cook-ts-mode) . ("cook" "lsp")))
 ```
 
 If your editor has an LSP client, it can use `cook lsp`. The [CookCLI reference at /cli/](/cli/) covers installation if you don't have it yet.
