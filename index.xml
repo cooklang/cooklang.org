@@ -1050,7 +1050,7 @@ cook completions powershell | Out-String | Invoke-Expression&lt;/code>&lt;/pre>
  Visual Studio Code&lt;span class="anchor-icon" aria-hidden="true">#&lt;/span>
  &lt;/a>
 &lt;/h3>
-&lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=cooklang.cooklang">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory. Supports full CRUD operations
+&lt;p>Install the &lt;a href="https://marketplace.visualstudio.com/items?itemName=dubadub.cook">Cooklang extension&lt;/a>. It uses &lt;code>cook lsp&lt;/code> automatically.&lt;/p></description></item><item><title>Pantry</title><link>https://cooklang.org/cli/commands/pantry/</link><pubDate>Mon, 18 May 2026 17:18:12 +0000</pubDate><author>hello@cooklang.org (Alexey)</author><guid>https://cooklang.org/cli/commands/pantry/</guid><description>&lt;p>Manage and analyze your pantry inventory. Supports full CRUD operations
 on pantry items as well as analysis commands for stock levels, expiry
 dates, and recipe planning.&lt;/p>
 &lt;h2 id="usage" class="scroll-mt-24">
